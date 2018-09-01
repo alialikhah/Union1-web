@@ -1,0 +1,628 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:o="http://omnifaces.org/ui">  
+
+<h:head>
+</h:head> 
+<h:body> 
+<ui:composition template="/template.xhtml">
+<ui:define name="headtmp">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+			<title>Merchant</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <link rel="stylesheet" type="text/css" media="all" href="resources/date/skins/aqua/theme.css" title="Aqua" />
+		<link rel="alternate stylesheet" type="text/css" media="all" href="resources/date/skins/calendar-blue.css" title="winter" />
+		<link rel="alternate stylesheet" type="text/css" media="all" href="resources/date/skins/calendar-system.css" title="system" />
+	    
+              
+		<script charset="UTF-8" type="text/javascript" src="resources/date/jalali.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/calendar.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/calendar-setup.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/lang/calendar-fa.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/alidate.js"></script>
+		
+		<h:outputStylesheet library="css" name="merchantedit.css"/>
+				
+<style type="text/css">
+.calendar {
+	direction: rtl;
+}
+
+#flat_calendar_1, #flat_calendar_2{
+	width: 200px;
+}
+.example {
+	padding: 10px;
+}
+
+.display_area {
+	background-color: #FFFF88
+}
+</style>
+
+
+	</ui:define>
+	
+<ui:define name="centertmp">
+	  <ui:define name="metadata">
+      <f:metadata>
+      <f:viewParam name="merchantID"/>
+      </f:metadata>
+      </ui:define> 
+      
+      
+      
+    <p:panelGrid columns="4" style="direction:rtl!important">
+    <f:facet name="header">
+    جدول ویرايش
+    </f:facet>
+    
+
+     <p:outputLabel value="نام فروشنده:" />
+    <p:outputLabel value="#{merchantRegisterBean.findMerchantById(merchantID).merchantName}" id="txt1" />
+    <h:form id="frm1" style="display:none">
+    <p:inputText value="#{merchantRegisterBean.merchantName}"/>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantEntityName(merchantID)}"/>
+    </h:form>
+        <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm1">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+    <p:outputLabel value="نام خانوادگی فروشنده:" />
+    <p:outputLabel value="#{merchantRegisterBean.findMerchantById(merchantID).merchantFamily}" />
+    <h:form id="frm2" style="display:none">
+    <p:inputText value="#{merchantRegisterBean.merchantFamily}"/>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantEntityFamily(merchantID)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm2">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+    <p:outputLabel value="شماره پرونده:" />
+    <p:outputLabel value="#{merchantRegisterBean.findMerchantById(merchantID).shomarehParPaano}" />
+    <h:form id="frm3" style="display:none">
+    <p:inputMask dir="rtl" id="shomareparvande" value="#{merchantRegisterBean.shomareParvande}" mask="9999999999" label="shomareparvande" required="true" style="direction:ltr!important;"/>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantShomareParvande(merchantID)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm3">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+    
+    
+    <p:outputLabel value="شماره شناسنامه:" />
+    <p:outputLabel value="#{merchantRegisterBean.findMerchantById(merchantID).merchantSsn}" />
+    <h:form id="frm4" style="display:none">
+    <p:inputMask dir="rtl" id="merchantSsn" value="#{merchantRegisterBean.merchantSsn}" mask="99999-99999" label="merchantSsn" required="true" style="direction:ltr!important;"/>
+      <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantEntitySsn(merchantID)}"/>
+      </h:form>
+    <p:commandButton value="ویرایش" >
+  	<p:effect type="explode" event="click" for="frm4">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+      
+      
+    <p:outputLabel value="نام کاربری:" />
+    <p:outputLabel value="#{merchantRegisterBean.findMerchantById(merchantID).merchantShoar}" /> 
+    <h:form id="frm5" style="display:none">
+    <p:inputText value="#{merchantRegisterBean.merchantShoar}"/>
+      <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantEntityUserName(merchantID)}"/>
+      </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm5">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+      
+    <p:outputLabel value="پسوورد:" />
+    <p:outputLabel value="#{merchantRegisterBean.findMerchantById(merchantID).merchantPass}" /> 
+    <h:form id="frm6" style="display:none">
+    <p:inputText value="#{merchantRegisterBean.merchantPass}"/>
+      <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantPass(merchantID)}"/>
+      </h:form>
+              <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm6">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+      
+      
+    <h:outputText value="شماره تلفن فروشنده:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantPhone}" />     
+    <h:form id="frm7" style="display:none">  
+    <p:inputMask dir="rtl" id="merchantPhone" value="#{merchantRegisterBean.merchantPhone}" mask="(999) 9999-9999" label="merchantPhone" required="true" style="direction:ltr!important;"/>
+      <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantEntityPhone(merchantID)}"/>
+      </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm7">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton> 
+      
+      
+          <h:outputText value="ایمیل فروشنده:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantEmail}" /> 
+    <h:form id="frm8" style="display:none">
+    				   <p:inputText id="merchantEmail"
+							value="#{merchantRegisterBean.merchantEmail}" required="true"
+							label="merchantEmail" size="50" style="direction:ltr!important;">
+							<f:validateLength minimum="2" maximum="100" />
+							<f:validator validatorId="jsfui.EmailValidate"/>
+						</p:inputText>
+      <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantEntityEmail(merchantID)}"/>
+      </h:form>
+      <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm8">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+      
+          <h:outputText value="موبایل فروشنده:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantMobile}" /> 
+    <h:form id="frm9" style="display:none">
+    <p:inputMask dir="rtl" id="merchantMobile" value="#{merchantRegisterBean.merchantMobile}" mask="(9999) 999-9999" label="merchantMobile" required="true" style="direction:ltr!important;"/>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantEntityMobile(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm9">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+        <h:outputText value="گروه فروشنده:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantGroup}" /> 
+    <h:form id="frm10" style="display:none">
+    							<p:selectOneMenu id="so34" value="#{merchantRegisterBean.group}"
+								effect="fold" editable="true">
+								<f:selectItem itemLabel="Select your group" />
+								<f:selectItems value="#{merchantRegisterBean.groups}" />
+						    	</p:selectOneMenu>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantEntityGroup(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm10">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+        <h:outputText value="نام مدیر فروش:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantSaliManagerName}" /> 
+    <h:form id="frm12" style="display:none">
+    <p:inputText value="#{merchantRegisterBean.merchantSaliManagerName}"/>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantEntitySaliManagerName(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm12">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+        <h:outputText value="موبایل مدیر فروش:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantSailManagerMobile}" /> 
+    <h:form id="frm13" style="display:none">
+    <p:inputMask dir="rtl" id="merchantSailManagerMobile" value="#{merchantRegisterBean.merchantSailManagerMobile}" mask="(9999) 999-9999" label="merchantSailManagerMobile" required="true" style="direction:ltr!important;"/>
+    <p:commandButton value="ثبت تغییرات"  action="#{merchantRegisterBean.updateMerchantEntitySailManagerMobile(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm13">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+        <h:outputText value="موبایل رابط:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantInterfaceMobile}" />
+    <h:form id="frm14" style="display:none">
+    <p:inputMask dir="rtl" id="merchantInterfaceMobile" value="#{merchantRegisterBean.merchantInterfaceMobile}" mask="(9999) 999-9999" label="merchantInterfaceMobile" required="true" style="direction:ltr!important;"/>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantInterfaceMobile(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm14">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+
+    
+
+    
+        <h:outputText value="شماره فکس:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantFax}" />
+    <h:form id="frm17" style="display:none">
+	<p:inputMask dir="rtl" id="merchantFax" value="#{merchantRegisterBean.merchantFax}" mask="(999) 9999-9999" label="merchantFax" required="true" style="direction:ltr!important;"/>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantFax(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش" >
+  	<p:effect type="explode" event="click" for="frm17">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+        <h:outputText value="آدرس سایت:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantSiteAddres}" />  
+    <h:form id="frm18" style="display:none">
+    <p:inputText value="#{merchantRegisterBean.merchantSiteAddres}"/>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantSiteAddres(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm18">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+        <h:outputText value="تلگرام فروشنده:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantTelegramAddres}" />   
+    <h:form id="frm19" style="display:none">
+    <p:inputText value="#{merchantRegisterBean.merchantTelegram}"/>  
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantTelegram(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm19">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+        <h:outputText value="اینستاگرام فروشنده:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantInstagramAddres}" />
+    <h:form id="frm20" style="display:none">
+    <p:inputText value="#{merchantRegisterBean.merchantInstagram}"/>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantInstagram(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm20">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+        <h:outputText value="شماره جواز:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantLicenseNumber}" />
+    <h:form id="frm21" style="display:none">
+	<p:inputMask dir="rtl" id="merchantLicenseNumber" value="#{merchantRegisterBean.merchantLicenseNumber}" mask="9999999999999999" label="merchantLicenseNumber" required="true" style="direction:ltr!important;"/>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantLicenseNumber(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm21">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+        <h:outputText value="نام فروشگاه فارسی:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantShopNamePer}" />
+    <h:form id="frm22" style="display:none">
+    <p:inputText value="#{merchantRegisterBean.merchantShopNamePer}"/>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantShopNamePer(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm22">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+        <h:outputText value="نام فروشگاه انگلیسی:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantShopNameEng}" />
+    <h:form id="frm23" style="display:none">
+    <p:inputText value="#{merchantRegisterBean.merchantShopNameEng}"/>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantShopNameEng(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm23">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+        <h:outputText value="نام مباشر:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantMobasherName}" />
+    <h:form id="frm24" style="display:none">
+    <p:inputText value="#{merchantRegisterBean.merchantSrwardName}"/>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantMobasherName(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm24">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+            <h:outputText value="نام رابط:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantّInterfaceName}" />
+    <h:form id="frm33" style="display:none">
+    <p:inputText value="#{merchantRegisterBean.merchantInterfaceNamee}"/>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantInterfaceName(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm33">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+        <h:outputText value="مباشرت:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantMobasherat}" />
+    <h:form id="frm25" style="display:none">
+	<p:selectBooleanCheckbox value="#{merchantRegisterBean.merchantStewardShip}" />
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantMobasherat(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm25">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+    <h:outputText value="نماد الکترونیک:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantEMark}" />
+    <h:form id="frm26" style="display:none">
+    <p:selectBooleanCheckbox value="#{merchantRegisterBean.merchantEMark}" />
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantEMark(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm26">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+        <h:outputText value="رسته شغلی:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantRaste}" />  
+    <h:form id="frm27" style="display:none">
+    						<p:selectOneMenu id="occupation"
+							value="#{merchantRegisterBean.occupation}" effect="fold"
+							editable="true">
+							<f:selectItem itemLabel="#{lcl.occupation}" />
+							<f:selectItems value="#{merchantRegisterBean.occupations}" />
+						</p:selectOneMenu>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantRaste(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm27">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+            <h:outputText value="گروه:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantGroup}" />  
+    <h:form id="frm34" style="display:none">
+						<p:selectOneMenu id="group" value="#{merchantRegisterBean.group}"
+							effect="fold" editable="true">
+							<f:selectItem itemLabel="#{lcl.group}" />
+							<f:selectItems value="#{merchantRegisterBean.groups}" />
+						</p:selectOneMenu>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantGroup(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm34">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+
+    
+        <h:outputText value="توضیحات:" />
+        <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantDescription}" />
+    <h:form id="frm29" style="display:none">
+    						<p:inputTextarea id="merchantDescription" rows="20" cols="100" autoResize="false"
+							value="#{merchantRegisterBean.description}" required="true"
+							label="merchantDescription">
+							<f:validateLength minimum="2" maximum="1000" />
+						</p:inputTextarea>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantDescription(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm29">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+        <h:outputText value="اتحادیه:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).merchantEtehadie}" />
+    <h:form id="frm30" style="display:none">
+    						<p:selectOneMenu id="union" value="#{merchantRegisterBean.union}"
+							effect="fold" editable="true">
+							<f:selectItem itemLabel="#{lcl.union}" />
+							<f:selectItems value="#{merchantRegisterBean.unions}" />
+						</p:selectOneMenu>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantEtehadie(merchantID)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm30">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+    
+    <p:outputLabel value="تاریخ تولد فروشنده"/>
+    <h:outputText value="#{merchantRegisterBean.convertToJalali1(merchantID)}" />
+        <h:form id="frm35" style="display:none">
+						<p:inputText value="#{merchantRegisterBean.merchantBirthDayChange}" id="date_input_1"/>
+							<img id="date_btn_1" src="resources/date/cal.png" style="vertical-align: top;" />
+							<script type="text/javascript" charset="UTF-8">
+								Calendar.setup({
+									inputField     :    "frm35:date_input_1",   // id of the input field
+									button         :    "date_btn_1",   // trigger for the calendar (button ID)
+						       		ifFormat       :    "%Y-%m-%d",       // format of the input field
+						       		dateType	   :	'jalali',
+						       		weekNumbers    : false
+								});
+							</script>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantBirthDay(merchantID)}"/>
+    </h:form>
+                      <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm35">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+        <p:outputLabel value="تاریخ تمدید جواز"/>
+    <h:outputText value="#{merchantRegisterBean.convertToJalali2(merchantID)}" />
+        <h:form id="frm36" style="display:none">
+						<p:inputText id="date_input_2" value="#{merchantRegisterBean.merchantKhatemeChange}"/>
+							<img id="date_btn_2" src="resources/date/cal.png" style="vertical-align: top;" />
+							<script type="text/javascript" charset="UTF-8">
+								Calendar.setup({
+									inputField     :    "frm36:date_input_2",   // id of the input field
+									button         :    "date_btn_2",   // trigger for the calendar (button ID)
+						       		ifFormat       :    "%Y-%m-%d",       // format of the input field
+						       		dateType	   :	'jalali',
+						       		weekNumbers    : false
+								});
+							</script>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantCreditDate(merchantID)}"/>
+    </h:form>
+                      <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm36">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+        <p:outputLabel value="تاریخ مباشرت"/>
+    <h:outputText value="#{merchantRegisterBean.convertToJalali3(merchantID)}" />
+        <h:form id="frm37" style="display:none">
+						<p:inputText id="date_input_3" value="#{merchantRegisterBean.merchantMobasherDateChange}"/>
+							<img id="date_btn_3" src="resources/date/cal.png" style="vertical-align: top;" />
+							<script type="text/javascript" charset="UTF-8">
+								Calendar.setup({
+									inputField     :    "frm37:date_input_3",   // id of the input field
+									button         :    "date_btn_3",   // trigger for the calendar (button ID)
+						       		ifFormat       :    "%Y-%m-%d",       // format of the input field
+						       		dateType	   :	'jalali',
+						       		weekNumbers    : false
+								});
+							</script>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantMobasheratDate(merchantID)}"/>
+    </h:form>
+                      <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm37">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+    
+    
+    
+    <h:outputText value="برند:" />
+    <h:outputText value="#{merchantRegisterBean.findMerchantById(merchantID).brands}" /> 
+    <h:form id="frm32" style="display:none">
+     <p:selectManyCheckbox id="grid3" value="#{merchantRegisterBean.brandName}" layout="pageDirection" columns="3">
+	  <f:selectItems value="#{brandBean.brands}" var="car" itemLabel="#{car}" itemValue="#{car}" />
+	 </p:selectManyCheckbox>
+    <p:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantBrand(merchantID)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm32">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+      <h:outputText value="عکس ۱:" />
+    <o:graphicImage value="#{merchantRegisterBean.findMerchantById(merchantID).licenceImg}" dataURI="true" height="200" width="200"/>
+    <h:form id="frm38" style="display:none" enctype="multipart/form-data">
+	<h:inputFile value="#{merchantRegisterBean.licenseImage}"/>                        
+    <h:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantImg1(merchantID)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm38">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+          <h:outputText value="عکس ۲:" />
+    <o:graphicImage value="#{merchantRegisterBean.findMerchantById(merchantID).shopImg2}" dataURI="true" height="200" width="200"/>
+   <h:form id="frm39" style="display:none" enctype="multipart/form-data">
+	<h:inputFile value="#{merchantRegisterBean.shopImg1}"/>                        
+    <h:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantImg2(merchantID)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm39">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+          <h:outputText value="عکس ۳:" />
+    <o:graphicImage value="#{merchantRegisterBean.findMerchantById(merchantID).shopImg3}" dataURI="true" height="200" width="200"/>
+   <h:form id="frm40" style="display:none" enctype="multipart/form-data">
+	<h:inputFile value="#{merchantRegisterBean.shopImg2}"/>                        
+    <h:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantImg3(merchantID)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm40">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+          <h:outputText value="عکس ۴:" />
+    <o:graphicImage value="#{merchantRegisterBean.findMerchantById(merchantID).shopImg4}" dataURI="true" height="200" width="200"/>
+    <h:form id="frm41" style="display:none" enctype="multipart/form-data">
+	<h:inputFile value="#{merchantRegisterBean.shopImg3}"/>                        
+    <h:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantImg4(merchantID)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm41">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+          <h:outputText value="عکس ۵:" />
+    <o:graphicImage value="#{merchantRegisterBean.findMerchantById(merchantID).shopImg5}" dataURI="true" height="200" width="200"/>
+    <h:form id="frm42" style="display:none" enctype="multipart/form-data">
+	<h:inputFile value="#{merchantRegisterBean.shopImg4}"/>                        
+    <h:commandButton value="ثبت تغییرات" action="#{merchantRegisterBean.updateMerchantImg5(merchantID)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm42">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+
+
+ 
+  
+
+
+    
+    
+    
+    
+      </p:panelGrid>
+      
+      
+ 
+
+      
+      
+      </ui:define>
+      </ui:composition>
+      
+</h:body> 
+</html>

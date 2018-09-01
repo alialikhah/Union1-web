@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="bootstrap.theme.min.css" />
+	<h:outputStylesheet library="css" name="panoo.css" />
+	<h:outputScript library="javascript" name="bootstrap.min.js" />
+	<h:outputScript library="javascript" name="panoo.js" />
+</h:head> 
+<h:body> 
+
+      <ui:define name="metadata">
+      <f:metadata>
+      <f:viewParam name="merchantId"/>
+      </f:metadata>
+      </ui:define>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-sm-10" id="dv1">
+				<h:form enctype="multipart/form-data" id="frm1" >
+					<p:growl id="growl" showDetail="true" sticky="true" />
+					<p:panel id="pnl" header="Register">
+
+						<p:focus context="pnl" />
+
+						<p:messages />
+
+						<h:panelGrid columns="3" dir="rtl">
+							
+
+							<p:outputLabel for="postAddress" value="postAddress : " />
+							<p:inputText id="postAddress"
+								value="#{merchantAddres.postAddres}" required="true"
+								label="postAddress">
+								<f:validateLength minimum="2" maximum="49" />
+							</p:inputText>
+							<p:message for="postAddress" />
+							
+							<p:outputLabel for="postCode" value="merchantName : " />
+							<p:inputText id="postCode"
+								value="#{merchantAddres.postCode}" required="true"
+								label="postCode">
+								<f:validateLength minimum="2" maximum="49" />
+							</p:inputText>
+							<p:message for="postCode" />
+
+
+							<p:outputLabel for="city" value="city: " />
+							<p:selectOneMenu id="city" value="#{merchantAddres.city}"
+								effect="fold" editable="true">
+								<f:selectItem itemLabel="Select your city" />
+								<f:selectItems value="#{merchantAddres.cities}" />
+							</p:selectOneMenu>
+							<p:message for="city" />
+
+							<p:outputLabel for="state" value="state: " />
+							<p:selectOneMenu id="state" value="#{merchantAddres.state}"
+								effect="fold" editable="true">
+								<f:selectItem itemLabel="Select your state" />
+								<f:selectItems value="#{merchantAddres.states}" />
+							</p:selectOneMenu>
+							<p:message for="state" />
+
+							<p:outputLabel for="area" value="area: " />
+							<p:selectOneMenu id="area" value="#{merchantAddres.area}"
+								effect="fold" editable="true">
+								<f:selectItem itemLabel="Select your area" />
+								<f:selectItems value="#{merchantAddres.areas}" />
+							</p:selectOneMenu>
+							<p:message for="area" />
+							
+							<p:outputLabel for="gmp" value="Gmap"/>
+							<h:form id="gmp">
+							<p:commandLink  value="Gmap" onsuccess="openGmap()" action="#{merchantAddres.insertToMId(merchantId)}"/>
+							</h:form>
+						</h:panelGrid>
+
+						<h:commandButton id="submitButton" value="Save" update="growl"
+							action="#{merchantAddres.insetToMerchantAddres()}"
+							actionListener="#{merchantAddres.saveMessage()}"
+							rendered="true" />
+					</p:panel>
+					<p:blockUI block="pnl" trigger="submitButton" />
+				</h:form>
+				
+			</div>
+		</div>
+
+	</div>
+
+</h:body> 
+</html>

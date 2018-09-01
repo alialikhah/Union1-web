@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<ui:composition template="/template.xhtml">
+		<ui:define name="headtmp">
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<style>
+.ui-panel {
+	padding: .2em;
+	direction: rtl !important;
+}
+
+.ui-widget-content {
+	color: #222222;
+	overflow: hidden !important;
+}
+</style>
+		</ui:define>
+		<ui:define name="centertmp">
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="merchantID" />
+				</f:metadata>
+			</ui:define>
+			<h:form enctype="multipart/form-data" id="frm1">
+				<p:growl id="growl" showDetail="true" sticky="true" />
+				<p:panel id="pnl" header="Register">
+
+					<p:focus context="pnl" />
+
+					<p:messages />
+
+					<h:panelGrid columns="3" dir="rtl">
+
+
+						<p:outputLabel for="price" value="price" />
+						<p:inputText id="price" value="#{dedicatedProductBean.price}"
+							required="true" label="price">
+							<f:validateLength minimum="1" maximum="99" />
+						</p:inputText>
+						<p:message for="price" />
+
+						<p:outputLabel for="saled" value="saled" />
+						<p:inputText id="saled" value="#{dedicatedProductBean.saled}"
+							required="true" label="price">
+							<f:validateLength minimum="1" maximum="99" />
+						</p:inputText>
+						<p:message for="saled" />
+
+						<p:outputLabel for="popularity" value="popularity" />
+						<p:inputText id="popularity"
+							value="#{dedicatedProductBean.popularity}" required="true"
+							label="price">
+							<f:validateLength minimum="1" maximum="99" />
+						</p:inputText>
+						<p:message for="popularity" />
+
+					</h:panelGrid>
+
+					<p:dataTable id="radioDT" var="prdcts"
+						value="#{dedicatedProductBean.findAllProducts()}"
+						selection="#{dedicatedProductBean.productEntity}"
+						rowKey="#{prdcts.productId}" paginator="true"
+						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="5,10,15">
+						<f:facet name="header">
+            RadioButton
+        </f:facet>
+						<p:column selectionMode="single"
+							style="width:16px;text-align:center" headerText="انتخاب">
+							<h:outputText value="" />
+						</p:column>
+						<p:column headerText="Id" filterBy="#{prdcts.productId}"
+							sortBy="#{prdcts.productId}" filterMatchMode="contains">
+							<h:outputText value="#{prdcts.productId}" />
+						</p:column>
+						<p:column headerText="Name" filterBy="#{prdcts.productName}"
+							sortBy="#{prdcts.productId}" filterMatchMode="contains">
+							<h:outputText value="#{prdcts.productName}" />
+						</p:column>
+						<p:column headerText="Brand" filterBy="#{prdcts.productBrand}"
+							sortBy="#{prdcts.productId}" filterMatchMode="contains">
+							<h:outputText value="#{prdcts.productBrand}" />
+						</p:column>
+						<p:column headerText="Id" filterBy="#{prdcts.productTitle}"
+							sortBy="#{prdcts.productId}" filterMatchMode="contains">
+							<h:outputText value="#{prdcts.productTitle}" />
+						</p:column>
+						<p:column headerText="Id" filterBy="#{prdcts.productCategry}"
+							sortBy="#{prdcts.productId}" filterMatchMode="contains">
+							<h:outputText value="#{prdcts.productCategry}" />
+						</p:column>
+						<p:column headerText="Id" filterBy="#{prdcts.productModel}"
+							sortBy="#{prdcts.productId}" filterMatchMode="contains">
+							<h:outputText value="#{prdcts.productModel}" />
+						</p:column>
+					</p:dataTable>
+
+					<h:commandButton id="submitButton" value="Save" update="growl"
+						action="#{dedicatedProductBean.insertToDedicated(merchantID)}"
+						actionListener="#{dedicatedProductBean.saveMessage()}"
+						rendered="true" />
+				</p:panel>
+				<p:blockUI block="pnl" trigger="submitButton" />
+			</h:form>
+		</ui:define>
+
+		<ui:define name="righttmp">
+			<h:form>
+				<p:dataTable var="ded" reflow="true"
+					value="#{dedicatedProductBean.findAllDedicatedProducts()}"
+					rows="10" rowKey="#{ded.dedicatedId}" paginator="true"
+					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15">
+
+					<p:column id="bbbb" headerText="Id" filterBy="#{ded.dedicatedId}"
+						sortBy="#{ded.dedicatedId}" filterMatchMode="contains"
+						rendered="#{ded.merchant.merchantId==merchantID}">
+						<h:outputText value="#{ded.dedicatedId}" />
+					</p:column>
+
+
+
+
+					<p:column id="aaa" visible="#{ded.merchant.merchantId==merchantID}"
+						>
+						<p:commandButton value="delete"
+							action="#{dedicatedProductBean.deleteDedicateProduct(ded.dedicatedId)}"
+							style="width:100%!important;">
+							<p:confirm header="Confirmation" message="Are you sure?"
+								icon="ui-icon-alert" />
+						</p:commandButton>
+						<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+							<p:commandButton value="Yes" type="button"
+								styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+							<p:commandButton value="No" type="button"
+								styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+						</p:confirmDialog>
+					</p:column>
+
+
+
+				</p:dataTable>
+			</h:form>
+		</ui:define>
+
+	</ui:composition>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<h:body> 
+ <ui:composition template="/template.xhtml">
+<ui:define name="headtmp">
+<h:outputScript library="javascript" name="merchant.js"/>
+<style>
+.ui-panel {
+    padding: .2em;
+    direction: rtl!important;
+}
+.ui-widget-content {
+    color: #222222;
+    overflow: hidden!important;
+}
+</style>
+			<title>Merchant</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <link rel="stylesheet" type="text/css" media="all" href="resources/date/skins/aqua/theme.css" title="Aqua" />
+		<link rel="alternate stylesheet" type="text/css" media="all" href="resources/date/skins/calendar-blue.css" title="winter" />
+		<link rel="alternate stylesheet" type="text/css" media="all" href="resources/date/skins/calendar-system.css" title="system" />
+	    
+	    
+		<script charset="UTF-8" type="text/javascript" src="resources/date/jalali.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/calendar.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/calendar-setup.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/lang/calendar-fa.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/alidate.js"></script>
+		
+
+</ui:define>
+<ui:define name="centertmp">
+<h:form enctype="multipart/form-data" acceptcharset="UTF-8" id="form"> 
+    <p:growl id="growl" />
+     <p:panel id="pnl" header="افزودن مشاهیر" style="margin-bottom:10px;" styleClass="direction:rtl;">
+     
+        <p:messages id="messages" />
+        <h:panelGrid columns="3" cellpadding="5" dir="rtl">
+        
+						<p:outputLabel for="mashahirField" value="#{lcl.socialNetwork}: " />
+						<p:selectOneMenu id="mashahirField"
+							value="#{mashahirBean.mashahirField}" effect="fold"
+							editable="true">
+							<f:selectItem itemLabel="نوع شخص" />
+							<f:selectItems value="#{mashahirBean.mashahirFielsds}" />
+						</p:selectOneMenu>
+						<p:message for="mashahirField" />
+        
+        		<p:outputLabel for="mashahirName" value="نام" />
+						<p:inputText id="mashahirName" 
+							value="#{mashahirBean.mashahirName}" required="true"
+							label="Firstname" size="50" styleClass="ali">
+							<f:validateLength maximum="499"/>
+						</p:inputText>
+						<p:message for="mashahirName" />
+        
+		<p:outputLabel for="mashahirHead1" value="هد ۱" />
+						<p:inputText id="mashahirHead1" 
+							value="#{mashahirBean.mashahirHead1}" required="true"
+							label="Firstname" size="50" styleClass="ali">
+							<f:validateLength maximum="499"/>
+						</p:inputText>
+						<p:message for="mashahirHead1" />
+ 
+						<p:outputLabel for="mashahirText1" value="متن ۱" />
+						<p:inputTextarea id="mashahirText1"
+							value="#{mashahirBean.mashahirText1}"
+							label="Surname" size="50" styleClass="ali">
+							<f:validateLength maximum="4999" />
+						</p:inputTextarea>
+						<p:message for="mashahirText1" />
+						
+												<p:outputLabel for="mashahirHead2" value="هد ۲" />
+						<p:inputText id="mashahirHead2"
+							value="#{mashahirBean.mashahirHead2}"
+							label="userName" size="50">
+							<f:validateLength maximum="499" />
+						</p:inputText>
+						<p:message for="mashahirHead2" />
+						
+            			<p:outputLabel for="mashahirText2" value="متن ۲" />
+						<p:inputTextarea id="mashahirText2"
+							value="#{mashahirBean.mashahirText2}"
+							label="merchantEmail" size="50" style="direction:ltr!important;">
+							<f:validateLength maximum="4999" />
+							<!-- <f:validator validatorId="jsfui.EmailValidate"/> -->
+						</p:inputTextarea>
+						<p:message for="mashahirText2" />
+
+						
+						<p:outputLabel for="mashahirHead3"
+							value="هد ۳" />
+						<p:inputText id="mashahirHead3"
+							value="#{mashahirBean.mashahirHead3}"
+						    label="merchantSaliManagerName" size="50">
+							<f:validateLength  maximum="499" />
+						</p:inputText>
+						<p:message for="mashahirHead3" />
+						
+						
+						<p:outputLabel for="mashahirText3"
+							value="متن ۳" />
+						<p:inputTextarea id="mashahirText3"
+							value="#{mashahirBean.mashahirText3}"
+							 label="merchantSsn" size="50">
+							<f:validateLength maximum="4999" />
+						</p:inputTextarea>
+						<p:message for="mashahirText3" />
+            
+            
+            
+                        <p:outputLabel for="mashahirHead4"
+							value="هد ۴" />
+						<p:inputText id="mashahirHead4"
+							value="#{mashahirBean.mashahirHead4}"
+							 label="merchantInterfaceName" size="50">
+							<f:validateLength  maximum="499" />
+						</p:inputText>
+						<p:message for="mashahirHead4" />
+            
+           
+            
+                        <p:outputLabel for="mashahirText4"
+							value="متن ۴" />
+						<p:inputTextarea id="mashahirText4"
+							value="#{mashahirBean.mashahirText4}"
+						   label="merchantSiteAddres" size="50" style="direction:ltr!important;">
+							<f:validateLength maximum="4999" />
+						</p:inputTextarea>
+						<p:message for="mashahirText4" />
+            
+                        <p:outputLabel for="mashahirHead5"
+							value="هد ۵" />
+						<p:inputText id="mashahirHead5"
+							value="#{mashahirBean.mashahirHead5}" 
+							label="merchantTelegram"  style="direction:ltr!important;" size="50">
+							<f:validateLength  maximum="499" />
+						</p:inputText>
+						<p:message for="mashahirHead5" />
+            
+                          <p:outputLabel for="mashahirText5"
+							value="متن ۵" />
+						<p:inputTextarea id="mashahirText5"
+							value="#{mashahirBean.mashahirText5}"
+							label="merchantInstagram" style="direction:ltr!important;" size="50">
+							<f:validateLength  maximum="4999" />
+						</p:inputTextarea>
+						<p:message for="mashahirText5" />
+            
+
+						<h:outputText value="آیا هد نمایش داده شود؟: " />
+						<p:inputSwitch value="#{mashahirBean.inHead}" />
+                        <p:outputLabel value=""/>
+
+						
+					
+          				<p:outputLabel value="عکس ۱" />
+						<h:inputFile value="#{mashahirBean.mashahirImg1}" required="true" requiredMessage="please select shop1Image image"/>
+                        <p:outputLabel value=""/>
+                       <p:outputLabel value="عکس ۲" />
+						<h:inputFile value="#{mashahirBean.mashahirImg2}" required="true" requiredMessage="please select shop2Image image"/>
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="عکس ۳" />
+						<h:inputFile value="#{mashahirBean.mashahirImg3}" required="true" requiredMessage="please select shopForm image"/>
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="عکس ۴" />
+						<h:inputFile value="#{mashahirBean.mashahirImg4}" required="true" requiredMessage="please select shop1Image image"/>
+                        <p:outputLabel value=""/>
+                       <p:outputLabel value="عکس ۵" />
+						<h:inputFile value="#{mashahirBean.mashahirImg5}" required="true" requiredMessage="please select shop2Image image"/>
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="عکس ۶" />
+						<h:inputFile value="#{mashahirBean.mashahirImg6}" required="true" requiredMessage="please select shopForm image"/>
+                        <p:outputLabel value=""/>
+                        
+                       
+						
+						
+						
+							<h:commandButton id="saveBtn" value="ذخیره" icon="ui-icon-check"  style="margin:0"
+							update="pnl" ajax="true" execute="@form"
+							action="#{mashahirBean.insertToMashahir()}"
+							 >
+							</h:commandButton>
+							
+                        
+                                    
+        </h:panelGrid>
+ 
+    </p:panel>
+ 
+    <p:blockUI block="pnl" trigger="saveBtn" />
+    
+</h:form>
+</ui:define>
+<ui:define name="righttmp">
+<h:form>
+    <p:dataTable var="mashahir" value="#{mashahirBean.findAllMashahir()}" rows="10"
+                         paginator="true" resizableColumns="true" liveResize="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15" dir="rtl">
+        <p:column headerText="شماره">
+            <h:outputText value="#{mashahir.mashahirId}" />
+        </p:column>
+ 
+        <p:column headerText="نام">
+            <h:outputText value="#{mashahir.mashahirName}" />
+        </p:column>
+        
+         <p:column width="100">
+                    <f:facet name="header">
+            <h:outputText value="حذف" /> 
+            </f:facet>
+        <p:commandButton value="delete"  action="#{mashahirBean.deleteMerchantEntity(mashahir.mashahirId)}" style="width:100%!important;">
+        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
+        </p:commandButton>
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+        </p:confirmDialog>
+        </p:column>
+        
+                <p:column width="100">
+            <f:facet name="header">
+            <h:outputText value="ویرایش" /> 
+            </f:facet>
+            <p:button value="آدرس" outcome="mashahiredit.xhtml" style="width:100%!important;">
+            <f:param name="mashahirId" value="#{mashahir.mashahirId}"/>
+            </p:button>
+        </p:column>  
+  
+    </p:dataTable>
+</h:form>
+</ui:define>
+</ui:composition>
+</h:body> 
+</html>

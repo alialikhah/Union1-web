@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+	<title>مشاهیر خارجی</title>
+
+	<!--Bootstrap css -->
+	<link href="resources/mashahirtemp/css/bootstrap.min.css"
+		rel="stylesheet" />
+	<!--font-awosome icon css-->
+	<link rel="stylesheet"
+		href="resources/mashahirtemp/css/font-awesome.min.css" />
+	<!--elegant icon css-->
+	<link rel="stylesheet"
+		href="resources/mashahirtemp/vendors/elegant-icon/style.css" />
+	<!--google fonts-->
+	<link href='https://fonts.googleapis.com/css?family=Lora:400,700'
+		rel='stylesheet' type='text/css' />
+	<link
+		href='https://fonts.googleapis.com/css?family=Arimo:400,400italic,700'
+		rel='stylesheet' type='text/css' />
+	<!--main css-->
+	<link rel="stylesheet" href="resources/mashahirtemp/css/style.css" />
+	<link rel="stylesheet" href="resources/mashahirtemp/css/responsive.css" />
+
+</h:head>
+<body>
+	<div class="preloader">
+		<div class="left_pre"></div>
+		<div class="right_pre"></div>
+		<div class="row m0 content">
+			<div class="circle">
+				<div class="red">
+					<div class="rotator">
+						<img src="resources/mashahirtemp/images/curve.png" alt="" />
+					</div>
+					<a href="index.html#" class="logo">مشاهیر</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<header class="header"> </header>
+	<!--Start banner-area-->
+	<section class="banner-area container-fluid">
+	<div id="carousel-example-generic" class="carousel slide"
+		data-ride="carousel">
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<div class="item active">
+				<img src="resources/images/mash2.jpg" alt="" width="1920"
+					height="1080" />
+
+			</div>
+		</div>
+
+	</div>
+	</section>
+	<!--End banner-area-->
+	<!--start blog area-->
+	<section class="blog-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 blog-item">
+				<div class="item">
+					<o:graphicImage styleClass="img-responsive"  style="width=400px; height=400px"
+						value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()).mashahirPic1}"
+						dataURI="true" />
+					<div class="blog-content">
+						<div class="post-category">
+							<a href="index.html#">Lifestyle</a> <a href="index.html#">travel</a>
+						</div>
+						<h5 class="post-title">
+							<a href="index.html#">My Trip to New York</a>
+						</h5>
+						<ul class="post-link row m0">
+							<li><a href="index.html#" class="date">APRIL 3, 2016</a></li>
+							<li><a href="index.html#"><i class="fa fa-eye"></i>110</a></li>
+							<li><a href="index.html#"><i class="fa fa-comments"></i>15</a></li>
+							<li><a href="index.html#"><i class="fa fa-heart"></i>50</a></li>
+						</ul>
+						<p>Meh synth Schlitz, tempor duis single-origin coffee ea next
+							level ethnic fingerstache fanny pack nostrud. Photo booth anim…</p>
+						<a href="index.html#" class="post-button">continue <i
+							class="arrow_right"></i></a>
+						<ul class="social pull-right">
+							<li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="index.html#"><i class="social_googleplus"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-8 blog-item">
+				<div class="row">
+					<div class="col-md-6">
+
+												<o:graphicImage styleClass="img-responsive"  style="width=400px; height=400px"
+						value="#{mashahirEngBean.findMashahirEngById(1).mashahirEngPic1}"
+						dataURI="true" />
+					</div>
+					<div class="col-md-6 single-blog">
+						<div class="blog-content item1">
+							<div class="post-category">
+								<a href="index.html#">Lifestyle</a>
+							</div>
+							<h5 class="post-title">
+								<a href="index.html#">Finding Your<br class="break" />
+									tPassion In Work
+								</a>
+							</h5>
+							<ul class="post-link row m0">
+								<li><a href="index.html#" class="date">APRIL 3, 2016</a></li>
+								<li><a href="index.html#"><i class="fa fa-eye"></i>110</a></li>
+								<li><a href="index.html#"><i class="fa fa-comments"></i>15</a></li>
+								<li><a href="index.html#"><i class="fa fa-heart"></i>50</a></li>
+							</ul>
+							<p>It is a long established fact that a reader will be
+								distracted by the readable content of a page when looking at its
+								layout. The point of using Lorem Ipsum is that it has a
+								more-or-less normal distribution of letters, as opposed to using
+								'Content here, content here', making it look like readable
+								English. Many desktop publishing packages and web page editors
+								now use Lorem Ipsum as their default model text, and a search
+								for</p>
+							<a href="index.html#" class="post-button">continue <i
+								class="arrow_right"></i></a>
+							<ul class="social pull-right">
+								<li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="index.html#"><i class="social_googleplus"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row blog">
+			<div class="col-md-6 single-blog">
+				<div class="blog-content item2">
+					<div class="post-category">
+						<a href="index.html#">Lifestyle</a>
+					</div>
+					<h5 class="post-title">
+						<a href="index.html#">SIMPLE BUT<br class="break" /> BEAUTIFUL
+							DECORATION
+						</a>
+					</h5>
+					<ul class="post-link row m0">
+						<li><a href="index.html#" class="date">APRIL 3, 2016</a></li>
+						<li><a href="index.html#"><i class="fa fa-eye"></i>110</a></li>
+						<li><a href="index.html#"><i class="fa fa-comments"></i>15</a></li>
+						<li><a href="index.html#"><i class="fa fa-heart"></i>50</a></li>
+					</ul>
+					<p>It is a long established fact that a reader will be
+						distracted by the readable content of a page when looking at its
+						layout. The point of using Lorem Ipsum is that it has a
+						more-or-less normal distribtution of letters, as opposed to using
+						'Content here, content here', making it look like rteadable
+						English. Many desktop publishing packages and web page editors now
+						use Lorem Ipsum as their default model text, and a search for</p>
+					<a href="index.html#" class="post-button">continue <i
+						class="arrow_right"></i></a>
+					<ul class="social pull-right">
+						<li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="index.html#"><i class="social_googleplus"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-6">
+
+																	<o:graphicImage styleClass="img-responsive"  style="width=400px; height=400px"
+						value="#{mashahirEngBean.findMashahirEngById(mashahirBean.findAllMashahir().size()-2).mashahirEngPic1}"
+						dataURI="true" />
+			</div>
+		</div>
+		<div class="row blog_style3">
+			<div class="col-md-5">
+			<o:graphicImage styleClass="img-responsive img-gray"  style="width=400px; height=400px"
+						value="#{mashahirEngBean.findMashahirEngById(mashahirEngBean.findAllMashahirEng().size()-3).mashahirEngPic1}"
+						dataURI="true" />
+			</div>
+			<div class="col-md-7 single-blog">
+				<div class="blog-content item3">
+					<div class="post-category">
+						<a href="index.html#">Lifestyle</a>
+					</div>
+					<h5 class="post-title">
+						<a href="index.html#">SIMPLE BUT<br class="break" /> BEAUTIFUL
+							DECORATION
+						</a>
+					</h5>
+					<ul class="post-link row m0">
+						<li><a href="index.html#" class="date">APRIL 3, 2016</a></li>
+						<li><a href="index.html#"><i class="fa fa-eye"></i>110</a></li>
+						<li><a href="index.html#"><i class="fa fa-comments"></i>15</a></li>
+						<li><a href="index.html#"><i class="fa fa-heart"></i>50</a></li>
+					</ul>
+					<p>It is a long established fact that a reader will be
+						distracted by the readable content of a page when looking at its
+						layout. The point of using Lorem Ipsum is that it has a
+						more-or-less normal distribtution of letters, as opposed to using
+						'Content here, content here', making it look like rteadable
+						English. Many desktop publishing packages and web page editors now
+						use Lorem Ipsum as their default model text, and a search for</p>
+					<a href="index.html#" class="post-button">continue <i
+						class="arrow_right"></i></a>
+					<ul class="social pull-right">
+						<li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="index.html#"><i class="social_googleplus"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="row blog">
+			<div class="col-md-6 single-blog">
+				<div class="blog-content item2">
+					<div class="post-category">
+						<a href="index.html#">Lifestyle</a>
+					</div>
+					<h5 class="post-title">
+						<a href="index.html#">SIMPLE BUT<br class="break" /> BEAUTIFUL
+							DECORATION
+						</a>
+					</h5>
+					<ul class="post-link row m0">
+						<li><a href="index.html#" class="date">APRIL 3, 2016</a></li>
+						<li><a href="index.html#"><i class="fa fa-eye"></i>110</a></li>
+						<li><a href="index.html#"><i class="fa fa-comments"></i>15</a></li>
+						<li><a href="index.html#"><i class="fa fa-heart"></i>50</a></li>
+					</ul>
+					<p>It is a long established fact that a reader will be
+						distracted by the readable content of a page when looking at its
+						layout. The point of using Lorem Ipsum is that it has a
+						more-or-less normal distribtution of letters, as opposed to using
+						'Content here, content here', making it look like rteadable
+						English. Many desktop publishing packages and web page editors now
+						use Lorem Ipsum as their default model text, and a search for</p>
+					<a href="index.html#" class="post-button">continue <i
+						class="arrow_right"></i></a>
+					<ul class="social pull-right">
+						<li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="index.html#"><i class="social_googleplus"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-6">
+			<o:graphicImage styleClass="img-responsive img-gray"   style="width=400px!important; height=400px!important"
+						value="#{mashahirEngBean.findMashahirEngById(mashahirEngBean.findAllMashahirEng().size()-4).mashahirEngPic1}"
+						dataURI="true" />
+			</div>
+		</div>
+		<div class="post-button-wrapper">
+			<a href="index.html#" class="post-button"> <span class="first">Older
+					Posts</span> <span class="back">Older Posts</span>
+			</a>
+		</div>
+	</div>
+	</section>
+	<!--End blog area-->
+	<!--start footer area-->
+	<footer class="footer-area">
+	<div class="container">
+		<div class="img">
+			<img src="resources/mashahirtemp/images/footer-1img.jpg" alt="" />
+		</div>
+		<div class="footer-content">
+			<h2>John is simply a brilliant writer and social media marketer.
+				What more needs to be said?</h2>
+			<span><a href="index.html#">Brenda Berry</a>- Buffer Editor</span>
+		</div>
+	</div>
+	</footer>
+	<!--End footer area-->
+	<!--All JS Files Here-->
+	<script src="resources/mashahirtemp/js/jquery-2.2.0.min.js"></script>
+	<!--bootstrap Js-->
+	<script src="resources/mashahirtemp/js/bootstrap.min.js"></script>
+	<!--main Js-->
+	<script src="resources/mashahirtemp/js/main.js"></script>
+</body>
+</html>

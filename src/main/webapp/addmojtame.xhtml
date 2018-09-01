@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<h:body> 
+ <ui:composition template="/template.xhtml">
+<ui:define name="headtmp">
+
+</ui:define>
+<ui:define name="centertmp">
+<h:form enctype="multipart/form-data" acceptcharset="UTF-8" id="form"> 
+    <p:growl id="growl" />
+     <p:panel id="pnl" header="افزودن مجتمع" style="margin-bottom:10px;" styleClass="direction:rtl;">
+     
+        <p:messages id="messages" />
+        <h:panelGrid columns="3" cellpadding="5" dir="rtl">
+        
+        		<p:outputLabel for="category" value="کتگوری" />
+						<p:inputText id="category" 
+							value="#{mojtameBean.category}"
+							label="Firstname" size="50" styleClass="ali">
+							<f:validateLength maximum="299"/>
+						</p:inputText>
+						<p:message for="category" />
+						
+						        		<p:outputLabel for="title" value="عنوان" />
+						<p:inputText id="title" 
+							value="#{mojtameBean.mojtameTitle}"
+						    size="50" styleClass="ali">
+							<f:validateLength maximum="299"/>
+						</p:inputText>
+						<p:message for="title" />
+        
+		<p:outputLabel for="mojtameHead1" value="هد ۱" />
+						<p:inputText id="mojtameHead1" 
+							value="#{mojtameBean.mojtameHead1}"
+							label="Firstname" size="50" styleClass="ali">
+							<f:validateLength  maximum="299"/>
+						</p:inputText>
+						<p:message for="mojtameHead1" />
+ 
+						<p:outputLabel for="mojtameText1" value="متن ۱" />
+						<p:inputTextarea id="mojtameText1"
+							value="#{mojtameBean.mojtameText1}" 
+						    size="50" styleClass="ali">
+							<f:validateLength maximum="4999" />
+						</p:inputTextarea>
+						<p:message for="mojtameText1" />
+						
+		               <p:outputLabel for="mojtameHead2" value="هد ۲" />
+						<p:inputText id="mojtameHead2" 
+							value="#{mojtameBean.mojtameHead2}"
+						   size="50" styleClass="ali">
+							<f:validateLength  maximum="299"/>
+						</p:inputText>
+						<p:message for="mojtameHead2" />
+						
+						<p:outputLabel for="mojtameText2" value="متن ۲" />
+						<p:inputTextarea id="mojtameText2"
+							value="#{mojtameBean.mojtameText2}" 
+						    size="50" styleClass="ali">
+							<f:validateLength maximum="4999" />
+						</p:inputTextarea>
+						<p:message for="mojtameText2" />
+
+						
+		               <p:outputLabel for="mojtameHead3" value="هد ۳" />
+						<p:inputText id="mojtameHead3" 
+							value="#{mojtameBean.mojtameHead3}"
+						   size="50" styleClass="ali">
+							<f:validateLength  maximum="299"/>
+						</p:inputText>
+						<p:message for="mojtameHead3" />
+						
+						
+						<p:outputLabel for="mojtameText3" value="متن ۳" />
+						<p:inputTextarea id="mojtameText3"
+							value="#{mojtameBean.mojtameText3}" 
+						    size="50" styleClass="ali">
+							<f:validateLength maximum="4999" />
+						</p:inputTextarea>
+						<p:message for="mojtameText3" />
+            
+            
+						
+		               <p:outputLabel for="mojtameHead4" value="هد ۴" />
+						<p:inputText id="mojtameHead4" 
+							value="#{mojtameBean.mojtameHead4}"
+						   size="50" styleClass="ali">
+							<f:validateLength  maximum="299"/>
+						</p:inputText>
+						<p:message for="mojtameHead4" />
+            
+           
+            
+						<p:outputLabel for="mojtameText4" value="متن ۴" />
+						<p:inputTextarea id="mojtameText4"
+							value="#{mojtameBean.mojtameText4}" 
+						    size="50" styleClass="ali">
+							<f:validateLength maximum="4999" />
+						</p:inputTextarea>
+						<p:message for="mojtameText4" />
+            
+						
+		               <p:outputLabel for="mojtameHead5" value="هد ۵" />
+						<p:inputText id="mojtameHead5" 
+							value="#{mojtameBean.mojtameHead5}"
+						   size="50" styleClass="ali">
+							<f:validateLength  maximum="299"/>
+						</p:inputText>
+						<p:message for="mojtameHead5" />
+            
+						<p:outputLabel for="mojtameText5" value="متن ۵" />
+						<p:inputTextarea id="mojtameText5"
+							value="#{mojtameBean.mojtameText5}" 
+						    size="50" styleClass="ali">
+							<f:validateLength maximum="4999" />
+						</p:inputTextarea>
+						<p:message for="mojtameText5" />
+            
+
+
+
+						
+					
+          				<p:outputLabel value="عکس ۱" />
+						<h:inputFile value="#{mojtameBean.pic1}" required="true" requiredMessage="please select shop1Image image"/>
+                        <p:outputLabel value=""/>
+                       <p:outputLabel value="عکس ۲" />
+						<h:inputFile value="#{mojtameBean.pic2}" required="true" requiredMessage="please select shop2Image image"/>
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="عکس ۳" />
+						<h:inputFile value="#{mojtameBean.pic3}" required="true" requiredMessage="please select shopForm image"/>
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="عکس ۴" />
+						<h:inputFile value="#{mojtameBean.pic4}" required="true" requiredMessage="please select shopForm image"/>
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="عکس ۵" />
+						<h:inputFile value="#{mojtameBean.pic5}" required="true" requiredMessage="please select shopForm image"/>
+                        <p:outputLabel value=""/>
+                       
+						
+						
+						
+							<h:commandButton id="saveBtn" value="ذخیره" icon="ui-icon-check"  style="margin:0"
+							update="pnl" ajax="true" execute="@form"
+							action="#{mojtameBean.insertToMojtame()}"
+							 >
+							</h:commandButton>
+							
+                        
+                                    
+        </h:panelGrid>
+ 
+    </p:panel>
+ 
+    <p:blockUI block="pnl" trigger="saveBtn" />
+    
+</h:form>
+</ui:define>
+<ui:define name="righttmp">
+<h:form>
+    <p:dataTable var="mojtame" value="#{mojtameBean.findAllMojtame()}" rows="10"
+                         paginator="true" resizableColumns="true" liveResize="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15" dir="rtl">
+        <p:column headerText="شماره">
+            <h:outputText value="#{mojtame.mojtameId}" />
+        </p:column>
+ 
+        <p:column headerText="نام">
+            <h:outputText value="#{mojtame.mojtameTitle}" />
+        </p:column>
+        
+         <p:column width="100">
+                    <f:facet name="header">
+            <h:outputText value="حذف" /> 
+            </f:facet>
+        <p:commandButton value="delete"  action="#{mojtameBean.deleteMojtameEntity(mojtame.mojtameId)}" style="width:100%!important;">
+        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
+        </p:commandButton>
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+        </p:confirmDialog>
+        </p:column>
+  
+    </p:dataTable>
+</h:form>
+</ui:define>
+</ui:composition>
+</h:body> 
+</html>

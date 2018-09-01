@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<javaee:web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <javaee:display-name>JavaServerFaces</javaee:display-name>
+  <javaee:context-param>
+    <javaee:param-name>javax.faces.PROJECT_STAGE</javaee:param-name>
+    <javaee:param-value>.xhtml</javaee:param-value>
+  </javaee:context-param>
+  <javaee:welcome-file-list>
+    <javaee:welcome-file>/home.xhtml</javaee:welcome-file>
+  </javaee:welcome-file-list>
+  <javaee:servlet>
+    <javaee:servlet-name>Faces Servlet</javaee:servlet-name>
+    <javaee:servlet-class>javax.faces.webapp.FacesServlet</javaee:servlet-class>
+    <javaee:load-on-startup>1</javaee:load-on-startup>
+  </javaee:servlet>
+  <javaee:servlet-mapping>
+    <javaee:servlet-name>Faces Servlet</javaee:servlet-name>
+    <javaee:url-pattern>/faces/*</javaee:url-pattern>
+  </javaee:servlet-mapping>
+  <javaee:servlet-mapping>
+    <javaee:servlet-name>Faces Servlet</javaee:servlet-name>
+    <javaee:url-pattern>*.jsf</javaee:url-pattern>
+  </javaee:servlet-mapping>
+  <javaee:servlet-mapping>
+    <javaee:servlet-name>Faces Servlet</javaee:servlet-name>
+    <javaee:url-pattern>*.faces</javaee:url-pattern>
+  </javaee:servlet-mapping>
+  <javaee:servlet-mapping>
+    <javaee:servlet-name>Faces Servlet</javaee:servlet-name>
+    <javaee:url-pattern>*.xhtml</javaee:url-pattern>
+  </javaee:servlet-mapping>
+  <javaee:context-param>
+    <javaee:param-name>primefaces.THEME</javaee:param-name>
+    <javaee:param-value>black-tie</javaee:param-value>
+  </javaee:context-param>
+    <javaee:error-page>
+    <javaee:error-code>404</javaee:error-code>
+    <javaee:location>/notfind.xhtml</javaee:location>
+   </javaee:error-page>
+</javaee:web-app>

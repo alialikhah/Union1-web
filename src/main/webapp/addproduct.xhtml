@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+      <f:view locale="fa" >
+<h:head>
+</h:head> 
+<h:body> 
+<ui:composition template="/template.xhtml">
+<ui:define name="headtmp">
+<h:outputScript name="product.js" library="javascript"/>
+<style>
+.ui-panel {
+    padding: .2em;
+    direction: rtl!important;
+}
+.ui-widget-content {
+    color: #222222;
+    overflow: hidden!important;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</ui:define>
+<ui:define name="centertmp">
+<h:form enctype="multipart/form-data" id="form" acceptcharset="UTF-8">
+					<p:growl id="growl" showDetail="true" sticky="true" />
+					<p:panel id="pnl" header="افزودن کالا">
+					<p:messages />
+					<h:panelGrid columns="3" dir="rtl">
+
+
+							<p:outputLabel for="productName" value="نام کالا : " />
+							<p:inputText id="productName"
+								value="#{productBean.productName}" required="true"
+								label="productName">
+								<f:validateLength minimum="2" maximum="199" />
+							</p:inputText>
+							<p:message for="productName" />
+
+							<p:outputLabel for="productTitle" value="عنوان کالا :" />
+							<p:inputText id="productTitle"
+								value="#{productBean.productTitle}" required="true"
+								label="productTitle">
+								<f:validateLength minimum="2" maximum="199" />
+							</p:inputText>
+							<p:message for="productTitle" />
+
+							<p:outputLabel for="productModel" value="مدل کالا :" />
+							<p:inputText id="productModel"
+								value="#{productBean.productModel}" required="true"
+								label="productModel">
+								<f:validateLength minimum="2" maximum="199" />
+							</p:inputText>
+							<p:message for="productModel" />
+							
+							
+							
+							
+							<p:outputLabel for="productDescription"
+								value="توضیحات کالا :" />
+							<p:inputTextarea id="productDescription"
+								value="#{productBean.productDescription}"
+								required="true" label="merchantDescription">
+								<f:validateLength minimum="2" maximum="4999" />
+							</p:inputTextarea>
+							<p:message for="productDescription" />
+							
+							
+
+							
+
+
+
+
+							<p:outputLabel for="productCategry" value="رسته ی کالا :" />
+							<p:selectOneMenu id="productCategry" value="#{productBean.productCategry}"
+								effect="fold" editable="true" required="true" requiredMessage="please select one item">
+								<f:selectItem itemLabel="Select your union" />
+								<f:selectItems value="#{merchantRegisterBean.unions}" />
+							</p:selectOneMenu>
+							<p:message for="productCategry" />
+							
+							<p:outputLabel for="productBrand" value="برند کالا" />
+							<p:selectOneMenu id="productBrand" value="#{productBean.productBrand}"
+								effect="fold" editable="true" required="true" requiredMessage="please select one item">
+								<f:selectItem itemLabel="Select your brand" />
+								<f:selectItems value="#{addProductBean.allBrand}" />
+							</p:selectOneMenu>
+							<p:message for="productBrand" />
+							
+							
+							
+
+							<p:outputLabel value="عکس ۱" />
+							<h:inputFile value="#{productBean.productPic1}" required="true" requiredMessage="please select license image"/>
+							<p:outputLabel value="" />
+							<p:outputLabel value="عکس ۲" />
+							<h:inputFile value="#{productBean.productPic2}" required="true" requiredMessage="please select license image"/>
+							<p:outputLabel value="" />
+							<p:outputLabel value="عکس ۳" />
+							<h:inputFile value="#{productBean.productPic3}" required="true" requiredMessage="please select license image"/>
+							<p:outputLabel value="" />
+							<p:outputLabel value="عکس ۴" />
+							<h:inputFile value="#{productBean.productPic4}" required="true" requiredMessage="please select license image"/>
+							<p:outputLabel value="" />
+							<p:outputLabel value="عکس ۵" />
+							<h:inputFile value="#{productBean.productPic5}" required="true" requiredMessage="please select license image"/>
+							<p:outputLabel value="" />
+
+							
+						
+
+						<h:commandButton id="submitButton" value="ذخیره" update="growl"
+						    action="#{productBean.insertToProduct()}"
+							rendered="true" />
+							</h:panelGrid>
+					</p:panel>
+					
+					<p:blockUI block="pnl" trigger="submitButton" />
+				</h:form>
+				</ui:define>
+				
+				
+				<ui:define name="righttmp">
+				<h:form>
+    <p:dataTable var="proc" value="#{productBean.findAllProducts()}" rows="10"
+                         paginator="true" resizableColumns="true" liveResize="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15" dir="rtl">
+        <p:column headerText="شماره">
+            <h:outputText value="#{proc.productId}" />
+        </p:column>
+ 
+        <p:column headerText="نام">
+            <h:outputText value="#{proc.productName}" />
+        </p:column>
+ 
+        <p:column headerText="فامیلی">
+            <h:outputText value="#{proc.productBrand}" />
+        </p:column>
+
+    </p:dataTable>
+</h:form>
+				</ui:define>
+				</ui:composition>
+</h:body> 
+</f:view>
+</html>

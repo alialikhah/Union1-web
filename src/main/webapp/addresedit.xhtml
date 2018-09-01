@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">  
+
+<h:head></h:head> 
+<body> 
+	  <ui:define name="metadata">
+      <f:metadata>
+      <f:viewParam name="merchantID"/>
+      </f:metadata>
+      </ui:define> 
+<ui:composition template="/template.xhtml">
+<ui:define name="headtmp">
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyC5iFeXAWE72U4rr3l5oFje4g-ntNyQ0Ko" type="text/javascript"></script>
+</ui:define>
+<ui:define name="centertmp">
+<p:panelGrid columns="4" style="direction:rtl!important">
+ <f:facet name="header">
+ ویرایش آدرس
+ </f:facet>
+ 
+
+							<h:outputText value="آدرس پستی:" />
+						    <h:outputText value="#{merchantAddres.findAddresByMerchant2(merchantID).merchantPostAddres}" />  
+						    <h:form id="frm40" style="display:none" rendered="#{merchantAddres.isAddrs(merchantID)}">
+						    <p:inputTextarea value="#{merchantAddres.postAddresU}"/>
+						    <p:commandButton value="ثبت تغییرات"  action="#{merchantAddres.updateAddresPostAddres(merchantID)}" />
+						    </h:form>
+						    <h:outputText value="" rendered="#{!(merchantAddres.isAddrs(merchantID))}"/>
+						    <p:commandButton value="ویرایش">
+						  	<p:effect type="explode" event="click" for="frm40">
+						   	<f:param name="mode" value="'show'" />
+						    </p:effect> 
+						    </p:commandButton>
+							                                 
+      						
+      						<h:outputText value="کد پستی:" />
+      						<h:outputText value="#{merchantAddres.findAddresByMerchant2(merchantID).merchantPostCode}" />  
+         				    <h:form id="frm41" style="display:none" rendered="#{merchantAddres.isAddrs(merchantID)}">
+						    <p:inputMask dir="rtl" value="#{merchantAddres.postCodeU}" mask="9999999999" style="direction:ltr!important;"/>
+						    <p:commandButton value="ثبت تغییرات" action="#{merchantAddres.updateAddresPostCode(merchantID)}"/>
+						    </h:form>
+      				        <h:outputText value="" rendered="#{!(merchantAddres.isAddrs(merchantID))}"/>
+      				        <p:commandButton value="ویرایش">
+						  	<p:effect type="explode" event="click" for="frm41">
+						   	<f:param name="mode" value="'show'" />
+						    </p:effect> 
+						    </p:commandButton>
+      
+      						
+       						<p:outputLabel value="city: " />
+       						<h:outputText value="#{merchantAddres.findAddresByMerchant2(merchantID).merchantCity}" />
+       						<h:form id="frm42" style="display:none" rendered="#{merchantAddres.isAddrs(merchantID)}">
+							<p:selectOneMenu id="city" value="#{merchantAddres.cityU}"
+								effect="fold" editable="true" required="true">
+								<f:selectItem itemLabel="Select your city" />
+								<f:selectItems value="#{merchantAddres.cities}" />
+							</p:selectOneMenu>
+							<p:commandButton value="ثبت تغییرات" action="#{merchantAddres.updateAddresPostCity(merchantID)}"/>
+							</h:form>
+							<h:outputText value="" rendered="#{!(merchantAddres.isAddrs(merchantID))}"/>
+							<p:commandButton value="ویرایش">
+						  	<p:effect type="explode" event="click" for="frm42">
+						   	<f:param name="mode" value="'show'" />
+						    </p:effect> 
+						    </p:commandButton>
+						    
+						    
+						    
+
+							<p:outputLabel value="state: " />
+							<h:outputText value="#{merchantAddres.findAddresByMerchant2(merchantID).merchantState}" />
+							<h:form id="frm43" style="display:none" rendered="#{merchantAddres.isAddrs(merchantID)}">
+							<p:selectOneMenu id="state" value="#{merchantAddres.stateU}"
+								effect="fold" editable="true" required="true">
+								<f:selectItem itemLabel="Select your state" />
+								<f:selectItems value="#{merchantAddres.states}" />
+							</p:selectOneMenu>
+							<p:commandButton value="ثبت تغییرات" action="#{merchantAddres.updateAddresPostState(merchantID)}"/>
+							</h:form>
+							<h:outputText value="" rendered="#{!(merchantAddres.isAddrs(merchantID))}"/>
+							<p:commandButton value="ویرایش">
+						  	<p:effect type="explode" event="click" for="frm43">
+						   	<f:param name="mode" value="'show'" />
+						    </p:effect> 
+						    </p:commandButton>
+							
+							<p:outputLabel value="area: " />
+							<h:outputText value="#{merchantAddres.findAddresByMerchant2(merchantID).merchantArea}" />
+							<h:form id="frm44" style="display:none" rendered="#{merchantAddres.isAddrs(merchantID)}">
+							<p:selectOneMenu id="area" value="#{merchantAddres.areaU}"
+								effect="fold" editable="true" required="true">
+								<f:selectItem itemLabel="Select your area" />
+								<f:selectItems value="#{merchantAddres.areas}" />
+							</p:selectOneMenu>
+							<p:commandButton value="ثبت تغییرات" action="#{merchantAddres.updateAddresPostArea(merchantID)}"/>
+      						</h:form>
+      						<h:outputText value="" rendered="#{!(merchantAddres.isAddrs(merchantID))}"/>
+      						<p:commandButton value="ویرایش">
+						  	<p:effect type="explode" event="click" for="frm44">
+						   	<f:param name="mode" value="'show'" />
+						    </p:effect> 
+						    </p:commandButton>
+						    
+						    
+						    
+						   
+						    
+						     <h:form id="frm50">
+							 <p:outputLabel value="مختصات عرض" for="txt1"/>
+							 <p:inputText value="#{merchantAddres.widthStr}" id="txt1"/>
+							 <p:message for="txt1" />
+							 <p:outputLabel value="مختصات طول" for="txt2"/>
+							 <p:inputText value="#{merchantAddres.heightStr}" id="txt2"/>
+							 <p:message for="txt2" />
+						    <p:gmap id="gmap" center="#{merchantAddres.findAddresByMerchant2(merchantID).merchandWidth}, #{merchantAddres.findAddresByMerchant2(merchantID).merchantHeight}" model="#{merchantPageGmap.ali(merchantAddres.findAddresByMerchant2(merchantID).merchandWidth,merchantAddres.findAddresByMerchant2(merchantID).merchantHeight)}" zoom="17" type="ROADMAP" style="width:100%;height:400px">
+							<p:ajax event="pointSelect" listener="#{merchantAddres.onPointSelect}" update="txt1 txt2"/>
+							</p:gmap> 
+							<p:commandButton value="ثبت تغییرات" action="#{merchantAddres.updateAddresGmap(merchantID)}"/>
+							</h:form>
+
+
+
+							
+        </p:panelGrid>
+</ui:define>
+</ui:composition>
+
+</body> 
+</html>

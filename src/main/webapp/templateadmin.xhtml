@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<f:view locale="fa" />
+<h:head>
+ 
+<ui:insert name="headadm"/>
+</h:head> 
+<h:body onload="clearInput()"> 
+
+<div id="head" style="width: 100%; height: 50px; background-color: red;">
+<p:button value="ویرایش فروشنده ها" outcome="merchantview.xhtml"/>
+<p:button value="افزودن کالا" outcome="addproduct.xhtml"/>
+<p:button value="افزودن فروشنده" outcome="merchantregister.xhtml"/>
+</div>
+
+<div id="main" style="width: 100%">
+<ui:insert name="mainadm"/>
+</div>
+        
+</h:body> 
+</html>

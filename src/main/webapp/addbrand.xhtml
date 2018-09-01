@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head> 
+ <h:body> 
+
+        
+        <ui:composition template="/template.xhtml">
+<ui:define name="headtmp">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+</ui:define>
+<ui:define name="centertmp">
+<h:form enctype="multipart/form-data" acceptcharset="UTF-8" id="form"> 
+    <p:growl id="growl" />
+     <p:panel id="pnl" header="افزودن برند" style="margin-bottom:10px; direction:rtl;">
+        <p:messages id="messages" />
+        <h:panelGrid columns="3" cellpadding="5" dir="rtl">
+        		<p:outputLabel for="brandname" value="نام برند" />
+						<p:inputText id="brandname"
+							value="#{brandBean.brandName}" required="true"
+							label="Surname" size="50">
+							<f:validateLength minimum="2" maximum="100" />
+						</p:inputText>
+						<p:message for="brandname" />
+						
+						<p:outputLabel value="عکس برند" />
+						<h:inputFile value="#{brandBean.brandPic}" required="true" requiredMessage="please select shopForm image"/>
+                        <p:outputLabel value=""/>
+                        
+                          <h:commandButton id="saveBtn" value="save" icon="ui-icon-check"  style="margin:0"
+							update="pnl" ajax="true" execute="@form"
+							action="#{brandBean.insertToBrand()}"
+							 >
+							</h:commandButton>
+        </h:panelGrid>
+        </p:panel>
+        </h:form>
+</ui:define>
+<ui:define name="righttmp">
+<h:form>
+    <p:dataTable var="brn" value="#{brandBean.findAllBrands()}" rows="10" rowKey="#{merchants.merchantId}" 
+                         paginator="true" resizableColumns="true" liveResize="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15" dir="rtl">
+                         
+        <p:column headerText="شماره" filterBy="#{brn.deicatedBrandId}" sortBy="#{brn.deicatedBrandId}" filterMatchMode="contains">
+            <h:outputText value="#{brn.deicatedBrandId}" />
+        </p:column>
+ 
+ 
+        <p:column headerText="نام برند" filterBy="#{brn.brandName}" sortBy="#{brn.deicatedBrandId}" filterMatchMode="contains">
+            <h:outputText value="#{brn.brandName}" />
+        </p:column>
+        
+              <p:column>
+        <p:commandButton value="حذف"  action="#{brandBean.delBrand(brn.deicatedBrandId)}" style="width:100%!important;">
+        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
+        </p:commandButton>
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+        </p:confirmDialog>
+        </p:column>
+         
+    </p:dataTable>
+    </h:form>
+</ui:define>
+</ui:composition>
+</h:body> 
+</html>

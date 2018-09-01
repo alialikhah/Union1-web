@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+		<f:metadata>
+			<f:event listener="#{superAdminBean.isUser}" type="preRenderView"></f:event>
+		</f:metadata>
+</h:head> 
+<body> 
+<h1>super admin</h1>
+<h:form>
+<p:commandLink value="Logout" action="#{superAdminBean.adminLogOut()}"/>
+</h:form>
+<br /><br /><br />
+<h:form enctype="multipart/form-data" id="frm1">
+					<p:growl id="growl" showDetail="true" sticky="true" />
+					<p:panel id="pnl" header="Register">
+
+						<p:focus context="pnl" />
+
+						<p:messages />
+
+							<h:panelGrid columns="3" dir="rtl">
+							
+
+							<p:outputLabel for="adminUsername" value="adminUsername : " />
+							<p:inputText id="adminUsername"
+								value="#{superAdminBean.adminUsername}" required="true"
+								label="adminUsername">
+								<f:validateLength minimum="2" maximum="49" />
+							</p:inputText>
+							<p:message for="adminUsername" />
+							
+														<h:outputLabel for="pwd1" value="Password: *" />
+							<p:password id="pwd1" match="pwd2" label="Password"
+								required="true" />
+							<p:message for="pwd1" />
+
+							<h:outputLabel for="pwd2" value="Re-Password : *" />
+							<p:password id="pwd2"
+								value="#{superAdminBean.adminPass}" label="Re-Password"
+								required="true" />
+							<p:message for="pwd2" />
+							</h:panelGrid>
+													<h:commandButton id="submitButton" value="Login" update="growl"
+							action="#{superAdminBean.insertToAdmin()}"
+							actionListener="#{superAdminBean.saveMessage()}"
+							rendered="true" />
+					</p:panel>
+					<p:blockUI block="pnl" trigger="submitButton" />
+				</h:form>
+</body> 
+</html>

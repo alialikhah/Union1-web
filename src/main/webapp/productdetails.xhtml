@@ -1,0 +1,1113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+<h:head></h:head>
+<body>
+
+	<ui:composition template="/TEMPLATE.xhtml">
+		<ui:define name="headhome">
+			<style>
+ul.sidebar-menu li::before {
+	content: "" !important;
+	font-family: fontawesome;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	-webkit-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+}
+
+h3.sidebar-title::before {
+	background: transparent !important;
+	bottom: 5px;
+	content: "";
+	height: 2px;
+	left: 0;
+	position: absolute;
+	width: 50px;
+}
+</style>
+		</ui:define>
+
+		<ui:define name="mainhome">
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="productId" />
+				</f:metadata>
+			</ui:define>
+			<!--  breadcumb-area start -->
+			<div class="breadcumb-area">
+				<div class="container">
+					<div class="bread-main">
+						<div class="bred-hading text-center">
+							<h1>جزییات محصول</h1>
+						</div>
+						<ol class="breadcrumb">
+							<li class="home"><a href="index.html"
+								title="Go to Home Page">خانه</a></li>
+							<li class="active">محصول</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+			<!--  breadcumb-area end -->
+
+			<!--shop-product-wraper start-->
+			<div class="shop-prodcut-wraper shop-sidebar pb55 pt55">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-9 col-sm-8 col-xs-12">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="shop-banner mb20">
+									<a href="single-product.html#"><img alt=""
+										src="resources/tmp/img/clothing.jpg" /></a>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+							<!-- product-details-start-->
+							<div class="product-single-details">
+								<div class="col-md-5 col-sm-6 col-xs-12">
+									<div class="imgs-area">
+										<img id="zoom_03" src="resources/tmp/img/product/large/01.jpg"
+											data-zoom-image="resources/tmp/img/product/large/01.jpg"
+											alt="" />
+
+										<div class="row">
+											<div class="col-md-12 col-sm-12 col-xs-12">
+												<div id="gallery_01">
+
+													<div class="p-c">
+														<a href="single-product.html#"
+															data-image="resources/tmp/img/product/large/02.jpg"
+															data-zoom-image="resources/tmp/img/product/large/02.jpg">
+															<!--                                                     <img class="zoom_03" src="resources/tmp/img/product/large/02.jpg" alt=""/>
+ --> <o:graphicImage
+																value="#{productBean.findProductById(productId).productImage1}"
+																styleClass="zoom_03" dataURI="true" />
+														</a>
+													</div>
+													<div class="p-c">
+														<a href="single-product.html#"
+															data-image="resources/tmp/img/product/large/03.jpg"
+															data-zoom-image="resources/tmp/img/product/large/03.jpg">
+															<img class="zoom_03"
+															src="resources/tmp/img/product/large/03.jpg" alt="" /> <o:graphicImage
+																value="#{productBean.findProductById(productId).productImage2}"
+																styleClass="zoom_03" dataURI="true" />
+
+														</a>
+													</div>
+													<div class="p-c">
+														<a href="single-product.html#"
+															data-image="resources/tmp/img/product/large/04.jpg"
+															data-zoom-image="resources/tmp/img/product/large/04.jpg">
+															<img class="zoom_03" src="img/product/large/04.jpg"
+															alt="" /> <o:graphicImage
+																value="#{productBean.findProductById(productId).productImage3}"
+																styleClass="zoom_03" dataURI="true" />
+
+														</a>
+													</div>
+													<div class="p-c">
+														<a href="single-product.html#"
+															data-image="resources/tmp/img/product/large/05.jpg"
+															data-zoom-image="resources/tmp/img/product/large/05.jpg">
+															<img class="zoom_03"
+															src="resources/tmp/img/product/large/05.jpg" alt="" /> <o:graphicImage
+																value="#{productBean.findProductById(productId).productImage4}"
+																styleClass="zoom_03" dataURI="true" />
+
+														</a>
+													</div>
+													<div class="p-c">
+														<a href="single-product.html#"
+															data-image="resources/tmp/img/product/large/01.jpg"
+															data-zoom-image="resources/tmp/img/product/large/01.jpg">
+															<img class="zoom_03"
+															src="resources/tmp/img/product/large/01.jpg" alt="" /> <o:graphicImage
+																value="#{productBean.findProductById(productId).productImage5}"
+																styleClass="zoom_03" dataURI="true" />
+
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-7 col-sm-6 col-xs-12" style="direction: rtl;">
+									<div class="list-view hot-best-top">
+										<div class="item-product item-product-list">
+											<div class="item-product-info2 product-detail-info">
+												<h3>
+													<span>محصول</span>
+												</h3>
+												<div class="ratting-review">
+													<div class="info-rating">
+														<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+															class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+															class="fa fa-star"></i>
+													</div>
+													<div class="order-number">
+														<span>۵ ستاره</span>
+													</div>
+													<div class="review-add">
+														<a href="single-product.html#">بازبینی</a>
+													</div>
+												</div>
+												<div class="info-product-price">
+													<label class="persale">۱۰ ٪</label> <span>۱۵۰۰۰</span>
+													<del>۱۵۰۰۰</del>
+												</div>
+												<div class="list-item-des">
+													<span>به گزارش گروه بین‌الملل خبرگزاری فارس، وزیر
+														انرژی عربستان سعودی بامداد پنجشنبه در گفت‌وگو با خبرگزاری
+														رویترز مدعی شد این کشور موقتاً عبور تمامی نفت‌کش‌های سعودی
+														از باب‌المندب را متوقف کرده است. </span>
+												</div>
+												<div class="qty-available">
+													<div class="input-qty mtb15 ">
+														<label>تعداد:</label> <input type="number" name="quantity"
+															value="1" min="1" />
+													</div>
+													<div class="product-availablity mt20 mb20">
+														توانایی ها: <span>نا محدود</span>
+													</div>
+												</div>
+
+												<div class="product-extra-link">
+													<a data-original-title="wishlist"
+														href="single-product.html#" title=""
+														class="link-add-to-cart" data-toggle="tooltip"
+														data-placement="top"><i class="fa fa-heart"></i></a> <a
+														data-original-title="Add To Cart"
+														href="single-product.html#" title=""
+														class="link-add-to-cart" data-toggle="tooltip"
+														data-placement="top"><i class="fa fa-shopping-cart"></i></a>
+													<a href="single-product.html#" title=""
+														class="link-add-to-cart" data-target=".modal"
+														data-trigger="hover" data-toggle="modal"
+														data-placement="top" data-original-title="quick view"><i
+														class="fa fa-search"></i></a>
+												</div>
+												<div class="social-share pt25 pb25"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+							<!--review tab area are start-->
+							<div class="col-md-12" style="direction: rtl !important;">
+								<div class="features-tab product-des-review mt20">
+									<!-- Nav tabs -->
+									<ul class="nav">
+										<li role="presentation" class="active"><a
+											href="single-product.html#product-des" data-toggle="tab">توضیحات
+												محصول</a></li>
+										<li role="presentation"><a
+											href="single-product.html#add-review" data-toggle="tab">بازبینی</a></li>
+										<li role="presentation"><a
+											href="single-product.html#product-tag" data-toggle="tab">تگ
+												های محصول</a></li>
+									</ul>
+									<!-- Tab panes -->
+									<div class="tab-content">
+										<div role="tabpanel" class="tab-pane fade in active"
+											id="product-des">
+											<div class="std">
+												<p>
+													<strong>توضیحات محصول</strong>
+												</p>
+												<p>وزیر انرژی عربستان به رویترز گفت: «عربستان سعودی
+													موقتاً انتقال نفت از طریق تنگه باب‌المندب را تا زمان
+													روشن‌تر شدن وضعیت و ایمن شدن ترانزیت دریایی از طریق این
+													تنگه متوقف می‌کند.» شرکت ملی نفت عربستان سعودی، آرامکو در
+													بیانیه‌ای اعلام کرد هر کدام از دو تانکر نفتی که هدف حمله
+													نیروهای انصارالله قرار گرفته‌اند حامل دو میلیون بشکه نفت
+													خام بوده‌اند. «خالد بن عبدالعزیز الفالح» مدعی شد «تهدیدهای
+													حوثی‌ها» باعث شده تجارت جهانی در معرض خطر قرار بگیرد.</p>
+												<p>وزیر انرژی عربستان به رویترز گفت: «عربستان سعودی
+													موقتاً انتقال نفت از طریق تنگه باب‌المندب را تا زمان
+													روشن‌تر شدن وضعیت و ایمن شدن ترانزیت دریایی از طریق این
+													تنگه متوقف می‌کند.» شرکت ملی نفت عربستان سعودی، آرامکو در
+													بیانیه‌ای اعلام کرد هر کدام از دو تانکر نفتی که هدف حمله
+													نیروهای انصارالله قرار گرفته‌اند حامل دو میلیون بشکه نفت
+													خام بوده‌اند. «خالد بن عبدالعزیز الفالح» مدعی شد «تهدیدهای
+													حوثی‌ها» باعث شده تجارت جهانی در معرض خطر قرار بگیرد.</p>
+												<p>
+													<strong>لیست</strong>
+												</p>
+												<ul>
+													<li>تهدیدهای حوثی‌ها</li>
+													<li>تهدیدهای حوثی‌ها</li>
+													<li>تهدیدهای حوثی‌ها</li>
+													<li>تهدیدهای حوثی‌ها</li>
+												</ul>
+											</div>
+										</div>
+										<div role="tabpanel" class="tab-pane fade in" id="add-review">
+											<div class="review-upper">
+												<div class="review_item">
+													<div>
+														<span class="review_user"><strong>Canada
+																Goose Sale</strong></span>, <span class="review_time">10.10.2015</span>
+													</div>
+													<div class="review_text">
+														<p>وزیر انرژی عربستان به رویترز گفت: «عربستان سعودی
+															موقتاً انتقال نفت از طریق تنگه باب‌المندب را تا زمان
+															روشن‌تر شدن وضعیت و ایمن شدن ترانزیت دریایی از طریق این
+															تنگه متوقف می‌کند.» شرکت ملی نفت عربستان سعودی، آرامکو در
+															بیانیه‌ای اعلام کرد هر کدام از دو تانکر نفتی که هدف حمله
+															نیروهای انصارالله قرار گرفته‌اند حامل دو میلیون بشکه نفت
+															خام بوده‌اند. «خالد بن عبدالعزیز الفالح» مدعی شد
+															«تهدیدهای حوثی‌ها» باعث شده تجارت جهانی در معرض خطر قرار
+															بگیرد.</p>
+														<span>تیتر: <a href="single-product.html#">http://www.example.com</a></span>
+													</div>
+												</div>
+												<div class="reviewer-ratting">
+													<div class="name-date">
+														<strong>Yasuo</strong><span>17.11.2025</span>
+													</div>
+													<span class="best">Best</span>
+													<div class="info-rating">
+														<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+															class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+															class="fa fa-star"></i>
+													</div>
+												</div>
+											</div>
+											<div class="review-lower mt30">
+												<div class="input-header">
+													<p>نوشتن کامنت</p>
+												</div>
+												<div class="contactform">
+													<h3>ارسال پیام</h3>
+													<form class="">
+														<div class="row">
+															<div class="col-md-6 col-sm-12 col-xs-12">
+																<div class="input-box">
+																	<input type="text" class="form-control"
+																		placeholder="Full name" />
+																</div>
+															</div>
+															<div class="col-md-6 col-sm-12 col-xs-12">
+																<div class="input-box">
+																	<input type="email" class="form-control"
+																		placeholder="Email" />
+																</div>
+															</div>
+															<div class="col-md-12 col-sm-12 col-xs-12">
+																<div class="input-box">
+																	<textarea class="form-control" placeholder="Massage"></textarea>
+																</div>
+															</div>
+														</div>
+														<button type="submit" class="com-btn">send
+															message</button>
+													</form>
+												</div>
+											</div>
+										</div>
+										<div role="tabpanel" class="tab-pane fade in" id="product-tag">
+											<p>به زودی</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--review tab area are end-->
+							<div class="clearfix"></div>
+							<!--related product area are start-->
+							<div class="related-product mt55">
+								<div class="col-md-12">
+									<div class="section-title text-center pb30">
+										<h1>محصولات مرتبط</h1>
+										<span></span>
+									</div>
+									<div class="row">
+										<div class="related-item carousel-btn">
+											<div class="col-xs-12">
+												<div class="item main-item">
+													<div class="item-product">
+														<div class="item-product-thumb item-thumb-product">
+															<a href="single-product.html#"><img
+																src="resources/tmp/img/product/men/s05.jpg" alt="" /></a>
+														</div>
+														<div class="item-product-info">
+															<div class="product-extra-link">
+																<a data-placement="top" data-toggle="tooltip"
+																	class="link-add-to-cart" title=""
+																	href="single-product.html#"
+																	data-original-title="wishlist"><i
+																	class="fa fa-heart"></i></a> <a data-placement="top"
+																	data-toggle="tooltip" class="link-add-to-cart" title=""
+																	href="single-product.html#"
+																	data-original-title="Add To Cart"><i
+																	class="fa fa-shopping-cart"></i></a> <a data-toggle="modal"
+																	data-trigger="hover" data-target=".modal"
+																	class="link-add-to-cart" href="single-product.html#"
+																	data-original-title="quick view"><i
+																	class="fa fa-search"></i></a>
+															</div>
+														</div>
+													</div>
+													<div class="ipi-info">
+														<h3 class="title-product">
+															<a href="single-product.html#">محصول</a>
+														</h3>
+														<div class="info-product-price">
+															<label class="persale">۸٪</label> <span>۱۶۰۰۰</span>
+															<del>۱۶۰۰۰</del>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12">
+												<div class="item main-item">
+													<div class="item-product">
+														<div class="item-product-thumb item-thumb-product">
+															<a href="single-product.html#"><img
+																src="resources/tmp/img/product/men/s02.jpg" alt="" /></a>
+														</div>
+														<div class="item-product-info">
+															<div class="product-extra-link">
+																<a data-placement="top" data-toggle="tooltip"
+																	class="link-add-to-cart" title=""
+																	href="single-product.html#"
+																	data-original-title="wishlist"><i
+																	class="fa fa-heart"></i></a> <a data-placement="top"
+																	data-toggle="tooltip" class="link-add-to-cart" title=""
+																	href="single-product.html#"
+																	data-original-title="Add To Cart"><i
+																	class="fa fa-shopping-cart"></i></a> <a
+																	data-placement="top" data-toggle="modal"
+																	data-trigger="hover" data-target=".modal"
+																	class="link-add-to-cart" title="quick view"
+																	href="single-product.html#"><i class="fa fa-search"></i></a>
+															</div>
+														</div>
+
+													</div>
+													<div class="ipi-info">
+														<h3 class="title-product">
+															<a href="single-product.html#">محصول</a>
+														</h3>
+														<div class="info-product-price">
+															<label class="persale">۸٪</label> <span>۱۶۰۰۰</span>
+															<del>۱۶۰۰۰</del>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12">
+												<div class="item main-item">
+													<div class="item-product">
+														<div class="item-product-thumb item-thumb-product">
+															<a href="single-product.html#"><img
+																src="resources/tmp/img/product/men/s03.jpg" alt="" /></a>
+														</div>
+														<div class="item-product-info">
+															<div class="product-extra-link">
+																<a data-placement="top" data-toggle="tooltip"
+																	class="link-add-to-cart" title=""
+																	href="single-product.html#"
+																	data-original-title="wishlist"><i
+																	class="fa fa-heart"></i></a> <a data-placement="top"
+																	data-toggle="tooltip" class="link-add-to-cart" title=""
+																	href="single-product.html#"
+																	data-original-title="Add To Cart"><i
+																	class="fa fa-shopping-cart"></i></a> <a
+																	data-placement="top" data-toggle="modal"
+																	data-trigger="hover" data-target=".modal"
+																	class="link-add-to-cart" title="quick view"
+																	href="single-product.html#"><i class="fa fa-search"></i></a>
+															</div>
+														</div>
+													</div>
+													<div class="ipi-info">
+														<h3 class="title-product">
+															<a href="single-product.html#">محصول</a>
+														</h3>
+														<div class="info-product-price">
+															<label class="persale">۸٪</label> <span>۱۶۰۰۰</span>
+															<del>۱۶۰۰۰</del>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12">
+												<div class="item main-item">
+													<div class="item-product">
+														<div class="item-product-thumb item-thumb-product">
+															<a href="single-product.html#"><img
+																src="resources/tmp/img/product/men/s04.jpg" alt="" /></a>
+														</div>
+														<div class="item-product-info">
+															<div class="product-extra-link">
+																<a data-placement="top" data-toggle="tooltip"
+																	class="link-add-to-cart" title=""
+																	href="single-product.html#"
+																	data-original-title="wishlist"><i
+																	class="fa fa-heart"></i></a> <a data-placement="top"
+																	data-toggle="tooltip" class="link-add-to-cart" title=""
+																	href="single-product.html#"
+																	data-original-title="Add To Cart"><i
+																	class="fa fa-shopping-cart"></i></a> <a
+																	data-placement="top" data-toggle="modal"
+																	data-trigger="hover" data-target=".modal"
+																	class="link-add-to-cart" title="quick view"
+																	href="single-product.html#"><i class="fa fa-search"></i></a>
+															</div>
+														</div>
+
+													</div>
+													<div class="ipi-info">
+														<h3 class="title-product">
+															<a href="single-product.html#">محصول</a>
+														</h3>
+														<div class="info-product-price">
+															<label class="persale">۸٪</label> <span>۱۶۰۰۰</span>
+															<del>۱۶۰۰۰</del>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12">
+												<div class="item main-item">
+													<div class="item-product">
+														<div class="item-product-thumb item-thumb-product">
+															<a href="single-product.html#"><img
+																src="resources/tmp/img/product/men/s05.jpg" alt="" /></a>
+														</div>
+														<div class="item-product-info">
+															<div class="product-extra-link">
+																<a data-placement="top" data-toggle="tooltip"
+																	class="link-add-to-cart" title=""
+																	href="single-product.html#"
+																	data-original-title="wishlist"><i
+																	class="fa fa-heart"></i></a> <a data-placement="top"
+																	data-toggle="tooltip" class="link-add-to-cart" title=""
+																	href="single-product.html#"
+																	data-original-title="Add To Cart"><i
+																	class="fa fa-shopping-cart"></i></a> <a
+																	data-placement="top" data-toggle="modal"
+																	data-trigger="hover" data-target=".modal"
+																	class="link-add-to-cart" title="quick view"
+																	href="single-product.html#"><i class="fa fa-search"></i></a>
+															</div>
+														</div>
+													</div>
+													<div class="ipi-info">
+														<h3 class="title-product">
+															<a href="single-product.html#">محصول</a>
+														</h3>
+														<div class="info-product-price">
+															<label class="persale">۸٪</label> <span>۱۶۰۰۰</span>
+															<del>۱۶۰۰۰</del>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--related product area are end-->
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-12">
+							<div class="total-widget">
+								<!-- aside-categories start -->
+								<aside class="aside-widget widget-categories"
+									style="direction:rtl!important;">
+								<h3 class="sidebar-title">دسته بندی</h3>
+								<ul class="sidebar-menu">
+									<li><a href="single-product.html#">پوشاک</a></li>
+									<li><a href="single-product.html#">صوتی و تصویری</a></li>
+									<li><a href="single-product.html#">خودرو</a></li>
+									<li><a href="single-product.html#">عینک</a></li>
+								</ul>
+								</aside>
+								<!-- aside-categories end -->
+
+								<!-- aside brand start -->
+								<aside class="aside-widget aside-brand"
+									style="direction:rtl!important;">
+								<h3 class="sidebar-title">برند محصولات</h3>
+								<ul class="sidebar-menu">
+									<li><a href="single-product.html#">SONY</a> <span
+										class="count">(10)</span></li>
+									<li><a href="single-product.html#">SAMSUNG</a> <span
+										class="count">(15)</span></li>
+									<li><a href="single-product.html#">LG</a> <span
+										class="count">(13)</span></li>
+									<li><a href="single-product.html#">Nokia</a> <span
+										class="count">(5)</span></li>
+								</ul>
+								</aside>
+								<!-- aside brand end -->
+
+								<!-- aside best sell start -->
+								<aside class="aside-widget aside-best-sell">
+								<h3 class="sidebar-title">بهترین فروش ها</h3>
+								<div class="best-sell">
+									<div class="best-sell-single">
+										<div class="item main-item">
+											<div class="item-product">
+												<div class="item-product-thumb item-thumb-product">
+													<a href="single-product.html#"><img
+														src="resources/tmp/img/product/men/s03.jpg" alt="" /></a>
+												</div>
+												<div class="item-product-info">
+													<div class="product-extra-link">
+														<a data-placement="top" data-toggle="tooltip"
+															class="link-add-to-cart" href="single-product.html#"
+															data-original-title="wishlist"><i class="fa fa-heart"></i></a>
+														<a data-placement="top" data-toggle="tooltip"
+															class="link-add-to-cart" href="single-product.html#"
+															data-original-title="Add To Cart"><i
+															class="fa fa-shopping-cart"></i></a> <a data-placement="top"
+															data-toggle="modal" data-trigger="hover"
+															data-target=".modal" class="link-add-to-cart"
+															title="quick view" href="single-product.html#"><i
+															class="fa fa-search"></i></a>
+													</div>
+												</div>
+											</div>
+											<div class="ipi-info">
+												<h3 class="title-product">
+													<a href="single-product.html#">محصول ۱</a>
+												</h3>
+												<div class="info-product-price">
+													<label class="persale">10%</label> <span>$45.99</span>
+													<del>$69.71</del>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="best-sell-single">
+										<div class="item main-item">
+											<div class="item-product">
+												<div class="item-product-thumb item-thumb-product">
+													<a href="single-product.html#"><img
+														src="resources/tmp/img/product/cloting/01.jpg" alt="" /></a>
+												</div>
+												<div class="item-product-info">
+													<div class="product-extra-link">
+														<a data-placement="top" data-toggle="tooltip"
+															class="link-add-to-cart" href="single-product.html#"
+															data-original-title="wishlist"><i class="fa fa-heart"></i></a>
+														<a data-placement="top" data-toggle="tooltip"
+															class="link-add-to-cart" href="single-product.html#"
+															data-original-title="Add To Cart"><i
+															class="fa fa-shopping-cart"></i></a> <a data-placement="top"
+															data-toggle="modal" data-trigger="hover"
+															data-target=".modal" class="link-add-to-cart"
+															title="quick view" href="single-product.html#"><i
+															class="fa fa-search"></i></a>
+													</div>
+												</div>
+											</div>
+											<div class="ipi-info">
+												<h3 class="title-product">
+													<a href="single-product.html#">محصول ۱</a>
+												</h3>
+												<div class="info-product-price">
+													<label class="persale">10%</label> <span>$45.99</span>
+													<del>$69.71</del>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="best-sell-single">
+										<div class="item main-item">
+											<div class="item-product">
+												<div class="item-product-thumb item-thumb-product">
+													<a href="single-product.html#"><img
+														src="resources/tmp/img/product/cloting/02.jpg" alt="" /></a>
+												</div>
+												<div class="item-product-info">
+													<div class="product-extra-link">
+														<a data-placement="top" data-toggle="tooltip"
+															class="link-add-to-cart" href="single-product.html#"
+															data-original-title="wishlist"><i class="fa fa-heart"></i></a>
+														<a data-placement="top" data-toggle="tooltip"
+															class="link-add-to-cart" href="single-product.html#"
+															data-original-title="Add To Cart"><i
+															class="fa fa-shopping-cart"></i></a> <a data-placement="top"
+															data-toggle="modal" data-trigger="hover"
+															data-target=".modal" class="link-add-to-cart"
+															title="quick view" href="single-product.html#"><i
+															class="fa fa-search"></i></a>
+													</div>
+												</div>
+											</div>
+											<div class="ipi-info">
+												<h3 class="title-product">
+													<a href="single-product.html#">محصول ۱</a>
+												</h3>
+												<div class="info-product-price">
+													<label class="persale">10%</label> <span>$45.99</span>
+													<del>$69.71</del>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								</aside>
+								<!-- aside best sell end -->
+
+								<!-- aside hotsell start -->
+								<aside class="aside-widget aside-hot-sell">
+								<h3 class="sidebar-title">بهترین فروش ها</h3>
+								<div class="hot-best-top aside-hotsell">
+									<div class="item">
+										<div class="item-product item-product-list">
+											<div class="item-product-thumb">
+												<a href="single-product.html#" class="item-product-link">
+													<img src="img/product/special/n01.jpg" alt="" />
+												</a>
+											</div>
+											<div class="item-product-info2">
+												<h3>
+													<a href="single-product.html#">محصول ۱</a>
+												</h3>
+												<div class="info-product-price">
+													<span>$45.99</span>
+													<del>$69.71</del>
+												</div>
+												<div class="info-rating">
+													<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+														class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+														class="fa fa-star"></i>
+												</div>
+												<div class="order-number">
+													<span>( 5 Stars )</span>
+												</div>
+												<div class="product-extra-link">
+													<a data-placement="top" data-toggle="tooltip"
+														class="link-add-to-cart" title=""
+														href="single-product.html#" data-original-title="wishlist"><i
+														class="fa fa-heart"></i></a> <a data-placement="top"
+														data-toggle="tooltip" class="link-add-to-cart" title=""
+														href="single-product.html#"
+														data-original-title="Add To Cart"><i
+														class="fa fa-shopping-cart"></i></a> <a data-placement="top"
+														data-toggle="modal" data-trigger="hover"
+														data-target=".modal" class="link-add-to-cart"
+														title="quick view" href="single-product.html#"><i
+														class="fa fa-search"></i></a>
+												</div>
+											</div>
+										</div>
+										<div class="item-product item-product-list">
+											<div class="item-product-thumb">
+												<a href="single-product.html#" class="item-product-link">
+													<img src="resources/tmp/img/product/special/n02.jpg" alt="" />
+												</a>
+											</div>
+											<div class="item-product-info2">
+												<h3>
+													<a href="single-product.html#">محصول ۱</a>
+												</h3>
+												<div class="info-product-price">
+													<span>$45.99</span>
+													<del>$69.71</del>
+												</div>
+												<div class="info-rating">
+													<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+														class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+														class="fa fa-star"></i>
+												</div>
+												<div class="order-number">
+													<span>( 5 Stars )</span>
+												</div>
+												<div class="product-extra-link">
+													<a data-placement="top" data-toggle="tooltip"
+														class="link-add-to-cart" title=""
+														href="single-product.html#" data-original-title="wishlist"><i
+														class="fa fa-heart"></i></a> <a data-placement="top"
+														data-toggle="tooltip" class="link-add-to-cart" title=""
+														href="single-product.html#"
+														data-original-title="Add To Cart"><i
+														class="fa fa-shopping-cart"></i></a> <a data-placement="top"
+														data-toggle="modal" data-trigger="hover"
+														data-target=".modal" class="link-add-to-cart"
+														title="quick view" href="single-product.html#"><i
+														class="fa fa-search"></i></a>
+												</div>
+											</div>
+										</div>
+										<div class="item-product item-product-list">
+											<div class="item-product-thumb">
+												<a href="single-product.html#" class="item-product-link">
+													<img src="resources/tmp/img/product/special/s01.jpg" alt="" />
+												</a>
+											</div>
+											<div class="item-product-info2">
+												<h3>
+													<a href="single-product.html#">محصول ۱</a>
+												</h3>
+												<div class="info-product-price">
+													<span>$45.99</span>
+												</div>
+												<div class="info-rating">
+													<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+														class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+														class="fa fa-star-o"></i>
+												</div>
+												<div class="order-number">
+													<span>( 5 Stars )</span>
+												</div>
+												<div class="product-extra-link">
+													<a data-placement="top" data-toggle="tooltip"
+														class="link-add-to-cart" title=""
+														href="single-product.html#" data-original-title="wishlist"><i
+														class="fa fa-heart"></i></a> <a data-placement="top"
+														data-toggle="tooltip" class="link-add-to-cart" title=""
+														href="single-product.html#"
+														data-original-title="Add To Cart"><i
+														class="fa fa-shopping-cart"></i></a> <a data-placement="top"
+														data-toggle="modal" data-trigger="hover"
+														data-target=".modal" class="link-add-to-cart"
+														title="quick view" href="single-product.html#"><i
+														class="fa fa-search"></i></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- End Item -->
+									<div class="item">
+										<div class="item-product item-product-list">
+											<div class="item-product-thumb">
+												<a href="single-product.html#" class="item-product-link">
+													<img src="resources/tmp/img/product/special/s02.jpg" alt="" />
+												</a>
+											</div>
+											<div class="item-product-info2">
+												<h3>
+													<a href="single-product.html#">محصول ۱</a>
+												</h3>
+												<div class="info-product-price">
+													<span>$45.99</span>
+													<del>$69.71</del>
+												</div>
+												<div class="info-rating">
+													<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+														class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+														class="fa fa-star"></i>
+												</div>
+												<div class="order-number">
+													<span>( 5 Stars )</span>
+												</div>
+												<div class="product-extra-link">
+													<a data-placement="top" data-toggle="tooltip"
+														class="link-add-to-cart" title=""
+														href="single-product.html#" data-original-title="wishlist"><i
+														class="fa fa-heart"></i></a> <a data-placement="top"
+														data-toggle="tooltip" class="link-add-to-cart" title=""
+														href="single-product.html#"
+														data-original-title="Add To Cart"><i
+														class="fa fa-shopping-cart"></i></a> <a data-placement="top"
+														data-toggle="modal" data-trigger="hover"
+														data-target=".modal" class="link-add-to-cart"
+														title="quick view" href="single-product.html#"><i
+														class="fa fa-search"></i></a>
+												</div>
+											</div>
+										</div>
+										<div class="item-product item-product-list">
+											<div class="item-product-thumb">
+												<a href="single-product.html#" class="item-product-link">
+													<img src="resources/tmp/img/product/special/w02.jpg" alt="" />
+												</a>
+											</div>
+											<div class="item-product-info2">
+												<h3>
+													<a href="single-product.html#">محصول ۱</a>
+												</h3>
+												<div class="info-product-price">
+													<span>$45.99</span>
+												</div>
+												<div class="info-rating">
+													<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+														class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+														class="fa fa-star-o"></i>
+												</div>
+												<div class="order-number">
+													<span>( 5 Stars )</span>
+												</div>
+												<div class="product-extra-link">
+													<a data-placement="top" data-toggle="tooltip"
+														class="link-add-to-cart" title=""
+														href="single-product.html#" data-original-title="wishlist"><i
+														class="fa fa-heart"></i></a> <a data-placement="top"
+														data-toggle="tooltip" class="link-add-to-cart" title=""
+														href="single-product.html#"
+														data-original-title="Add To Cart"><i
+														class="fa fa-shopping-cart"></i></a> <a data-placement="top"
+														data-toggle="modal" data-trigger="hover"
+														data-target=".modal" class="link-add-to-cart"
+														title="quick view" href="single-product.html#"><i
+														class="fa fa-search"></i></a>
+												</div>
+											</div>
+										</div>
+										<div class="item-product item-product-list">
+											<div class="item-product-thumb">
+												<a href="single-product.html#" class="item-product-link">
+													<img src="resources/tmp/img/product/special/w01.jpg" alt="" />
+												</a>
+											</div>
+											<div class="item-product-info2">
+												<h3>
+													<a href="single-product.html#">محصول ۱</a>
+												</h3>
+												<div class="info-product-price">
+													<span>$45.99</span>
+													<del>$69.71</del>
+												</div>
+												<div class="info-rating">
+													<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+														class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+														class="fa fa-star"></i>
+												</div>
+												<div class="order-number">
+													<span>( 5 Stars )</span>
+												</div>
+												<div class="product-extra-link">
+													<a data-placement="top" data-toggle="tooltip"
+														class="link-add-to-cart" title=""
+														href="single-product.html#" data-original-title="wishlist"><i
+														class="fa fa-heart"></i></a> <a data-placement="top"
+														data-toggle="tooltip" class="link-add-to-cart" title=""
+														href="single-product.html#"
+														data-original-title="Add To Cart"><i
+														class="fa fa-shopping-cart"></i></a> <a data-placement="top"
+														data-toggle="modal" data-trigger="hover"
+														data-target=".modal" class="link-add-to-cart"
+														title="quick view" href="single-product.html#"><i
+														class="fa fa-search"></i></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- End Item -->
+								</div>
+								</aside>
+								<!-- aside hotsell end -->
+
+								<!-- widget-tags start -->
+								<aside class="aside-widget product-tag hidden-sm">
+								<h3 class="sidebar-title">تگ های مرتبط</h3>
+								<ul>
+									<li><a href="single-product.html#">فشن</a></li>
+									<li><a href="single-product.html#">خودرو</a></li>
+									<li><a href="single-product.html#">پوشاک</a></li>
+									<li><a href="single-product.html#">مردان</a></li>
+									<li><a href="single-product.html#">گالری</a></li>
+									<li><a href="single-product.html#">جدید ها</a></li>
+									<li><a href="single-product.html#">بانوان</a></li>
+									<li><a href="single-product.html#">بهترین فروش ها</a></li>
+									<li><a href="single-product.html#">مد</a></li>
+									<li><a href="single-product.html#">مواد غذایی</a></li>
+									<li><a href="single-product.html#">خودرو</a></li>
+								</ul>
+								</aside>
+								<!-- widget-tags end -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--shop-product-wraper end-->
+
+
+
+			<!--start our-clients-area -->
+			<div class="our_clients_area pt55 pb55">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 col-sm-12">
+							<div class="section-title text-center pb30">
+								<h1>برند</h1>
+								<span></span>
+							</div>
+							<div class="client-active">
+								<div class="client-name">
+									<img src="resources/tmp/img/client/01.png" alt="" />
+								</div>
+								<div class="client-name">
+									<img src="resources/tmp/img/client/02.png" alt="" />
+								</div>
+								<div class="client-name">
+									<img src="resources/tmp/img/client/03.png" alt="" />
+								</div>
+								<div class="client-name">
+									<img src="resources/tmp/img/client/04.png" alt="" />
+								</div>
+								<div class="client-name">
+									<img src="resources/tmp/img/client/05.png" alt="" />
+								</div>
+								<div class="client-name">
+									<img src="resources/tmp/img/client/06.png" alt="" />
+								</div>
+								<div class="client-name">
+									<img src="resources/tmp/img/client/04.png" alt="" />
+								</div>
+								<div class="client-name">
+									<img src="resources/tmp/img/client/03.png" alt="" />
+								</div>
+								<div class="client-name">
+									<img src="resources/tmp/img/client/02.png" alt="" />
+								</div>
+								<div class="client-name">
+									<img src="resources/tmp/img/client/01.png" alt="" />
+								</div>
+								<div class="client-name">
+									<img src="resources/tmp/img/client/05.png" alt="" />
+								</div>
+								<div class="client-name">
+									<img src="resources/tmp/img/client/06.png" alt="" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--End our-clients-area -->
+
+			<!-- Quick View start -->
+			<div id="quickview-wrapper">
+				<!-- Modal -->
+				<div class="modal fade" id="productModal" tabindex="-1"
+					role="dialog">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="modal-product">
+									<div class="product-images">
+										<!--modal tab start-->
+										<div class="portfolio-thumbnil-area-2">
+											<div class="tab-content active-portfolio-area-2">
+												<div role="tabpanel" class="tab-pane active" id="view1">
+													<div class="product-img">
+														<a href="single-product.html#"><img
+															src="resources/tmp/img/product/large/01.jpg"
+															alt="Single portfolio" /></a>
+													</div>
+												</div>
+												<div role="tabpanel" class="tab-pane" id="view2">
+													<div class="product-img">
+														<a href="single-product.html#"><img
+															src="resources/tmp/img/product/large/02.jpg"
+															alt="Single portfolio" /></a>
+													</div>
+												</div>
+												<div role="tabpanel" class="tab-pane" id="view3">
+													<div class="product-img">
+														<a href="single-product.html#"><img
+															src="resources/tmp/img/product/large/03.jpg"
+															alt="Single portfolio" /></a>
+													</div>
+												</div>
+												<div role="tabpanel" class="tab-pane" id="view4">
+													<div class="product-img">
+														<a href="single-product.html#"><img
+															src="resources/tmp/img/product/large/04.jpg"
+															alt="Single portfolio" /></a>
+													</div>
+												</div>
+											</div>
+											<div class="product-more-views-2">
+												<div class="thumbnail-carousel-modal-2" data-tabs="tabs">
+													<a href="single-product.html#view1" aria-controls="view1"
+														data-toggle="tab"><img
+														src="resources/tmp/img/product/large/01.jpg" alt="" /></a> <a
+														href="single-product.html#view2" aria-controls="view2"
+														data-toggle="tab"><img
+														src="resources/tmp/img/product/large/02.jpg" alt="" /></a> <a
+														href="single-product.html#view3" aria-controls="view3"
+														data-toggle="tab"><img
+														src="resources/tmp/img/product/large/03.jpg" alt="" /></a> <a
+														href="single-product.html#view4" aria-controls="view4"
+														data-toggle="tab"><img
+														src="resources/tmp/img/product/large/04.jpg" alt="" /></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--modal tab end-->
+									<!-- .product-images -->
+									<div class="product-info">
+										<h1>اطلاعات</h1>
+										<div class="price-box-3">
+											<div class="s-price-box">
+												<span class="new-price">۱۵۰۰۰</span> <span class="old-price">$190.00</span>
+											</div>
+										</div>
+										<a href="shop.html" class="see-all">تمام خصوصیات</a>
+										<div class="quick-add-to-cart">
+											<form method="post" class="cart">
+												<div class="numbers-row">
+													<input type="number" id="french-hens" value="3" />
+												</div>
+												<button class="single_add_to_cart_button" type="submit">اضافه
+													به سبد</button>
+											</form>
+										</div>
+
+										<div class="social-sharing-modal">
+											<div class="widget-modal widget_socialsharing_widget">
+												<h3 class="widget-title-modal">تسهیم محصول</h3>
+												<ul class="social-icons-modal">
+													<li><a target="_blank" title="Facebook"
+														href="single-product.html#" class="facebook m-single-icon"><i
+															class="fa fa-facebook"></i></a></li>
+													<li><a target="_blank" title="Twitter"
+														href="single-product.html#" class="twitter m-single-icon"><i
+															class="fa fa-twitter"></i></a></li>
+													<li><a target="_blank" title="Pinterest"
+														href="single-product.html#"
+														class="pinterest m-single-icon"><i
+															class="fa fa-pinterest"></i></a></li>
+													<li><a target="_blank" title="Google +"
+														href="single-product.html#" class="g-plus m-single-icon"><i
+															class="fa fa-google-plus"></i></a></li>
+													<li><a target="_blank" title="LinkedIn"
+														href="single-product.html#" class="linkedin m-single-icon"><i
+															class="fa fa-linkedin"></i></a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<!-- .product-info -->
+								</div>
+								<!-- .modal-product -->
+							</div>
+							<!-- .modal-body -->
+						</div>
+						<!-- .modal-content -->
+					</div>
+					<!-- .modal-dialog -->
+				</div>
+				<!-- END Modal -->
+			</div>
+			<!-- Quick view end-->
+
+			<!--  wpraper are end-->
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

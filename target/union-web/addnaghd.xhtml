@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<h:body> 
+ <ui:composition template="/template.xhtml">
+<ui:define name="headtmp">
+
+</ui:define>
+<ui:define name="centertmp">
+<h:form enctype="multipart/form-data" acceptcharset="UTF-8" id="form"> 
+    <p:growl id="growl" />
+     <p:panel id="pnl" header="افزودن نقد و بررسی" style="margin-bottom:10px;" styleClass="direction:rtl;">
+     
+        <p:messages id="messages" />
+        <h:panelGrid columns="3" cellpadding="5" dir="rtl">
+        
+        		<p:outputLabel for="category" value="کتگوری" />
+						<p:inputText id="category" 
+							value="#{mashahirBean.mashahirName}"
+							label="Firstname" size="50" styleClass="ali">
+							<f:validateLength maximum="299"/>
+						</p:inputText>
+						<p:message for="category" />
+						
+						        		<p:outputLabel for="title" value="عنوان" />
+						<p:inputText id="title" 
+							value="#{naghdBean.naghdTitle}"
+						    size="50" styleClass="ali">
+							<f:validateLength maximum="299"/>
+						</p:inputText>
+						<p:message for="title" />
+        
+		<p:outputLabel for="naghdHead1" value="هد ۱" />
+						<p:inputText id="naghdHead1" 
+							value="#{naghdBean.naghdHead1}"
+							label="Firstname" size="50" styleClass="ali">
+							<f:validateLength  maximum="299"/>
+						</p:inputText>
+						<p:message for="naghdHead1" />
+ 
+						<p:outputLabel for="naghdText1" value="متن ۱" />
+						<p:inputTextarea id="naghdText1"
+							value="#{naghdBean.naghdText1}" 
+						    size="50" styleClass="ali">
+							<f:validateLength maximum="4999" />
+						</p:inputTextarea>
+						<p:message for="naghdText1" />
+						
+		               <p:outputLabel for="naghdHead2" value="هد ۲" />
+						<p:inputText id="naghdHead2" 
+							value="#{naghdBean.naghdHead2}"
+						   size="50" styleClass="ali">
+							<f:validateLength  maximum="299"/>
+						</p:inputText>
+						<p:message for="naghdHead2" />
+						
+						<p:outputLabel for="naghdText2" value="متن ۲" />
+						<p:inputTextarea id="naghdText2"
+							value="#{naghdBean.naghdText2}" 
+						    size="50" styleClass="ali">
+							<f:validateLength maximum="4999" />
+						</p:inputTextarea>
+						<p:message for="naghdText2" />
+
+						
+		               <p:outputLabel for="naghdHead3" value="هد ۳" />
+						<p:inputText id="naghdHead3" 
+							value="#{naghdBean.naghdHead3}"
+						   size="50" styleClass="ali">
+							<f:validateLength  maximum="299"/>
+						</p:inputText>
+						<p:message for="naghdHead3" />
+						
+						
+						<p:outputLabel for="naghdText3" value="متن ۳" />
+						<p:inputTextarea id="naghdText3"
+							value="#{naghdBean.naghdText3}" 
+						    size="50" styleClass="ali">
+							<f:validateLength maximum="4999" />
+						</p:inputTextarea>
+						<p:message for="naghdText3" />
+            
+            
+						
+		               <p:outputLabel for="naghdHead4" value="هد ۴" />
+						<p:inputText id="naghdHead4" 
+							value="#{naghdBean.naghdHead4}"
+						   size="50" styleClass="ali">
+							<f:validateLength  maximum="299"/>
+						</p:inputText>
+						<p:message for="naghdHead4" />
+            
+           
+            
+						<p:outputLabel for="naghdText4" value="متن ۴" />
+						<p:inputTextarea id="naghdText4"
+							value="#{naghdBean.naghdText4}" 
+						    size="50" styleClass="ali">
+							<f:validateLength maximum="4999" />
+						</p:inputTextarea>
+						<p:message for="naghdText4" />
+            
+						
+		               <p:outputLabel for="naghdHead5" value="هد ۵" />
+						<p:inputText id="naghdHead5" 
+							value="#{naghdBean.naghdHead5}"
+						   size="50" styleClass="ali">
+							<f:validateLength  maximum="299"/>
+						</p:inputText>
+						<p:message for="naghdHead5" />
+            
+						<p:outputLabel for="naghdText5" value="متن ۵" />
+						<p:inputTextarea id="naghdText5"
+							value="#{naghdBean.naghdText5}" 
+						    size="50" styleClass="ali">
+							<f:validateLength maximum="4999" />
+						</p:inputTextarea>
+						<p:message for="naghdText5" />
+            
+
+
+
+						
+					
+          				<p:outputLabel value="عکس ۱" />
+						<h:inputFile value="#{naghdBean.pic1}" required="true" requiredMessage="please select shop1Image image"/>
+                        <p:outputLabel value=""/>
+                       <p:outputLabel value="عکس ۲" />
+						<h:inputFile value="#{naghdBean.pic2}" required="true" requiredMessage="please select shop2Image image"/>
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="عکس ۳" />
+						<h:inputFile value="#{naghdBean.pic3}" required="true" requiredMessage="please select shopForm image"/>
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="عکس ۴" />
+						<h:inputFile value="#{naghdBean.pic4}" required="true" requiredMessage="please select shopForm image"/>
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="عکس ۵" />
+						<h:inputFile value="#{naghdBean.pic5}" required="true" requiredMessage="please select shopForm image"/>
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="عکس ۶" />
+						<h:inputFile value="#{naghdBean.pic6}" required="true" requiredMessage="please select shop1Image image"/>
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="عکس ۷" />
+						<h:inputFile value="#{naghdBean.pic7}" required="true" requiredMessage="please select shop2Image image"/>
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="عکس ۸" />
+						<h:inputFile value="#{naghdBean.pic8}" required="true" requiredMessage="please select shopForm image"/>
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="عکس ۹" />
+						<h:inputFile value="#{naghdBean.pic9}" required="true" requiredMessage="please select shopForm image"/>
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="عکس ۱۰" />
+						<h:inputFile value="#{naghdBean.pic10}" required="true" requiredMessage="please select shopForm image"/>
+                        <p:outputLabel value=""/>
+						
+						
+						
+							<h:commandButton id="saveBtn" value="ذخیره" icon="ui-icon-check"  style="margin:0"
+							update="pnl" ajax="true" execute="@form"
+							action="#{naghdBean.insertToNaghd()}"
+							 >
+							</h:commandButton>
+							
+                        
+                                    
+        </h:panelGrid>
+ 
+    </p:panel>
+ 
+    <p:blockUI block="pnl" trigger="saveBtn" />
+    
+</h:form>
+</ui:define>
+<ui:define name="righttmp">
+<h:form>
+    <p:dataTable var="naghd" value="#{naghdBean.findAllNaghd()}" rows="10"
+                         paginator="true" resizableColumns="true" liveResize="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15" dir="rtl">
+        <p:column headerText="شماره">
+            <h:outputText value="#{naghd.naghdId}" />
+        </p:column>
+ 
+        <p:column headerText="نام">
+            <h:outputText value="#{naghdBean.naghdTitle}" />
+        </p:column>
+        
+         <p:column width="100">
+                    <f:facet name="header">
+            <h:outputText value="حذف" /> 
+            </f:facet>
+        <p:commandButton value="delete"  action="#{naghdBean.deleteNAghdEntity(naghd.naghdId)}" style="width:100%!important;">
+        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
+        </p:commandButton>
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+        </p:confirmDialog>
+        </p:column>
+  
+    </p:dataTable>
+</h:form>
+</ui:define>
+</ui:composition>
+</h:body> 
+</html>

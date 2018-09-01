@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+	<ui:composition template="/template.xhtml">
+		<ui:define name="headtmp">
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<style>
+.ui-panel {
+	padding: .2em;
+	direction: rtl !important;
+}
+
+.ui-widget-content {
+	color: #222222;
+	overflow: hidden !important;
+}
+</style>
+		</ui:define>
+		<ui:define name="centertmp">
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="merchantID" />
+				</f:metadata>
+			</ui:define>
+			
+			
+									<h:form enctype="multipart/form-data" id="frm3">
+				<p:growl id="growl2" showDetail="true" sticky="true" />
+				<p:panel id="pnl3" header="انتخاب محصول ویژه">
+
+					<p:focus context="pnl3" />
+
+					<p:messages />
+
+					<h:panelGrid columns="3" dir="rtl">
+
+
+						<p:outputLabel for="specialprice" value="قیمت ویژه" />
+						<p:inputText id="specialprice" value="#{specialProductBean.specialPrice}"
+							required="true" label="price">
+							<f:validateLength minimum="1" maximum="99" />
+						</p:inputText>
+						<p:message for="specialprice" />
+
+
+					</h:panelGrid>
+
+					<p:dataTable id="radioDT3" var="prdctdded" reflow="true"
+						value="#{dedicatedProductBean.findAllDedicatedProducts()}"
+						selection="#{specialProductBean.dedicatedEntity}"
+						rowKey="#{prdctdded.dedicatedId}" paginator="true" rows="5"
+						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="5,10,15">
+						<f:facet name="header">
+            RadioButton
+        </f:facet>
+						<p:column selectionMode="single" visible="#{prdctdded.merchant.merchantId==merchantID}"
+							style="width:16px;text-align:center" headerText="انتخاب">
+							<h:outputText value="" />
+						</p:column>
+						<p:column headerText="Id" filterBy="#{prdctdded.dedicatedId}" visible="#{prdctdded.merchant.merchantId==merchantID}"
+							sortBy="#{prdctdded.dedicatedId}" filterMatchMode="contains">
+							<h:outputText value="#{prdctdded.dedicatedId}" />
+						</p:column>
+						<p:column headerText="Name" filterBy="#{prdctdded.product.productName}" visible="#{prdctdded.merchant.merchantId==merchantID}"
+							sortBy="#{prdctdded.dedicatedId}" filterMatchMode="contains">
+							<h:outputText value="#{prdctdded.product.productName}" />
+						</p:column>
+						<p:column headerText="Brand" filterBy="#{prdctdded.product.productBrand}" visible="#{prdctdded.merchant.merchantId==merchantID}"
+							sortBy="#{prdctdded.dedicatedId}" filterMatchMode="contains">
+							<h:outputText value="#{prdctdded.product.productBrand}" />
+						</p:column>
+					</p:dataTable>
+
+					<h:commandButton id="submitButton" value="Save" update="growl"
+						action="#{specialProductBean.inserToSpecialProduct()}"
+						rendered="true" />
+				</p:panel>
+				<p:blockUI block="pnl3" trigger="submitButton" />
+			</h:form>
+			
+			</ui:define>
+			
+			<ui:define name="righttmp">
+			
+						<h:form>
+							<p:dataTable var="sded" reflow="true"
+								value="#{specialProductBean.findAllSpecialProduct()}"
+								rows="5" rowKey="#{sded.specialProductId}" paginator="true"
+								paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+								rowsPerPageTemplate="5,10,15">
+			
+								<p:column id="bbbb" headerText="شماره" filterBy="#{sded.specialProductId}" visible="#{sded.dedicate.merchant.merchantId==merchantID}"
+									sortBy="#{sded.specialProductId}" filterMatchMode="contains">
+									<h:outputText value="#{sded.specialProductId}" />
+								</p:column>
+								
+								<p:column headerText="نام کالا" filterBy="#{sded.dedicate.product.productName}" visible="#{sded.dedicate.merchant.merchantId==merchantID}"
+									sortBy="#{sded.specialProductId}" filterMatchMode="contains">
+									<h:outputText value="#{sded.dedicate.product.productName}" />
+								</p:column>
+			
+							</p:dataTable>
+						</h:form>
+			
+			</ui:define>
+			</ui:composition>
+</body> 
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+<f:view locale="fa" >
+<h:head></h:head> 
+<body> 
+<ui:composition template="/template.xhtml">
+<ui:define name="headtmp">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+.ui-panel {
+    padding: .2em;
+    direction: rtl!important;
+}
+.ui-widget-content {
+    color: #222222;
+    overflow: hidden!important;
+}
+</style>
+
+</ui:define>
+<ui:define name="centertmp">
+	  <ui:define name="metadata">
+      <f:metadata>
+      <f:viewParam name="merchantID"/>
+      </f:metadata>
+      </ui:define> 
+<h:form enctype="multipart/form-data" id="form" acceptcharset="UTF-8">
+					<p:growl id="growl" showDetail="true" sticky="true" />
+					<p:panel id="pnl" header="افزودن تبلیغ">
+					<p:messages />
+					<h:panelGrid columns="3" dir="rtl">
+
+
+							<p:outputLabel for="commTitle" value="عنوان تبلیغ : " />
+							<p:inputText id="commTitle"
+								value="#{commercialBean.commercialTitle}" required="true"
+								label="productName" size="30">
+								<f:validateLength minimum="2" maximum="100" />
+							</p:inputText>
+							<p:message for="commTitle" />
+
+							
+							<p:outputLabel value="commImg" />
+							<h:inputFile value="#{commercialBean.commercialPic}" required="true"/>
+							<p:outputLabel value="" />
+
+
+							
+						
+
+						<h:commandButton id="submitButton" value="Save" update="growl"
+						    action="#{commercialBean.insertToCommercialEntity(merchantID)}"
+							rendered="true" />
+							</h:panelGrid>
+					</p:panel>
+					
+					<p:blockUI block="pnl" trigger="submitButton" />
+				</h:form>
+				</ui:define>
+				
+				
+				<ui:define name="righttmp">
+<h:form>
+    <p:dataTable var="comm" value="#{commercialBean.findCommercialByMerchant(merchantID)}" rows="10"
+                         paginator="true" resizableColumns="true" liveResize="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15" dir="rtl">
+        <p:column headerText="شماره">
+            <h:outputText value="#{comm.commercialPicturesId}" />
+        </p:column>
+ 
+        <p:column headerText="نام">
+            <h:outputText value="#{comm.commercialTitle}" />
+        </p:column>
+        
+
+    </p:dataTable>
+    
+</h:form>
+</ui:define>
+</ui:composition>
+</body> 
+</f:view>
+</html>

@@ -1,0 +1,571 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head> 
+<h:body> 
+<ui:composition template="/template.xhtml">
+<ui:define name="headtmp">
+<h:outputScript library="javascript" name="merchant.js"/>
+<style>
+.ui-panel {
+    padding: .2em;
+    direction: rtl!important;
+}
+.ui-widget-content {
+    color: #222222;
+    overflow: hidden!important;
+}
+</style>
+			<title>Merchant</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <link rel="stylesheet" type="text/css" media="all" href="resources/date/skins/aqua/theme.css" title="Aqua" />
+		<link rel="alternate stylesheet" type="text/css" media="all" href="resources/date/skins/calendar-blue.css" title="winter" />
+		<link rel="alternate stylesheet" type="text/css" media="all" href="resources/date/skins/calendar-system.css" title="system" />
+	    
+	    
+		<script charset="UTF-8" type="text/javascript" src="resources/date/jalali.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/calendar.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/calendar-setup.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/lang/calendar-fa.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/alidate.js"></script>
+		
+
+</ui:define>
+<ui:define name="centertmp">
+<h:form enctype="multipart/form-data" acceptcharset="UTF-8" id="form"> 
+    <p:growl id="growl" />
+     <p:panel id="pnl" header="افزودن فروشنده" style="margin-bottom:10px;" styleClass="direction:rtl;">
+     
+        <p:messages id="messages" />
+        <h:panelGrid columns="3" cellpadding="5" dir="rtl">
+        
+        			    <p:outputLabel for="shomareparpaano"
+							value="شماره پرونده پانو" />
+						<p:inputNumber id="shomareparpaano" value="#{merchantRegisterBean.shomareParPaano}"/> 
+						<p:message for="shomareparpaano" />
+					
+						<p:outputLabel for="shomareparunion"
+						value="شماره پرونده اتحادیه" />
+						<p:inputNumber id="shomareparunion" value="#{merchantRegisterBean.shomareParUnion}"/> 
+						<p:message for="shomareparunion" />
+						
+																		<p:outputLabel value="تاریخ قرار داد"/>
+						<p:inputText id="date_input_5" value="#{merchantRegisterBean.merchantGarardadChange}"  required="true">
+							<img id="date_btn_5" src="resources/date/cal.png" style="vertical-align: top;" />
+							</p:inputText>
+							<script type="text/javascript" charset="UTF-8">
+								Calendar.setup({
+									inputField     :    "form:date_input_5",   // id of the input field
+									button         :    "date_btn_5",   // trigger for the calendar (button ID)
+						       		ifFormat       :    "%Y-%m-%d",       // format of the input field
+						       		dateType	   :	'jalali',
+						       		weekNumbers    : false
+								});
+							</script>
+						
+												<p:outputLabel value="تاریخ خاتمه قرارداد :"/>
+						<p:inputText id="date_input_2" value="#{merchantRegisterBean.merchantKhatemeChange}" required="true">
+							<img id="date_btn_2" src="resources/date/cal.png" style="vertical-align: top;" />
+							</p:inputText>
+							<script type="text/javascript" charset="UTF-8">
+								Calendar.setup({
+									inputField     :    "form:date_input_2",   // id of the input field
+									button         :    "date_btn_2",   // trigger for the calendar (button ID)
+						       		ifFormat       :    "%Y-%m-%d",       // format of the input field
+						       		dateType	   :	'jalali',
+						       		weekNumbers    : false
+								});
+							</script>
+							
+													<p:outputLabel value="تاریخ اعتبار جواز"/>
+						<p:inputText id="date_input_4" value="#{merchantRegisterBean.merchantEtebarChange}" required="true">
+							<img id="date_btn_4" src="resources/date/cal.png" style="vertical-align: top;" />
+							</p:inputText>
+							<script type="text/javascript" charset="UTF-8">
+								Calendar.setup({
+									inputField     :    "form:date_input_4",   // id of the input field
+									button         :    "date_btn_4",   // trigger for the calendar (button ID)
+						       		ifFormat       :    "%Y-%m-%d",       // format of the input field
+						       		dateType	   :	'jalali',
+						       		weekNumbers    : false
+								});
+							</script>
+							
+								<p:outputLabel value="تاریخ راه اندازی سایت"/>
+						<p:inputText id="date_input_6" value="#{merchantRegisterBean.merchantStartChange}" required="true">
+							<img id="date_btn_6" src="resources/date/cal.png" style="vertical-align: top;" />
+							</p:inputText>
+							<script type="text/javascript" charset="UTF-8">
+								Calendar.setup({
+									inputField     :    "form:date_input_6",   // id of the input field
+									button         :    "date_btn_6",   // trigger for the calendar (button ID)
+						       		ifFormat       :    "%Y-%m-%d",       // format of the input field
+						       		dateType	   :	'jalali',
+						       		weekNumbers    : false
+								});
+							</script>
+						
+						<p:outputLabel for="merchantShopNamePer"
+							value="نام فارسی واحد صنفی :" />
+						<p:inputText id="merchantShopNamePer"
+							value="#{merchantRegisterBean.merchantShopNamePer}"
+							 label="merchantShopNamePer" size="50">
+							<f:validateLength maximum="150" />
+						</p:inputText>
+						<p:message for="merchantShopNamePer" />
+            
+                        <p:outputLabel for="merchantShopNameEng"
+							value="نام انگلیسی واحد صنفی :" />
+						<p:inputText id="merchantShopNameEng"
+							value="#{merchantRegisterBean.merchantShopNameEng}"
+							 label="merchantShopNameEng" size="50" style="direction:ltr!important;">
+							<f:validateLength maximum="150" />
+						</p:inputText>
+						<p:message for="merchantShopNameEng" />
+						
+						<p:outputLabel for="occupation" value="رسته شغلی :" />
+						<p:selectOneMenu id="occupation"
+							value="#{merchantRegisterBean.occupation}" effect="fold"
+							editable="true">
+							<f:selectItem itemLabel="رسته شغلی :" />
+							<f:selectItems id="si1" value="#{merchantRegisterBean.occupations}" />
+						</p:selectOneMenu>
+						<p:message for="occupation" />
+						
+						
+        
+						<p:outputLabel for="merchantName" value=" نام صاحب واحد صنفی: " />
+						<p:inputText id="merchantName" 
+							value="#{merchantRegisterBean.merchantName}"
+							label="Firstname" size="50" styleClass="ali">
+							<f:validateLength maximum="149"/>
+						</p:inputText>
+						<p:message for="merchantName" />
+ 
+						<p:outputLabel for="merchantFamily" value="نام خانوادگی صاحب واحد صنفی :" />
+						<p:inputText id="merchantFamily"
+							value="#{merchantRegisterBean.merchantFamily}"
+							label="Surname" size="50" styleClass="ali">
+							<f:validateLength maximum="199" />
+						</p:inputText>
+						<p:message for="merchantFamily" />
+						
+						
+						<p:outputLabel value="تاریخ تولد صاحب واحد صنفی"/>
+						<p:inputText value="#{merchantRegisterBean.merchantBirthDayChange}" id="date_input_1" required="true">
+							<img id="date_btn_1" src="resources/date/cal.png" style="vertical-align: top;"/>
+							</p:inputText>
+							<script type="text/javascript" charset="UTF-8">
+								Calendar.setup({
+									inputField     :    "form:date_input_1",   // id of the input field
+									button         :    "date_btn_1",   // trigger for the calendar (button ID)
+						       		ifFormat       :    "%Y-%m-%d",       // format of the input field
+						       		dateType	   :	'jalali',
+						       		weekNumbers    : false
+								});
+							</script>
+							
+													<p:outputLabel for="merchantSsn" value="شماره شناسنامه صاحب واحد صنفی :" />
+						<p:inputMask dir="rtl" id="merchantSsn" value="#{merchantRegisterBean.merchantSsn}" mask="99999-99999" label="merchantSsn"  style="direction:ltr!important;"/>
+						<p:message for="merchantSsn" />
+						
+						<p:outputLabel for="merchantPhone" value="شماره تلفن صاحب واحد صنفی :" />
+						<p:inputText id="merchantPhone"
+							value="#{merchantRegisterBean.merchantPhone}"
+							label="Surname" size="50" styleClass="ali">
+							<f:validateLength maximum="149" />
+						</p:inputText>
+						<p:message for="merchantPhone" />
+						
+            
+            			<p:outputLabel for="merchantMobile" value="شماره موبایل صاحب واحد صنفی :" />
+						<p:inputText id="merchantMobile"
+							value="#{merchantRegisterBean.merchantMobile}" 
+							label="Surname" size="50" styleClass="ali">
+							<f:validateLength maximum="149" />
+						</p:inputText>
+						<p:message for="merchantMobile" />
+						
+						
+            
+            			<p:outputLabel for="merchantEmail" value="ایمیل صاحب واحد صنفی :" />
+						<p:inputText id="merchantEmail"
+							value="#{merchantRegisterBean.merchantEmail}"
+							label="merchantEmail" size="50" style="direction:ltr!important;">
+							<f:validateLength maximum="149" />
+							<!-- <f:validator validatorId="jsfui.EmailValidate"/> -->
+						</p:inputText>
+						<p:message for="merchantEmail" />
+
+						<p:outputLabel for="merchantSaliManagerName"
+							value="نام مدیر فروش :" />
+						<p:inputText id="merchantSaliManagerName"
+							value="#{merchantRegisterBean.merchantSaliManagerName}"
+							 label="merchantSaliManagerName" size="50">
+							<f:validateLength maximum="149" />
+						</p:inputText>
+						<p:message for="merchantSaliManagerName" />
+						
+						<p:outputLabel for="merchantSailManagerMobile"
+							value="شماره موبایل مدیر فروش" />
+						<p:inputText id="merchantSailManagerMobile"
+							value="#{merchantRegisterBean.merchantSailManagerMobile}"
+							label="Surname" size="50" styleClass="ali">
+							<f:validateLength maximum="149" />
+						</p:inputText><p:message for="merchantSailManagerMobile" />
+						
+						<p:outputLabel for="merchantInterfaceName"
+							value="نام و نام خانوادگی رابط :" />
+						<p:inputText id="merchantInterfaceName"
+							value="#{merchantRegisterBean.merchantInterfaceNamee}"
+						    label="merchantInterfaceName" size="50">
+							<f:validateLength maximum="199" />
+						</p:inputText>
+						<p:message for="merchantInterfaceName" />
+						
+						<p:outputLabel for="merchantJobTitleInterface"
+							value="عنوان شغلی رابط :" />
+						<p:inputText id="merchantJobTitleInterface"
+							value="#{merchantRegisterBean.merchantJobTitleInterface}"
+							label="merchantSsn" size="50">
+							<f:validateLength maximum="149" />
+						</p:inputText>
+						<p:message for="merchantJobTitleInterface" />
+            
+            			<p:outputLabel for="merchantInterfaceMobile"
+							value="شماره موبایل رابط :" />
+						<p:inputText id="merchantInterfaceMobile"
+							value="#{merchantRegisterBean.merchantInterfaceMobile}"
+							label="Surname" size="50" styleClass="ali">
+							<f:validateLength maximum="149" />
+						</p:inputText>
+						<p:message for="merchantInterfaceMobile" />
+						
+						                        <p:outputLabel for="merchantTelegramAddr"
+							value="آدرس تلگرام :" />
+						<p:inputText id="merchantTelegramAddr"
+							value="#{merchantRegisterBean.merchantTelegramAddres}"
+							label="merchantTelegramAddr"  style="direction:ltr!important;" size="50">
+							<f:validateLength maximum="199" />
+						</p:inputText>
+						<p:message for="merchantTelegramAddr" />
+						
+						
+						<p:outputLabel for="merchantTelegramNum"
+							value="شماره تلگرام :" />
+						<p:inputText id="merchantTelegramNum"
+							value="#{merchantRegisterBean.merchantTelegramNumber}"
+							label="merchantTelegramNum"  style="direction:ltr!important;" size="50">
+							<f:validateLength maximum="199" />
+						</p:inputText>
+						<p:message for="merchantTelegramNum" />
+						
+						                        <p:outputLabel for="merchantSiteAddres"
+							value="آدرس سایت :" />
+						<p:inputText id="merchantSiteAddres"
+							value="#{merchantRegisterBean.merchantSiteAddres}"
+						    label="merchantSiteAddres" size="50" style="direction:ltr!important;">
+							<f:validateLength maximum="149" />
+						</p:inputText>
+						<p:message for="merchantSiteAddres" />
+						            
+                        <p:outputLabel for="merchantInstagramAddr"
+							value="آدرس اینستاگرام :" />
+						<p:inputText id="merchantInstagramAddr"
+							value="#{merchantRegisterBean.merchantInstagramAddres}"
+							label="merchantInstagramAddr" style="direction:ltr!important;" size="50">
+							<f:validateLength  maximum="199" />
+						</p:inputText>
+						<p:message for="merchantInstagramAddr" />
+						
+						<p:outputLabel for="merchantInstagramNum"
+							value="شماره اینستاگرام :" />
+						<p:inputText id="merchantInstagramNum"
+							value="#{merchantRegisterBean.merchantInstagramNumber}"
+							label="merchantInstagramNum" style="direction:ltr!important;" size="50">
+							<f:validateLength maximum="199" />
+						</p:inputText>
+						<p:message for="merchantInstagramNum" />
+							
+						<h:outputText value="آیا نماد الکترونیک دارد ؟: " />
+						<p:inputSwitch value="#{merchantRegisterBean.merchantEMark}" />
+                        <p:outputLabel value=""/>
+                        
+                        <h:outputText value="آیا تصویر جواز دارد ؟: " />
+						<p:inputSwitch value="#{merchantRegisterBean.merchantPicJavaz}" />
+                        <p:outputLabel value=""/>
+							
+						
+						<p:outputLabel for="union" value="#{lcl.union}: " />
+						<p:selectOneMenu id="union" value="#{merchantRegisterBean.union}"
+							effect="fold" editable="true">
+							<f:selectItem itemLabel="#{lcl.union}" />
+							<f:selectItems value="#{merchantRegisterBean.unions}" />
+						</p:selectOneMenu>
+						<p:message for="union" />
+            
+                        <p:outputLabel for="merchantFax" value="شماره فکس :" />
+						<p:inputText id="merchantFax"
+							value="#{merchantRegisterBean.merchantFax}"
+							label="Surname" size="50" styleClass="ali">
+							<f:validateLength maximum="149" />
+						</p:inputText>
+						<p:message for="merchantFax" />
+            
+
+						
+
+						
+						
+            
+                       <p:outputLabel for="merchantLicenseNumber"
+							value="شماره پروانه کسب :" />
+						<p:inputNumber id="merchantLicenseNumber" value="#{merchantRegisterBean.merchantLicenseNumber}"/> 
+						<p:message for="merchantLicenseNumber" />
+            
+
+						
+						
+					   <p:outputLabel for="merchantTwiter"
+							value="آدرس تویتر :" />
+						<p:inputText id="merchantTwiter"
+							value="#{merchantRegisterBean.merchantTwiter}"
+						    label="merchantTwiter" size="50" style="direction:ltr!important;">
+							<f:validateLength maximum="199" />
+						</p:inputText>
+						<p:message for="merchantTwiter" />
+						
+					    <p:outputLabel for="merchantWatsup"
+							value="آدرس واتساپ :" />
+						<p:inputText id="merchantWatsup"
+							value="#{merchantRegisterBean.merchantWatsup}"
+						    label="merchantWatsup" size="50" style="direction:ltr!important;">
+							<f:validateLength maximum="199" />
+						</p:inputText>
+						<p:message for="merchantWatsup" />
+						
+						
+												<h:outputText value="آیا مباشر دارد ؟ " />
+						<p:inputSwitch value="#{merchantRegisterBean.haveMobasher}" />
+						<p:outputLabel value=""/>
+						
+						<p:outputLabel for="haveEtebar" value="آیا کارت مباشر تاریخ اعتبار دارد ؟" />
+						<p:selectOneMenu id="haveEtebar"
+							value="#{merchantRegisterBean.haveEtebar}" effect="fold"
+							editable="true">
+							<f:selectItem itemLabel="آیا تاریخ اعتبار دارد ؟" />
+							<f:selectItems value="#{merchantRegisterBean.haveEtebarList}" />
+						</p:selectOneMenu>
+						<p:message for="haveEtebar" />
+						
+            
+                        <p:outputLabel for="merchantSrwardName"
+							value="نام مباشر :" />
+						<p:inputText id="merchantSrwardName"
+							value="#{merchantRegisterBean.merchantSrwardName}"
+							label="merchantSrwardName" size="50">
+							<f:validateLength maximum="199" />
+						</p:inputText>
+						<p:message for="merchantSrwardName" />
+						
+												<p:outputLabel value="تاریخ مباشرت"/>
+						<p:inputText id="date_input_3" value="#{merchantRegisterBean.merchantMobasherDateChange}" required="true">
+							<img id="date_btn_3" src="resources/date/cal.png" style="vertical-align: top;" />
+							</p:inputText>
+							<script type="text/javascript" charset="UTF-8">
+								Calendar.setup({
+									inputField     :    "form:date_input_3",   // id of the input field
+									button         :    "date_btn_3",   // trigger for the calendar (button ID)
+						       		ifFormat       :    "%Y-%m-%d",       // format of the input field
+						       		dateType	   :	'jalali',
+						       		weekNumbers    : false
+								});
+							</script>
+							
+													<p:outputLabel for="haveLicenese" value="آیا شماره پروانه کسب دارد ؟" />
+						<p:selectOneMenu id="haveLicenese"
+							value="#{merchantRegisterBean.haveLicenese}" effect="fold"
+							editable="true" >
+							<f:selectItem itemLabel="آیا شماره پروانه کسب دارد ؟" />
+							<f:selectItems value="#{merchantRegisterBean.haveLicenceList}" />
+						</p:selectOneMenu>
+						<p:message for="haveLicenese" />
+						
+
+					
+					
+            
+                         <p:outputLabel for="merchantDescription"
+							value="درباره ما :" />
+						<p:inputTextarea id="merchantDescription" rows="20" cols="30" autoResize="false"
+							value="#{merchantRegisterBean.description}"
+							label="merchantDescription">
+							<f:validateLength maximum="5000" />
+						</p:inputTextarea>
+						<p:message for="merchantDescription" /> 
+						
+						<p:outputLabel for="shoar" value="شعار فروشنده :" />
+						<p:inputText id="shoar"
+							value="#{merchantRegisterBean.merchantShoar}"
+							label="shoar" size="50">
+							<f:validateLength maximum="199" />
+						</p:inputText>
+						<p:message for="shoar" />
+						
+            
+            <h:outputLabel for="pwd1" value="پسوورد :" />
+						<p:password id="pwd1" match="pwd2" label="Password" feedback="true" style="direction:ltr!important;"
+							required="true" >
+							<f:validateLength minimum="4"/>
+							</p:password>
+						<p:message for="pwd1" />
+            
+            <h:outputLabel for="pwd2" value="تکرار پسوورد :" />
+						<p:password id="pwd2" value="#{merchantRegisterBean.merchantPass}" style="direction:ltr!important;"
+							label="Re-Password">
+							<f:validateLength minimum="4"/>
+							</p:password>
+						<p:message for="pwd2" />
+						
+						<h:outputText value="#{lcl.merchantStewardShip}: " />
+						<p:inputSwitch value="#{merchantRegisterBean.merchantStewardShip}" />
+						<p:outputLabel value=""/>
+						
+
+						
+						<p:outputLabel for="group" value="#{lcl.group}: " />
+						<p:selectOneMenu id="group" value="#{merchantRegisterBean.group}"
+							effect="fold" editable="true">
+							<f:selectItem itemLabel="#{lcl.group}" />
+							<f:selectItems value="#{merchantRegisterBean.groups}" />
+						</p:selectOneMenu>
+						<p:message for="group" />
+						
+
+						
+						
+
+						
+						
+
+						
+
+						
+						<p:outputLabel value="#{lcl.licenseImage}" />
+						<h:inputFile value="#{merchantRegisterBean.licenseImage}" required="true" requiredMessage="please select license image"/>                        
+                        <p:outputLabel value=""/>
+          				<p:outputLabel value="عکس فروشگاه ۱" />
+						<h:inputFile value="#{merchantRegisterBean.shopImg1}" required="true" requiredMessage="please select shop1Image image"/>
+                        <p:outputLabel value=""/>
+                       <p:outputLabel value="عکس فروشگاه ۲" />
+						<h:inputFile value="#{merchantRegisterBean.shopImg2}" required="true" requiredMessage="please select shop2Image image"/>
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="عکس فروشگاه ۳" />
+						<h:inputFile value="#{merchantRegisterBean.shopImg3}" required="true" requiredMessage="please select shopForm image"/>
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="عکس فروشگاه ۴" />
+						<h:inputFile value="#{merchantRegisterBean.shopImg4}" required="true" requiredMessage="please select shopForm image"/>
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="عکس لوگو" />
+						<h:inputFile value="#{merchantRegisterBean.logo}" required="true" requiredMessage="please select shopForm image"/>
+                        <p:outputLabel value=""/>
+                        
+
+                        
+                        <h:outputText value="برندها: " />
+					    <p:selectManyCheckbox id="grid3" value="#{merchantRegisterBean.brandName}" layout="pageDirection" columns="3">
+					        <f:selectItems value="#{brandBean.brands}" var="car" itemLabel="#{car}" itemValue="#{car}" />
+					    </p:selectManyCheckbox>
+					     <p:outputLabel value=""/>
+					     
+					     
+						<h:outputText value="نمایش تلفن" />
+						<p:inputSwitch value="#{merchantRegisterBean.phoneShow}" />
+						<p:outputLabel value=""/>
+						
+												<h:outputText value="نمایش فکس" />
+						<p:inputSwitch value="#{merchantRegisterBean.faxShow}" />
+						<p:outputLabel value=""/>
+
+
+						<h:outputText value="نمایش سایت" />
+						<p:inputSwitch value="#{merchantRegisterBean.siteShow}" />
+						<p:outputLabel value=""/>
+						
+												<h:outputText value="نمایش اینستاگرام" />
+						<p:inputSwitch value="#{merchantRegisterBean.instagramShow}" />
+						<p:outputLabel value=""/>
+						
+						<h:outputText value="نمایش تلگرام" />
+						<p:inputSwitch value="#{merchantRegisterBean.telegramShow}" />
+						<p:outputLabel value=""/>
+						
+						<h:outputText value="نمایش واتساپ" />
+						<p:inputSwitch value="#{merchantRegisterBean.watsupShow}" />
+						<p:outputLabel value=""/>
+						
+						<h:outputText value="نمایش توییتر" />
+						<p:inputSwitch value="#{merchantRegisterBean.twiterShow}" />
+						<p:outputLabel value=""/>
+						
+						<h:outputText value="آیا لوگو دارد ؟" />
+						<p:inputSwitch value="#{merchantRegisterBean.haveLogo}" />
+						<p:outputLabel value=""/>
+		
+						
+							<h:commandButton id="saveBtn" value="#{lcl.submitButton}" icon="ui-icon-check"  style="margin:0"
+							update="pnl" ajax="true" execute="@form"
+							action="#{merchantRegisterBean.insertToMarchantEntity()}"
+							 >
+							</h:commandButton>
+							
+                        
+                                    
+        </h:panelGrid>
+ 
+    </p:panel>
+ 
+    <p:blockUI block="pnl" trigger="saveBtn" />
+    
+</h:form>
+</ui:define>
+<ui:define name="righttmp">
+<h:form>
+    <p:dataTable var="merchant" value="#{merchantRegisterBean.findAllMerchants()}" rows="10"
+                         paginator="true" resizableColumns="true" liveResize="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15" dir="rtl">
+        <p:column headerText="شماره">
+            <h:outputText value="#{merchant.merchantId}" />
+        </p:column>
+ 
+        <p:column headerText="نام">
+            <h:outputText value="#{merchant.merchantName}" />
+        </p:column>
+ 
+        <p:column headerText="فامیلی">
+            <h:outputText value="#{merchant.merchantFamily}" />
+        </p:column>
+ 
+        <p:column headerText="شماره پرونده">
+            <h:outputText value="#{merchant.shomarehParPaano}" />
+        </p:column>
+  
+    </p:dataTable>
+</h:form>
+</ui:define>
+</ui:composition>
+</h:body> 
+</html>
+
+
+
+

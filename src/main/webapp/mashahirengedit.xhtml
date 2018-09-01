@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:o="http://omnifaces.org/ui">  
+
+<h:head>
+</h:head> 
+<h:body> 
+<ui:composition template="/template.xhtml">
+<ui:define name="headtmp">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+			<title>Merchant</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <link rel="stylesheet" type="text/css" media="all" href="resources/date/skins/aqua/theme.css" title="Aqua" />
+		<link rel="alternate stylesheet" type="text/css" media="all" href="resources/date/skins/calendar-blue.css" title="winter" />
+		<link rel="alternate stylesheet" type="text/css" media="all" href="resources/date/skins/calendar-system.css" title="system" />
+	    
+              
+		<script charset="UTF-8" type="text/javascript" src="resources/date/jalali.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/calendar.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/calendar-setup.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/lang/calendar-fa.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/alidate.js"></script>
+		
+		<h:outputStylesheet library="css" name="merchantedit.css"/>
+				
+<style type="text/css">
+.calendar {
+	direction: rtl;
+}
+
+#flat_calendar_1, #flat_calendar_2{
+	width: 200px;
+}
+.example {
+	padding: 10px;
+}
+
+.display_area {
+	background-color: #FFFF88
+}
+</style>
+
+
+	</ui:define>
+	
+<ui:define name="centertmp">
+	  <ui:define name="metadata">
+      <f:metadata>
+      <f:viewParam name="mashahirEngId"/>
+      </f:metadata>
+      </ui:define> 
+      
+      
+      
+    <p:panelGrid columns="4" style="direction:rtl!important">
+    <f:facet name="header">
+    جدول ویرايش
+    </f:facet>
+    
+
+     <p:outputLabel value="نام مشاهیر:" />
+    <p:outputLabel value="#{mashahirEngBean.findMashahirEngById(mashahirEngId).mashahirEngName}" id="txt1" />
+	<p:outputLabel value="" />
+    
+    
+    
+      <h:outputText value="عکس ۱:" />
+    <o:graphicImage value="#{mashahirEngBean.findMashahirEngById(mashahirEngId).mashahirEngPic1}" dataURI="true" height="200" width="200"/>
+    <h:form id="frm1" style="display:none" enctype="multipart/form-data">
+	<h:inputFile value="#{mashahirEngBean.mashahirEngImg1}"/>                        
+    <h:commandButton value="ثبت تغییرات" action="#{mashahirEngBean.updateMashahirEngImg1(mashahirEngId)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm1">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+       
+        <h:outputText value="عکس ۲:" />
+    <o:graphicImage value="#{mashahirEngBean.findMashahirEngById(mashahirEngId).mashahirEngPic2}" dataURI="true" height="200" width="200"/>
+    <h:form id="frm2" style="display:none" enctype="multipart/form-data">
+	<h:inputFile value="#{mashahirEngBean.mashahirEngImg2}"/>                        
+    <h:commandButton value="ثبت تغییرات" action="#{mashahirEngBean.updateMashahirEngImg2(mashahirEngId)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm2">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+
+
+          <h:outputText value="عکس ۳:" />
+    <o:graphicImage value="#{mashahirEngBean.findMashahirEngById(mashahirEngId).mashahirEngPic3}" dataURI="true" height="200" width="200"/>
+    <h:form id="frm3" style="display:none" enctype="multipart/form-data">
+	<h:inputFile value="#{mashahirEngBean.mashahirEngImg3}"/>                        
+    <h:commandButton value="ثبت تغییرات" action="#{mashahirEngBean.updateMashahirEngImg3(mashahirEngId)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm3">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+          <h:outputText value="عکس ۴:" />
+    <o:graphicImage value="#{mashahirEngBean.findMashahirEngById(mashahirEngId).mashahirEngPic4}" dataURI="true" height="200" width="200"/>
+    <h:form id="frm4" style="display:none" enctype="multipart/form-data">
+	<h:inputFile value="#{mashahirEngBean.mashahirEngImg4}"/>                        
+    <h:commandButton value="ثبت تغییرات" action="#{mashahirEngBean.updateMashahirEngImg4(mashahirEngId)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm4">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+          <h:outputText value="عکس ۵:" />
+    <o:graphicImage value="#{mashahirEngBean.findMashahirEngById(mashahirEngId).mashahirEngPic5}" dataURI="true" height="200" width="200"/>
+    <h:form id="frm5" style="display:none" enctype="multipart/form-data">
+	<h:inputFile value="#{mashahirEngBean.mashahirEngImg5}"/>                        
+    <h:commandButton value="ثبت تغییرات" action="#{mashahirEngBean.updateMashahirEngImg5(mashahirEngId)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm5">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+          <h:outputText value="عکس ۶:" />
+    <o:graphicImage value="#{mashahirEngBean.findMashahirEngById(mashahirEngId).mashahirEngPic6}" dataURI="true" height="200" width="200"/>
+    <h:form id="frm6" style="display:none" enctype="multipart/form-data">
+	<h:inputFile value="#{mashahirEngBean.mashahirEngImg6}"/>                        
+    <h:commandButton value="ثبت تغییرات" action="#{mashahirEngBean.updateMashahirEngImg6(mashahirEngId)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm6">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+    
+      </p:panelGrid>
+      
+      
+ 
+
+      
+      
+      </ui:define>
+      </ui:composition>
+      
+</h:body> 
+</html>

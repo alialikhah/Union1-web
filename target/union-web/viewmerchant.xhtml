@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+<ui:composition template="/template.xhtml">
+<ui:define name="headtmp">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</ui:define>
+<ui:define name="centertmp">
+<h:form>
+    <p:dataTable var="merchants" value="#{merchantRegisterBean.findAllMerchants()}" rows="10" rowKey="#{merchants.merchantId}" 
+                         paginator="true" resizableColumns="true" liveResize="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15" dir="rtl">
+                         
+         <p:column headerText="id" filterBy="#{merchants.merchantId}" sortBy="#{merchants.merchantId}" filterMatchMode="contains" width="90">
+            <h:outputText value="#{merchants.merchantId}" />
+        </p:column>
+ 
+        <p:column headerText="ش.پ" filterBy="#{merchants.shomarehParPaano}" sortBy="#{merchants.merchantId}" filterMatchMode="contains" width="90">
+            <h:outputText value="#{merchants.shomarehParPaano}" />
+        </p:column>
+        
+         <p:column headerText="نام فروشگاه" filterBy="#{merchants.merchantShopNamePer}" sortBy="#{merchants.merchantId}" filterMatchMode="contains" width="100">
+            <h:outputText value="#{merchants.merchantShopNamePer}" />
+        </p:column>
+        
+         <p:column width="100">
+            <f:facet name="header">
+            <h:outputText value="و.فروشنده " /> 
+            </f:facet>
+            <p:button value="ویرایش" outcome="merchantedit.xhtml" style="width:100%!important;">
+            <f:param name="merchantID" value="#{merchants.merchantId}"/>
+            </p:button>
+        </p:column>
+        
+        <p:column width="100">
+            <f:facet name="header">
+            <h:outputText value="و.آدرس " /> 
+            </f:facet>
+            <p:button value="ویرایش" outcome="addresedit.xhtml" style="width:100%!important;">
+            <f:param name="merchantID" value="#{merchants.merchantId}"/>
+            </p:button>
+        </p:column>
+        
+        <p:column width="100">
+                    <f:facet name="header">
+            <h:outputText value="حذف" /> 
+            </f:facet>
+        <p:commandButton value="delete"  action="#{merchantRegisterBean.deleteMerchantEntity(merchants.merchantId)}" style="width:100%!important;">
+        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
+        </p:commandButton>
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+        </p:confirmDialog>
+        </p:column>
+      
+        <p:column width="100">
+            <f:facet name="header">
+            <h:outputText value="دادن آدرس" /> 
+            </f:facet>
+            <p:button value="آدرس" outcome="AddMerchantAddres.xhtml" style="width:100%!important;">
+            <f:param name="merchantID" value="#{merchants.merchantId}"/>
+            </p:button>
+        </p:column>  
+        
+         <p:column width="100">
+            <f:facet name="header">
+            <h:outputText value="دادن محصول" /> 
+            </f:facet>
+            <p:button value="محصول" outcome="dedicateproduct.xhtml" style="width:100%!important;">
+            <f:param name="merchantID" value="#{merchants.merchantId}"/>
+            </p:button>
+        </p:column> 
+        
+        <p:column width="100">
+            <f:facet name="header">
+            <h:outputText value="دادن تبلیغ" /> 
+            </f:facet>
+            <p:button value="تبلیغ" outcome="addcommercial.xhtml" style="width:100%!important;">
+            <f:param name="merchantID" value="#{merchants.merchantId}"/>
+            </p:button>
+        </p:column> 
+        
+         <p:column width="100">
+            <f:facet name="header">
+            <h:outputText value="دادن پیشنهاد ویژه" /> 
+            </f:facet>
+            <p:button value="پیشنهاد ویژه" outcome="specialproduct.xhtml" style="width:100%!important;">
+            <f:param name="merchantID" value="#{merchants.merchantId}"/>
+            </p:button>
+        </p:column>
+        
+    </p:dataTable>
+    </h:form>
+</ui:define>
+</ui:composition>
+</body> 
+</html>

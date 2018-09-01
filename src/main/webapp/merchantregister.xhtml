@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<!-- <f:view locale="fa" /> -->
+
+<h:head>
+
+</h:head>
+<h:body>
+<ui:composition template="/templateadmin.xhtml">
+<ui:define name="headadm">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<h:outputStylesheet library="css" name="merchantregister.css" />
+
+	<f:metadata>
+		<f:event listener="#{adminBean.isUser}" type="preRenderView"></f:event>
+	</f:metadata>
+			<title>Merchant</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <link rel="stylesheet" type="text/css" media="all" href="resources/date/skins/aqua/theme.css" title="Aqua" />
+		<link rel="alternate stylesheet" type="text/css" media="all" href="resources/date/skins/calendar-blue.css" title="winter" />
+		<link rel="alternate stylesheet" type="text/css" media="all" href="resources/date/skins/calendar-system.css" title="system" />
+	    
+	    
+		<script charset="UTF-8" type="text/javascript" src="resources/date/jalali.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/calendar.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/calendar-setup.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/lang/calendar-fa.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/alidate.js"></script>
+		
+		<h:outputScript library="javascript" name="merchant.js"/>
+		
+<style type="text/css">
+.calendar {
+	direction: rtl;
+}
+
+#flat_calendar_1, #flat_calendar_2{
+	width: 200px;
+}
+.example {
+	padding: 10px;
+}
+
+.display_area {
+	background-color: #FFFF88
+}
+</style>
+
+
+	</ui:define>
+	
+	
+<ui:define name="mainadm">
+<h:form enctype="multipart/form-data" acceptcharset="UTF-8" id="form"> 
+    <p:growl id="growl" />
+     <p:panel id="pnl" header="New User" style="margin-bottom:10px;">
+     
+        <p:messages id="messages" />
+        <h:panelGrid columns="3" cellpadding="5" dir="rtl">
+		<p:outputLabel for="merchantName" value=" #{lcl.merchantName}: " />
+						<p:inputText id="merchantName" 
+							value="#{merchantRegisterBean.merchantName}" required="true"
+							label="Firstname" size="50" styleClass="ali">
+							<f:validateLength minimum="2" maximum="50"/>
+						</p:inputText>
+						<p:message for="merchantName" />
+ 
+						<p:outputLabel for="merchantFamily" value="#{lcl.merchantFamily}" />
+						<p:inputText id="merchantFamily"
+							value="#{merchantRegisterBean.merchantFamily}" required="true"
+							label="Surname" size="50" styleClass="ali">
+							<f:validateLength minimum="2" maximum="100" />
+						</p:inputText>
+						<p:message for="merchantFamily" />
+						
+												<p:outputLabel for="userName" value="#{lcl.userName}" />
+						<p:inputText id="userName"
+							value="#{merchantRegisterBean.merchantShoar}" required="true"
+							label="userName" size="50">
+							<f:validateLength minimum="2" maximum="100" />
+						</p:inputText>
+						<p:message for="userName" />
+						
+						<p:outputLabel for="merchantPhone" value="#{lcl.merchantPhone}" />
+						<p:inputMask dir="rtl" id="merchantPhone" value="#{merchantRegisterBean.merchantPhone}" mask="(999) 9999-9999" label="merchantPhone" required="true" style="direction:ltr!important;"/>
+						<p:message for="merchantPhone" />
+						
+            
+            			<p:outputLabel for="merchantMobile" value="#{lcl.merchantMobile}" />
+						<p:inputMask dir="rtl" id="merchantMobile" value="#{merchantRegisterBean.merchantMobile}" mask="(9999) 999-9999" label="merchantMobile" required="true" style="direction:ltr!important;"/>
+						<p:message for="merchantMobile" />
+            
+            			<p:outputLabel for="merchantEmail" value="#{lcl.merchantEmail}" />
+						<p:inputText id="merchantEmail"
+							value="#{merchantRegisterBean.merchantEmail}" required="true"
+							label="merchantEmail" size="50" style="direction:ltr!important;">
+							<f:validateLength minimum="2" maximum="100" />
+							<!-- <f:validator validatorId="jsfui.EmailValidate"/> -->
+						</p:inputText>
+						<p:message for="merchantEmail" />
+            
+      					<p:outputLabel for="merchantSsn" value="#{lcl.merchantSsn}" />
+						<p:inputMask dir="rtl" id="merchantSsn" value="#{merchantRegisterBean.merchantSsn}" mask="99999-99999" label="merchantSsn" required="true" style="direction:ltr!important;"/>
+						<p:message for="merchantSsn" />
+						
+						<p:outputLabel for="merchantSaliManagerName"
+							value="#{lcl.merchantSaliManagerName}" />
+						<p:inputText id="merchantSaliManagerName"
+							value="#{merchantRegisterBean.merchantSaliManagerName}"
+							required="true" label="merchantSaliManagerName" size="50">
+							<f:validateLength minimum="2" maximum="150" />
+						</p:inputText>
+						<p:message for="merchantSaliManagerName" />
+						
+						<p:outputLabel for="merchantSailManagerMobile"
+							value="#{lcl.merchantSailManagerMobile}" />
+						<p:inputMask dir="rtl" id="merchantSailManagerMobile" value="#{merchantRegisterBean.merchantSailManagerMobile}" mask="(9999) 999-9999" label="merchantSailManagerMobile" required="true" style="direction:ltr!important;"/>
+						<p:message for="merchantSailManagerMobile" />
+						
+						<p:outputLabel for="merchantJobTitleInterface"
+							value="#{lcl.merchantJobTitleInterface}" />
+						<p:inputText id="merchantJobTitleInterface"
+							value="#{merchantRegisterBean.merchantJobTitleInterface}"
+							required="true" label="merchantSsn" size="50">
+							<f:validateLength minimum="2" maximum="150" />
+						</p:inputText>
+						<p:message for="merchantJobTitleInterface" />
+            
+            			<p:outputLabel for="merchantInterfaceMobile"
+							value="#{lcl.merchantInterfaceMobile}" />
+						<p:inputMask dir="rtl" id="merchantInterfaceMobile" value="#{merchantRegisterBean.merchantInterfaceMobile}" mask="(9999) 999-9999" label="merchantInterfaceMobile" required="true" style="direction:ltr!important;"/>
+						<p:message for="merchantInterfaceMobile" />
+            
+         			   <p:outputLabel for="merchantSocialNetworkNumber"
+							value="#{lcl.merchantSocialNetworkNumber}" />
+						<p:inputMask dir="rtl" id="merchantSocialNetworkNumber" value="#{merchantRegisterBean.merchantSocialNetworkNumber}" mask="(9999) 999-9999" label="merchantSocialNetworkNumber" required="true" style="direction:ltr!important;"/>
+						<p:message for="merchantSocialNetworkNumber" />
+            
+                        <p:outputLabel for="merchantInterfaceName"
+							value="#{lcl.merchantInterfaceName}:" />
+						<p:inputText id="merchantInterfaceName"
+							value="#{merchantRegisterBean.merchantInterfaceNamee}"
+							required="true" label="merchantInterfaceName" size="50">
+							<f:validateLength minimum="2" maximum="150" />
+						</p:inputText>
+						<p:message for="merchantInterfaceName" />
+            
+            
+                        <p:outputLabel for="merchantFax" value="#{lcl.merchantFax}" />
+						<p:inputMask dir="rtl" id="merchantFax" value="#{merchantRegisterBean.merchantFax}" mask="(999) 9999-9999" label="merchantFax" required="true" style="direction:ltr!important;"/>
+						<p:message for="merchantFax" />
+            
+                        <p:outputLabel for="merchantSiteAddres"
+							value="#{lcl.merchantSiteAddres}" />
+						<p:inputText id="merchantSiteAddres"
+							value="#{merchantRegisterBean.merchantSiteAddres}"
+							required="true" label="merchantSiteAddres" size="50" style="direction:ltr!important;">
+							<f:validateLength minimum="2" maximum="50" />
+						</p:inputText>
+						<p:message for="merchantSiteAddres" />
+            
+                        <p:outputLabel for="merchantTelegram"
+							value="#{lcl.merchantTelegram}" />
+						<p:inputText id="merchantTelegram"
+							value="#{merchantRegisterBean.merchantTelegram}" required="true"
+							label="merchantTelegram"  style="direction:ltr!important;" size="50">
+							<f:validateLength minimum="2" maximum="100" />
+						</p:inputText>
+						<p:message for="merchantTelegram" />
+            
+                          <p:outputLabel for="merchantInstagram"
+							value="#{lcl.merchantInstagram}" />
+						<p:inputText id="merchantInstagram"
+							value="#{merchantRegisterBean.merchantInstagram}" required="true"
+							label="merchantInstagram" style="direction:ltr!important;" size="50">
+							<f:validateLength minimum="2" maximum="100" />
+						</p:inputText>
+						<p:message for="merchantInstagram" />
+            
+                       <p:outputLabel for="merchantLicenseNumber"
+							value="#{lcl.merchantLicenseNumber}" />
+						<p:inputMask dir="rtl" id="merchantLicenseNumber" value="#{merchantRegisterBean.merchantLicenseNumber}" mask="9999999999999999" label="merchantLicenseNumber" required="true" style="direction:ltr!important;"/>
+						<p:message for="merchantLicenseNumber" />
+            
+                        <p:outputLabel for="merchantShopNamePer"
+							value="#{lcl.merchantShopNamePer}" />
+						<p:inputText id="merchantShopNamePer"
+							value="#{merchantRegisterBean.merchantShopNamePer}"
+							required="true" label="merchantShopNamePer" size="50">
+							<f:validateLength minimum="2" maximum="150" />
+						</p:inputText>
+						<p:message for="merchantShopNamePer" />
+            
+                        <p:outputLabel for="merchantShopNameEng"
+							value="#{lcl.merchantShopNameEng}" />
+						<p:inputText id="merchantShopNameEng"
+							value="#{merchantRegisterBean.merchantShopNameEng}"
+							required="true" label="merchantShopNameEng" size="50" style="direction:ltr!important;">
+							<f:validateLength minimum="2" maximum="150" />
+						</p:inputText>
+						<p:message for="merchantShopNameEng" />
+            
+                        <p:outputLabel for="merchantSrwardName"
+							value="#{lcl.merchantSrwardName}" />
+						<p:inputText id="merchantSrwardName"
+							value="#{merchantRegisterBean.merchantSrwardName}"
+							required="true" label="merchantSrwardName" size="50">
+							<f:validateLength minimum="2" maximum="150" />
+						</p:inputText>
+						<p:message for="merchantSrwardName" />
+						
+						<p:outputLabel for="shomareparvande"
+							value="شماره پرونده" />
+						<p:inputMask dir="rtl" id="shomareparvande" value="#{merchantRegisterBean.shomareParvande}" mask="9999999999" label="shomareparvande" required="true" style="direction:ltr!important;"/>
+						<p:message for="shomareparvande" />
+					
+            
+                         <p:outputLabel for="merchantDescription"
+							value="#{lcl.merchantDescription}" />
+						<p:inputTextarea id="merchantDescription" rows="20" cols="100" autoResize="false"
+							value="#{merchantRegisterBean.description}" required="true"
+							label="merchantDescription">
+							<f:validateLength minimum="2" maximum="1000" />
+						</p:inputTextarea>
+						<p:message for="merchantDescription" /> 
+            
+            <h:outputLabel for="pwd1" value="#{lcl.pwd1}:" />
+						<p:password id="pwd1" match="pwd2" label="Password" feedback="true" style="direction:ltr!important;"
+							required="true" >
+							<f:validateLength minimum="4"/>
+							</p:password>
+						<p:message for="pwd1" />
+            
+            <h:outputLabel for="pwd2" value="#{lcl.pwd2}: *" />
+						<p:password id="pwd2" value="#{merchantRegisterBean.merchantPass}" style="direction:ltr!important;"
+							label="Re-Password" required="true" >
+							<f:validateLength minimum="4"/>
+							</p:password>
+						<p:message for="pwd2" />
+						
+						<h:outputText value="#{lcl.merchantStewardShip}: " />
+						<p:inputSwitch value="#{merchantRegisterBean.merchantStewardShip}" />
+						<p:outputLabel value=""/>
+						
+						<p:outputLabel for="union" value="#{lcl.union}: " />
+						<p:selectOneMenu id="union" value="#{merchantRegisterBean.union}"
+							effect="fold" editable="true">
+							<f:selectItem itemLabel="#{lcl.union}" />
+							<f:selectItems value="#{merchantRegisterBean.unions}" />
+						</p:selectOneMenu>
+						<p:message for="union" />
+						
+						<p:outputLabel for="group" value="#{lcl.group}: " />
+						<p:selectOneMenu id="group" value="#{merchantRegisterBean.group}"
+							effect="fold" editable="true">
+							<f:selectItem itemLabel="#{lcl.group}" />
+							<f:selectItems value="#{merchantRegisterBean.groups}" />
+						</p:selectOneMenu>
+						<p:message for="group" />
+						
+						<p:outputLabel for="occupation" value="#{lcl.occupation}: " />
+						<p:selectOneMenu id="occupation"
+							value="#{merchantRegisterBean.occupation}" effect="fold"
+							editable="true">
+							<f:selectItem itemLabel="#{lcl.occupation}" />
+							<f:selectItems value="#{merchantRegisterBean.occupations}" />
+						</p:selectOneMenu>
+						<p:message for="occupation" />
+						
+						<p:outputLabel for="socialNetwork" value="#{lcl.socialNetwork}: " />
+						<p:selectOneMenu id="socialNetwork"
+							value="#{merchantRegisterBean.socialNetwork}" effect="fold"
+							editable="true">
+							<f:selectItem itemLabel="#{lcl.socialNetwork}" />
+							<f:selectItems value="#{merchantRegisterBean.socialNetworks}" />
+						</p:selectOneMenu>
+						<p:message for="socialNetwork" />
+						
+						
+						
+						<p:outputLabel value="#{lcl.licenseImage}" />
+						<h:inputFile value="#{merchantRegisterBean.licenseImage}" required="true" requiredMessage="please select license image"/>                        
+                        <p:outputLabel value=""/>
+          				<p:outputLabel value="عکس فروشگاه ۱" />
+						<h:inputFile value="#{merchantRegisterBean.shopImg1}" required="true" requiredMessage="please select shop1Image image"/>
+                        <p:outputLabel value=""/>
+                       <p:outputLabel value="عکس فروشگاه ۲" />
+						<h:inputFile value="#{merchantRegisterBean.shopImg2}" required="true" requiredMessage="please select shop2Image image"/>
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="عکس فروشگاه ۳" />
+						<h:inputFile value="#{merchantRegisterBean.shopImg3}" required="true" requiredMessage="please select shopForm image"/>
+                        <p:outputLabel value=""/>
+                        <p:outputLabel value="عکس فروشگاه ۴" />
+						<h:inputFile value="#{merchantRegisterBean.shopImg4}" required="true" requiredMessage="please select shopForm image"/>
+                        <p:outputLabel value=""/>
+                        
+                        <h:outputText value="#{lcl.merchantEMark}: " />
+						<p:inputSwitch value="#{merchantRegisterBean.merchantEMark}" />
+                        <p:outputLabel value=""/>
+                        
+                        <h:outputText value="برندها: " />
+					    <p:selectManyCheckbox id="grid3" value="#{merchantRegisterBean.brandName}" layout="pageDirection" columns="3">
+					        <f:selectItems value="#{brandBean.brands}" var="car" itemLabel="#{car}" itemValue="#{car}" />
+					    </p:selectManyCheckbox>
+					     <p:outputLabel value=""/>
+						
+						<p:outputLabel value="تاریخ تولد فروشنده"/>
+						<p:inputText value="#{merchantRegisterBean.merchantBirthDayChange}" id="date_input_1" required="true">
+							<img id="date_btn_1" src="resources/date/cal.png" style="vertical-align: top;"/>
+							</p:inputText>
+							<script type="text/javascript" charset="UTF-8">
+								Calendar.setup({
+									inputField     :    "form:date_input_1",   // id of the input field
+									button         :    "date_btn_1",   // trigger for the calendar (button ID)
+						       		ifFormat       :    "%Y-%m-%d",       // format of the input field
+						       		dateType	   :	'jalali',
+						       		weekNumbers    : false
+								});
+							</script>
+						
+						<p:outputLabel value="تاریخ تمدید جواز"/>
+						<p:inputText id="date_input_2" value="#{merchantRegisterBean.merchantKhatemeChange}" required="true">
+							<img id="date_btn_2" src="resources/date/cal.png" style="vertical-align: top;" />
+							</p:inputText>
+							<script type="text/javascript" charset="UTF-8">
+								Calendar.setup({
+									inputField     :    "form:date_input_2",   // id of the input field
+									button         :    "date_btn_2",   // trigger for the calendar (button ID)
+						       		ifFormat       :    "%Y-%m-%d",       // format of the input field
+						       		dateType	   :	'jalali',
+						       		weekNumbers    : false
+								});
+							</script>
+						
+						<p:outputLabel value="تاریخ مباشرت"/>
+						<p:inputText id="date_input_3" value="#{merchantRegisterBean.merchantMobasherDateChange}" required="true">
+							<img id="date_btn_3" src="resources/date/cal.png" style="vertical-align: top;" />
+							</p:inputText>
+							<script type="text/javascript" charset="UTF-8">
+								Calendar.setup({
+									inputField     :    "form:date_input_3",   // id of the input field
+									button         :    "date_btn_3",   // trigger for the calendar (button ID)
+						       		ifFormat       :    "%Y-%m-%d",       // format of the input field
+						       		dateType	   :	'jalali',
+						       		weekNumbers    : false
+								});
+							</script>
+						
+						
+						
+							<h:commandButton id="saveBtn" value="#{lcl.submitButton}" icon="ui-icon-check"  style="margin:0"
+							update="pnl" ajax="true" execute="@form"
+							action="#{merchantRegisterBean.insertToMarchantEntity()}"
+							 >
+							</h:commandButton>
+							
+                        
+                                    
+        </h:panelGrid>
+ 
+    </p:panel>
+ 
+    <p:blockUI block="pnl" trigger="saveBtn" />
+    
+</h:form>
+</ui:define>
+</ui:composition>
+
+
+
+</h:body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+<ui:composition template="/template.xhtml">
+<ui:define name="headtmp">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+.ui-panel {
+    padding: .2em;
+    direction: rtl!important;
+}
+.ui-widget-content {
+    color: #222222;
+    overflow: hidden!important;
+}
+</style>
+
+</ui:define>
+<ui:define name="centertmp">
+<h:form>
+    <p:dataTable var="dp" value="#{dedicatedProductBean.findAllDedicatedProducts()}" rows="10"
+                         paginator="true" resizableColumns="true" liveResize="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15" dir="rtl">
+        <p:column headerText="شماره">
+            <h:outputText value="#{dp.dedicatedId}" />
+        </p:column>
+ 
+        <p:column headerText="نام فروشنده">
+            <h:outputText value="#{dp.merchant.merchantName}" />
+        </p:column>
+        
+        <p:column headerText="نام خانوادگی فروشنده">
+            <h:outputText value="#{dp.merchant.merchantFamily}" />
+        </p:column>
+        
+                <p:column headerText="ش.ش">
+            <h:outputText value="#{dp.merchant.merchantSsn}" />
+        </p:column>
+        
+                        <p:column headerText="نام محصول">
+            <h:outputText value="#{dp.product.productName}" />
+        </p:column>
+        
+                                <p:column headerText="برند محصول ">
+            <h:outputText value="#{dp.product.productBrand}" />
+        </p:column>
+       
+        
+        <p:column>
+        <p:commandButton value="حذف"  action="#{dedicatedProductBean.deleteDedicateProduct(dp.dedicatedId)}" style="width:100%!important;">
+        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
+        </p:commandButton>
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+        </p:confirmDialog>
+        </p:column> 
+
+
+    </p:dataTable>
+    
+</h:form>
+</ui:define>
+</ui:composition>
+</body> 
+</html>

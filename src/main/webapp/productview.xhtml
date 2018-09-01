@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">  
+
+<h:head></h:head> 
+<h:body> 
+<ui:composition template="/template.xhtml">
+<ui:define name="headtmp">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</ui:define>
+<ui:define name="centertmp">
+<h:form>
+    <p:dataTable var="product" value="#{productBean.findAllProducts()}" rows="10" rowKey="#{merchants.merchantId}" 
+                         paginator="true" resizableColumns="true" liveResize="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15" dir="rtl">
+                         
+        <p:column headerText="شماره" filterBy="#{product.productId}" sortBy="#{product.productId}" filterMatchMode="contains">
+            <h:outputText value="#{product.productId}" />
+        </p:column>
+ 
+ 
+        <p:column headerText="نام کالا" filterBy="#{product.productName}" sortBy="#{product.productId}" filterMatchMode="contains">
+            <h:outputText value="#{product.productName}" />
+        </p:column>
+        
+         <p:column headerText="نام برند" filterBy="#{product.productBrand}" sortBy="#{product.productId}" filterMatchMode="contains">
+            <h:outputText value="#{product.productBrand}" />
+        </p:column>
+        
+         <p:column>
+            <f:facet name="header">
+            <h:outputText value="ویرایش " /> 
+            </f:facet>
+            <p:button value="ویرایش" outcome="productedit.xhtml" style="width:100%!important;">
+            <f:param name="productID" value="#{product.productId}"/>
+            </p:button>
+        </p:column>
+        
+              <p:column>
+        <p:commandButton value="حذف"  action="#{productBean.deleteProduct(product.productId)}" style="width:100%!important;">
+        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
+        </p:commandButton>
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+        </p:confirmDialog>
+        </p:column>
+      
+        
+         
+    </p:dataTable>
+    </h:form>
+    </ui:define>
+    </ui:composition>
+</h:body> 
+</html>

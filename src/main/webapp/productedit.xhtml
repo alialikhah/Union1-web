@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:o="http://omnifaces.org/ui"> 
+
+<h:head></h:head> 
+<h:body> 
+<ui:composition template="/template.xhtml">
+<ui:define name="headtmp">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</ui:define>
+<ui:define name="centertmp">
+	  <ui:define name="metadata">
+      <f:metadata>
+      <f:viewParam name="productID"/>
+      </f:metadata>
+      </ui:define> 
+<p:panelGrid columns="4" style="direction:rtl!important">
+ <f:facet name="header">
+ ویرایش محصولات
+ </f:facet>
+ 
+
+							<h:outputText value="نام محصول:" />
+						    <h:outputText value="#{productBean.findProductById(productID).productName}" />  
+						    <h:form id="frm1" style="display:none">
+						    <p:inputText value="#{productBean.productName}"/>
+						    <p:commandButton value="ثبت تغییرات" action="#{productBean.updateProductName(productID)}"/>
+						    </h:form>
+						    <p:commandButton value="ویرایش">
+						  	<p:effect type="explode" event="click" for="frm1">
+						   	<f:param name="mode" value="'show'" />
+						    </p:effect> 
+						    </p:commandButton>
+						    
+						    <h:outputText value="عنوان محصول:" />
+						    <h:outputText value="#{productBean.findProductById(productID).productTitle}" />  
+						    <h:form id="frm2" style="display:none">
+						    <p:inputText value="#{productBean.productTitle}"/>
+						    <p:commandButton value="ثبت تغییرات" action="#{productBean.updateProductTitle(productID)}"/>
+						    </h:form>
+						    <p:commandButton value="ویرایش">
+						  	<p:effect type="explode" event="click" for="frm2">
+						   	<f:param name="mode" value="'show'" />
+						    </p:effect> 
+						    </p:commandButton>
+						    
+						    <h:outputText value="مدل محصول:" />
+						    <h:outputText value="#{productBean.findProductById(productID).productModel}" />  
+						    <h:form id="frm3" style="display:none">
+						    <p:inputText value="#{productBean.productModel}"/>
+						    <p:commandButton value="ثبت تغییرات" action="#{productBean.updateProductModel(productID)}"/>
+						    </h:form>
+						    <p:commandButton value="ویرایش">
+						  	<p:effect type="explode" event="click" for="frm3">
+						   	<f:param name="mode" value="'show'" />
+						    </p:effect> 
+						    </p:commandButton>
+						    
+						    <h:outputText value="مدل محصول:" />
+						    <h:outputText value="#{productBean.findProductById(productID).productDescription}" />  
+						    <h:form id="frm4" style="display:none">
+						    <p:inputTextarea value="#{productBean.productDescription}"/>
+						    <p:commandButton value="ثبت تغییرات" action="#{productBean.updateProductDescription(productID)}"/>
+						    </h:form>
+						    <p:commandButton value="ویرایش">
+						  	<p:effect type="explode" event="click" for="frm4">
+						   	<f:param name="mode" value="'show'" />
+						    </p:effect> 
+						    </p:commandButton>
+						    
+						    
+						    <h:outputText value="نوع محصول:" />
+						    <h:outputText value="#{productBean.findProductById(productID).productCategry}" />
+						     <h:form id="frm5" style="display:none">
+							<p:selectOneMenu id="productCategry" value="#{productBean.productCategry}"
+								effect="fold" editable="true">
+								<f:selectItem itemLabel="Select your union" />
+								<f:selectItems value="#{merchantRegisterBean.unions}" />
+							</p:selectOneMenu>
+							<p:commandButton value="ثبت تغییرات" action="#{productBean.updateProductCategory(productID)}"/>
+							</h:form>
+							 <p:commandButton value="ویرایش">
+						  	<p:effect type="explode" event="click" for="frm5">
+						   	<f:param name="mode" value="'show'" />
+						    </p:effect> 
+						    </p:commandButton>
+						    
+							<h:outputText value="برند محصول:" />
+						    <h:outputText value="#{productBean.findProductById(productID).productBrand}" />
+						     <h:form id="frm6" style="display:none">
+							<p:selectOneMenu id="productBrand" value="#{productBean.productBrand}"
+								effect="fold" editable="true">
+								<f:selectItem itemLabel="Select your brand" />
+								<f:selectItems value="#{addProductBean.allBrand}" />
+							</p:selectOneMenu>
+							<p:commandButton value="ثبت تغییرات" action="#{productBean.updateProductBrand(productID)}"/>
+						    </h:form>
+						    <p:commandButton value="ویرایش">
+						  	<p:effect type="explode" event="click" for="frm6">
+						   	<f:param name="mode" value="'show'" />
+						    </p:effect> 
+						    </p:commandButton>
+						    
+	
+						    
+						          <h:outputText value="عکس ۱:" />
+    <o:graphicImage value="#{productBean.findProductById(productID).productImage1}" dataURI="true" height="200" width="200"/>
+    <h:form id="frm38" style="display:none" enctype="multipart/form-data">
+	<h:inputFile value="#{productBean.productPic1}"/>                        
+    <h:commandButton value="ثبت تغییرات" action="#{productBean.updateProductPic1(productID)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm38">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+          <h:outputText value="عکس ۲:" />
+    <o:graphicImage value="#{productBean.findProductById(productID).productImage2}" dataURI="true" height="200" width="200"/>
+   <h:form id="frm39" style="display:none" enctype="multipart/form-data">
+	<h:inputFile value="#{productBean.productPic2}"/>                        
+    <h:commandButton value="ثبت تغییرات" action="#{productBean.updateProductPic2(productID)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm39">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+          <h:outputText value="عکس ۳:" />
+    <o:graphicImage value="#{productBean.findProductById(productID).productImage3}" dataURI="true" height="200" width="200"/>
+   <h:form id="frm40" style="display:none" enctype="multipart/form-data">
+	<h:inputFile value="#{productBean.productPic3}"/>                        
+    <h:commandButton value="ثبت تغییرات" action="#{productBean.updateProductPic3(productID)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm40">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+          <h:outputText value="عکس ۴:" />
+    <o:graphicImage value="#{productBean.findProductById(productID).productImage4}" dataURI="true" height="200" width="200"/>
+    <h:form id="frm41" style="display:none" enctype="multipart/form-data">
+	<h:inputFile value="#{productBean.productPic4}"/>                        
+    <h:commandButton value="ثبت تغییرات" action="#{productBean.updateProductPic4(productID)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm41">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+          <h:outputText value="عکس ۵:" />
+    <o:graphicImage value="#{productBean.findProductById(productID).productImage5}" dataURI="true" height="200" width="200"/>
+    <h:form id="frm42" style="display:none" enctype="multipart/form-data">
+	<h:inputFile value="#{productBean.productPic5}"/>                        
+    <h:commandButton value="ثبت تغییرات" action="#{productBean.updateProductPic5(productID)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm42">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+						     
+        </p:panelGrid>
+</ui:define>
+</ui:composition>
+</h:body> 
+</html>
