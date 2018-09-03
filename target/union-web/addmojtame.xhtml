@@ -9,7 +9,9 @@
 <h:body> 
  <ui:composition template="/template.xhtml">
 <ui:define name="headtmp">
-
+			<script
+				src="http://maps.google.com/maps/api/js?key=AIzaSyC5iFeXAWE72U4rr3l5oFje4g-ntNyQ0Ko"
+				type="text/javascript"></script>
 </ui:define>
 <ui:define name="centertmp">
 <h:form enctype="multipart/form-data" acceptcharset="UTF-8" id="form"> 
@@ -130,20 +132,18 @@
           				<p:outputLabel value="عکس ۱" />
 						<h:inputFile value="#{mojtameBean.pic1}" required="true" requiredMessage="please select shop1Image image"/>
                         <p:outputLabel value=""/>
-                       <p:outputLabel value="عکس ۲" />
-						<h:inputFile value="#{mojtameBean.pic2}" required="true" requiredMessage="please select shop2Image image"/>
-                        <p:outputLabel value=""/>
-                        <p:outputLabel value="عکس ۳" />
-						<h:inputFile value="#{mojtameBean.pic3}" required="true" requiredMessage="please select shopForm image"/>
-                        <p:outputLabel value=""/>
-                        <p:outputLabel value="عکس ۴" />
-						<h:inputFile value="#{mojtameBean.pic4}" required="true" requiredMessage="please select shopForm image"/>
-                        <p:outputLabel value=""/>
-                        <p:outputLabel value="عکس ۵" />
-						<h:inputFile value="#{mojtameBean.pic5}" required="true" requiredMessage="please select shopForm image"/>
+                        
+                                  				<p:outputLabel value="عکس 2" />
+						<h:inputFile value="#{mojtameBean.pic2}" required="true" requiredMessage="please select shop1Image image"/>
                         <p:outputLabel value=""/>
                        
-						
+													 <p:outputLabel value="مختصات عرض" for="txt1"/>
+							 <p:inputText value="#{mojtameBean.gmapWhidth}" id="txt1"/>
+							 <p:message for="txt1" />
+							 
+							 <p:outputLabel value="مختصات طول" for="txt2"/>
+							 <p:inputText value="#{mojtameBean.gmapHeight}" id="txt2"/>
+							 <p:message for="txt2" />
 						
 						
 							<h:commandButton id="saveBtn" value="ذخیره" icon="ui-icon-check"  style="margin:0"
@@ -158,8 +158,10 @@
  
     </p:panel>
  
-    <p:blockUI block="pnl" trigger="saveBtn" />
     
+            <p:gmap id="gmap" center="35.7818368, 51.4452772" zoom="15" type="ROADMAP" style="width:100%;height:400px">
+        <p:ajax event="pointSelect" listener="#{mojtameBean.onPointSelect}" update="txt1 txt2"/>
+  	    </p:gmap>
 </h:form>
 </ui:define>
 <ui:define name="righttmp">
@@ -176,18 +178,14 @@
             <h:outputText value="#{mojtame.mojtameTitle}" />
         </p:column>
         
-         <p:column width="100">
-                    <f:facet name="header">
-            <h:outputText value="حذف" /> 
+                <p:column width="100">
+            <f:facet name="header">
+            <h:outputText value="ویرایش" /> 
             </f:facet>
-        <p:commandButton value="delete"  action="#{mojtameBean.deleteMojtameEntity(mojtame.mojtameId)}" style="width:100%!important;">
-        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
-        </p:commandButton>
-        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-        </p:confirmDialog>
-        </p:column>
+            <p:button value="ویرایش" outcome="mojtamaedit.xhtml" style="width:100%!important;">
+            <f:param name="mojtameId" value="#{mojtame.mojtameId}"/>
+            </p:button>
+        </p:column>  
   
     </p:dataTable>
 </h:form>

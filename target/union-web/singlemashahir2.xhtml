@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link rel="shortcut icon"
+		href="resources/images/logo_black.png" />
+
+	<title>مشاهیر جهان</title>
+
+	<!--Bootstrap css -->
+	<link href="resources/mashahirtemp/css/bootstrap.min.css"
+		rel="stylesheet" />
+	<!--font-awosome icon css-->
+	<link rel="stylesheet"
+		href="resources/mashahirtemp/css/font-awesome.min.css" />
+	<!--elegant icon css-->
+	<link rel="stylesheet"
+		href="resources/mashahirtemp/vendors/elegant-icon/style.css" />
+	<!--google fonts-->
+<link href="resources/fonts.css" rel="stylesheet" type="text/css" />
+	<!--main css-->
+	<link rel="stylesheet" href="resources/mashahirtemp/css/style.css" />
+	<link rel="stylesheet" href="resources/mashahirtemp/css/responsive.css" />
+</h:head>
+<body>
+	  <ui:define name="metadata">
+      <f:metadata>
+      <f:viewParam name="mashahirEngId"/>
+      </f:metadata>
+      </ui:define> 
+<p:sidebar widgetVar="sidebar2" position="right" baseZIndex="10000">
+<p:button value="خانه" outcome="home.xhtml"/>
+</p:sidebar>
+<p:commandButton icon="fa fa-align-justify" oncomplete="PF('sidebar2').show()" style="position:fixed; top:50px; right:50px; width:75px; height:75px; z-index:100;" />
+	<div class="preloader">
+		<div class="left_pre"></div>
+		<div class="right_pre"></div>
+		<div class="row m0 content">
+			<div class="circle">
+				<div class="red">
+					<div class="rotator">
+						<img src="resources/mashahirtemp/images/curve.png" alt="" />
+					</div>
+					<a href="index.html#" class="logo" style="font-family: 'IRANSansNor'!important; text-align: right; font-size: 38px;">مشاهیرجهان</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<header class="header header-two" id="top" style="display:none;">
+
+	</header>
+
+	<section class="main_banner_area row m0">
+	<div class="container">
+		<div class="banner_text">
+			<h2 style="font-family: 'IRANSansNor'!important;">مشاهیر جهان</h2>
+
+		</div>
+	</div>
+	</section>
+	<!--End Main banner area-->
+
+	<!--==========Single Blog Right sidebar==========-->
+	<section class="single_blog_area">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+										<o:graphicImage
+						value="#{mashahirEngBean.findMashahirEngById(mashahirEngId).mashahirEngPic1}" style="float:left; margin-bottom:20px; margin-right:20px;max-width:100%"
+						dataURI="true" />
+
+				<p
+					style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl; line-height: 35px;">
+					<b><h:outputText value="#{mashahirEngBean.findMashahirEngById(mashahirEngId).mashahirEngName}" /></b><br /> <br />
+					<br /> <h:outputText value="#{mashahirEngBean.findMashahirEngById(mashahirEngId).mashahirEngText1}" />
+				</p>
+										<o:graphicImage style="margin-top:20px; width:100%;"
+						value="#{mashahirEngBean.findMashahirEngById(mashahirEngId).mashahirEngPic2}"
+						dataURI="true" />
+
+				<p
+					style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl; line-height: 35px;">
+					<br /> <h:outputText value="#{mashahirEngBean.findMashahirEngById(mashahirEngId).mashahirEngText2}" /></p>
+
+										<o:graphicImage   style="float:right;margin-bottom:20px; margin-left:20px;max-width:100%"
+						value="#{mashahirEngBean.findMashahirEngById(mashahirEngId).mashahirEngPic3}"
+						dataURI="true" />
+				<p
+					style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl; line-height: 35px;">
+					<br /> <h:outputText value="#{mashahirEngBean.findMashahirEngById(mashahirEngId).mashahirEngText3}" />
+				</p>
+										<o:graphicImage style="margin-top:20px; width:100%;"
+						value="#{mashahirEngBean.findMashahirEngById(mashahirEngId).mashahirEngPic4}"
+						dataURI="true" />
+				<p
+					style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl; line-height: 35px;">
+					<br /> <h:outputText value="#{mashahirEngBean.findMashahirEngById(mashahirEngId).mashahirEngText4}" />
+				</p>
+										<o:graphicImage style="float:left; float:left; margin-bottom:20px; margin-right:20px; max-width:100%"
+						value="#{mashahirEngBean.findMashahirEngById(mashahirEngId).mashahirEngPic5}"
+						dataURI="true" />
+
+				<p
+					style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl; line-height: 35px;">
+					<br /> <h:outputText value="#{mashahirEngBean.findMashahirEngById(mashahirEngId).mashahirEngText5}" />
+				</p>
+										<o:graphicImage style="margin-top:20px;width:100%;"
+						value="#{mashahirEngBean.findMashahirEngById(mashahirEngId).mashahirEngPic6}"
+						dataURI="true" />
+			</div>
+		</div>
+	</div>
+	</section>
+	<!--==========End Single Blog Right sidebar==========-->
+
+	<!--start footer area-->
+	<footer class="footer-area footer-bg2"> </footer>
+	<!--End footer area-->
+	<!--All JS Files Here-->
+	<script src="resources/mashahirtemp/js/jquery-2.2.0.min.js"></script>
+	<!--bootstrap Js-->
+	<script src="resources/mashahirtemp/js/bootstrap.min.js"></script>
+
+	<!--infinite scroll js-->
+	<!--        <script src="js/smooth-scroll.min.js"></script>-->
+	<!--main Js-->
+	<script src="resources/mashahirtemp/js/main.js"></script>
+</body>
+</html>

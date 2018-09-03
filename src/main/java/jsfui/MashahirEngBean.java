@@ -205,7 +205,7 @@ System.err.println("mashahireng not find");
 			}
 
 
-	    	FacesContext.getCurrentInstance().getExternalContext().redirect("addmashahireng.xhtml"+"?mashahirId=" + mashahirEngId );
+	    	FacesContext.getCurrentInstance().getExternalContext().redirect("mashahirengedit.xhtml"+"?mashahirEngId=" + mashahirEngId );
 	    }
 	    
 	    public void updateMashahirEngImg2(long mashahirEngId) throws IOException{
@@ -222,7 +222,7 @@ System.err.println("mashahireng not find");
 			}
 
 
-	    	FacesContext.getCurrentInstance().getExternalContext().redirect("addmashahireng.xhtml"+"?mashahirId=" + mashahirEngId );
+	    	FacesContext.getCurrentInstance().getExternalContext().redirect("mashahirengedit.xhtml"+"?mashahirEngId=" + mashahirEngId );
 	    }
 	    
 	    public void updateMashahirEngImg3(long mashahirEngId) throws IOException{
@@ -239,7 +239,7 @@ System.err.println("mashahireng not find");
 			}
 
 
-	    	FacesContext.getCurrentInstance().getExternalContext().redirect("addmashahireng.xhtml"+"?mashahirId=" + mashahirEngId );
+	    	FacesContext.getCurrentInstance().getExternalContext().redirect("mashahirengedit.xhtml"+"?mashahirEngId=" + mashahirEngId );
 	    }
 	    
 	    public void updateMashahirEngImg4(long mashahirEngId) throws IOException{
@@ -256,7 +256,7 @@ System.err.println("mashahireng not find");
 			}
 
 
-	    	FacesContext.getCurrentInstance().getExternalContext().redirect("addmashahireng.xhtml"+"?mashahirId=" + mashahirEngId );
+	    	FacesContext.getCurrentInstance().getExternalContext().redirect("mashahirengedit.xhtml"+"?mashahirEngId=" + mashahirEngId );
 	    }
 	    
 	    public void updateMashahirEngImg5(long mashahirEngId) throws IOException{
@@ -273,7 +273,7 @@ System.err.println("mashahireng not find");
 			}
 
 
-	    	FacesContext.getCurrentInstance().getExternalContext().redirect("addmashahireng.xhtml"+"?mashahirId=" + mashahirEngId );
+	    	FacesContext.getCurrentInstance().getExternalContext().redirect("mashahirengedit.xhtml"+"?mashahirEngId=" + mashahirEngId );
 	    }
 	    
 	    public void updateMashahirEngImg6(long mashahirEngId) throws IOException{
@@ -290,7 +290,7 @@ System.err.println("mashahireng not find");
 			}
 
 
-	    	FacesContext.getCurrentInstance().getExternalContext().redirect("addmashahireng.xhtml"+"?mashahirId=" + mashahirEngId );
+	    	FacesContext.getCurrentInstance().getExternalContext().redirect("mashahirengedit.xhtml"+"?mashahirEngId=" + mashahirEngId );
 	    }
 
 	    public List<MashahirEngEntity> findAllMashahirEng(){
@@ -311,4 +311,120 @@ System.err.println("mashahireng not find");
 				return null;
 			}
 	    }
+		
+		
+		
+		public void updateMashahirEngName(long mashahirEngId) throws IOException {
+			FacesContext context = FacesContext.getCurrentInstance();
+			MashahirEngEntity mashahirEngEntity = new MashahirEngEntity();
+
+			try {
+				mashahirEngEntity = mashahirEngServiceLocal.findMashahirEngById(mashahirEngId);
+				mashahirEngEntity.setMashahirEngName(mashahirEngName);
+				mashahirEngServiceLocal.updateMashahirEng(mashahirEngEntity);
+			} catch (Exception e) {
+				System.err.println("mashahir not find");
+			}
+
+			FacesContext.getCurrentInstance().getExternalContext()
+					.redirect("mashahirengedit.xhtml" + "?mashahirEngId=" + mashahirEngId);
+		}
+		public void updateMashahirEngHead1(long mashahirEngId) throws IOException {
+			FacesContext context = FacesContext.getCurrentInstance();
+			MashahirEngEntity mashahirEngEntity = new MashahirEngEntity();
+
+			try {
+				mashahirEngEntity = mashahirEngServiceLocal.findMashahirEngById(mashahirEngId);
+				mashahirEngEntity.setMashahirEngHead1(mashahirEngHead1);
+				mashahirEngServiceLocal.updateMashahirEng(mashahirEngEntity);
+			} catch (Exception e) {
+				System.err.println("mashahir not find");
+			}
+
+			FacesContext.getCurrentInstance().getExternalContext()
+					.redirect("mashahirengedit.xhtml" + "?mashahirEngId=" + mashahirEngId);
+		}
+		public void updateMashahirEngText1(long mashahirEngId) throws IOException {
+			FacesContext context = FacesContext.getCurrentInstance();
+			MashahirEngEntity mashahirEngEntity = new MashahirEngEntity();
+
+			try {
+				mashahirEngEntity = mashahirEngServiceLocal.findMashahirEngById(mashahirEngId);
+				mashahirEngEntity.setMashahirEngText1(mashahirEngText1);
+				mashahirEngServiceLocal.updateMashahirEng(mashahirEngEntity);
+			} catch (Exception e) {
+				System.err.println("mashahir not find");
+			}
+
+			FacesContext.getCurrentInstance().getExternalContext()
+					.redirect("mashahirengedit.xhtml" + "?mashahirEngId=" + mashahirEngId);
+		}
+		
+		public void updateMashahirEngText2(long mashahirEngId) throws IOException {
+			FacesContext context = FacesContext.getCurrentInstance();
+			MashahirEngEntity mashahirEngEntity = new MashahirEngEntity();
+
+			try {
+				mashahirEngEntity = mashahirEngServiceLocal.findMashahirEngById(mashahirEngId);
+				mashahirEngEntity.setMashahirEngText2(mashahirEngText2);
+				mashahirEngServiceLocal.updateMashahirEng(mashahirEngEntity);
+			} catch (Exception e) {
+				System.err.println("mashahir not find");
+			}
+
+			FacesContext.getCurrentInstance().getExternalContext()
+					.redirect("mashahirengedit.xhtml" + "?mashahirEngId=" + mashahirEngId);
+		}
+		
+		public void updateMashahirEngText3(long mashahirEngId) throws IOException {
+			FacesContext context = FacesContext.getCurrentInstance();
+			MashahirEngEntity mashahirEngEntity = new MashahirEngEntity();
+
+			try {
+				mashahirEngEntity = mashahirEngServiceLocal.findMashahirEngById(mashahirEngId);
+				mashahirEngEntity.setMashahirEngText3(mashahirEngText3);
+				mashahirEngServiceLocal.updateMashahirEng(mashahirEngEntity);
+			} catch (Exception e) {
+				System.err.println("mashahir not find");
+			}
+
+			FacesContext.getCurrentInstance().getExternalContext()
+					.redirect("mashahirengedit.xhtml" + "?mashahirEngId=" + mashahirEngId);
+		}
+		
+		public void updateMashahirEngText4(long mashahirEngId) throws IOException {
+			FacesContext context = FacesContext.getCurrentInstance();
+			MashahirEngEntity mashahirEngEntity = new MashahirEngEntity();
+
+			try {
+				mashahirEngEntity = mashahirEngServiceLocal.findMashahirEngById(mashahirEngId);
+				mashahirEngEntity.setMashahirEngText4(mashahirEngText4);
+				mashahirEngServiceLocal.updateMashahirEng(mashahirEngEntity);
+			} catch (Exception e) {
+				System.err.println("mashahir not find");
+			}
+
+			FacesContext.getCurrentInstance().getExternalContext()
+					.redirect("mashahirengedit.xhtml" + "?mashahirEngId=" + mashahirEngId);
+		}
+		
+		public void updateMashahirEngText5(long mashahirEngId) throws IOException {
+			FacesContext context = FacesContext.getCurrentInstance();
+			MashahirEngEntity mashahirEngEntity = new MashahirEngEntity();
+
+			try {
+				mashahirEngEntity = mashahirEngServiceLocal.findMashahirEngById(mashahirEngId);
+				mashahirEngEntity.setMashahirEngText5(mashahirEngText5);
+				mashahirEngServiceLocal.updateMashahirEng(mashahirEngEntity);
+			} catch (Exception e) {
+				System.err.println("mashahir not find");
+			}
+
+			FacesContext.getCurrentInstance().getExternalContext()
+					.redirect("mashahirengedit.xhtml" + "?mashahirEngId=" + mashahirEngId);
+		}
+		
+		
+		
+		
 }

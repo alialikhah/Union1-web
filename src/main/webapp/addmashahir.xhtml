@@ -216,25 +216,13 @@
         <p:column headerText="نام">
             <h:outputText value="#{mashahir.mashahirName}" />
         </p:column>
-        
-         <p:column width="100">
-                    <f:facet name="header">
-            <h:outputText value="حذف" /> 
-            </f:facet>
-        <p:commandButton value="delete"  action="#{mashahirBean.deleteMerchantEntity(mashahir.mashahirId)}" style="width:100%!important;">
-        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
-        </p:commandButton>
-        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-        </p:confirmDialog>
-        </p:column>
+
         
                 <p:column width="100">
             <f:facet name="header">
             <h:outputText value="ویرایش" /> 
             </f:facet>
-            <p:button value="آدرس" outcome="mashahiredit.xhtml" style="width:100%!important;">
+            <p:button value="ویرایش" outcome="mashahiredit.xhtml" style="width:100%!important;">
             <f:param name="mashahirId" value="#{mashahir.mashahirId}"/>
             </p:button>
         </p:column>  

@@ -10,10 +10,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<link rel="icon" href="resources/mashahirtemp/images/favicon.png"
-		type="image/png" />
+		<link rel="shortcut icon"
+		href="resources/images/logo_black.png" />
 
-	<title>Bloger</title>
+	<title>مشاهیر ایران</title>
 
 	<!--Bootstrap css -->
 	<link href="resources/mashahirtemp/css/bootstrap.min.css"
@@ -25,21 +25,19 @@
 	<link rel="stylesheet"
 		href="resources/mashahirtemp/vendors/elegant-icon/style.css" />
 	<!--google fonts-->
-	<link href='https://fonts.googleapis.com/css?family=Lora:400,700'
-		rel='stylesheet' type='text/css' />
-	<link
-		href='https://fonts.googleapis.com/css?family=Arimo:400,400italic,700'
-		rel='stylesheet' type='text/css' />
-	<link href="https://fonts.googleapis.com/css?family=Montserrat"
-		rel="stylesheet" />
+<link href="resources/fonts.css" rel="stylesheet" type="text/css" />
 	<!--main css-->
 	<link rel="stylesheet" href="resources/mashahirtemp/css/style.css" />
 	<link rel="stylesheet" href="resources/mashahirtemp/css/responsive.css" />
 </h:head>
 <body>
+	  <ui:define name="metadata">
+      <f:metadata>
+      <f:viewParam name="mashahirId"/>
+      </f:metadata>
+      </ui:define> 
 <p:sidebar widgetVar="sidebar2" position="right" baseZIndex="10000">
-    <h1 style="font-weight:normal">Right Sidebar</h1>
-    <p:commandButton value="Cancel" oncomplete="PF('sidebar2').hide()"/>
+<p:button value="خانه" outcome="home.xhtml"/>
 </p:sidebar>
 <p:commandButton icon="fa fa-align-justify" oncomplete="PF('sidebar2').show()" style="position:fixed; top:50px; right:50px; width:75px; height:75px; z-index:100;" />
 	<div class="preloader">
@@ -51,7 +49,7 @@
 					<div class="rotator">
 						<img src="resources/mashahirtemp/images/curve.png" alt="" />
 					</div>
-					<a href="blog-single.html#" class="logo">Bloger</a>
+					<a href="index.html#" class="logo" style="font-family: 'IRANSansNor'!important; text-align: right; font-size: 37px;">مشاهیرایران</a>
 				</div>
 			</div>
 		</div>
@@ -64,8 +62,7 @@
 	<section class="main_banner_area row m0">
 	<div class="container">
 		<div class="banner_text">
-			<h2 style="font-family: 'IRANSansBold' !important;">دکتر محمود
-				حسابی</h2>
+			<h2 style="font-family: 'IRANSansNor'!important;">مشاهیر ایران</h2>
 
 		</div>
 	</div>
@@ -77,141 +74,49 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<img src="resources/images/8w.jpg" alt="image"
-					style="max-width: 100% !important; max-height: 500px !important; margin: 20px;"
-					align="left" />
+
+										<o:graphicImage
+						value="#{mashahirBean.findMashahirById(mashahirId).mashahirPic1}" style="float:left; margin-bottom:20px; margin-right:20px;max-width:100%"
+						dataURI="true" />
 
 				<p
-					style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl;">
-					<b>عباس برادران ساداتی</b><br /> <b
-						style="font-size: 16px !important;">عضو هیئت مدیره اتحادیه
-						لوازم فروشندگان لوازم صوتی ، تصویری ، تلفن همراه و لوازم جانبی </b><br />
-					<br /> در31/02/1329 در شهر اراک متولد و دارای مدرک کارشناسی
-					حسابداری با گرایش تخصصی حسابداری می باشم. طی این سالیان افتخار دارم
-					دوره های آموزشی مهندسی برق صنعتی و مدیریت اداری را گذرانده ام .
-					سوابق فعالیت های اجرایی بنده شامل مشاور مالی نوسازی صنایع ملی ایران
-					، حسابرس موسسه حسابررسی کوروش ، موسس و عضو هیئت مدیره انجمن صنفی
-					صوت و تصویری تلفن همراه و لوازم جانبی و قطعات الکترونیک ، موسس و
-					مبتکر بیـمه تـکمیـل درمان ، مشاور مالیاتـی و مشاور حقوقـی در
-					اتحادیه ، نماینده کارفرما در سازمان تامین اجتماعی ، نماینده صنفی در
-					هیئت های حل اختلاف مالیاتی ، موسس شورای همکاری و همیاری پاساژ فتـوت
-					، عضو انـجمن فارغ التـحصیـلان دانـشکده حسابـرسی و دبیـر
-					در31/02/1329 در شهر اراک متولد و دارای مدرک کارشناسی حسابداری با
-					گرایش تخصصی حسابداری می باشم. طی این سالیان افتخار دارم دوره های
-					آموزشی مهندسی برق صنعتی و مدیریت اداری را گذرانده ام . سوابق فعالیت
-
-					سوابق فعالیت های اجرایی بنده شامل مشاور مالی نوسازی صنایع ملی ایران
-					، حسابرس موسسه حسابررسی کوروش ، موسس و عضو هیئت مدیره انجمن صنفی
-					صوت و تصویری تلفن همراه و لوازم جانبی و قطعات الکترونیک ، موسس و
-					مبتکر بیـمه تـکمیـل درمان ، مشاور مالیاتـی و مشاور حقوقـی در
-					اتحادیه ، نماینده کارفرما در سازمان تامین اجتماعی ، نماینده صنفی در
-					هیئت های حل اختلاف مالیاتی ، موسس شورای همکاری و همیاری پاساژ فتـوت
-					، عضو انـجمن فارغ التـحصیـلان دانـشکده حسابـرسی و دبیـر
-					در31/02/1329 در شهر اراک متولد و دارای مدرک کارشناسی حسابداری با
-					گرایش تخصصی حسابداری می باشم. طی این سالیان افتخار دارم دوره های
-					آموزشی مهندسی برق صنعتی و مدیریت اداری را گذرانده ام . سوابق فعالیت
-					های اجرایی بنده شامل مشاور ماتحادیه در دوره های قبل را برعهده داشته
-					ام .
+					style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl; line-height: 35px;">
+					<b><h:outputText value="#{mashahirBean.findMashahirById(mashahirId).mashahirName}" /></b><br /> <br />
+					<br /> <h:outputText value="#{mashahirBean.findMashahirById(mashahirId).mashahirText1}" />
 				</p>
-				<img src="resources/images/8w.jpg" alt="image"
-					style="max-width: 100% !important; max-height: 500px !important; margin: 20px; width: 100%" />
+										<o:graphicImage style="margin-top:20px; width:100%;"
+						value="#{mashahirBean.findMashahirById(mashahirId).mashahirPic2}"
+						dataURI="true" />
 
 				<p
-					style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl;">
-					<br /> در31/02/1329 در شهر اراک متولد و دارای مدرک کارشناسی
-					حسابداری با گرایش تخصصی حسابداری می باشم. طی این سالیان افتخار دارم
-					دوره های آموزشی مهندسی برق صنعتی و مدیریت اداری را گذرانده ام .
-					سوابق فعالیت های اجرایی بنده شامل مشاور مالی نوسازی صنایع ملی ایران
-					، حسابرس موسسه حسابررسی کوروش ، موسس و عضو هیئت مدیره انجمن صنفی
-					صوت و تصویری تلفن همراه و لوازم جانبی و قطعات الکترونیک ، موسس و
-					مبتکر بیـمه تـکمیـل درمان ، مشاور مالیاتـی و مشاور حقوقـی در
-					اتحادیه ، نماینده کارفرما در سازمان تامین اجتماعی ، نماینده صنفی در
-					هیئت های حل اختلاف مالیاتی ، موسس شورای همکاری و همیاری پاساژ فتـوت
+					style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl; line-height: 35px;">
+					<br /> <h:outputText value="#{mashahirBean.findMashahirById(mashahirId).mashahirText2}" /></p>
 
-				</p>
-
-				<img src="resources/images/8w.jpg" alt="image"
-					style="max-width: 100% !important; max-height: 500px !important; margin: 20px;"
-					align="right" />
+										<o:graphicImage   style="float:right;margin-bottom:20px; margin-left:20px;max-width:100%"
+						value="#{mashahirBean.findMashahirById(mashahirId).mashahirPic3}"
+						dataURI="true" />
 				<p
-					style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl;">
-					<br /> در31/02/1329 در شهر اراک متولد و دارای مدرک کارشناسی
-					حسابداری با گرایش تخصصی حسابداری می باشم. طی این سالیان افتخار دارم
-					دوره های آموزشی مهندسی برق صنعتی و مدیریت اداری را گذرانده ام .
-					سوابق فعالیت های اجرایی بنده شامل مشاور مالی نوسازی صنایع ملی ایران
-					، حسابرس موسسه حسابررسی کوروش ، موسس و عضو هیئت مدیره انجمن صنفی
-					صوت و تصویری تلفن همراه و لوازم جانبی و قطعات الکترونیک ، موسس و
-					مبتکر بیـمه تـکمیـل درمان ، مشاور مالیاتـی و مشاور حقوقـی در
-					اتحادیه ، نماینده کارفرما در سازمان تامین اجتماعی ، نماینده صنفی در
-					هیئت های حل اختلاف مالیاتی ، موسس شورای همکاری و همیاری پاساژ فتـوت
-					، عضو انـجمن فارغ التـحصیـلان دانـشکده حسابـرسی و دبیـر
-					در31/02/1329 در شهر اراک متولد و دارای مدرک کارشناسی حسابداری با
-					گرایش تخصصی حسابداری می باشم. طی این سالیان افتخار دارم دوره های
-					آموزشی مهندسی برق صنعتی و مدیریت اداری را گذرانده ام . سوابق فعالیت
-
-					سوابق فعالیت های اجرایی بنده شامل مشاور مالی نوسازی صنایع ملی ایران
-					، حسابرس موسسه حسابررسی کوروش ، موسس و عضو هیئت مدیره انجمن صنفی
-					صوت و تصویری تلفن همراه و لوازم جانبی و قطعات الکترونیک ، موسس و
-					مبتکر بیـمه تـکمیـل درمان ، مشاور مالیاتـی و مشاور حقوقـی در
-					اتحادیه ، نماینده کارفرما در سازمان تامین اجتماعی ، نماینده صنفی در
-					هیئت های حل اختلاف مالیاتی ، موسس شورای همکاری و همیاری پاساژ فتـوت
-					، عضو انـجمن فارغ التـحصیـلان دانـشکده حسابـرسی و دبیـر
-					در31/02/1329 در شهر اراک متولد و دارای مدرک کارشناسی حسابداری با
-					گرایش تخصصی حسابداری می باشم. طی این سالیان افتخار دارم دوره های
-					آموزشی مهندسی برق صنعتی و مدیریت اداری را گذرانده ام . سوابق فعالیت
-					های اجرایی بنده شامل مشاور ماتحادیه در دوره های قبل را برعهده داشته
-					ام .
+					style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl; line-height: 35px;">
+					<br /> <h:outputText value="#{mashahirBean.findMashahirById(mashahirId).mashahirText3}" />
 				</p>
-				<img src="resources/images/8w.jpg" alt="image"
-					style="max-width: 100% !important; max-height: 500px !important; margin: 20px; width: 100%" />
+										<o:graphicImage style="margin-top:20px; width:100%;"
+						value="#{mashahirBean.findMashahirById(mashahirId).mashahirPic4}"
+						dataURI="true" />
 				<p
-					style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl;">
-					<br /> در31/02/1329 در شهر اراک متولد و دارای مدرک کارشناسی
-					حسابداری با گرایش تخصصی حسابداری می باشم. طی این سالیان افتخار دارم
-					دوره های آموزشی مهندسی برق صنعتی و مدیریت اداری را گذرانده ام .
-					سوابق فعالیت های اجرایی بنده شامل مشاور مالی نوسازی صنایع ملی ایران
-					، حسابرس موسسه حسابررسی کوروش ، موسس و عضو هیئت مدیره انجمن صنفی
-					صوت و تصویری تلفن همراه و لوازم جانبی و قطعات الکترونیک ، موسس و
-					مبتکر بیـمه تـکمیـل درمان ، مشاور مالیاتـی و مشاور حقوقـی در
-					اتحادیه ، نماینده کارفرما در سازمان تامین اجتماعی ، نماینده صنفی در
-					هیئت های حل اختلاف مالیاتی ، موسس شورای همکاری و همیاری پاساژ فتـوت
-
+					style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl; line-height: 35px;">
+					<br /> <h:outputText value="#{mashahirBean.findMashahirById(mashahirId).mashahirText4}" />
 				</p>
-								<img src="resources/images/8w.jpg" alt="image"
-					style="max-width: 100% !important; max-height: 500px !important; margin: 20px;"
-					align="left" />
+										<o:graphicImage style="float:left; float:left; margin-bottom:20px; margin-right:20px; max-width:100%"
+						value="#{mashahirBean.findMashahirById(mashahirId).mashahirPic5}"
+						dataURI="true" />
 
 				<p
-					style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl;">
-					<br /> در31/02/1329 در شهر اراک متولد و دارای مدرک کارشناسی
-					حسابداری با گرایش تخصصی حسابداری می باشم. طی این سالیان افتخار دارم
-					دوره های آموزشی مهندسی برق صنعتی و مدیریت اداری را گذرانده ام .
-					سوابق فعالیت های اجرایی بنده شامل مشاور مالی نوسازی صنایع ملی ایران
-					، حسابرس موسسه حسابررسی کوروش ، موسس و عضو هیئت مدیره انجمن صنفی
-					صوت و تصویری تلفن همراه و لوازم جانبی و قطعات الکترونیک ، موسس و
-					مبتکر بیـمه تـکمیـل درمان ، مشاور مالیاتـی و مشاور حقوقـی در
-					اتحادیه ، نماینده کارفرما در سازمان تامین اجتماعی ، نماینده صنفی در
-					هیئت های حل اختلاف مالیاتی ، موسس شورای همکاری و همیاری پاساژ فتـوت
-					، عضو انـجمن فارغ التـحصیـلان دانـشکده حسابـرسی و دبیـر
-					در31/02/1329 در شهر اراک متولد و دارای مدرک کارشناسی حسابداری با
-					گرایش تخصصی حسابداری می باشم. طی این سالیان افتخار دارم دوره های
-					آموزشی مهندسی برق صنعتی و مدیریت اداری را گذرانده ام . سوابق فعالیت
-
-					سوابق فعالیت های اجرایی بنده شامل مشاور مالی نوسازی صنایع ملی ایران
-					، حسابرس موسسه حسابررسی کوروش ، موسس و عضو هیئت مدیره انجمن صنفی
-					صوت و تصویری تلفن همراه و لوازم جانبی و قطعات الکترونیک ، موسس و
-					مبتکر بیـمه تـکمیـل درمان ، مشاور مالیاتـی و مشاور حقوقـی در
-					اتحادیه ، نماینده کارفرما در سازمان تامین اجتماعی ، نماینده صنفی در
-					هیئت های حل اختلاف مالیاتی ، موسس شورای همکاری و همیاری پاساژ فتـوت
-					، عضو انـجمن فارغ التـحصیـلان دانـشکده حسابـرسی و دبیـر
-					در31/02/1329 در شهر اراک متولد و دارای مدرک کارشناسی حسابداری با
-					گرایش تخصصی حسابداری می باشم. طی این سالیان افتخار دارم دوره های
-					آموزشی مهندسی برق صنعتی و مدیریت اداری را گذرانده ام . سوابق فعالیت
-					های اجرایی بنده شامل مشاور ماتحادیه در دوره های قبل را برعهده داشته
-					ام .
+					style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl; line-height: 35px;">
+					<br /> <h:outputText value="#{mashahirBean.findMashahirById(mashahirId).mashahirText5}" />
 				</p>
-	<img src="resources/images/8w.jpg" alt="image"
-					style="max-width: 100% !important; max-height: 500px !important; margin: 20px; width: 100%" />
+										<o:graphicImage style="margin-top:20px;width:100%;"
+						value="#{mashahirBean.findMashahirById(mashahirId).mashahirPic6}"
+						dataURI="true" />
 			</div>
 		</div>
 	</div>

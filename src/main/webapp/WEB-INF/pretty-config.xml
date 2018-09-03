@@ -65,8 +65,8 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 		<view-id value="faces/merchant.xhtml?shopName=Golden apple" />
 	</url-mapping>
 
-	<url-mapping id="kavosyan">
-		<pattern value="/kavosyan" />
+	<url-mapping id="kavosian">
+		<pattern value="/kavosian" />
 		<view-id value="faces/merchant.xhtml?shopName=kavosyan" />
 	</url-mapping>
 
@@ -331,19 +331,39 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 		<pattern value="/pars" />
 		<view-id value="faces/merchant.xhtml?shopName=Pars" />
 	</url-mapping>
-	
-		<url-mapping id="alvand">
+
+	<url-mapping id="alvand">
 		<pattern value="/alvand" />
 		<view-id value="faces/merchant.xhtml?shopName=Alvand" />
 	</url-mapping>
-	
-			<url-mapping id="top_store">
+
+	<url-mapping id="top_store">
 		<pattern value="/top_store" />
 		<view-id value="faces/merchant.xhtml?shopName=Top store" />
 	</url-mapping>
-	
-				<url-mapping id="faraz">
+
+	<url-mapping id="faraz">
 		<pattern value="/faraz" />
 		<view-id value="faces/merchant.xhtml?shopName=faraz" />
+	</url-mapping>
+	
+		<url-mapping id="sony_online">
+		<pattern value="/sony_online" />
+		<view-id value="faces/merchant.xhtml?shopName=Sony online" />
+	</url-mapping>
+	
+			<url-mapping id="sony_center">
+		<pattern value="/sony_center" />
+		<view-id value="faces/merchant.xhtml?shopName=Sony Center" />
+	</url-mapping>
+	
+				<url-mapping id="sonyzafar">
+		<pattern value="/sony_zafar" />
+		<view-id value="faces/merchant.xhtml?shopName=sonyzafar" />
+	</url-mapping>
+	
+					<url-mapping id="sony_azadi">
+		<pattern value="/sony_azadi" />
+		<view-id value="faces/merchant.xhtml?shopName=Sony Azadi" />
 	</url-mapping>
 </pretty-config>

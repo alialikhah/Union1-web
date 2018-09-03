@@ -205,24 +205,13 @@
             <h:outputText value="#{mashahirEng.mashahirEngName}" />
         </p:column>
         
-         <p:column width="100">
-                    <f:facet name="header">
-            <h:outputText value="حذف" /> 
-            </f:facet>
-        <p:commandButton value="delete"  action="#{mashahirEngBean.deleteMerchantEngEntity(mashahirEng.mashahirEngId)}" style="width:100%!important;">
-        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
-        </p:commandButton>
-        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-        </p:confirmDialog>
-        </p:column>
+
         
                 <p:column width="100">
             <f:facet name="header">
             <h:outputText value="ویرایش" /> 
             </f:facet>
-            <p:button value="آدرس" outcome="mashahirengedit.xhtml" style="width:100%!important;">
+            <p:button value="ویرایش" outcome="mashahirengedit.xhtml" style="width:100%!important;">
             <f:param name="mashahirEngId" value="#{mashahirEng.mashahirEngId}"/>
             </p:button>
         </p:column>  

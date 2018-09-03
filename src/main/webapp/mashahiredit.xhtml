@@ -146,6 +146,123 @@
    	<f:param name="mode" value="'show'" />
     </p:effect> 
     </p:commandButton>
+     <h:outputText value="" />
+     
+         
+            <h:outputText value="نام:" />
+        <h:outputText value="#{mashahirBean.findMashahirById(mashahirId).mashahirName}" />
+    <h:form id="frm47" style="display:none">
+    						<p:inputTextarea id="mashahirNamez" rows="20" cols="100" autoResize="false"
+							value="#{mashahirBean.mashahirName}"
+							label="merchantDescription">
+							<f:validateLength maximum="500" />
+						</p:inputTextarea>
+    <p:commandButton value="ثبت تغییرات" action="#{mashahirBean.updateMashahirName(mashahirId)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm47">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+            <h:outputText value="هد۱:" />
+        <h:outputText value="#{mashahirBean.findMashahirById(mashahirId).mashahirHead1}" />
+    <h:form id="frm7" style="display:none">
+    						<p:inputTextarea id="merchantDescription" rows="20" cols="100" autoResize="false"
+							value="#{mashahirBean.mashahirHead1}"
+							label="merchantDescription">
+							<f:validateLength maximum="500" />
+						</p:inputTextarea>
+    <p:commandButton value="ثبت تغییرات" action="#{mashahirBean.updateMashahirHead1(mashahirId)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm7">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+                <h:outputText value="text1:" />
+        <h:outputText value="#{mashahirBean.findMashahirById(mashahirId).mashahirText1}" />
+    <h:form id="frm8" style="display:none">
+    						<p:inputTextarea id="mashahirText1" rows="20" cols="100" autoResize="false"
+							value="#{mashahirBean.mashahirText1}"
+							label="mashahirText1">
+							<f:validateLength maximum="5000" />
+						</p:inputTextarea>
+    <p:commandButton value="ثبت تغییرات" action="#{mashahirBean.updateMashahirText1(mashahirId)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm8">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+                    <h:outputText value="text2:" />
+        <h:outputText value="#{mashahirBean.findMashahirById(mashahirId).mashahirText2}" />
+    <h:form id="frm9" style="display:none">
+    						<p:inputTextarea id="mashahirText2" rows="20" cols="100" autoResize="false"
+							value="#{mashahirBean.mashahirText2}"
+							label="mashahirText1">
+							<f:validateLength maximum="5000" />
+						</p:inputTextarea>
+    <p:commandButton value="ثبت تغییرات" action="#{mashahirBean.updateMashahirText2(mashahirId)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm9">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+                        <h:outputText value="text3:" />
+        <h:outputText value="#{mashahirBean.findMashahirById(mashahirId).mashahirText3}" />
+    <h:form id="frm10" style="display:none">
+    						<p:inputTextarea id="mashahirText3" rows="20" cols="100" autoResize="false"
+							value="#{mashahirBean.mashahirText3}"
+							label="mashahirText3">
+							<f:validateLength maximum="5000" />
+						</p:inputTextarea>
+    <p:commandButton value="ثبت تغییرات" action="#{mashahirBean.updateMashahirText3(mashahirId)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm10">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+                            <h:outputText value="text4:" />
+        <h:outputText value="#{mashahirBean.findMashahirById(mashahirId).mashahirText4}" />
+    <h:form id="frm11" style="display:none">
+    						<p:inputTextarea id="mashahirText4" rows="20" cols="100" autoResize="false"
+							value="#{mashahirBean.mashahirText4}"
+							label="mashahirText3">
+							<f:validateLength maximum="5000" />
+						</p:inputTextarea>
+    <p:commandButton value="ثبت تغییرات" action="#{mashahirBean.updateMashahirText4(mashahirId)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm11">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+                                <h:outputText value="text5:" />
+        <h:outputText value="#{mashahirBean.findMashahirById(mashahirId).mashahirText5}" />
+    <h:form id="frm12" style="display:none">
+    						<p:inputTextarea id="mashahirText5" rows="20" cols="100" autoResize="false"
+							value="#{mashahirBean.mashahirText5}"
+							label="mashahirText5">
+							<f:validateLength maximum="5000" />
+						</p:inputTextarea>
+    <p:commandButton value="ثبت تغییرات" action="#{mashahirBean.updateMashahirText5(mashahirId)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm12">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
     
     
     

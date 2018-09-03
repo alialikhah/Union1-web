@@ -22,7 +22,18 @@ public class MerchantPageGmap {
 	private double h;
 	
     private MapModel simpleModel;
+    private MapModel simpleModel2;
+    private MapModel simpleModel3;
+    
+    
+    
+	public MapModel getSimpleModel2() {
+		return simpleModel2;
+	}
 
+	public void setSimpleModel2(MapModel simpleModel2) {
+		this.simpleModel2 = simpleModel2;
+	}
 
 	public double getW() {
 		return w;
@@ -48,22 +59,29 @@ public class MerchantPageGmap {
 		 simpleModel.addOverlay(new Marker(coord1, "merchantPoint"));
 		 return simpleModel;
 	}
+	
+	public MapModel ali3(double a,double b) {
+		this.w=a;
+		this.h=b;
+		simpleModel = new DefaultMapModel();
+		 LatLng coord1 = new LatLng(a,b);
+		 simpleModel.addOverlay(new Marker(coord1, "merchantPoint"));
+		 return simpleModel;
+	}
 
-	/*@PostConstruct*/
+	@PostConstruct
     public void init() {
-        simpleModel = new DefaultMapModel();
+        simpleModel2 = new DefaultMapModel();
           
         //Shared coordinates
-        LatLng coord1 = new LatLng(35.68361400896078,51.413975130266635);
-
+        LatLng coord1 = new LatLng(35.69046127201924,51.40848349548901);
           
         //Basic marker
-        simpleModel.addOverlay(new Marker(coord1, "merchantPoint"));
-        System.err.println("w" + this.w + "h" + this.h);
+        simpleModel2.addOverlay(new Marker(coord1, "merchantPoint"));
     }
   
     public MapModel getSimpleModel() {
-        return simpleModel;
+        return simpleModel2;
     }
 
 }

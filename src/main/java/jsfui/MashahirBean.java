@@ -378,5 +378,115 @@ public class MashahirBean {
 		FacesContext.getCurrentInstance().getExternalContext()
 				.redirect("mashahiredit.xhtml" + "?mashahirId=" + mashahirId);
 	}
+	
+	public void updateMashahirName(long mashahirId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		MashahirEntity mashahirEntity = new MashahirEntity();
+
+		try {
+			mashahirEntity = mashahirServiceLocal.findMashahirById(mashahirId);
+			mashahirEntity.setMashahirName(mashahirName);
+			mashahirServiceLocal.updateMashahir(mashahirEntity);
+		} catch (Exception e) {
+			System.err.println("mashahir not find");
+		}
+
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("mashahiredit.xhtml" + "?mashahirId=" + mashahirId);
+	}
+	public void updateMashahirHead1(long mashahirId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		MashahirEntity mashahirEntity = new MashahirEntity();
+
+		try {
+			mashahirEntity = mashahirServiceLocal.findMashahirById(mashahirId);
+			mashahirEntity.setMashahirHead1(mashahirHead1);
+			mashahirServiceLocal.updateMashahir(mashahirEntity);
+		} catch (Exception e) {
+			System.err.println("mashahir not find");
+		}
+
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("mashahiredit.xhtml" + "?mashahirId=" + mashahirId);
+	}
+	public void updateMashahirText1(long mashahirId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		MashahirEntity mashahirEntity = new MashahirEntity();
+
+		try {
+			mashahirEntity = mashahirServiceLocal.findMashahirById(mashahirId);
+			mashahirEntity.setMashahirText1(mashahirText1);
+			mashahirServiceLocal.updateMashahir(mashahirEntity);
+		} catch (Exception e) {
+			System.err.println("mashahir not find");
+		}
+
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("mashahiredit.xhtml" + "?mashahirId=" + mashahirId);
+	}
+	
+	public void updateMashahirText2(long mashahirId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		MashahirEntity mashahirEntity = new MashahirEntity();
+
+		try {
+			mashahirEntity = mashahirServiceLocal.findMashahirById(mashahirId);
+			mashahirEntity.setMashahirText2(mashahirText2);
+			mashahirServiceLocal.updateMashahir(mashahirEntity);
+		} catch (Exception e) {
+			System.err.println("mashahir not find");
+		}
+
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("mashahiredit.xhtml" + "?mashahirId=" + mashahirId);
+	}
+	
+	public void updateMashahirText3(long mashahirId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		MashahirEntity mashahirEntity = new MashahirEntity();
+
+		try {
+			mashahirEntity = mashahirServiceLocal.findMashahirById(mashahirId);
+			mashahirEntity.setMashahirText3(mashahirText3);
+			mashahirServiceLocal.updateMashahir(mashahirEntity);
+		} catch (Exception e) {
+			System.err.println("mashahir not find");
+		}
+
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("mashahiredit.xhtml" + "?mashahirId=" + mashahirId);
+	}
+	
+	public void updateMashahirText4(long mashahirId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		MashahirEntity mashahirEntity = new MashahirEntity();
+
+		try {
+			mashahirEntity = mashahirServiceLocal.findMashahirById(mashahirId);
+			mashahirEntity.setMashahirText4(mashahirText4);
+			mashahirServiceLocal.updateMashahir(mashahirEntity);
+		} catch (Exception e) {
+			System.err.println("mashahir not find");
+		}
+
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("mashahiredit.xhtml" + "?mashahirId=" + mashahirId);
+	}
+	
+	public void updateMashahirText5(long mashahirId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		MashahirEntity mashahirEntity = new MashahirEntity();
+
+		try {
+			mashahirEntity = mashahirServiceLocal.findMashahirById(mashahirId);
+			mashahirEntity.setMashahirText5(mashahirText5);
+			mashahirServiceLocal.updateMashahir(mashahirEntity);
+		} catch (Exception e) {
+			System.err.println("mashahir not find");
+		}
+
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("mashahiredit.xhtml" + "?mashahirId=" + mashahirId);
+	}
 
 }

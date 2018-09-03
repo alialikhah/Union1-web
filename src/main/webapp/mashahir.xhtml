@@ -12,7 +12,8 @@
 
 
 	<title>مشاهیر ایران</title>
-
+		<link rel="shortcut icon"
+		href="resources/images/logo_black.png" />
 	<!--Bootstrap css -->
 	<link href="resources/mashahirtemp/css/bootstrap.min.css"
 		rel="stylesheet" />
@@ -23,11 +24,7 @@
 	<link rel="stylesheet"
 		href="resources/mashahirtemp/vendors/elegant-icon/style.css" />
 	<!--google fonts-->
-	<link href='https://fonts.googleapis.com/css?family=Lora:400,700'
-		rel='stylesheet' type='text/css' />
-	<link
-		href='https://fonts.googleapis.com/css?family=Arimo:400,400italic,700'
-		rel='stylesheet' type='text/css' />
+<link href="resources/fonts.css" rel="stylesheet" type="text/css" />
 	<!--main css-->
 	<link rel="stylesheet" href="resources/mashahirtemp/css/style.css" />
 	<link rel="stylesheet" href="resources/mashahirtemp/css/responsive.css" />
@@ -35,8 +32,7 @@
 </h:head>
 <body>
 <p:sidebar widgetVar="sidebar2" position="right" baseZIndex="10000">
-    <h1 style="font-weight:normal">Right Sidebar</h1>
-    <p:commandButton value="Cancel" oncomplete="PF('sidebar2').hide()"/>
+<p:button value="خانه" outcome="home.xhtml"/>
 </p:sidebar>
 <p:commandButton icon="fa fa-align-justify" oncomplete="PF('sidebar2').show()" style="position:fixed; top:50px; right:50px; width:75px; height:75px; z-index:100;" />
 	<div class="preloader">
@@ -48,28 +44,18 @@
 					<div class="rotator">
 						<img src="resources/mashahirtemp/images/curve.png" alt="" />
 					</div>
-					<a href="index.html#" class="logo">مشاهیر</a>
+					<a href="index.html#" class="logo" style="font-family: 'IRANSansNor'!important; text-align: right; font-size: 37px;">مشاهیرایران</a>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<header class="header"> </header>
-	<!--Start banner-area-->
-	<section class="banner-area container-fluid">
-	<div id="carousel-example-generic" class="carousel slide"
-		data-ride="carousel">
-		<!-- Wrapper for slides -->
-		<div class="carousel-inner" role="listbox">
-			<div class="item active">
-				<img src="resources/images/mash2.jpg" alt="" width="1920"
-					height="1080" />
+	<header class="header" style="display:none;"> </header>
 
-			</div>
-		</div>
 
-	</div>
-	</section>
+				<img src="resources/images/mash2.jpg" alt="" style="width: 100%"
+					 />
+
 	<!--End banner-area-->
 	<!--start blog area-->
 	<section class="blog-area">
@@ -78,30 +64,18 @@
 			<div class="col-md-4 blog-item">
 				<div class="item">
 					<o:graphicImage styleClass="img-responsive"  style="width=400px; height=400px"
-						value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()).mashahirPic1}"
+						value="#{mashahirBean.findMashahirById(1).mashahirPic1}"
 						dataURI="true" />
-					<div class="blog-content">
-						<div class="post-category">
-							<a href="index.html#">Lifestyle</a> <a href="index.html#">travel</a>
-						</div>
-						<h5 class="post-title">
-							<a href="index.html#">My Trip to New York</a>
-						</h5>
-						<ul class="post-link row m0">
-							<li><a href="index.html#" class="date">APRIL 3, 2016</a></li>
-							<li><a href="index.html#"><i class="fa fa-eye"></i>110</a></li>
-							<li><a href="index.html#"><i class="fa fa-comments"></i>15</a></li>
-							<li><a href="index.html#"><i class="fa fa-heart"></i>50</a></li>
-						</ul>
-						<p>Meh synth Schlitz, tempor duis single-origin coffee ea next
-							level ethnic fingerstache fanny pack nostrud. Photo booth anim…</p>
-						<a href="index.html#" class="post-button">continue <i
-							class="arrow_right"></i></a>
-						<ul class="social pull-right">
-							<li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="index.html#"><i class="social_googleplus"></i></a></li>
-						</ul>
+					<div class="blog-content" style="text-align: justify; direction: rtl;">
+						<p class="post-title" style="font-family: 'IRANSansBold'!important; font-size: 18px;">
+							<h:outputText value="#{mashahirBean.findMashahirById(1).mashahirName}" />
+						</p>
+						<p style="font-family: 'IRANSansNor'!important; font-size: 16px; line-height: 30px;"><h:outputText value="#{mashahirBean.findMashahirById(1).mashahirHead1}" /> ....</p>
+						    <p:link value="بیشتر" outcome="singlemashahir.xhtml" styleClass="post-button">
+                                      <f:param name="mashahirId" value="#{mashahirBean.findMashahirById(1).mashahirId}"/>
+                            </p:link>
+
+
 					</div>
 				</div>
 			</div>
@@ -110,166 +84,93 @@
 					<div class="col-md-6">
 
 												<o:graphicImage styleClass="img-responsive"  style="width=400px; height=400px"
-						value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()-1).mashahirPic1}"
+						value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()).mashahirPic1}"
 						dataURI="true" />
 					</div>
 					<div class="col-md-6 single-blog">
-						<div class="blog-content item1">
-							<div class="post-category">
-								<a href="index.html#">Lifestyle</a>
-							</div>
-							<h5 class="post-title">
-								<a href="index.html#">Finding Your<br class="break" />
-									tPassion In Work
-								</a>
-							</h5>
-							<ul class="post-link row m0">
-								<li><a href="index.html#" class="date">APRIL 3, 2016</a></li>
-								<li><a href="index.html#"><i class="fa fa-eye"></i>110</a></li>
-								<li><a href="index.html#"><i class="fa fa-comments"></i>15</a></li>
-								<li><a href="index.html#"><i class="fa fa-heart"></i>50</a></li>
-							</ul>
-							<p>It is a long established fact that a reader will be
-								distracted by the readable content of a page when looking at its
-								layout. The point of using Lorem Ipsum is that it has a
-								more-or-less normal distribution of letters, as opposed to using
-								'Content here, content here', making it look like readable
-								English. Many desktop publishing packages and web page editors
-								now use Lorem Ipsum as their default model text, and a search
-								for</p>
-							<a href="index.html#" class="post-button">continue <i
-								class="arrow_right"></i></a>
-							<ul class="social pull-right">
-								<li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="index.html#"><i class="social_googleplus"></i></a></li>
-							</ul>
+						<div class="blog-content item1" style="text-align: justify; direction: rtl;">
+							<p class="post-title" style="font-family: 'IRANSansBold'!important; font-size: 18px;">
+         <h:outputText value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()).mashahirName}" />
+							</p>
+
+							<p style="font-family: 'IRANSansNor'!important; font-size: 16px; line-height: 30px;"><h:outputText value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()).mashahirHead1}" /> ....</p>
+						    <p:link value="بیشتر" outcome="singlemashahir.xhtml" styleClass="post-button">
+                                      <f:param name="mashahirId" value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()).mashahirId}"/>
+                            </p:link>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</div><br/><br/><br/><br/>
 		<div class="row blog">
 			<div class="col-md-6 single-blog">
-				<div class="blog-content item2">
-					<div class="post-category">
-						<a href="index.html#">Lifestyle</a>
-					</div>
-					<h5 class="post-title">
-						<a href="index.html#">SIMPLE BUT<br class="break" /> BEAUTIFUL
-							DECORATION
-						</a>
-					</h5>
-					<ul class="post-link row m0">
-						<li><a href="index.html#" class="date">APRIL 3, 2016</a></li>
-						<li><a href="index.html#"><i class="fa fa-eye"></i>110</a></li>
-						<li><a href="index.html#"><i class="fa fa-comments"></i>15</a></li>
-						<li><a href="index.html#"><i class="fa fa-heart"></i>50</a></li>
-					</ul>
-					<p>It is a long established fact that a reader will be
-						distracted by the readable content of a page when looking at its
-						layout. The point of using Lorem Ipsum is that it has a
-						more-or-less normal distribtution of letters, as opposed to using
-						'Content here, content here', making it look like rteadable
-						English. Many desktop publishing packages and web page editors now
-						use Lorem Ipsum as their default model text, and a search for</p>
-					<a href="index.html#" class="post-button">continue <i
-						class="arrow_right"></i></a>
-					<ul class="social pull-right">
-						<li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="index.html#"><i class="social_googleplus"></i></a></li>
-					</ul>
+				<div class="blog-content item2" style="text-align: justify; direction: rtl;">
+
+					<p class="post-title" style="font-family: 'IRANSansBold'!important; font-size: 18px;">
+         <h:outputText value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()-1).mashahirName}" />
+
+					</p>
+
+							<p style="font-family: 'IRANSansNor'!important; font-size: 16px; line-height: 30px;"><h:outputText value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()-1).mashahirHead1}" /> ....</p>
+
+						    <p:link value="بیشتر" outcome="singlemashahir.xhtml" styleClass="post-button">
+                                      <f:param name="mashahirId" value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()-1).mashahirId}"/>
+                            </p:link>
 				</div>
 			</div>
 			<div class="col-md-6">
 
 																	<o:graphicImage styleClass="img-responsive"  style="width=400px; height=400px"
-						value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()-2).mashahirPic1}"
+						value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()-1).mashahirPic1}"
 						dataURI="true" />
 			</div>
 		</div>
 		<div class="row blog_style3">
 			<div class="col-md-5">
 			<o:graphicImage styleClass="img-responsive img-gray"  style="width=400px; height=400px"
-						value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()-3).mashahirPic1}"
+						value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()-2).mashahirPic1}"
 						dataURI="true" />
 			</div>
 			<div class="col-md-7 single-blog">
-				<div class="blog-content item3">
-					<div class="post-category">
-						<a href="index.html#">Lifestyle</a>
-					</div>
-					<h5 class="post-title">
-						<a href="index.html#">SIMPLE BUT<br class="break" /> BEAUTIFUL
-							DECORATION
-						</a>
-					</h5>
-					<ul class="post-link row m0">
-						<li><a href="index.html#" class="date">APRIL 3, 2016</a></li>
-						<li><a href="index.html#"><i class="fa fa-eye"></i>110</a></li>
-						<li><a href="index.html#"><i class="fa fa-comments"></i>15</a></li>
-						<li><a href="index.html#"><i class="fa fa-heart"></i>50</a></li>
-					</ul>
-					<p>It is a long established fact that a reader will be
-						distracted by the readable content of a page when looking at its
-						layout. The point of using Lorem Ipsum is that it has a
-						more-or-less normal distribtution of letters, as opposed to using
-						'Content here, content here', making it look like rteadable
-						English. Many desktop publishing packages and web page editors now
-						use Lorem Ipsum as their default model text, and a search for</p>
-					<a href="index.html#" class="post-button">continue <i
-						class="arrow_right"></i></a>
-					<ul class="social pull-right">
-						<li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="index.html#"><i class="social_googleplus"></i></a></li>
-					</ul>
+				<div class="blog-content item3" style="text-align: justify; direction: rtl;">
+
+					<p class="post-title" style="font-family: 'IRANSansBold'!important; font-size: 18px;">
+         <h:outputText value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()-2).mashahirName}" />
+
+					</p>
+
+							<p style="font-family: 'IRANSansNor'!important; font-size: 16px; line-height: 30px;"><h:outputText value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()-2).mashahirHead1}" /> ....</p>
+
+						    <p:link value="بیشتر" outcome="singlemashahir.xhtml" styleClass="post-button">
+                                      <f:param name="mashahirId" value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()-2).mashahirId}"/>
+                            </p:link>
 				</div>
 			</div>
 		</div>
 		<div class="row blog">
 			<div class="col-md-6 single-blog">
-				<div class="blog-content item2">
-					<div class="post-category">
-						<a href="index.html#">Lifestyle</a>
-					</div>
-					<h5 class="post-title">
-						<a href="index.html#">SIMPLE BUT<br class="break" /> BEAUTIFUL
-							DECORATION
-						</a>
-					</h5>
-					<ul class="post-link row m0">
-						<li><a href="index.html#" class="date">APRIL 3, 2016</a></li>
-						<li><a href="index.html#"><i class="fa fa-eye"></i>110</a></li>
-						<li><a href="index.html#"><i class="fa fa-comments"></i>15</a></li>
-						<li><a href="index.html#"><i class="fa fa-heart"></i>50</a></li>
-					</ul>
-					<p>It is a long established fact that a reader will be
-						distracted by the readable content of a page when looking at its
-						layout. The point of using Lorem Ipsum is that it has a
-						more-or-less normal distribtution of letters, as opposed to using
-						'Content here, content here', making it look like rteadable
-						English. Many desktop publishing packages and web page editors now
-						use Lorem Ipsum as their default model text, and a search for</p>
-					<a href="index.html#" class="post-button">continue <i
-						class="arrow_right"></i></a>
-					<ul class="social pull-right">
-						<li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="index.html#"><i class="social_googleplus"></i></a></li>
-					</ul>
+				<div class="blog-content item2" style="text-align: justify; direction: rtl;">
+
+					<p class="post-title" style="font-family: 'IRANSansBold'!important; font-size: 18px;">
+         <h:outputText value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()-3).mashahirName}" />
+
+					</p>
+
+							<p style="font-family: 'IRANSansNor'!important; font-size: 16px; line-height: 30px;"><h:outputText value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()-3).mashahirHead1}" /> ....</p>
+
+						    <p:link value="بیشتر" outcome="singlemashahir.xhtml" styleClass="post-button">
+                                      <f:param name="mashahirId" value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()-3).mashahirId}"/>
+                            </p:link>
 				</div>
 			</div>
 			<div class="col-md-6">
 			<o:graphicImage styleClass="img-responsive img-gray"   style="width=400px!important; height=400px!important"
-						value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()-4).mashahirPic1}"
+						value="#{mashahirBean.findMashahirById(mashahirBean.findAllMashahir().size()-3).mashahirPic1}"
 						dataURI="true" />
 			</div>
 		</div>
 		<div class="post-button-wrapper">
-			<a href="index.html#" class="post-button"> <span class="first">Older
-					Posts</span> <span class="back">Older Posts</span>
+			<a href="#" class="post-button"> <span class="first">بیشتر</span> <span class="back">دیدن تمام مشاهیر</span>
 			</a>
 		</div>
 	</div>
@@ -277,16 +178,7 @@
 	<!--End blog area-->
 	<!--start footer area-->
 	<footer class="footer-area">
-	<div class="container">
-		<div class="img">
-			<img src="resources/mashahirtemp/images/footer-1img.jpg" alt="" />
-		</div>
-		<div class="footer-content">
-			<h2>John is simply a brilliant writer and social media marketer.
-				What more needs to be said?</h2>
-			<span><a href="index.html#">Brenda Berry</a>- Buffer Editor</span>
-		</div>
-	</div>
+
 	</footer>
 	<!--End footer area-->
 	<!--All JS Files Here-->
