@@ -2445,6 +2445,5 @@ public class MerchantRegisterBean implements Serializable {
    }*/
 
     
-    
 
 }

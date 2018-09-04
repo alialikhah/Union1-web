@@ -3,7 +3,9 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich">
 
 <h:head>
 	<!-- maintemp -->
@@ -130,6 +132,19 @@
 .popups-light .modal-content {
     background-image: none!important;
     height: 500px;
+}
+
+input.rf-au-inp {
+    background-color: #ffffff;
+    background-position: 1px 1px;
+    background-repeat: repeat-x;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    vertical-align: top;
+    width: 100%;
+    height: 100%!important;
+    font-size: 17px!important
 }
 </style>
 
@@ -938,33 +953,7 @@
 				</div>
 				<div class="col-lg-1 col-sm-3 top-right text-left">
 					<ul class="top-elements">
-						<li class="search-hover"><a href="#"
-							class="search-icon icon-cube"> </a>
-							<div class="search-popup pop-up-box" id="search-popup">
-								<form action="#" class="form-wrap">
-									<div
-										class="search-selectpicker selectpicker-wrapper col-sm-4 col-xs-5 no-padding"
-										style="font-family: 'IRANSansBold' !important;">
-										<select class="selectpicker input-price" data-width="100%"
-											data-toggle="tooltip" title="تمامی عناوین">
-											<option>فروشگاه های آنلاین</option>
-											<option>صوتی و تصویری</option>
-											<option>موبایل و لوازم جانبی</option>
-											<option>کنسول های بازی</option>
-											<option>دوربین مدار بسته</option>
-											<option>قطعات الکترونیک</option>
-											<option>آلات موسیقی</option>
-										</select>
-									</div>
-									<div class="no-padding col-sm-8 col-xs-7">
-										<div class="form-group">
-											<input type="text" placeholder="جستجوی کلی .. "
-												class="form-control text"
-												style="font-family: 'IRANSansNor';" />
-										</div>
-									</div>
-								</form>
-							</div></li>
+
 						<li class="cart-hover"><a href="#"
 							class="cart-icon"> <span class="items-count font-1"> 2
 							</span>
@@ -1034,30 +1023,17 @@
 
 			</div>
 			<div class="col-md-9 col-sm-8 col-xs-12 cat-search">
-				<form action="#" class="cate-form"
+				<h:form class="cate-form"
 					style="font-family: 'IRANSansBold' !important;">
-					<div
-						class=" selectpicker-wrapper col-md-3 col-sm-4 col-xs-5 no-padding">
-						<select class="selectpicker white-color" data-live-search="false"
-							data-width="100%" data-toggle="tooltip" title="تمامی عناوین">
-							<option>فروشگاه های آنلاین</option>
-							<option>صوتی و تصویری</option>
-							<option>موبایل و لوازم جانبی</option>
-							<option>کنسول های بازی</option>
-							<option>دوربین مدار بسته</option>
-							<option>قطعات الکترونیک</option>
-							<option>آلات موسیقی</option>
 
-						</select>
-					</div>
 					<div class="no-padding  col-md-9 col-sm-8 col-xs-7">
 						<div class="form-group">
-							<input type="text" placeholder="جستجو .. "
-								class="form-control text" />
-							<button class="title-2 submit-btn">جستجو</button>
+	<rich:autocomplete mode="cachedAjax" tokens=", " minChars="1" autofill="false"
+          autocompleteMethod="#{searchBean.autocomplete}" value="#{searchBean.shopNamePer}"/>
+							<a4j:commandButton value="جستجو" action="#{searchBean.searchAct()}"/>
 						</div>
 					</div>
-				</form>
+				</h:form>
 			</div>
 		</div>
 	</div>
