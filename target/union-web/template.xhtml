@@ -3,7 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
 <f:view locale="fa" >
+
+
 <h:head>
+		<f:metadata>
+			<f:event listener="#{adminBean.isUser}" type="preRenderView"></f:event>
+		</f:metadata>
+		
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<style>
@@ -148,6 +154,8 @@
 					<p:commandButton action="#{templateBean.goToMashahirEng()}" value="دادن مشاهیر خارجی"/>
 					<p:commandButton action="#{templateBean.goToNaghd()}" value="دادن نقد و بررسی"/>
 					<p:commandButton action="#{templateBean.goToMojtame()}" value="دادن مجتمع"/>
+					<p:commandButton action="#{templateBean.goToJob()}" value="دیدن آگهی"/>
+					<p:commandButton action="#{adminBean.exitAdmin()}" value="خروج"/>
 		        	</h:form>
 			</div>
 			<div class="col-8 col-m-9">

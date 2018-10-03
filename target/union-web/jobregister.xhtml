@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<ui:composition template="jobtemplate.xhtml">
+		<ui:define name="headjob">
+			<link rel="stylesheet" type="text/css" media="all"
+				href="resources/date/skins/aqua/theme.css" title="Aqua" />
+			<link rel="alternate stylesheet" type="text/css" media="all"
+				href="resources/date/skins/calendar-blue.css" title="winter" />
+			<link rel="alternate stylesheet" type="text/css" media="all"
+				href="resources/date/skins/calendar-system.css" title="system" />
+
+			<script charset="UTF-8" type="text/javascript"
+				src="resources/date/jalali.js"></script>
+
+			<script charset="UTF-8" type="text/javascript"
+				src="resources/date/calendar.js"></script>
+
+			<script charset="UTF-8" type="text/javascript"
+				src="resources/date/calendar-setup.js"></script>
+
+			<script charset="UTF-8" type="text/javascript"
+				src="resources/date/lang/calendar-fa.js"></script>
+
+			<script charset="UTF-8" type="text/javascript"
+				src="resources/date/alidate.js"></script>
+		</ui:define>
+		<ui:define name="mainjob">
+
+
+			<div class="listpgWraper">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<div class="userccount">
+							 <p:messages id="messages" />
+								<div class="userbtns">
+									<ul class="nav nav-tabs">
+										<li class="active"><a data-toggle="tab"
+											href="register.html#candidate" style="font-family: 'IRANSansBold' !important;">ثبت نام کارجو</a></li>
+										<li><a data-toggle="tab" href="register.html#employer" style="font-family: 'IRANSansBold' !important;">
+												ثبت در خواست کارفرما</a></li>
+									</ul>
+								</div>
+								<div class="tab-content">
+									<div id="candidate" class="formpanel tab-pane fade in active">
+										<h:form id="form" enctype="multipart/form-data">
+											<div class="formrow" dir="rtl">
+												<p style="font-family: 'IRANSansBold' !important;">خواهشمند است به نکات ذیل توجه فرمائید :</p>
+												<p style="font-family: 'IRANSansNor' !important;">۱ ـ تکمیل این فرم ، متضمن هیچگونه تعهدی برای استخدام
+													نمی باشد .</p>
+												<p style="font-family: 'IRANSansNor' !important;">۲ ـ لطفاً در تکمیل فرم ذیل دقت کافی داشته باشید که
+													اطلاعات صحیح درج شود .</p>
+											</div>
+											<div class="formrow">
+												<p:inputText styleClass="form-control"
+													placeholder="نام کامل" dir="rtl"
+													value="#{jobKarjoBean.karjoName}" />
+											</div>
+											<div class="formrow">
+												<p:inputMask styleClass="form-control" placeholder="کد ملی"
+													dir="rtl" mask="9999999999"
+													value="#{jobKarjoBean.karjoSsn}" />
+											</div>
+											<div class="formrow">
+												<p:inputText styleClass="form-control" placeholder="نام پدر"
+													dir="rtl" value="#{jobKarjoBean.karjoFather}" />
+											</div>
+											<div class="formrow" style="direction: rtl;">
+												<p:selectOneRadio id="console" styleClass="form-control"
+													value="#{jobKarjoBean.karjoGender}">
+													<f:selectItem style="font-family: 'IRANSansBold' !important;" itemLabel="زن" itemValue="زن" />
+													<f:selectItem style="font-family: 'IRANSansBold' !important;" itemLabel="مرد" itemValue="مرد" />
+												</p:selectOneRadio>
+											</div>
+											<div class="formrow">
+												<p:inputText styleClass="form-control"
+													placeholder="محل تولد" dir="rtl"
+													value="#{jobKarjoBean.karjoCityName}" />
+											</div>
+											<div class="formrow" dir="rtl">
+												<p:inputText id="date_input_5" required="true"
+													placeholder="تاریخ تولد" styleClass="form-control">
+													<img id="date_btn_5" src="resources/date/cal.png"
+														style="vertical-align: top;" />
+												</p:inputText>
+												<script type="text/javascript" charset="UTF-8">
+								Calendar.setup({
+									inputField     :    "form:date_input_5",   // id of the input field
+									button         :    "date_btn_5",   // trigger for the calendar (button ID)
+						       		ifFormat       :    "%Y-%m-%d",       // format of the input field
+						       		dateType	   :	'jalali',
+						       		weekNumbers    : false
+								});
+							</script>
+											</div>
+											<div class="formrow">
+												<p:inputMask id="phone" styleClass="form-control"
+													value="#{jobKarjoBean.karjoPhone}" mask="(999) 9999-9999"
+													placeholder="تلفن ثابت" />
+											</div>
+											<div class="formrow">
+												<p:inputMask styleClass="form-control"
+													value="#{jobKarjoBean.karjoMobile}" mask="(9999) 999-9999"
+													placeholder="تلفن همراه" />
+											</div>
+											<div class="formrow">
+												<p:inputText styleClass="form-control"
+													placeholder="آدرس ایمیل" value="#{jobKarjoBean.karjoEmail}" />
+											</div>
+											<div class="formrow">
+												<p:inputText styleClass="form-control"
+													placeholder="رشته تحصیلی" dir="rtl"
+													value="#{jobKarjoBean.karjoField}" />
+											</div>
+											<div class="formrow" style="direction: rtl;">
+												<p:outputLabel style="font-family: 'IRANSansBold' !important; margin:5px;" value="مدرک تحصیلی :" />
+												<p:selectOneListbox id="basic" styleClass="form-control"
+													value="#{jobKarjoBean.karjoMadrak}" required="true">
+													<f:selectItem style="font-family: 'IRANSansNor' !important;" itemLabel="زیر دیپلم" itemValue="زیر دیپلم" />
+													<f:selectItem style="font-family: 'IRANSansNor' !important;" itemLabel="دیپلم" itemValue="دیپلم" />
+													<f:selectItem style="font-family: 'IRANSansNor' !important;" itemLabel="دانشجو" itemValue="دانشجو" />
+													<f:selectItem style="font-family: 'IRANSansNor' !important;" itemLabel="کاردانی" itemValue="کاردانی" />
+													<f:selectItem style="font-family: 'IRANSansNor' !important;" itemLabel="کارشناسی" itemValue="کارشناسی" />
+													<f:selectItem style="font-family: 'IRANSansNor' !important;" itemLabel="کارشناسی ارشد"
+														itemValue="کارشناسی ارشد" />
+													<f:selectItem style="font-family: 'IRANSansNor' !important;" itemLabel="دکترا" itemValue="دکترا" />
+												</p:selectOneListbox>
+											</div>
+											<div class="formrow">
+												<p:inputTextarea styleClass="form-control"
+													value="#{jobKarjoBean.karjoMaharat}"
+													placeholder="مهارت ها و تخصص ها" dir="rtl" />
+											</div>
+											<div class="formrow" style="direction: rtl;">
+												<p:outputLabel style="font-family: 'IRANSansBold' !important; margin:5px;" value="نوع فعالیت مورد نظر :" />
+												<p:selectOneListbox id="faaal" styleClass="form-control"
+													value="#{jobKarjoBean.karjoNoeFaal}" required="true">
+													<f:selectItem style="font-family: 'IRANSansNor' !important;" itemLabel="کارگری" itemValue="کارگری" />
+													<f:selectItem style="font-family: 'IRANSansNor' !important;" itemLabel="بخش اداری" itemValue="بخش اداری" />
+													<f:selectItem style="font-family: 'IRANSansNor' !important;" itemLabel="بخش بازرگانی"
+														itemValue="بخش اداری" />
+													<f:selectItem style="font-family: 'IRANSansNor' !important;" itemLabel="بخش فنی" itemValue="بخش فنی" />
+													<f:selectItem style="font-family: 'IRANSansNor' !important;" itemLabel="بخش مالی" itemValue="بخش مالی" />
+												</p:selectOneListbox>
+											</div>
+											<div class="formrow">
+												<p:inputTextarea styleClass="form-control"
+													placeholder="توضیحات" dir="rtl"
+													value="#{jobKarjoBean.karjoDescription}" />
+											</div>
+											<div class="formrow" style="direction: rtl;">
+												<p:outputLabel style="font-family: 'IRANSansBold' !important; margin:5px;" value="نوع همکاری :" />
+												<p:selectOneListbox id="hamk" styleClass="form-control"
+													value="#{jobKarjoBean.karjoNoeHamkari}" required="true">
+													<f:selectItem itemLabel="تمام وقت" itemValue="تمام وقت" />
+													<f:selectItem itemLabel="پاره وقت" itemValue="پاره وقت" />
+													<f:selectItem itemLabel="پروژه ای" itemValue="پروژه ای" />
+												</p:selectOneListbox>
+											</div>
+<!-- 											<div class="formrow">
+												<h:inputFile value="#{jobKarjoBean.karjoResume}"
+													required="true"
+													requiredMessage="please select shopForm image" />
+
+											</div> -->
+											<h:commandButton style="font-family: 'IRANSansBold' !important;" value="ثبت" styleClass="btn"
+												action="#{jobKarjoBean.insertToKarjoEntity()}" />
+										</h:form>
+									</div>
+
+
+									<div id="employer" class="formpanel tab-pane fade in">
+										<h:form id="form2" enctype="multipart/form-data">
+											<div class="formrow" dir="rtl">
+												<p style="font-family: 'IRANSansBold' !important;">خواهشمند است به نکات ذیل توجه فرمائید :</p>
+												<p style="font-family: 'IRANSansNor' !important;">۱ ـ تکمیل این فرم ، متضمن هیچگونه تعهدی برای استخدام
+													نمی باشد .</p>
+												<p style="font-family: 'IRANSansNor' !important;">۲ ـ لطفاً در تکمیل فرم ذیل دقت کافی داشته باشید که
+													اطلاعات صحیح درج شود .</p>
+											</div>
+											<div class="formrow">
+												<p:inputText styleClass="form-control" placeholder="عنوان درخواست"
+													dir="rtl" value="#{jobKarfarmaBean.karfarmaJobTitle}" required="true" requiredMessage="لطفا عنوان را وارد نمایید"/>
+											</div>
+											<div class="formrow">
+												<p:inputText styleClass="form-control" placeholder="شهر درخواست"
+													dir="rtl" value="#{jobKarfarmaBean.karfarmaJobCity}" required="true" requiredMessage="لطفا شهر را وارد نمایید"/>
+											</div>
+											<div class="formrow">
+												<p:inputText styleClass="form-control" placeholder="نوع صنف"
+													dir="rtl" value="#{jobKarfarmaBean.karfarmaSenf}" required="true" requiredMessage="لطفا صنف را وارد نمایید"/>
+											</div>
+											<div class="formrow">
+												<p:inputText styleClass="form-control"
+													placeholder="نام شرکت / فروشگاه" dir="rtl"
+													value="#{jobKarfarmaBean.karfarmaCompanyName}" required="true" requiredMessage="لطفا نام شرکت را وارد نمایید"/>
+											</div>
+											<div class="formrow">
+												<p:inputText styleClass="form-control"
+													placeholder="نام مدیریت :" dir="rtl"
+													value="#{jobKarfarmaBean.karfarmaName}" required="true" requiredMessage="لطفا نام مدیریت را وارد نمایید"/>
+											</div>
+
+											<div class="formrow" dir="rtl">
+												<p:inputText id="date_input_6" required="true"
+													placeholder="تاریخ اعتبار جواز" styleClass="form-control">
+													<img id="date_btn_6" src="resources/date/cal.png"
+														style="vertical-align: top;" />
+												</p:inputText>
+												<script type="text/javascript" charset="UTF-8">
+												Calendar.setup({
+													inputField     :    "form2:date_input_6",   // id of the input field
+													button         :    "date_btn_6",   // trigger for the calendar (button ID)
+										       		ifFormat       :    "%Y-%m-%d",       // format of the input field
+										       		dateType	   :	'jalali',
+										       		weekNumbers    : false
+												});
+												</script>
+											</div>
+											<div class="formrow">
+												<p:inputText styleClass="form-control"
+													placeholder="شماره جواز :"
+													value="#{jobKarfarmaBean.karfarmaJavazNum}" />
+											</div>
+											<div class="formrow">
+												<p:inputText styleClass="form-control"
+													placeholder="آدرس ایمیل :"
+													value="#{jobKarfarmaBean.karfarmaEmail}" />
+											</div>
+											<div class="formrow">
+												<p:inputText styleClass="form-control"
+													placeholder="آدرس سایت :"
+													value="#{jobKarfarmaBean.karfarmaSite}" />
+											</div>
+											<div class="formrow">
+												<p:inputMask id="phone" styleClass="form-control"
+													value="#{jobKarfarmaBean.karfarmaPhone}"
+													mask="(999) 9999-9999" placeholder="تلفن ثابت" required="true" requiredMessage="لطفا تلفن را وارد نمایید"/>
+											</div>
+											<div class="formrow">
+												<p:inputMask styleClass="form-control"
+													value="#{jobKarfarmaBean.karfarmaMobile}"
+													mask="(9999) 999-9999" placeholder="تلفن همراه" />
+											</div>
+											<div class="formrow">
+												<p:inputText styleClass="form-control"
+													placeholder="سمت مسول پاسخگویی" dir="rtl"
+													value="#{jobKarfarmaBean.karfarmaPasokhSemat}" />
+											</div>
+											<div class="formrow">
+												<p:inputText styleClass="form-control"
+													placeholder="نام مسول پاسخگویی" dir="rtl"
+													value="#{jobKarfarmaBean.karfarmaPasokhName}" />
+											</div>
+											<div class="formrow">
+												<p:inputTextarea styleClass="form-control"
+													placeholder="نیروی مورد نیاز" dir="rtl"
+													value="#{jobKarfarmaBean.karfarmaNiroMorede}" required="true"/>
+											</div>
+											<div class="formrow" style="direction: rtl;">
+												<p:outputLabel style="font-family: 'IRANSansBold' !important; margin:5px;" value="درخواست همکاری :" required="true"/>
+												<p:selectOneListbox id="hamk2"
+													value="#{jobKarfarmaBean.karfarmaNoeDarkhast}" styleClass="form-control"
+													required="true">
+													<f:selectItem itemLabel="تمام وقت" itemValue="تمام وقت" />
+													<f:selectItem itemLabel="پاره وقت" itemValue="پاره وقت" />
+													<f:selectItem itemLabel="پروژه ای" itemValue="پروژه ای" />
+												</p:selectOneListbox>
+											</div>
+											<div class="formrow">
+												<p:inputTextarea styleClass="form-control" required="true"
+													placeholder="تخصص مورد نیاز :" dir="rtl"
+													value="#{jobKarfarmaBean.karfarmaTakhasosMorede}" />
+											</div>
+											<div class="formrow">
+												<p:inputTextarea styleClass="form-control" 
+													value="#{jobKarfarmaBean.karfarmaDescription}"
+													placeholder="توضیحات :" dir="rtl" />
+											</div>
+<!-- 											<div class="formrow">
+												<h:inputFile value="#{jobKarfarmaBean.karfarmaPic}"
+													required="true" requiredMessage="لطفا عکس را وارد نمایید"
+													requiredMessage="please select shopForm image" />
+
+											</div> -->
+											<h:commandButton style="font-family: 'IRANSansBold' !important;" value="ثبت" styleClass="btn"
+												action="#{jobKarfarmaBean.insertToKarfarma()}" />
+										</h:form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

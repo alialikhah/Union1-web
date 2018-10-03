@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:o="http://omnifaces.org/ui">  
+
+<h:head>
+</h:head> 
+<h:body> 
+<ui:composition template="/template.xhtml">
+<ui:define name="headtmp">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+			<title>Merchant</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <link rel="stylesheet" type="text/css" media="all" href="resources/date/skins/aqua/theme.css" title="Aqua" />
+		<link rel="alternate stylesheet" type="text/css" media="all" href="resources/date/skins/calendar-blue.css" title="winter" />
+		<link rel="alternate stylesheet" type="text/css" media="all" href="resources/date/skins/calendar-system.css" title="system" />
+	    
+              
+		<script charset="UTF-8" type="text/javascript" src="resources/date/jalali.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/calendar.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/calendar-setup.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/lang/calendar-fa.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/alidate.js"></script>
+		
+		<h:outputStylesheet library="css" name="merchantedit.css"/>
+				
+<style type="text/css">
+.calendar {
+	direction: rtl;
+}
+
+#flat_calendar_1, #flat_calendar_2{
+	width: 200px;
+}
+.example {
+	padding: 10px;
+}
+
+.display_area {
+	background-color: #FFFF88
+}
+</style>
+
+
+	</ui:define>
+	
+<ui:define name="centertmp">
+	  <ui:define name="metadata">
+      <f:metadata>
+      <f:viewParam name="slideId"/>
+      </f:metadata>
+      </ui:define> 
+      
+      
+      
+    <p:panelGrid columns="4" style="direction:rtl!important">
+    <f:facet name="header">
+    جدول ویرايش
+    </f:facet>
+    
+
+     <p:outputLabel value="عنوان عکس:" />
+    <p:outputLabel value="#{sliderBean.findSliderById(slideId).sliderTitle}" id="txt1" />
+	<p:outputLabel value="" />
+    
+    
+    
+      <h:outputText value="عکس ۱:" />
+    <o:graphicImage value="#{sliderBean.findSliderById(slideId).sliderImage}" dataURI="true" height="200" width="200"/>
+    <h:form id="frm1" style="display:none" enctype="multipart/form-data">
+	<h:inputFile value="#{sliderBean.sliderImg}"/>                        
+    <h:commandButton value="ثبت تغییرات" action="#{sliderBean.updateSliderImg(slideId)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm1">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+
+
+
+     
+         
+            <h:outputText value="عنوان:" />
+        <h:outputText value="#{sliderBean.findSliderById(slideId).sliderTitle}" />
+    <h:form id="frm47" style="display:none">
+    						<p:inputText id="mashahirNamez" rows="20" cols="100" autoResize="false"
+							value="#{sliderBean.sliderTitle}"
+							label="merchantDescription">
+							<f:validateLength maximum="500" />
+						</p:inputText>
+    <p:commandButton value="ثبت تغییرات" action="#{sliderBean.updateSliderTitle(slideId)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm47">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+          
+      </p:panelGrid>
+      
+      
+ 
+
+      
+      
+      </ui:define>
+      </ui:composition>
+      
+</h:body> 
+</html>

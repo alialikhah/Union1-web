@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<h:body> 
+ <ui:composition template="/template.xhtml">
+<ui:define name="headtmp">
+
+</ui:define>
+<ui:define name="centertmp">
+<h:form enctype="multipart/form-data" acceptcharset="UTF-8" id="form"> 
+    <p:growl id="growl" />
+     <p:panel id="pnl" header="ورود مدیر" style="margin-bottom:10px;" styleClass="direction:rtl;">
+     
+        <p:messages id="messages" />
+        <h:panelGrid columns="3" cellpadding="5" dir="rtl">
+        
+        		<p:outputLabel for="category" value="نام کاربری" />
+						<p:inputText id="category" 
+							value="#{adminBean.adminUsername}"
+							label="Firstname" size="50" styleClass="ali">
+							<f:validateLength maximum="299"/>
+						</p:inputText>
+						<p:message for="category" />
+						
+            <h:outputLabel for="pwd1" value="پسوورد :" />
+						<p:password id="pwd1" label="Password" feedback="true" style="direction:ltr!important;" value="#{adminBean.adminUserPass}"
+							required="true" >
+							<f:validateLength minimum="4"/>
+							</p:password>
+						<p:message for="pwd1" />
+
+							<h:commandButton id="saveBtn" value="ورود" icon="ui-icon-check"  style="margin:0"
+							update="pnl" ajax="true" execute="@form"
+							action="#{adminBean.enterAdmin()}"
+							 >
+							</h:commandButton>
+							
+                        
+                                    
+        </h:panelGrid>
+ 
+    </p:panel>
+ 
+    <p:blockUI block="pnl" trigger="saveBtn" />
+    
+</h:form>
+</ui:define>
+
+</ui:composition>
+</h:body> 
+</html>

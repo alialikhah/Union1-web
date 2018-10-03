@@ -9,6 +9,8 @@
 <body>
 	<ui:composition template="TEMPLATE.xhtml">
 		<ui:define name="headtemp">
+			<title>اتحادیه صنف فروشندگان دستگاه های صوتی و تصویری ، تلفن
+				همراه و لوازم جانبی</title>
 			<style>
 .black-mask::before {
 	background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0 !important;
@@ -32,6 +34,7 @@
 	margin-right: -15px;
 	margin-left: -15px;
 	margin-bottom: 10px !important;
+	margin-top: 10px !important;
 }
 
 .subscribe-2 {
@@ -42,7 +45,11 @@
 	padding-top: 15px !important;
 }
 
-@media screen and (max-width : 500px) {
+.rwr {
+	padding-left: 25px !important;
+}
+
+@media screen and (max-width : 780px) {
 	#amazingslider-wrapper-1 {
 		height: 200px !important;
 	}
@@ -80,6 +87,9 @@
 	#dv2 {
 		display: block !important;
 	}
+	.rwr {
+		padding-left: 0px !important;
+	}
 }
 </style>
 		</ui:define>
@@ -93,24 +103,44 @@
 				<div id="amazingslider-1"
 					style="display: block; position: relative; margin: 0 auto;">
 					<ul class="amazingslider-slides" style="display: none;">
-						<li><img id="mig" src="resources/SLIDEIMG/1.jpg" alt="1"
-							title="1" /></li>
-						<li><img src="resources/SLIDEIMG/2.jpg" alt="2" title="2" />
-						</li>
-						<li><img src="resources/SLIDEIMG/3.jpg" alt="3" title="3" />
-						</li>
-						<li><img src="resources/SLIDEIMG/4.jpg" alt="4" title="4" />
-						</li>
-						<li><img src="resources/SLIDEIMG/5.jpg" alt="5" title="5" />
-						</li>
-						<li><img src="resources/SLIDEIMG/6.jpg" alt="6" title="6" />
-						</li>
-						<li><img src="resources/SLIDEIMG/7.jpg" alt="7" title="7" />
-						</li>
-						<li><img src="resources/SLIDEIMG/8.jpg" alt="8" title="8" />
-						</li>
-						<li><img src="resources/SLIDEIMG/9.jpg" alt="9" title="9" />
-						</li>
+						<h:form>
+							<li><o:graphicImage
+									value="#{sliderBean.findSliderById(1).sliderImage}"
+									dataURI="true" /></li>
+							<li><o:graphicImage
+									value="#{sliderBean.findSliderById(2).sliderImage}"
+									dataURI="true" /></li>
+
+							<li><o:graphicImage
+									value="#{sliderBean.findSliderById(3).sliderImage}"
+									dataURI="true" /></li>
+
+							<li><o:graphicImage
+									value="#{sliderBean.findSliderById(4).sliderImage}"
+									dataURI="true" /></li>
+
+							<li><o:graphicImage
+									value="#{sliderBean.findSliderById(5).sliderImage}"
+									dataURI="true" /></li>
+
+							<li><o:graphicImage
+									value="#{sliderBean.findSliderById(6).sliderImage}"
+									dataURI="true" /></li>
+
+							<li><o:graphicImage
+									value="#{sliderBean.findSliderById(7).sliderImage}"
+									dataURI="true" /></li>
+
+							<li><o:graphicImage
+									value="#{sliderBean.findSliderById(8).sliderImage}"
+									dataURI="true" /></li>
+							<li><o:graphicImage
+									value="#{sliderBean.findSliderById(9).sliderImage}"
+									dataURI="true" /></li>
+							<li><o:graphicImage
+									value="#{sliderBean.findSliderById(10).sliderImage}"
+									dataURI="true" /></li>
+						</h:form>
 					</ul>
 
 				</div>
@@ -347,11 +377,10 @@
 				height="600" style="max-width: 100%; min-width: 100%;" /> <section
 				class="dealof-day">
 			<div class="container theme-container">
-				<br />
-				<br />
+				<br /> <br />
 				<h2 class="section-title"
 					style="font-family: 'IRANSansBold' !important; text-align: center; color: dimgrey;">
-					پیشنهاد های ویژه</h2>
+					پیشنهاد های ویژه فروشگاه های طلایی</h2>
 
 				<div id="deal-slider" class="deal-slider nav-1">
 					<div class="item">
@@ -579,8 +608,9 @@
 				style="padding-top:30px!important;">
 			<div class="container theme-container">
 				<div class="row">
-					<div class="col-md-6 col-sm-6 text-center subscribe-home3">
-						<div class="row">
+					<div class="col-md-6 col-sm-6 text-center subscribe-home3"
+						style="padding-bottom: 5px;">
+						<div class="row rwr">
 							<p:link outcome="about.xhtml">
 								<div class="col-xs-6 col-sm-6">
 									<div class="subscribe-2">
@@ -601,7 +631,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-6 col-sm-6 text-center subscribe-home3">
+					<div class="col-md-6 col-sm-6 text-center subscribe-home3"
+						style="padding-bottom: 5px;">
 						<div class="row">
 
 							<p:link outcome="sokhan.xhtml">
@@ -625,34 +656,37 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-6 col-sm-6 text-center subscribe-home3">
-						<div class="row">
+					<div class="col-md-6 col-sm-6 text-center subscribe-home3"
+						style="padding-bottom: 5px;">
+						<div class="row rwr">
 							<div class="col-xs-6 col-sm-6">
 								<div class="subscribe-2">
 									<img src="resources/Icones/icon_amoozesh.png" alt=""
 										width="100" height="100" />
 								</div>
 							</div>
-
-							<div class="col-xs-6 col-sm-6">
-								<div class="subscribe-2">
-									<img src="resources/Icones/senfi.png" alt="" width="100"
-										height="100" />
+							<p:link outcome="senfi.xhtml">
+								<div class="col-xs-6 col-sm-6">
+									<div class="subscribe-2">
+										<img src="resources/Icones/senfi.png" alt="" width="100"
+											height="100" />
+									</div>
 								</div>
-							</div>
-
+							</p:link>
 						</div>
 					</div>
-					<div class="col-md-6 col-sm-6 text-center subscribe-home3">
+					<div class="col-md-6 col-sm-6 text-center subscribe-home3"
+						style="padding-bottom: 5px;">
 						<div class="row">
+							<p:link outcome="danestani.xhtml">
+								<div class="col-xs-6 col-sm-6">
+									<div class="subscribe-2">
+										<img src="resources/Icones/danestani.png" alt="" width="100"
+											height="100" />
+									</div>
 
-							<div class="col-xs-6 col-sm-6">
-								<div class="subscribe-2">
-									<img src="resources/Icones/danestani.png" alt="" width="100"
-										height="100" />
 								</div>
-
-							</div>
+							</p:link>
 							<div class="col-xs-6 col-sm-6">
 								<div class="subscribe-2">
 									<img src="resources/Icones/comission.png" alt="" width="100"
@@ -664,25 +698,28 @@
 				</div>
 
 				<div class="row">
-					<div class="col-md-6 col-sm-6 text-center subscribe-home3">
-						<div class="row">
+					<div class="col-md-6 col-sm-6 text-center subscribe-home3"
+						style="padding-bottom: 5px;">
+						<div class="row rwr">
 							<div class="col-xs-6 col-sm-6">
 								<div class="subscribe-2">
 									<img src="resources/Icones/shekayat.png" alt="" width="100"
 										height="100" />
 								</div>
 							</div>
-
-							<div class="col-xs-6 col-sm-6">
-								<div class="subscribe-2">
-									<img src="resources/Icones/niazmandi.png" alt="" width="100"
-										height="100" />
+							<p:link outcome="jobhome.xhtml">
+								<div class="col-xs-6 col-sm-6">
+									<div class="subscribe-2">
+										<img src="resources/Icones/niazmandi.png" alt="" width="100"
+											height="100" />
+									</div>
 								</div>
-							</div>
+							</p:link>
 
 						</div>
 					</div>
-					<div class="col-md-6 col-sm-6 text-center subscribe-home3">
+					<div class="col-md-6 col-sm-6 text-center subscribe-home3"
+						style="padding-bottom: 5px;">
 						<div class="row">
 							<p:link outcome="contact.xhtml">
 								<div class="col-xs-6 col-sm-6">
@@ -692,12 +729,16 @@
 									</div>
 								</div>
 							</p:link>
+							
 							<div class="col-xs-6 col-sm-6">
+							<p:link outcome="merchantlogin.xhtml">
 								<div class="subscribe-2">
 									<img src="resources/Icones/icon_vorood.png" alt="" width="100"
 										height="100" />
 								</div>
+								</p:link>
 							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -712,104 +753,92 @@
 
 					<div id="rel-blog-slider" class="rel-blog-slider dots-black">
 						<div class="item">
-							<div class="blog-wrap img-effect">
-								<div class="blog-img">
-									<a class="img-hover"> <img src="resources/images/nagd3.png"
-										alt="product" />
-									</a>
+							<p:link outcome="singlenagd.xhtml">
+								<f:param
+									value="#{naghdBean.findNagdById(naghdBean.findAllNaghd().size()).naghdId}"
+									name="naghdId" />
+								<div class="blog-wrap img-effect">
+									<div class="blog-img">
+										<o:graphicImage
+											value="#{naghdBean.findNagdById(naghdBean.findAllNaghd().size()).naghdPic1}"
+											dataURI="true" />
+
+									</div>
+									<div class="blog-heading">
+										<h:outputText
+											value="#{naghdBean.findNagdById(naghdBean.findAllNaghd().size()).naghdTitle}" />
+
+									</div>
+									<div class="blog-detail pt-25">
+										<p
+											style="font-family: 'IRANSansNor' !important; text-align: justify;">
+											<h:outputText
+												value="#{naghdBean.findNagdById(naghdBean.findAllNaghd().size()).naghdHead1}" />
+										</p>
+									</div>
+									<div class="blog-meta"></div>
 								</div>
-								<div class="blog-heading">
-									<a class="date"> <span class="font-2 fsz-24"
-										style="font-family: 'IRANSansNor' !important;">۱۲</span> <b>مرداد</b>
-									</a> <a href="#login-popup" data-toggle="modal" class="blog-title"
-										style="font-family: 'IRANSansNor' !important;"> دوربین های
-										دید در شب </a>
-								</div>
-								<div class="blog-detail pt-25">
-									<p
-										style="font-family: 'IRANSansNor' !important; text-align: justify;">تجهیزات
-										نوع اول یا بهسازی تصویر از روش جمع‌آوری و تقویت نورهای اندکی
-										که از جسم متصاعد می‌شود و منابع نوری محدود موجود در محیط
-										(ستاره‌ها و ماه) که با چشم غیرمسلح دیده نمی‌شوند استفاده
-										می‌کند</p>
-								</div>
-								<div class="blog-meta">
-									<ul class="list-inline">
-										<li><a> <i class="fa fa-heart"></i> <b>۱۰۰</b>
-										</a></li>
-										<li><a> <i class="fa fa-comments-o"></i> <b>۱۲۶</b>
-										</a></li>
-										<li><a> <i class="fa fa-eye"></i> <b>۱۱۲۲۳</b>
-										</a></li>
-									</ul>
-								</div>
-							</div>
+							</p:link>
 						</div>
 
 						<div class="item">
-							<div class="blog-wrap img-effect">
-								<div class="blog-img">
-									<a class="img-hover"> <img src="resources/images/nagd2.png"
-										alt="product" />
-									</a>
+							<p:link outcome="singlenagd.xhtml">
+								<f:param
+									value="#{naghdBean.findNagdById(naghdBean.findAllNaghd().size()-1).naghdId}"
+									name="naghdId" />
+								<div class="blog-wrap img-effect">
+									<div class="blog-img">
+										<o:graphicImage
+											value="#{naghdBean.findNagdById(naghdBean.findAllNaghd().size()-1).naghdPic1}"
+											dataURI="true" />
+
+									</div>
+									<div class="blog-heading">
+										<h:outputText
+											value="#{naghdBean.findNagdById(naghdBean.findAllNaghd().size()-1).naghdTitle}" />
+									</div>
+									<div class="blog-detail pt-25">
+										<p
+											style="font-family: 'IRANSansNor' !important; text-align: justify;">
+											<h:outputText
+												value="#{naghdBean.findNagdById(naghdBean.findAllNaghd().size()-1).naghdHead1}" />
+										</p>
+									</div>
+									<div class="blog-meta"></div>
 								</div>
-								<div class="blog-heading">
-									<a class="date"> <span class="font-2 fsz-24">۹</span> <b>تیر</b>
-									</a> <a href="#login-popup" data-toggle="modal" class="blog-title"
-										style="font-family: 'IRANSansNor' !important;">سامسونگ
-										پیشرو در نوآوری</a>
-								</div>
-								<div class="blog-detail pt-25">
-									<p
-										style="font-family: 'IRANSansNor' !important; text-align: justify;">سامسونگ،
-										(به کره‌ای: 삼성) یکی از بزرگترین شرکت‌های خوشه‌ای در کره جنوبی
-										و یک شرکت چندملیتی است که از تعداد زیادی شرکت تابعه و
-										زیرمجموعه تشکیل شده‌است.</p>
-								</div>
-								<div class="blog-meta">
-									<ul class="list-inline">
-										<li><a> <i class="fa fa-heart"></i> <b>۱۱۱</b>
-										</a></li>
-										<li><a> <i class="fa fa-comments-o"></i> <b>۲۲۲۱</b>
-										</a></li>
-										<li><a> <i class="fa fa-eye"></i> <b>۳۴۴۴</b>
-										</a></li>
-									</ul>
-								</div>
-							</div>
+							</p:link>
+
 						</div>
 
 						<div class="item">
-							<div class="blog-wrap img-effect">
-								<div class="blog-img">
-									<a class="img-hover"> <img
-										src="resources/images/nagd1.png" alt="product" />
-									</a>
+							<p:link outcome="singlenagd.xhtml">
+								<f:param
+									value="#{naghdBean.findNagdById(naghdBean.findAllNaghd().size()-2).naghdId}"
+									name="naghdId" />
+								<div class="blog-wrap img-effect">
+									<div class="blog-img">
+										<o:graphicImage
+											value="#{naghdBean.findNagdById(naghdBean.findAllNaghd().size()-2).naghdPic1}"
+											dataURI="true" />
+
+									</div>
+									<div class="blog-heading">
+										<h:outputText
+											value="#{naghdBean.findNagdById(naghdBean.findAllNaghd().size()-2).naghdTitle}" />
+									</div>
+									<div class="blog-detail pt-25">
+										<p
+											style="font-family: 'IRANSansNor' !important; text-align: justify;">
+											تجهیزات
+											<h:outputText
+												value="#{naghdBean.findNagdById(naghdBean.findAllNaghd().size()-2).naghdHead1}" />
+										</p>
+									</div>
+									<div class="blog-meta"></div>
 								</div>
-								<div class="blog-heading">
-									<a class="date"> <span class="font-2 fsz-24">۲۳</span> <b>خرداد</b>
-									</a> <a href="#login-popup" data-toggle="modal" class="blog-title"
-										style="font-family: 'IRANSansNor' !important;"> گیتار های
-										نسل جدیدی </a>
-								</div>
-								<div class="blog-detail pt-25">
-									<p
-										style="font-family: 'IRANSansNor' !important; text-align: justify;">گیتار
-										نوعی ساز زهی است که با پیک یا انگشت نواخته می‌شود و از این جهت
-										که سیم‌های آن در اثر ارتعاش تولید صدا می‌کنند،</p>
-								</div>
-								<div class="blog-meta">
-									<ul class="list-inline">
-										<li><a> <i class="fa fa-heart"></i> <b>۱۲۲</b>
-										</a></li>
-										<li><a> <i class="fa fa-comments-o"></i> <b>۳۳</b>
-										</a></li>
-										<li><a> <i class="fa fa-eye"></i> <b>۳۲۲۲۲</b>
-										</a></li>
-									</ul>
-								</div>
-							</div>
+							</p:link>
 						</div>
+
 					</div>
 				</div>
 			</div>
@@ -846,10 +875,9 @@
 						<div class="text-middle">
 							<div class="tbl-cell">
 								<p class="section-title pb-15"
-									style="font-family: 'IRANSansBold' !important;">اخبار جهان
+									style="font-family: 'IRANSansBold' !important;">NEWS
 								</p>
-								<p style="font-family: 'IRANSansNor' !important;">مطالب
-									مربوط به اخبار جهان</p>
+								<p style="font-family: 'IRANSansNor' !important;">Iran and world news</p>
 							</div>
 						</div>
 					</div>
@@ -868,17 +896,18 @@
 						<div class="text-middle">
 							<div class="tbl-cell">
 								<p class="section-title pb-15"
-									style="font-family: 'IRANSansBold' !important;">اخبار ایران
+									style="font-family: 'IRANSansBold' !important;">اخبار روز
 								</p>
 								<p style="font-family: 'IRANSansNor' !important;">مطالب
-									مربوط به اخبار ایران</p>
+									مربوط به اخبار ایران و جهان</p>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-6 no-padding img-effect">
-					<a href="#login-popup" data-toggle="modal" class="img-hover"> <img
-						alt="item" src="resources/images/worldnews.png" />
+					<a href="https://www.presstv.com/" data-toggle="modal"
+						class="img-hover"> <img alt="item"
+						src="resources/images/worldnews.png" />
 					</a>
 				</div>
 
@@ -899,8 +928,9 @@
 				</div>
 
 				<div class="col-md-4 col-sm-6 no-padding img-effect">
-					<a href="#login-popup" data-toggle="modal" class="img-hover"> <img
-						alt="item" src="resources/images/iranews.png" />
+					<a href="http://www.irinn.ir/fa/akhbar" data-toggle="modal"
+						class="img-hover"> <img alt="item"
+						src="resources/images/iranews.png" />
 					</a>
 				</div>
 			</div>
@@ -927,31 +957,32 @@
 					</div>
 				</div>
 
-
 				<div class="col-md-4 col-sm-6 no-padding img-effect">
-					<a href="#login-popup" data-toggle="modal" class="img-hover"> <img
-						alt="item" src="resources/images/worldnews.png" />
+					<a href="https://www.presstv.com/" data-toggle="modal"
+						class="img-hover"> <img alt="item"
+						src="resources/images/worldnews.png" />
 					</a>
 				</div>
-
 				<div class="banner-1 box-hover col-md-4 col-sm-6">
+
 					<img src="resources/maintemp/assets/img/home-3/item-pattern.jpg"
 						alt="banner" />
 					<div class="banner-content tbl-wrp text-center">
 						<div class="text-middle">
 							<div class="tbl-cell">
 								<p class="section-title pb-15"
-									style="font-family: 'IRANSansBold' !important;">اخبار جهان
+									style="font-family: 'IRANSansBold' !important;">NEWS
 								</p>
-								<p style="font-family: 'IRANSansNor' !important;">مطالب
-									مربوط به اخبار جهان</p>
+								<p style="font-family: 'IRANSansNor' !important;">Iran and world news</p>
 							</div>
 						</div>
 					</div>
 				</div>
+
 				<div class="col-md-4 col-sm-6 no-padding img-effect">
-					<a href="#login-popup" data-toggle="modal" class="img-hover"> <img
-						alt="item" src="resources/images/iranews.png" />
+					<a href="http://www.irinn.ir/fa/akhbar" data-toggle="modal"
+						class="img-hover"> <img alt="item"
+						src="resources/images/iranews.png" />
 					</a>
 				</div>
 				<div class="banner-1 box-hover col-md-4 col-sm-6">
@@ -961,10 +992,10 @@
 						<div class="text-middle">
 							<div class="tbl-cell">
 								<p class="section-title pb-15"
-									style="font-family: 'IRANSansBold' !important;">اخبار ایران
+									style="font-family: 'IRANSansBold' !important;">اخبار روز
 								</p>
 								<p style="font-family: 'IRANSansNor' !important;">مطالب
-									مربوط به اخبار ایران</p>
+									مربوط به اخبار ایران و جهان</p>
 							</div>
 						</div>
 					</div>
@@ -987,36 +1018,51 @@
 			<br />
 			<br />
 			<!-- Special Promo Starts-->
-			<section class="special-promo-sec black-mask">
-			<p:link outcome="singlemojtama.xhtml" styleClass="col-sm-3 col-xs-12 promo">
+			<section class="special-promo-sec black-mask"> <p:link
+				outcome="singlemojtama.xhtml" styleClass="col-sm-3 col-xs-12 promo">
 				<o:graphicImage
 					value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()).mojtamePic1}"
 					dataURI="true" />
-				<p class="section-title wht" style="font-size: 26px;"><h:outputText value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()).mojtameTitle}" /></p>
-				<f:param name="mojtamaId" value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()).mojtameId}"/>
-			</p:link>
-<p:link outcome="singlemojtama.xhtml" styleClass="col-sm-3 col-xs-12 promo">
-								<o:graphicImage
+				<p class="section-title wht" style="font-size: 26px;">
+					<h:outputText
+						value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()).mojtameTitle}" />
+				</p>
+				<f:param name="mojtamaId"
+					value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()).mojtameId}" />
+			</p:link> <p:link outcome="singlemojtama.xhtml"
+				styleClass="col-sm-3 col-xs-12 promo">
+				<o:graphicImage
 					value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-1).mojtamePic1}"
 					dataURI="true" />
-				<p class="section-title wht " style="font-size: 26px;"><h:outputText value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-1).mojtameTitle}" /></p>
-			<f:param name="mojtamaId" value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-1).mojtameId}"/>
-			</p:link> 
-<p:link outcome="singlemojtama.xhtml" styleClass="col-sm-3 col-xs-12 promo">
-								<o:graphicImage
+				<p class="section-title wht " style="font-size: 26px;">
+					<h:outputText
+						value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-1).mojtameTitle}" />
+				</p>
+				<f:param name="mojtamaId"
+					value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-1).mojtameId}" />
+			</p:link> <p:link outcome="singlemojtama.xhtml"
+				styleClass="col-sm-3 col-xs-12 promo">
+				<o:graphicImage
 					value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-2).mojtamePic1}"
 					dataURI="true" />
-				<p class="section-title wht " style="font-size: 26px;"><h:outputText value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-2).mojtameTitle}" />
-					</p>
-				<f:param name="mojtamaId" value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-2).mojtameId}"/>	
-			</p:link> 
-<p:link outcome="singlemojtama.xhtml" styleClass="col-sm-3 col-xs-12 promo">
+				<p class="section-title wht " style="font-size: 26px;">
+					<h:outputText
+						value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-2).mojtameTitle}" />
+				</p>
+				<f:param name="mojtamaId"
+					value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-2).mojtameId}" />
+			</p:link> <p:link outcome="singlemojtama.xhtml"
+				styleClass="col-sm-3 col-xs-12 promo">
 
-							<o:graphicImage
+				<o:graphicImage
 					value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-3).mojtamePic1}"
 					dataURI="true" />
-				<p class="section-title wht" style="font-size: 26px;"><h:outputText value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-3).mojtameTitle}" /></p>
-				<f:param name="mojtamaId" value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-3).mojtameId}"/>
+				<p class="section-title wht" style="font-size: 26px;">
+					<h:outputText
+						value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-3).mojtameTitle}" />
+				</p>
+				<f:param name="mojtamaId"
+					value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-3).mojtameId}" />
 			</p:link> </section>
 			<!-- / Special Promo  Ends -->
 			<br />

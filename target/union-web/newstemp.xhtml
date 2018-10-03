@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="congnd91"/>
+    <title>اخبار اتحادیه</title>
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="resources/newstemp/images/favicon.png"/>
+    <link rel="apple-touch-icon" href="resources/newstemp/images/apple-touch-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="resources/newstemp/images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="resources/newstemp/images/apple-touch-icon-114x114.png"/>
+    <!-- Online Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet"/>
+    <!-- Vender -->
+    <link href="resources/newstemp/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="resources/newstemp/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="resources/newstemp/css/normalize.min.css" rel="stylesheet" />
+    <link href="resources/newstemp/css/owl.carousel.min.css" rel="stylesheet" />
+    <!-- Main CSS (SCSS Compile) -->
+    <link href="resources/newstemp/css/main.css" rel="stylesheet" />
+</h:head> 
+<body>
+    <!--preload-->
+    <div class="loader" id="page-loader">
+        <div class="loading-wrapper">
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="container">
+            <!--header-->
+            <header class="header">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <a href="index.html#" class="logo">
+                            <img alt="Logo" src="resources/images/news.png" />
+                        </a>
+                    </div>
+                </div>
+            </header>
+            <!--menu-->
+            <div class="menu font-heading" style="direction:rtl!important;">
+
+                <ul>
+                    <li style="position: absolute!important; right: 50px;">
+                        <a href="index.html">Home </a>
+                    </li>
+                    <li style="position: absolute!important; right: 150px;">
+                        <a href="business.html">Business</a>
+                    </li>
+                    
+                </ul>
+                                                <div class="search-icon">
+                    <div class="search-icon-inner">
+                        <i class="fa fa-search"></i>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search..." />
+                        <button>Search</button>
+                    </div>
+                </div>
+
+            </div>
+<ui:insert name="mainnews"/>
+            
+        </div>
+        <!--footer-->
+        <footer class="footer">
+
+        </footer>
+    </div>
+    <!--scrip file-->
+    <script src="resources/newstemp/js/jquery.min.js"></script>
+    <script src="resources/newstemp/js/bootstrap.js"></script>
+    <script src="resources/newstemp/js/owl.carousel.min.js"></script>
+    <script src="resources/newstemp/js/main.js"></script>
+</body>
+</html>

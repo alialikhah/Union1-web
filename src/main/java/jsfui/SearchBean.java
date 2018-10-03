@@ -16,10 +16,12 @@ import dao.entity.MashahirEngEntity;
 import dao.entity.MashahirEntity;
 import dao.entity.MerchantEntity;
 import dao.entity.MojtameEntity;
+import dao.entity.NaghdOBaresiEntity;
 import service.MashahirEngServiceLocal;
 import service.MashahirServiceLocal;
 import service.MerchantRegisterServiceLocal;
 import service.MojtameServiceLocal;
+import service.NaghdServiceLocal;
 
 @Named
 @SessionScoped
@@ -42,7 +44,10 @@ public class SearchBean implements Serializable {
 	private MashahirEngServiceLocal mashahirEngServiceLocal;
 	@Inject
 	private MojtameServiceLocal mojtameServiceLocal;
-
+	@Inject
+	private NaghdServiceLocal naghdServiceLocal;
+	
+	
 	private String shopNamePer;
 
 	public String getShopNamePer() {
@@ -71,6 +76,9 @@ public class SearchBean implements Serializable {
 			}
 			for (int i = 0; i < 10; i++) {
 				result.add(mojtameServiceLocal.findAllMojtame().get(i).getMojtameTitle());
+			}
+			for (int i = 0; i < 10; i++) {
+				result.add(naghdServiceLocal.findAllNaghd().get(i).getNaghdTitle());
 			}
 		} else {
 			Iterator<MerchantEntity> iterator = merchantRegisterServiceLocal.findAllMErchantEntity().iterator();
@@ -109,6 +117,15 @@ public class SearchBean implements Serializable {
 					result.add(elem.getMojtameTitle());
 				}
 			}
+			Iterator<NaghdOBaresiEntity> iterator5 = naghdServiceLocal.findAllNaghd().iterator();
+			while (iterator5.hasNext()) {
+				NaghdOBaresiEntity elem = ((NaghdOBaresiEntity) iterator5.next());
+				if ((elem.getNaghdTitle() != null
+						&& elem.getNaghdTitle().toLowerCase().indexOf(prefix.toLowerCase()) == 0)
+						|| "".equals(prefix)) {
+					result.add(elem.getNaghdTitle());
+				}
+			}
 		}
 
 		return result;
@@ -124,10 +141,48 @@ public class SearchBean implements Serializable {
 			return new ArrayList<MerchantEntity>();
 		}
 	}
+
+	public List<MashahirEntity> findMashahirByName() {
+		try {
+			return mashahirServiceLocal.findMashahirByName(this.shopNamePer);
+		} catch (Exception e) {
+			System.err.println("mashahir not find");
+			return new ArrayList<MashahirEntity>();
+		}
+	}
 	
+	public List<MashahirEngEntity> findMashahirEngByName() {
+		try {
+			return mashahirEngServiceLocal.findMashahirEngByName(this.shopNamePer);
+		} catch (Exception e) {
+			System.err.println("mashahir not find");
+			return new ArrayList<MashahirEngEntity>();
+		}
+	}
 	
+	public List<MojtameEntity> findMojtamaByTitle() {
+		try {
+			return mojtameServiceLocal.findMojtamaByTitle(shopNamePer);
+		} catch (Exception e) {
+			System.err.println("mashahir not find");
+			return new ArrayList<MojtameEntity>();
+		}
+	}
+	
+	public List<NaghdOBaresiEntity> findNagdByTitle() {
+		try {
+			return naghdServiceLocal.findNagdByTitle(shopNamePer);
+		} catch (Exception e) {
+			System.err.println("nagd not find");
+			return new ArrayList<NaghdOBaresiEntity>();
+		}
+	}
+
 	public void searchAct() throws IOException {
 		this.findMerchantByShopNamePer();
+		this.findMashahirByName();
+		this.findMashahirEngByName();
+		this.findMojtamaByTitle();
 		FacesContext.getCurrentInstance().getExternalContext().redirect("search.xhtml");
 
 	}

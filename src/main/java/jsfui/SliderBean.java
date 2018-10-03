@@ -12,6 +12,7 @@ import javax.servlet.http.Part;
 
 import org.apache.commons.io.IOUtils;
 
+import dao.entity.NaghdOBaresiEntity;
 import dao.entity.SliderEntity;
 import service.SliderServiceLocal;
 
@@ -58,7 +59,12 @@ public class SliderBean {
     
     public void deleteSlider(long sliderId) throws IOException {
     	SliderEntity sliderEntity=new SliderEntity();
-    	sliderEntity=sliderServiceLocal.findSliderById(sliderId);
+    	try {
+			sliderEntity=sliderServiceLocal.findSliderById(sliderId);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.err.println("slider not find");
+		}
     	sliderServiceLocal.deleteSlider(sliderEntity);
     	FacesContext.getCurrentInstance().getExternalContext().redirect("addslider.xhtml" );
     }
@@ -66,9 +72,45 @@ public class SliderBean {
     
     
     public SliderEntity findSliderById(long sliderId) {
-    	return sliderServiceLocal.findSliderById(sliderId);
+    	try {
+			return sliderServiceLocal.findSliderById(sliderId);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.err.println("slider not find");
+			return null;
+		}
+		
     }
     
+	public void updateSliderTitle(long slideId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		SliderEntity sliderEntity=new SliderEntity();
+
+		try {
+			sliderEntity=sliderServiceLocal.findSliderById(slideId);
+			sliderEntity.setSliderTitle(sliderTitle);
+			sliderServiceLocal.updateSlider(sliderEntity);
+		} catch (Exception e) {
+			System.err.println("slide not find");
+		}
+
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("slideredit.xhtml" + "?slideId=" + slideId);
+	}
     
-	
+    
+	public void updateSliderImg(long slideId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		SliderEntity sliderEntity=new SliderEntity();
+		try {
+			sliderEntity=sliderServiceLocal.findSliderById(slideId);
+			byte[] img2Byte = IOUtils.toByteArray(sliderImg.getInputStream());
+			sliderEntity.setSliderImage(img2Byte);
+			sliderServiceLocal.updateSlider(sliderEntity);
+		} catch (Exception e) {
+			System.err.println("nagd not find");
+		}
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("slideredit.xhtml" + "?slideId=" + slideId);
+	}
 }

@@ -1120,7 +1120,7 @@
         width: 500px;
     }
 }
-@media (max-width:767px) {
+@media (max-width:960px) {
     /*-- Header Offcanvas --*/
     .nav-trigger {
         float: left;

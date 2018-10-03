@@ -315,13 +315,13 @@
 					     <p:outputLabel value=""/>
 						
 						<p:outputLabel value="تاریخ تولد فروشنده"/>
-						<p:inputText value="#{merchantRegisterBean.merchantBirthDayChange}" id="date_input_1" required="true">
+						<p:inputText value="" id="date_input_1" required="true">
 							<img id="date_btn_1" src="resources/date/cal.png" style="vertical-align: top;"/>
 							</p:inputText>
 							<script type="text/javascript" charset="UTF-8">
 								Calendar.setup({
 									inputField     :    "form:date_input_1",   // id of the input field
-									button         :    "date_btn_1",   // trigger for the calendar (button ID)
+									button         :    "form:date_btn_1",   // trigger for the calendar (button ID)
 						       		ifFormat       :    "%Y-%m-%d",       // format of the input field
 						       		dateType	   :	'jalali',
 						       		weekNumbers    : false

@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<head>
+
+</head> 
+<body> 
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="merchant" />
+				</f:metadata>
+			</ui:define>
+<textarea id="messageTextArea" rows="10" cols="45" readonly="readonly"></textarea>
+<input id="user" type="text" value="#{merchant}"/>
+<input id="messageText" type="text" size="50"/>
+<input value="send" onclick="sendMessage();" type="button"/>
+<script type="text/javascript">
+var messageTextArea=document.getElementById("messageTextArea");
+var messageText = document.getElementById("messageText");
+var user = document.getElementById("user").value;
+var webSocket=new WebSocket("ws://localhost:8080/WebSocketRef2/" + user);
+webSocket.onmessage=function(messag){processMessage(messag);};
+webSocket.onopen=function(messag){processOpen(messag);};
+function processMessage(messag){
+	
+	var jsonData=JSON.parse(messag.data);
+	if(jsonData.messag!=null)
+		messageTextArea.value += jsonData.messag + "\n";
+}
+
+function processOpen(){
+	webSocket.send(user.value);
+}
+
+function sendMessage(){
+	webSocket.send(messageText.value);
+	messageText.value="";
+}
+
+
+
+</script>
+</body> 
+</html>

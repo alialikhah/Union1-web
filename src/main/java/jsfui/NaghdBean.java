@@ -194,6 +194,7 @@ public class NaghdBean {
     	naghdOBaresiEntity.setNaghdHead4(naghdHead4);
     	naghdOBaresiEntity.setNaghdHead5(naghdHead5);
     	naghdOBaresiEntity.setCategory(category);
+    	naghdOBaresiEntity.setNaghdTitle(naghdTitle);
     	naghdOBaresiEntity.setNaghdText1(naghdText1);
     	naghdOBaresiEntity.setNaghdText2(naghdText2);
     	naghdOBaresiEntity.setNaghdText3(naghdText3);
@@ -226,11 +227,160 @@ public class NaghdBean {
 		return naghdServiceLocal.findAllNaghd();
 	}
 	
+	public NaghdOBaresiEntity findNagdById(long nagdId) {
+		return naghdServiceLocal.findNagdByID(nagdId);
+	}
+	
     public void deleteNAghdEntity(long naghdId) throws IOException{
     	NaghdOBaresiEntity naghdOBaresiEntity=new NaghdOBaresiEntity();
     	naghdOBaresiEntity=naghdServiceLocal.findNagdByID(naghdId);
     	naghdServiceLocal.deleteNaghdEntity(naghdOBaresiEntity);
     	FacesContext.getCurrentInstance().getExternalContext().redirect("addnaghd.xhtml" );
     }
+    
+    
+	public void updateNagdImg1(long naghdId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		NaghdOBaresiEntity naghdOBaresiEntity = new NaghdOBaresiEntity();
+
+		try {
+			naghdOBaresiEntity = naghdServiceLocal.findNagdByID(naghdId);
+			byte[] img1Byte = IOUtils.toByteArray(pic1.getInputStream());
+			naghdOBaresiEntity.setNaghdPic1(img1Byte);
+			naghdServiceLocal.updateNagd(naghdOBaresiEntity);
+		} catch (Exception e) {
+			System.err.println("nagd not find");
+		}
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("nagdedit.xhtml" + "?naghdId=" + naghdId);
+	}
+	
+	public void updateNagdImg2(long naghdId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		NaghdOBaresiEntity naghdOBaresiEntity = new NaghdOBaresiEntity();
+
+		try {
+			naghdOBaresiEntity = naghdServiceLocal.findNagdByID(naghdId);
+			byte[] img2Byte = IOUtils.toByteArray(pic2.getInputStream());
+			naghdOBaresiEntity.setNaghdPic2(img2Byte);
+			naghdServiceLocal.updateNagd(naghdOBaresiEntity);
+		} catch (Exception e) {
+			System.err.println("nagd not find");
+		}
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("nagdedit.xhtml" + "?naghdId=" + naghdId);
+	}
+	
+	public void updateNagdTitle(long naghdId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		NaghdOBaresiEntity naghdOBaresiEntity=new NaghdOBaresiEntity();
+
+		try {
+			naghdOBaresiEntity=naghdServiceLocal.findNagdByID(naghdId);
+			naghdOBaresiEntity.setNaghdTitle(naghdTitle);
+			naghdServiceLocal.updateNagd(naghdOBaresiEntity);
+		} catch (Exception e) {
+			System.err.println("nagd not find");
+		}
+
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("nagdedit.xhtml" + "?naghdId=" + naghdId);
+	}
+	
+	public void updateNagdHead1(long naghdId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		NaghdOBaresiEntity naghdOBaresiEntity=new NaghdOBaresiEntity();
+
+		try {
+			naghdOBaresiEntity=naghdServiceLocal.findNagdByID(naghdId);
+			naghdOBaresiEntity.setNaghdHead1(naghdHead1);
+			naghdServiceLocal.updateNagd(naghdOBaresiEntity);
+		} catch (Exception e) {
+			System.err.println("nagd not find");
+		}
+
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("nagdedit.xhtml" + "?naghdId=" + naghdId);
+	}
+	
+	public void updateNagdText1(long naghdId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		NaghdOBaresiEntity naghdOBaresiEntity=new NaghdOBaresiEntity();
+
+		try {
+			naghdOBaresiEntity=naghdServiceLocal.findNagdByID(naghdId);
+			naghdOBaresiEntity.setNaghdText1(naghdText1);
+			naghdServiceLocal.updateNagd(naghdOBaresiEntity);
+		} catch (Exception e) {
+			System.err.println("nagd not find");
+		}
+
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("nagdedit.xhtml" + "?naghdId=" + naghdId);
+	}
+	
+	public void updateNagdText2(long naghdId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		NaghdOBaresiEntity naghdOBaresiEntity=new NaghdOBaresiEntity();
+
+		try {
+			naghdOBaresiEntity=naghdServiceLocal.findNagdByID(naghdId);
+			naghdOBaresiEntity.setNaghdText2(naghdText2);
+			naghdServiceLocal.updateNagd(naghdOBaresiEntity);
+		} catch (Exception e) {
+			System.err.println("nagd not find");
+		}
+
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("nagdedit.xhtml" + "?naghdId=" + naghdId);
+	}
+	
+	public void updateNagdText3(long naghdId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		NaghdOBaresiEntity naghdOBaresiEntity=new NaghdOBaresiEntity();
+
+		try {
+			naghdOBaresiEntity=naghdServiceLocal.findNagdByID(naghdId);
+			naghdOBaresiEntity.setNaghdText3(naghdText3);
+			naghdServiceLocal.updateNagd(naghdOBaresiEntity);
+		} catch (Exception e) {
+			System.err.println("nagd not find");
+		}
+
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("nagdedit.xhtml" + "?naghdId=" + naghdId);
+	}
+	
+	public void updateNagdText4(long naghdId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		NaghdOBaresiEntity naghdOBaresiEntity=new NaghdOBaresiEntity();
+
+		try {
+			naghdOBaresiEntity=naghdServiceLocal.findNagdByID(naghdId);
+			naghdOBaresiEntity.setNaghdText4(naghdText4);
+			naghdServiceLocal.updateNagd(naghdOBaresiEntity);
+		} catch (Exception e) {
+			System.err.println("nagd not find");
+		}
+
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("nagdedit.xhtml" + "?naghdId=" + naghdId);
+	}
+	
+	public void updateNagdText5(long naghdId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		NaghdOBaresiEntity naghdOBaresiEntity=new NaghdOBaresiEntity();
+
+		try {
+			naghdOBaresiEntity=naghdServiceLocal.findNagdByID(naghdId);
+			naghdOBaresiEntity.setNaghdText5(naghdText5);
+			naghdServiceLocal.updateNagd(naghdOBaresiEntity);
+		} catch (Exception e) {
+			System.err.println("nagd not find");
+		}
+
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("nagdedit.xhtml" + "?naghdId=" + naghdId);
+	}
 
 }

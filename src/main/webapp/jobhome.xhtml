@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:o="http://omnifaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<ui:composition template="jobtemplate.xhtml">
+		<ui:define name="headjob">
+		</ui:define>
+		<ui:define name="mainjob">
+
+
+			<div class="listpgWraper">
+				<div class="container">
+
+					<!-- Page Title start -->
+					<div class="pageSearch">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="searchform">
+									<div class="row">
+										<div class="col-md-11 col-sm-10 col-xs-9">
+											<input type="text" class="form-control"
+												placeholder="جستجو" dir="rtl" />
+										</div>
+										<div class="col-md-1 col-sm-2 col-xs-3">
+											<button class="btn">
+												<i class="fa fa-search" aria-hidden="true"></i>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Page Title end -->
+
+					<!-- Search Result and sidebar start -->
+					<div class="row">
+						<div class="col-md-3 col-sm-12">
+							<div class="sidebar">
+								<h4 class="widget-title" style="text-align: right; font-family: 'IRANSansBold' !important;">اسپانسر ها</h4>
+								<div class="gad">
+									<img src="resources/comtemp/images/googlead.jpg"
+										alt="your alt text" />
+								</div>
+								<div class="gad">
+									<img src="resources/comtemp/images/googlead.jpg"
+										alt="your alt text" />
+								</div>
+								<div class="gad">
+									<img src="resources/comtemp/images/googlead2.jpg"
+										alt="your alt text" />
+								</div>
+								<div class="gad">
+									<img src="resources/comtemp/images/googlead2.jpg"
+										alt="your alt text" />
+								</div>
+								<div class="gad">
+									<img src="resources/comtemp/images/googlead2.jpg"
+										alt="your alt text" />
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-9 col-sm-12">
+							<!-- Search List -->
+							<ul class="searchList">
+								<a4j:outputPanel id="panel" layout="block">
+									<a4j:repeat value="#{jobKarfarmaBean.findAllKarfarma()}"
+										var="job" rows="9" id="repeat">
+										<p:outputPanel rendered="#{job.taeed}">
+										<!-- job start -->
+										<li>
+											<div class="row" dir="rtl">
+												<div class="col-md-4 col-sm-4">
+													<div class="listbtn" align="left">
+														<p:link style="font-family: 'IRANSansBold' !important;" value="مشاهده جزییات" outcome="jobdetail.xhtml">
+														<f:param name="jobID" value="#{job.karafarmaId}" />
+														</p:link>
+													</div>
+												</div>
+												<div class="col-md-8 col-sm-8" align="right">
+													<div class="jobimg" style="float: right;margin: 5px; margin-left: 15px;">
+														<img src="resources/comtemp/images/jobs/jobimg.jpg"
+															alt="Job Name" />
+													</div>
+													<div class="jobinfo" style="float: right;">
+														<h3>
+															<a style="font-family: 'IRANSansBold' !important;">#{job.karfarmaJobTitle}</a>
+														</h3>
+														<div class="companyName">
+															<a style="font-family: 'IRANSansNor' !important;">#{job.karfarmaCompanyName}</a>
+														</div>
+														<div class="location">
+															<span style="font-family: 'IRANSansNor' !important;">#{job.karfarmaJobCity}</span>
+														</div>
+													</div>
+
+													<div class="clearfix"></div>
+												</div>
+
+											</div>
+											<p style="text-align:justify; direction: rtl; font-family: 'IRANSansNor' !important;" >#{job.karfarmaDescription}</p>
+										</li>
+										<!-- job end -->
+										</p:outputPanel>
+									</a4j:repeat>
+								</a4j:outputPanel>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

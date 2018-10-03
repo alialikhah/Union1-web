@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:o="http://omnifaces.org/ui">  
+
+<h:head>
+</h:head> 
+<h:body> 
+<ui:composition template="/template.xhtml">
+<ui:define name="headtmp">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+			<title>Merchant</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <link rel="stylesheet" type="text/css" media="all" href="resources/date/skins/aqua/theme.css" title="Aqua" />
+		<link rel="alternate stylesheet" type="text/css" media="all" href="resources/date/skins/calendar-blue.css" title="winter" />
+		<link rel="alternate stylesheet" type="text/css" media="all" href="resources/date/skins/calendar-system.css" title="system" />
+	    
+              
+		<script charset="UTF-8" type="text/javascript" src="resources/date/jalali.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/calendar.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/calendar-setup.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/lang/calendar-fa.js"></script>
+		
+		<script charset="UTF-8" type="text/javascript" src="resources/date/alidate.js"></script>
+		
+		<h:outputStylesheet library="css" name="merchantedit.css"/>
+				
+<style type="text/css">
+.calendar {
+	direction: rtl;
+}
+
+#flat_calendar_1, #flat_calendar_2{
+	width: 200px;
+}
+.example {
+	padding: 10px;
+}
+
+.display_area {
+	background-color: #FFFF88
+}
+</style>
+
+
+	</ui:define>
+	
+<ui:define name="centertmp">
+	  <ui:define name="metadata">
+      <f:metadata>
+      <f:viewParam name="naghdId"/>
+      </f:metadata>
+      </ui:define> 
+      
+      
+      
+    <p:panelGrid columns="4" style="direction:rtl!important">
+    <f:facet name="header">
+    جدول ویرايش
+    </f:facet>
+    
+
+     <p:outputLabel value="عنوان نقد وبررسی:" />
+    <p:outputLabel value="#{naghdBean.findNagdById(naghdId).naghdTitle}" id="txt1" />
+	<p:outputLabel value="" />
+    
+    
+    
+      <h:outputText value="عکس ۱:" />
+    <o:graphicImage value="#{naghdBean.findNagdById(naghdId).naghdPic1}" dataURI="true" height="200" width="200"/>
+    <h:form id="frm1" style="display:none" enctype="multipart/form-data">
+	<h:inputFile value="#{naghdBean.pic1}"/>                        
+    <h:commandButton value="ثبت تغییرات" action="#{naghdBean.updateNagdImg1(naghdId)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm1">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+       
+        <h:outputText value="عکس ۲:" />
+    <o:graphicImage value="#{naghdBean.findNagdById(naghdId).naghdPic2}" dataURI="true" height="200" width="200"/>
+    <h:form id="frm2" style="display:none" enctype="multipart/form-data">
+	<h:inputFile value="#{naghdBean.pic2}"/>                        
+    <h:commandButton value="ثبت تغییرات" action="#{naghdBean.updateNagdImg2(naghdId)}"/>
+    </h:form>
+    <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm2">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+
+
+
+     
+         
+            <h:outputText value="عنوان:" />
+        <h:outputText value="#{naghdBean.findNagdById(naghdId).naghdTitle}" />
+    <h:form id="frm47" style="display:none">
+    						<p:inputTextarea id="mashahirNamez" rows="20" cols="100" autoResize="false"
+							value="#{naghdBean.naghdTitle}"
+							label="merchantDescription">
+							<f:validateLength maximum="500" />
+						</p:inputTextarea>
+    <p:commandButton value="ثبت تغییرات" action="#{naghdBean.updateNagdTitle(naghdId)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm47">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+            <h:outputText value="هد۱:" />
+        <h:outputText value="#{naghdBean.findNagdById(naghdId).naghdHead1}" />
+    <h:form id="frm7" style="display:none">
+    						<p:inputTextarea id="merchantDescription" rows="20" cols="100" autoResize="false"
+							value="#{naghdBean.naghdHead1}"
+							label="merchantDescription">
+							<f:validateLength maximum="500" />
+						</p:inputTextarea>
+    <p:commandButton value="ثبت تغییرات" action="#{naghdBean.updateNagdHead1(naghdId)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm7">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+                <h:outputText value="text1:" />
+        <h:outputText value="#{naghdBean.findNagdById(naghdId).naghdText1}" />
+    <h:form id="frm8" style="display:none">
+    						<p:inputTextarea id="mashahirText1" rows="20" cols="100" autoResize="false"
+							value="#{naghdBean.naghdText1}"
+							label="mashahirText1">
+							<f:validateLength maximum="5000" />
+						</p:inputTextarea>
+    <p:commandButton value="ثبت تغییرات" action="#{naghdBean.updateNagdText1(naghdId)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm8">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+                    <h:outputText value="text2:" />
+        <h:outputText value="#{naghdBean.findNagdById(naghdId).naghdText2}" />
+    <h:form id="frm9" style="display:none">
+    						<p:inputTextarea id="mashahirText2" rows="20" cols="100" autoResize="false"
+							value="#{naghdBean.naghdText2}"
+							label="mashahirText1">
+							<f:validateLength maximum="5000" />
+						</p:inputTextarea>
+    <p:commandButton value="ثبت تغییرات" action="#{naghdBean.updateNagdText2(naghdId)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm9">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+                        <h:outputText value="text3:" />
+        <h:outputText value="#{naghdBean.findNagdById(naghdId).naghdText3}" />
+    <h:form id="frm10" style="display:none">
+    						<p:inputTextarea id="mashahirText3" rows="20" cols="100" autoResize="false"
+							value="#{naghdBean.naghdText3}"
+							label="mashahirText3">
+							<f:validateLength maximum="5000" />
+						</p:inputTextarea>
+    <p:commandButton value="ثبت تغییرات" action="#{naghdBean.updateNagdText3(naghdId)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm10">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+                            <h:outputText value="text4:" />
+        <h:outputText value="#{naghdBean.findNagdById(naghdId).naghdText4}" />
+    <h:form id="frm11" style="display:none">
+    						<p:inputTextarea id="mashahirText4" rows="20" cols="100" autoResize="false"
+							value="#{naghdBean.naghdText4}"
+							label="mashahirText3">
+							<f:validateLength maximum="5000" />
+						</p:inputTextarea>
+    <p:commandButton value="ثبت تغییرات" action="#{naghdBean.updateNagdText4(naghdId)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm11">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+                                <h:outputText value="text5:" />
+        <h:outputText value="#{naghdBean.findNagdById(naghdId).naghdText5}" />
+    <h:form id="frm12" style="display:none">
+    						<p:inputTextarea id="mashahirText5" rows="20" cols="100" autoResize="false"
+							value="#{naghdBean.naghdText5}"
+							label="mashahirText5">
+							<f:validateLength maximum="5000" />
+						</p:inputTextarea>
+    <p:commandButton value="ثبت تغییرات" action="#{naghdBean.updateNagdText5(naghdId)}"/>
+    </h:form>
+                  <p:commandButton value="ویرایش">
+  	<p:effect type="explode" event="click" for="frm12">
+   	<f:param name="mode" value="'show'" />
+    </p:effect> 
+    </p:commandButton>
+    
+    
+    
+      </p:panelGrid>
+      
+      
+ 
+
+      
+      
+      </ui:define>
+      </ui:composition>
+      
+</h:body> 
+</html>

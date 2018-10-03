@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:o="http://omnifaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<ui:composition template="jobtemplate.xhtml">
+		<ui:define name="headjob">
+		<style>
+		.job-header .contentbox ul li::before {
+    font-family: 'FontAwesome';
+    color: #a8d815;
+    position: absolute;
+    left: 0;
+    content: none!important;
+}
+		</style>
+		</ui:define>
+		<ui:define name="mainjob">
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="jobID" />
+				</f:metadata>
+			</ui:define>
+			<div class="listpgWraper">
+				<div class="container">
+
+
+					<!-- Job Detail start -->
+					<div class="row">
+						<div class="col-md-12">
+							<!-- Job Description start -->
+							<div class="job-header">
+								<div class="contentbox" style="direction: rtl; text-align: justify;">
+									<h3 style="font-family: 'IRANSansNor' !important;">عنوان شغل</h3>
+									<p style="font-family: 'IRANSansNor' !important;">
+										#{jobKarfarmaBean.findKarfarmaById(jobID).karfarmaJobTitle}
+									</p>
+									<h3 style="font-family: 'IRANSansNor' !important;">نام شرکت</h3>
+									<p style="font-family: 'IRANSansNor' !important;">
+										#{jobKarfarmaBean.findKarfarmaById(jobID).karfarmaCompanyName}
+									</p>
+									<h3 style="font-family: 'IRANSansNor' !important;">توضیحات شغل</h3>
+									<p style="font-family: 'IRANSansNor' !important;">
+										#{jobKarfarmaBean.findKarfarmaById(jobID).karfarmaDescription}
+									</p>
+									<h3 style="font-family: 'IRANSansNor' !important;">مهارت های مورد نیاز</h3>
+									<p style="font-family: 'IRANSansNor' !important;">
+										#{jobKarfarmaBean.findKarfarmaById(jobID).karfarmaTakhasosMorede}
+									</p>
+									<h3 style="font-family: 'IRANSansNor' !important;">اطلاعات تماس</h3>
+									<p style="font-family: 'IRANSansNor' !important;">
+										#{jobKarfarmaBean.findKarfarmaById(jobID).karfarmaPhone}
+									</p>
+								</div>
+							</div>
+						</div>
+
+					
+					</div>
+				</div>
+			</div>
+
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>نیازمندی ها</title>
+		<link rel="shortcut icon"
+		href="resources/images/logo_black.png" />
+<link href="resources/comtemp/css/owl.carousel.css" rel="stylesheet"/>
+
+<!-- Bootstrap -->
+<link href="resources/comtemp/css/bootstrap.min.css" rel="stylesheet"/>
+
+<!-- Font Awesome -->
+<link href="resources/comtemp/css/font-awesome.css" rel="stylesheet"/>
+
+<!-- Custom Style -->
+<link href="resources/comtemp/css/main.css" rel="stylesheet"/>
+<link href="resources/fonts.css" rel="stylesheet" type="text/css" />
+<style>
+.userccount {
+    background: #f0f0f0!important;
+    border: 0px!important;
+    padding: 25px 30px;
+}
+</style>
+</h:head>  
+<body style="background-color: #f0f0f0;"> 
+
+
+			<div class="listpgWraper">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<div class="userccount">
+							 <p:messages id="messages" />
+								<div class="tab-content">
+									<div id="candidate" class="formpanel tab-pane fade in active">
+										<h:form id="form" enctype="multipart/form-data">
+											<div class="formrow" dir="rtl">
+												<p style="font-family: 'IRANSansBold' !important;">برای ورود لطفا کد ملی خود را وارد نمایید. :</p>
+											</div>
+											<div class="formrow">
+												<p:inputMask styleClass="form-control"
+													placeholder="کد ملی" dir="ltr" mask="99999-99999"
+													value="#{userBean.merchantSsn}" required="true" requiredMessage="کد ملی را وارد نمایید. "/>
+											</div>
+											<h:commandButton style="font-family: 'IRANSansBold' !important;" value="ثبت" styleClass="btn"
+												action="#{userBean.merchantLogin()}" />
+										</h:form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+<!-- Bootstrap's JavaScript --> 
+<script src="resources/comtemp/js/jquery-2.1.4.min.js"></script> 
+<script src="resources/comtemp/js/bootstrap.min.js"></script> 
+
+<!-- Owl carousel --> 
+<script src="resources/comtemp/js/owl.carousel.js"></script> 
+
+<!-- Custom js --> 
+<script src="resources/comtemp/js/script.js"></script>
+</body> 
+</html>

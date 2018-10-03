@@ -63,7 +63,6 @@
 		padding: 0px !important;
 		padding-top: 0px !important;
 	}
-
 }
 </style>
 		</ui:define>
@@ -85,44 +84,234 @@
 					<div class="tab-content">
 
 						<a4j:outputPanel id="panel" layout="block">
-							<a4j:repeat
-								value="#{searchBean.findMerchantByShopNamePer()}"
+							<a4j:repeat value="#{searchBean.findMerchantByShopNamePer()}"
 								var="search" rows="9" id="repeat">
 
 								<!-- Product Grid View Starts -->
 								<div id="list-view" class="tab-pane fade active in"
 									role="tabpanel">
 									<div class="row listview-wrap">
-																	<h:link outcome="merchant.xhtml">
-								<f:param name="shopName" value="#{search.merchantShopNameEng}" />
-										<div class="col-lg-3 col-md-4 col-sm-12">
-											<div class="prod-wrap pt-50">
-												<figure>
-												<div class="prod-img">
-																					<o:graphicImage id="ig1"
-									value="#{search.shopImg5}"
-									dataURI="true" style=" padding-bottom: 0px; padding-left: 0px; float:left;"
-							/>
+										<h:link outcome="merchant.xhtml">
+											<f:param name="shopName"
+												value="#{search.merchantShopNameEng}" />
+											<div class="col-lg-3 col-md-4 col-sm-12">
+												<div class="prod-wrap pt-50">
+													<figure>
+													<div class="prod-img">
+														<o:graphicImage id="ig1" value="#{search.shopImg5}"
+															dataURI="true"
+															style=" padding-bottom: 0px; padding-left: 0px; float:left;" />
 
+													</div>
+													</figure>
 												</div>
-												</figure>
 											</div>
-										</div>
-										<div class="col-lg-9 col-md-8 col-sm-12">
-											<div class="prod-details pt-50">
-												<div class="prod-title">
-													<h:outputText value="#{search.merchantShopNamePer}" />
-												</div>
+											<div class="col-lg-9 col-md-8 col-sm-12">
+												<div class="prod-details pt-50">
+													<div class="prod-title" style="margin: 5px;">
+														<h:outputText style="font-family: 'IRANSansBold' !important; padding: 20px;" value="#{search.merchantShopNamePer}" />
+													</div>
 
-												<div class="discriptions">
-													<p>
-													<h:outputText value="#{search.merchantDescription}" />
-													</p>
-												</div>
+													<div class="discriptions">
+														<p style="text-align: justify!important; font-family: 'IRANSansNor' !important; padding: 20px;">
+															<h:outputText style="font-family: 'IRANSansNor' !important;" value="#{search.merchantDescription}" />
+														</p>
+													</div>
 
+												</div>
 											</div>
-										</div>
-																		</h:link>
+										</h:link>
+									</div>
+
+								</div>
+								<!-- Product Grid View Ends -->
+							</a4j:repeat>
+						</a4j:outputPanel>
+					</div>
+
+					<div class="tab-content">
+
+						<a4j:outputPanel id="panel2" layout="block">
+							<a4j:repeat value="#{searchBean.findMashahirByName()}"
+								var="search2" rows="9" id="repeat2">
+
+								<!-- Product Grid View Starts -->
+								<div id="list-view2" class="tab-pane fade active in"
+									role="tabpanel">
+									<div class="row listview-wrap">
+										<h:link outcome="singlemashahir.xhtml">
+											<f:param name="mashahirId" value="#{search2.mashahirId}" />
+											<div class="col-lg-3 col-md-4 col-sm-12">
+												<div class="prod-wrap pt-50">
+													<figure>
+													<div class="prod-img">
+														<o:graphicImage id="ig2" value="#{search2.mashahirPic1}"
+															dataURI="true"
+															style=" padding-bottom: 0px; padding-left: 0px; float:left;" />
+
+													</div>
+													</figure>
+												</div>
+											</div>
+											<div class="col-lg-9 col-md-8 col-sm-12">
+												<div class="prod-details pt-50">
+													<div class="prod-title">
+														<h:outputText style="font-family: 'IRANSansBold' !important; padding: 20px;" value="#{search2.mashahirName} " />
+													</div>
+
+													<div class="discriptions">
+														<p style="text-align: justify!important; font-family: 'IRANSansNor' !important; padding: 20px;">
+															<h:outputText style="font-family: 'IRANSansNor' !important;" value="#{search2.mashahirHead1}" />
+														</p>
+													</div>
+
+												</div>
+											</div>
+										</h:link>
+									</div>
+
+								</div>
+								<!-- Product Grid View Ends -->
+							</a4j:repeat>
+						</a4j:outputPanel>
+					</div>
+
+					<div class="tab-content">
+
+						<a4j:outputPanel id="panel3" layout="block">
+							<a4j:repeat value="#{searchBean.findMashahirEngByName()}"
+								var="search3" rows="9" id="repeat3">
+
+								<!-- Product Grid View Starts -->
+								<div id="list-view3" class="tab-pane fade active in"
+									role="tabpanel">
+									<div class="row listview-wrap">
+										<h:link outcome="singlemashahir2.xhtml">
+											<f:param name="mashahirEngId"
+												value="#{search3.mashahirEngId}" />
+											<div class="col-lg-3 col-md-4 col-sm-12">
+												<div class="prod-wrap pt-50">
+													<figure>
+													<div class="prod-img">
+														<o:graphicImage id="ig3"
+															value="#{search3.mashahirEngPic1}" dataURI="true"
+															style=" padding-bottom: 0px; padding-left: 0px; float:left;" />
+
+													</div>
+													</figure>
+												</div>
+											</div>
+											<div class="col-lg-9 col-md-8 col-sm-12">
+												<div class="prod-details pt-50">
+													<div class="prod-title">
+														<h:outputText style="font-family: 'IRANSansBold' !important; padding: 20px;" value="#{search3.mashahirEngName}" />
+													</div>
+
+													<div class="discriptions">
+														<p style="text-align: justify!important; font-family: 'IRANSansNor' !important; padding: 20px;">
+															<h:outputText style="font-family: 'IRANSansNor' !important;" value="#{search3.mashahirEngHead1}" />
+														</p>
+													</div>
+
+												</div>
+											</div>
+										</h:link>
+									</div>
+
+								</div>
+								<!-- Product Grid View Ends -->
+							</a4j:repeat>
+						</a4j:outputPanel>
+					</div>
+
+					<div class="tab-content">
+
+						<a4j:outputPanel id="panel4" layout="block">
+							<a4j:repeat value="#{searchBean.findMojtamaByTitle()}"
+								var="search4" rows="9" id="repeat4">
+
+								<!-- Product Grid View Starts -->
+								<div id="list-view4" class="tab-pane fade active in"
+									role="tabpanel">
+									<div class="row listview-wrap">
+										<h:link outcome="singlemojtama.xhtml">
+											<f:param name="mojtamaId"
+												value="#{search4.mojtameId}" />
+											<div class="col-lg-3 col-md-4 col-sm-12">
+												<div class="prod-wrap pt-50">
+													<figure>
+													<div class="prod-img">
+														<o:graphicImage id="ig3"
+															value="#{search4.mojtamePic2}" dataURI="true"
+															style=" padding-bottom: 0px; padding-left: 0px; float:left;" />
+
+													</div>
+													</figure>
+												</div>
+											</div>
+											<div class="col-lg-9 col-md-8 col-sm-12">
+												<div class="prod-details pt-50">
+													<div class="prod-title">
+														<h:outputText style="font-family: 'IRANSansBold' !important; padding: 20px;" value="#{search4.mojtameTitle}" />
+													</div>
+
+													<div class="discriptions">
+														<p style="text-align: justify!important; font-family: 'IRANSansNor' !important; padding: 20px;">
+															<h:outputText value="#{search4.mojtameText1}" />
+														</p>
+													</div>
+
+												</div>
+											</div>
+										</h:link>
+									</div>
+
+								</div>
+								<!-- Product Grid View Ends -->
+							</a4j:repeat>
+						</a4j:outputPanel>
+					</div>
+					
+										<div class="tab-content">
+
+						<a4j:outputPanel id="panel5" layout="block">
+							<a4j:repeat value="#{searchBean.findNagdByTitle()}"
+								var="search5" rows="9" id="repeat5">
+
+								<!-- Product Grid View Starts -->
+								<div id="list-view5" class="tab-pane fade active in"
+									role="tabpanel">
+									<div class="row listview-wrap">
+										<h:link outcome="singlenagd.xhtml">
+											<f:param name="naghdId"
+												value="#{search5.naghdId}" />
+											<div class="col-lg-3 col-md-4 col-sm-12">
+												<div class="prod-wrap pt-50">
+													<figure>
+													<div class="prod-img">
+														<o:graphicImage id="ig3"
+															value="#{search5.naghdPic2}" dataURI="true"
+															style=" padding-bottom: 0px; padding-left: 0px; float:left;" />
+
+													</div>
+													</figure>
+												</div>
+											</div>
+											<div class="col-lg-9 col-md-8 col-sm-12">
+												<div class="prod-details pt-50">
+													<div class="prod-title">
+														<h:outputText style="font-family: 'IRANSansBold' !important; padding: 20px;" value="#{search5.naghdTitle}" />
+													</div>
+
+													<div class="discriptions">
+														<p style="text-align: justify!important; font-family: 'IRANSansNor' !important; padding: 20px;">
+															<h:outputText value="#{search5.naghdHead1}" />
+														</p>
+													</div>
+
+												</div>
+											</div>
+										</h:link>
 									</div>
 
 								</div>
