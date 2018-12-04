@@ -20,6 +20,7 @@ import dao.entity.MerchantAddresEntity;
 import dao.entity.MerchantEntity;
 import service.MerchantAddresServiceLocal;
 import service.MerchantRegisterServiceLocal;
+import service.SingletonServiceLocal;
 
 @Named
 @SessionScoped
@@ -37,7 +38,8 @@ public class MerchantAddres implements Serializable{
 	private MerchantAddresServiceLocal merchantAddresServiceLocal;
 	@Inject
 	private MerchantRegisterServiceLocal merchantRegisterServiceLocal;
-
+	@Inject
+	private SingletonServiceLocal singletonServiceLocal;
 	
 	private double width=0;
 	private double height=0;
@@ -61,8 +63,18 @@ public class MerchantAddres implements Serializable{
 	private String widthStrU;
 	private String heightStrU;
 	
+	private MerchantAddresEntity merchantAddresEntity;
 	
 	
+	
+	public MerchantAddresEntity getMerchantAddresEntity() {
+		return merchantAddresEntity;
+	}
+
+	public void setMerchantAddresEntity(MerchantAddresEntity merchantAddresEntity) {
+		this.merchantAddresEntity = merchantAddresEntity;
+	}
+
 	public String getWidthStr() {
 		return widthStr;
 	}
@@ -178,7 +190,7 @@ public class MerchantAddres implements Serializable{
 
 	@PostConstruct
 	public void addLists(){
-				
+				System.err.println("OOOOOOOOOOOmerchantAddresOOOOOOOOO");
 		Area[] areas=Area.values();
 		for (Area area : areas) {
 			this.areas.add(area.getAreaName());
@@ -289,6 +301,16 @@ public class MerchantAddres implements Serializable{
 		}
     }
     
+    public MerchantAddresEntity findAddresByMerchant3(long merchantId) {
+    	this.merchantAddresEntity=null;
+    	for (MerchantAddresEntity merchantAddresEntity:singletonServiceLocal.getMerchantAddresList()) {
+			if(merchantAddresEntity.getMerchantaddr().getMerchantId()==merchantId) {
+				this.merchantAddresEntity=merchantAddresEntity;
+			}
+		}
+    	return this.merchantAddresEntity;
+    }
+    
     public boolean isAddrs(long merchantId) {
 	    	try {
 	    	merchantAddresServiceLocal.findAddresByMerchant(findMerchantById(merchantId));
@@ -325,6 +347,7 @@ public class MerchantAddres implements Serializable{
 	    	merchantAddresEntity.setMerchantState(state);
 	    	merchantAddresEntity.setMerchantPostAddres(postAddres);
 	    	merchantAddresEntity.setMerchantPostCode(postCode);
+	    	merchantAddresEntity.setDastance(Math.sqrt(((Double.parseDouble(widthStr))*(Double.parseDouble(widthStr)))+((Double.parseDouble(heightStr))*(Double.parseDouble(heightStr)))));
 	    	merchantAddresEntity.setMerchantaddr(merchantEntity);
     		merchantAddresServiceLocal.insetToMerchantAddres(merchantAddresEntity);
     		context.addMessage(null, new FacesMessage("Successful") );

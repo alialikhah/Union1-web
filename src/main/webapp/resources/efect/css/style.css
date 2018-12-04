@@ -1,0 +1,138 @@
+@font-face{
+	font-family: BYekan;
+	src:url(../fonts/BYekan.eot) format('eot'),
+		url(../fonts/BYekan.woff) format('wofff'),
+		url(../fonts/BYekan.ttf) format('truetype');
+}
+@font-face{
+	font-family: Bbadr;
+	src:url(../fonts/BBadr.eot) format('eot'),
+		url(../fonts/BBadr.woff) format('wofff'),
+		url(../fonts/BBadr.ttf) format('truetype');
+}
+.navbar-brand{
+	padding: 10px;
+}
+.navbar-brand img{
+	height: 35px;
+}
+@media(min-width:768px){
+	.navbar-header{
+		float: left;
+	}
+}
+.navbar-menu{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ade8ea+0,a1fcf6+100 */
+	background: #ade8ea; /* Old browsers */
+	background: -moz-linear-gradient(top, #ade8ea 0%, #a1fcf6 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #ade8ea 0%,#a1fcf6 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #ade8ea 0%,#a1fcf6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ade8ea', endColorstr='#a1fcf6',GradientType=0 ); /* IE6-9 */
+}
+nav.navbar ul.navbar-nav li a{
+	color: blue;
+	font-family: BYekan;
+	font-size: 18px;
+}
+nav.navbar ul.navbar-nav li a:hover{
+	background-color: transparent;
+	color: #cd2122;
+}
+.navbar{
+	margin-bottom: 0 !important;
+}
+.intro{
+	background: url(../img/intro-bg.jpg) no-repeat center center;
+	background-size: cover;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	color: #fff;
+	text-align: center;
+}
+.intro-message{
+	padding-top: 20%;
+	padding-bottom: 10%;
+}
+.intro-message ul li a span i,.contact ul li a span i{
+	padding-right: 5px;
+}
+.intro-message h1{
+	font-size: 6em;
+	font-family: Bbadr;
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+}
+.intro-message h4{
+	font-family: BYekan;
+	font-size: 25px;
+}
+.intro-devider{
+	width: 400px;
+}
+.content1{
+	background: #f5f2f2;
+	padding-top: 50px;
+}
+.content2{
+	background: #fff;
+	padding-top: 50px;
+}
+.myDevider{
+	float: right;
+	width: 200px;
+	border-top: 3px solid #e7e7e7;
+}
+h2.section-heading{
+	font-family: Bbadr;
+	font-size: 35px;
+}
+p.lead{
+	font-family: Bbadr;
+}
+.contact{
+	padding: 100px 30px 100px 0;
+	background: url(../img/banner-bg.jpg) no-repeat center center;
+	background-size: cover;
+	color: #fff;
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+	font-synthesis: 3em;
+}
+.contact h2{
+	padding-right: 20px;
+	font-size: 50px;
+}
+.contact-social{
+	padding-top: 20px;
+}
+footer{
+	background: #000;
+	height: 80px;
+}
+.copyright{
+	padding-top: 15px;
+	color: #fff;
+}
+footer ul li a{
+	font-family: BYekan;
+	color: #fff;
+	font-size: 18px;
+}
+footer ul li a:hover{
+	text-decoration: none;
+	color: yellow;
+}
+.modal{
+	overflow-y: hidden;
+}
+.modal .modal-body img{
+	width: 50%;
+	height: 50%;
+}
+.modal .modal-body h4, .modal .modal-body p{
+	font-family: BYekan;
+}
+.modal-footer{
+	margin-top: 0 !important;
+}
+.alert{
+	margin-bottom: 0 !important;
+}

@@ -7,101 +7,18 @@
 	xmlns:a4j="http://richfaces.org/a4j"
 	xmlns:rich="http://richfaces.org/rich">
 
-<h:head></h:head>
-<body>
+<h:head>
+
+</h:head>
+<h:body>
+
 	<ui:composition template="TEMPLATE.xhtml">
 		<ui:define name="headtemp">
-
-			<style>
-#ig1 {
-	padding: 20px;
-	padding-top: 80px;
-}
-
-#ig2 {
-	padding: 20px;
-	padding-top: 80px;
-}
-
-@media screen and (max-width : 500px) {
-	#amazingslider-wrapper-1 {
-		height: 200px !important;
-	}
-	.amazingslider-slider-1 {
-		display: block;
-		position: relative;
-		left: 0px;
-		top: 0px;
-		width: 100%;
-		height: auto;
-		height: 200px !important;
-	}
-	.amazingslider-box-1 {
-		display: block;
-		position: relative;
-		left: 0px;
-		top: 0px;
-		width: 100%;
-		height: 200px !important;
-	}
-	.amazingslider-swipe-box-1 {
-		display: block;
-		position: relative;
-		left: 0px;
-		top: 0px;
-		width: 100%;
-		height: 200px !important;
-	}
-	.amazingslider-img-elem-1 {
-		height: 200px !important;
-	}
-	#ig1 {
-		padding: 0px !important;
-		padding-top: 0px !important;
-	}
-	#ig2 {
-		padding: 0px !important;
-		padding-top: 0px !important;
-	}
-}
-a.rf-ds-btn {
-    color: #000000;
-font-size: 20px;
-}
-a.rf-ds-nmb-btn {
-    color: #000000;
-font-size: 20px;
-}
-.rf-ds-act, .rf-ds-act:hover {
-    cursor: default;
-    font-weight: bold;
-    border-width: 1px;
-        border-bottom-width: 1px;
-    border-style: solid;
-        border-bottom-style: solid;
-    border-color: transparent;
-        border-bottom-color: transparent;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: #C4C0C9;
-    background: none;
-font-size: 20px;
-}
-.rf-ds {
-    white-space: nowrap;
-    display: inline-block;
-    font-size: 11px;
-    padding: 1px;
-    font-family: Arial, Verdana, sans-serif;
-    background: #FFFFFF;
-    float: left;
-}
-.rf-ds-dis {
-    color: #C4C0C9;
-    cursor: default;
-    font-size: 20px;
-}
-</style>
+<title>
+#{raste}
+</title>
+	<link href="resources/css/resultmerchant.css"
+		rel="stylesheet" type="text/css" />
 		</ui:define>
 
 		<ui:define name="maintemp">
@@ -111,32 +28,31 @@ font-size: 20px;
 				</f:metadata>
 			</ui:define>
 
-			<!-- CONTENT AREA -->
-			<article> <!-- Page Starts-->
+			<article>
 			<div class="container theme-container ptb-70">
 				<div class="row">
-					<!-- Product Details Starts-->
-					<aside class="col-md-12 col-sm-12"> <h:form>
-						<h:panelGrid columns="1" style="width: 100%">
-							<a4j:outputPanel id="panel" layout="block">
-								<a4j:repeat
-									value="#{merchantResultBean.findMerchantByRaste(raste)}"
-									rows="9" var="raste" id="repeat">
+					<!-- 			<aside class="col-md-12 col-sm-12"> <h:form>
+										<h:panelGrid columns="1" style="width: 100%">
+							<a4j:outputPanel id="panel" layout="block" >
+								<a4j:repeat value="#{merchantResultBean.findAllMerchant()}"
+									 rows="9"
+									 var="rasteVar" id="repeat" 
+									 >
 									<div class="tab-content">
 
 
-										<!-- Product Grid View Starts -->
+										Product Grid View Starts
 										<div id="list-view" class="tab-pane fade active in"
 											role="tabpanel">
 											<div class="row listview-wrap">
 												<h:link outcome="merchant.xhtml">
 													<f:param name="shopName"
-														value="#{raste.merchantShopNameEng}" />
+														value="#{rasteVar.merchantShopNameEng}" />
 													<div class="col-lg-3 col-md-4 col-sm-12">
 														<div class="prod-wrap pt-50">
 															<figure>
 															<div class="prod-img">
-																<o:graphicImage id="ig1" value="#{raste.shopImg5}"
+																<o:graphicImage id="ig1" value="#{rasteVar.shopImg5}"
 																	dataURI="true"
 																	style=" padding-bottom: 0px; padding-left: 0px; float:left;" />
 
@@ -147,14 +63,14 @@ font-size: 20px;
 													<div class="col-lg-9 col-md-8 col-sm-12">
 														<div class="prod-details pt-50">
 															<div class="prod-title">
-																<h:outputText value="#{raste.merchantShopNamePer}"
+																<h:outputText value="#{rasteVar.merchantShopNamePer}"
 																	style="font-family: 'IRANSansBold' !important; padding: 20px;" />
 															</div>
 
 															<div class="discriptions">
 																<p
 																	style="text-align: justify !important; font-family: 'IRANSansNor' !important; padding: 20px;">
-																	<h:outputText value="#{raste.merchantDescription}" />
+																	<h:outputText value="#{rasteVar.merchantDescription}" />
 																</p>
 															</div>
 
@@ -164,24 +80,103 @@ font-size: 20px;
 											</div>
 
 										</div>
-										<!-- Product Grid View Ends -->
 
 									</div>
 								</a4j:repeat>
 							</a4j:outputPanel>
-							<a4j:outputPanel layout="block">
-								<rich:dataScroller for="repeat" render="panel" fastStep="3" />
-							</a4j:outputPanel>
+ 							<a4j:outputPanel layout="block">
+								<rich:dataScroller for="repeat" render="panel" />
+							</a4j:outputPanel> 
 						</h:panelGrid>
 
-					</h:form> </aside>
-					<!-- Product Details Ends -->
+			</h:form> 
+			</aside> -->
+
+					<p:dataGrid var="rasteVar" layout="grid"
+						value="#{merchantResultBean.findMerchantByRaste(raste)}"
+						paginator="true" rows="12" columns="3">
+						<p:link outcome="merchant.xhtml" target="_blank">
+							<p:panel style="text-align:center">
+								<!-- <h:panelGrid columns="1" style="width:100%"> -->
+								<o:graphicImage id="ig1" value="#{rasteVar.shopImg5}"
+									dataURI="true" />
+								<h:outputText style="font-family: 'IRANSansBold' !important;"
+									value="#{rasteVar.merchantShopNamePer}" />
+
+								<!-- </h:panelGrid> -->
+							</p:panel>
+							<f:param name="shopName" value="#{rasteVar.merchantShopNameEng}" />
+						</p:link>
+					</p:dataGrid>
+
+
 
 				</div>
 			</div>
-			<!-- / Page Ends --> </article>
+			</article>
+			<!-- <h:form>
 
+
+								<p:dataTable var="rasteVar"
+					value="#{merchantResultBean.findAllMerchant()}" resizableColumns="true" liveResize="true"
+					filteredValue="#{merchantResultBean.merchantEntitiesFilter}"
+					widgetVar="merchantTable" paginator="true" rows="12"
+					rowKey="#{rasteVar.merchantId}">
+				<p:dataTable var="rasteVar"
+					value="#{merchantResultBean.findMerchantByRaste(raste)}" rows="10"
+					rowKey="#{rasteVar.merchantId}" paginator="true"
+					widgetVar="merchantTable" dir="rtl" reflow="true">
+
+					<f:facet name="header">
+						<p:outputPanel>
+							<p:inputText id="globalFilter"
+								onkeyup="PF('merchantTable').filter()" style="width:150px"
+								placeholder="جستجوی سریع" />
+						</p:outputPanel>
+					</f:facet>
+
+
+					<p:column>
+						<p:link outcome="merchant.xhtml">
+							<o:graphicImage id="ig1" value="#{rasteVar.shopImg5}"
+								dataURI="true"
+								style="width:100%;height:300px; margin-top:5px; margin-bottom:5px;" />
+							<f:param name="shopName" value="#{rasteVar.merchantShopNameEng}" />
+						</p:link>
+					</p:column>
+
+					<p:column filterBy="#{(rasteVar.merchantShopNamePer)}"
+						style="text-align:center; direction:rtl;"
+						sortBy="#{rasteVar.merchantId}" filterMatchMode="contains">
+
+						<p style="font-family: 'IRANSansBold'; font-size: 28px; color: white!important;">
+							#{rasteVar.merchantShopNamePer}</p>
+						<br />
+						<p style="font-family: 'IRANSansNor';color: white!important;">
+							#{merchantAddres.findAddresByMerchant2(rasteVar.merchantId).merchantPostAddres}
+						</p>
+						<p style="font-family: 'IRANSansBold';color: white!important;">
+							<p:link outcome="merchant.xhtml" value="صفحه فروشنده">
+								<f:param name="shopName" value="#{rasteVar.merchantShopNameEng}" />
+							</p:link>
+						</p>
+					</p:column>
+					<p:column
+						filterBy="#{merchantAddres.findAddresByMerchant2(rasteVar.merchantId).merchantPostAddres}"
+						sortBy="#{rasteVar.merchantId}" filterMatchMode="contains"
+						visible="true">
+							<p:gmap id="gmap"
+							center="#{merchantAddres.findAddresByMerchant2(rasteVar.merchantId).merchandWidth}, #{merchantAddres.findAddresByMerchant2(rasteVar.merchantId).merchantHeight}"
+							streetView="true" zoom="17" type="ROADMAP"
+							style="width:100%;height:300px; margin-top:5px; margin-bottom:5px;"
+							model="#{merchantPageGmap.ali(merchantAddres.findAddresByMerchant2(rasteVar.merchantId).merchandWidth,merchantAddres.findAddresByMerchant2(rasteVar.merchantId).merchantHeight)}">
+						</p:gmap>
+					</p:column>
+
+
+				</p:dataTable>
+			</h:form> -->
 		</ui:define>
 	</ui:composition>
-</body>
+</h:body>
 </html>

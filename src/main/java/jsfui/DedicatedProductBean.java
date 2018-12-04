@@ -157,7 +157,6 @@ public class DedicatedProductBean implements Serializable{
     	for (DedicatedEntity dedicatedEntity : findAllDedicatedByPopularity()) {
     		if(dedicatedEntity.getMerchant().getMerchantGroup().equals("طلایی"))
     			dedicateFilter.add(dedicatedEntity);
-    		System.err.println("*******************************************");
 		}
 /*    	for (DedicatedEntity dedicatedEntity : findAllDedicatedByPopularity()) {
     		if(dedicatedEntity.getMerchant().getMerchantGroup().equals("نقره ای"))
@@ -217,7 +216,6 @@ public class DedicatedProductBean implements Serializable{
 	
     
     public void deleteDedicateProduct(long dedicatedId) throws IOException {
-    	System.err.println("************************"+dedicatedId);
     	DedicatedEntity dedicatedEntity=new DedicatedEntity();
     	try {
 			dedicatedEntity=dedicatedProductServiceLocal.findDedicatedProductById(dedicatedId);

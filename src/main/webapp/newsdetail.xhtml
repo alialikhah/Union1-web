@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<h:head></h:head>
+<h:body>
+
+	<ui:composition template="template2.xhtml">
+		<ui:define name="headtemp2">
+			<title>اخبار اتحادیه</title>
+		</ui:define>
+		<ui:define name="maintemp2">
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="newsId" />
+				</f:metadata>
+			</ui:define>
+			<section class="single_blog_area">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+
+						<o:graphicImage value="#{newsBean.findNewsById(newsId).imageBig1}"
+							style="float:left; margin-bottom:20px; margin-right:20px;max-width:100%"
+							dataURI="true" />
+
+						<p
+							style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl; line-height: 35px;">
+							<b><h:outputText
+									value="#{newsBean.findNewsById(newsId).title}" /></b><br />
+							<br /> <br />
+							<h:outputText
+								value="#{newsBean.findNewsById(newsId).description}" />
+						</p>
+						<o:graphicImage style="margin-top:20px; width:100%;"
+							value="#{newsBean.findNewsById(newsId).imageBig2}"
+							dataURI="true" />
+
+					</div>
+				</div>
+			</div>
+			</section>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

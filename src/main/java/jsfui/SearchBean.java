@@ -22,6 +22,7 @@ import service.MashahirServiceLocal;
 import service.MerchantRegisterServiceLocal;
 import service.MojtameServiceLocal;
 import service.NaghdServiceLocal;
+import service.SingletonServiceLocal;
 
 @Named
 @SessionScoped
@@ -38,15 +39,10 @@ public class SearchBean implements Serializable {
 
 	@Inject
 	private MerchantRegisterServiceLocal merchantRegisterServiceLocal;
-	@Inject
-	private MashahirServiceLocal mashahirServiceLocal;
-	@Inject
-	private MashahirEngServiceLocal mashahirEngServiceLocal;
-	@Inject
-	private MojtameServiceLocal mojtameServiceLocal;
-	@Inject
-	private NaghdServiceLocal naghdServiceLocal;
+    @Inject
+	private SingletonServiceLocal singletonServiceLocal;
 	
+    private List<MerchantEntity> merchantShopPerList=new ArrayList<>();
 	
 	private String shopNamePer;
 
@@ -62,6 +58,16 @@ public class SearchBean implements Serializable {
 		return merchantRegisterServiceLocal.findAllMErchantEntity();
 	}
 
+	
+	
+	public List<MerchantEntity> getMerchantShopPerList() {
+		return merchantShopPerList;
+	}
+
+	public void setMerchantShopPerList(List<MerchantEntity> merchantShopPerList) {
+		this.merchantShopPerList = merchantShopPerList;
+	}
+
 	public List<String> autocomplete(String prefix) throws Exception {
 		ArrayList<String> result = new ArrayList<String>();
 		if ((prefix == null) || (prefix.length() == 0)) {
@@ -69,19 +75,22 @@ public class SearchBean implements Serializable {
 				result.add(merchantRegisterServiceLocal.findAllMErchantEntity().get(i).getMerchantShopNamePer());
 			}
 			for (int i = 0; i < 10; i++) {
+				result.add(singletonServiceLocal.getMerchantList().get(i).getMerchantShopNamePer());
+			}
+/*			for (int i = 0; i < 10; i++) {
 				result.add(mashahirServiceLocal.findAllMashahir().get(i).getMashahirName());
-			}
-			for (int i = 0; i < 10; i++) {
+			}*/
+/*			for (int i = 0; i < 10; i++) {
 				result.add(mashahirEngServiceLocal.findAllMashahirEng().get(i).getMashahirEngName());
-			}
-			for (int i = 0; i < 10; i++) {
+			}*/
+/*			for (int i = 0; i < 10; i++) {
 				result.add(mojtameServiceLocal.findAllMojtame().get(i).getMojtameTitle());
-			}
-			for (int i = 0; i < 10; i++) {
+			}*/
+/*			for (int i = 0; i < 10; i++) {
 				result.add(naghdServiceLocal.findAllNaghd().get(i).getNaghdTitle());
-			}
+			}*/
 		} else {
-			Iterator<MerchantEntity> iterator = merchantRegisterServiceLocal.findAllMErchantEntity().iterator();
+			Iterator<MerchantEntity> iterator = singletonServiceLocal.getMerchantList().iterator();
 			while (iterator.hasNext()) {
 				MerchantEntity elem = ((MerchantEntity) iterator.next());
 				if ((elem.getMerchantShopNamePer() != null
@@ -90,7 +99,7 @@ public class SearchBean implements Serializable {
 					result.add(elem.getMerchantShopNamePer());
 				}
 			}
-			Iterator<MashahirEntity> iterator2 = mashahirServiceLocal.findAllMashahir().iterator();
+/*			Iterator<MashahirEntity> iterator2 = mashahirServiceLocal.findAllMashahir().iterator();
 			while (iterator2.hasNext()) {
 				MashahirEntity elem = ((MashahirEntity) iterator2.next());
 				if ((elem.getMashahirName() != null
@@ -98,8 +107,8 @@ public class SearchBean implements Serializable {
 						|| "".equals(prefix)) {
 					result.add(elem.getMashahirName());
 				}
-			}
-			Iterator<MashahirEngEntity> iterator3 = mashahirEngServiceLocal.findAllMashahirEng().iterator();
+			}*/
+/*			Iterator<MashahirEngEntity> iterator3 = mashahirEngServiceLocal.findAllMashahirEng().iterator();
 			while (iterator3.hasNext()) {
 				MashahirEngEntity elem = ((MashahirEngEntity) iterator3.next());
 				if ((elem.getMashahirEngName() != null
@@ -107,8 +116,8 @@ public class SearchBean implements Serializable {
 						|| "".equals(prefix)) {
 					result.add(elem.getMashahirEngName());
 				}
-			}
-			Iterator<MojtameEntity> iterator4 = mojtameServiceLocal.findAllMojtame().iterator();
+			}*/
+/*			Iterator<MojtameEntity> iterator4 = mojtameServiceLocal.findAllMojtame().iterator();
 			while (iterator4.hasNext()) {
 				MojtameEntity elem = ((MojtameEntity) iterator4.next());
 				if ((elem.getMojtameTitle() != null
@@ -116,8 +125,8 @@ public class SearchBean implements Serializable {
 						|| "".equals(prefix)) {
 					result.add(elem.getMojtameTitle());
 				}
-			}
-			Iterator<NaghdOBaresiEntity> iterator5 = naghdServiceLocal.findAllNaghd().iterator();
+			}*/
+/*			Iterator<NaghdOBaresiEntity> iterator5 = naghdServiceLocal.findAllNaghd().iterator();
 			while (iterator5.hasNext()) {
 				NaghdOBaresiEntity elem = ((NaghdOBaresiEntity) iterator5.next());
 				if ((elem.getNaghdTitle() != null
@@ -125,7 +134,7 @@ public class SearchBean implements Serializable {
 						|| "".equals(prefix)) {
 					result.add(elem.getNaghdTitle());
 				}
-			}
+			}*/
 		}
 
 		return result;
@@ -133,16 +142,18 @@ public class SearchBean implements Serializable {
 
 	public List<MerchantEntity> findMerchantByShopNamePer() {
 		try {
-			System.err.println(merchantRegisterServiceLocal.findMerchantByShopNamePer(this.shopNamePer).iterator()
-					.next().getMerchantShopNamePer());
-			return merchantRegisterServiceLocal.findMerchantByShopNamePer(this.shopNamePer);
+			merchantShopPerList.clear();
+			for (MerchantEntity merchantEntity : merchantRegisterServiceLocal.findMerchantByShopNamePer(this.shopNamePer)) {
+				this.merchantShopPerList.add(merchantEntity);
+			}
+			return this.merchantShopPerList;
 		} catch (Exception e) {
 			System.err.println("merchant not find per");
 			return new ArrayList<MerchantEntity>();
 		}
 	}
 
-	public List<MashahirEntity> findMashahirByName() {
+	/*public List<MashahirEntity> findMashahirByName() {
 		try {
 			return mashahirServiceLocal.findMashahirByName(this.shopNamePer);
 		} catch (Exception e) {
@@ -177,12 +188,12 @@ public class SearchBean implements Serializable {
 			return new ArrayList<NaghdOBaresiEntity>();
 		}
 	}
-
+*/
 	public void searchAct() throws IOException {
 		this.findMerchantByShopNamePer();
-		this.findMashahirByName();
+/*		this.findMashahirByName();
 		this.findMashahirEngByName();
-		this.findMojtamaByTitle();
+		this.findMojtamaByTitle();*/
 		FacesContext.getCurrentInstance().getExternalContext().redirect("search.xhtml");
 
 	}

@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<h:head></h:head>
+<body>
+	<ui:composition template="TEMPLATE.xhtml">
+		<ui:define name="headtemp">
+			<title>املاک</title>
+				<link href="resources/css/homerent.css"
+		rel="stylesheet" type="text/css" />
+	<link href="resources/css/amozesh2.css"
+		rel="stylesheet" type="text/css" />
+		</ui:define>
+
+		<ui:define name="maintemp">
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="shopName" />
+				</f:metadata>
+			</ui:define>
+
+			<!-- CONTENT AREA -->
+			<article> <br />
+			<div
+				style="border: solid 5px; border-radius: 70px 10px 70px 70px; border-color: darkgrey; background-image: url('resources/images/back.jpg'); max-width: 1600px; margin: auto;">
+				<div class="container theme-container ptb-70">
+					<div class="row">
+						<div class="col-sm-12">
+						<h2>قوانین و مقررات</h2>
+						<p>۱- این اتحادیه هیچگونه مسوولیتی نسبت به درج آگهی ها ندارد.</p>
+						<hr/>
+							<h:form enctype="multipart/form-data">
+
+								<p:growl id="growl" sticky="true" showDetail="true" />
+								<p:wizard>
+									<p:tab id="personal" title="بخش ۱">
+										<p:panel header="بخش ۱">
+											<p:messages />
+											<h:panelGrid columns="2" columnClasses="label, value">
+
+												<p:outputLabel value="نوع آگهی" for="customRadio"
+													style="font-family: 'IRANSansBold' !important; font-size:18px; color: deepskyblue;" />
+												<p:selectOneRadio id="customRadio" layout="responsive"
+													columns="3" value="#{rentBean.rentType}"
+													style="font-size:14px;" required="true"
+													requiredMessage="فیلد اجباری">
+													<f:selectItem itemLabel="فروش" itemValue="فروش"
+														style="font-family: 'IRANSansNor' !important; color:white;" />
+													<f:selectItem itemLabel="رهن کامل" itemValue="رهن کامل"
+														style="font-family: 'IRANSansNor' !important; color:white;" />
+													<f:selectItem itemLabel="اجاره" itemValue="اجاره"
+														style="font-family: 'IRANSansNor' !important; color:white;" />
+												</p:selectOneRadio>
+
+												<p:outputLabel value="نوع ملک" for="customRadio11"
+													style="font-family: 'IRANSansBold' !important; font-size:18px; color: deepskyblue;" />
+												<p:selectOneRadio id="customRadio11" layout="responsive"
+													columns="3" value="#{rentBean.homeType}"
+													style="font-size:14px;" required="true"
+													requiredMessage="فیلد اجباری">
+													<f:selectItem itemLabel="مسکونی" itemValue="مسکونی" />
+													<f:selectItem itemLabel="اداری" itemValue="اداری" />
+													<f:selectItem itemLabel="تجاری" itemValue="تجاری" />
+												</p:selectOneRadio>
+
+
+												<p:outputLabel value="آدرس ملک :" for="adr1"
+													style="font-family: 'IRANSansBold' !important; font-size:18px; color: deepskyblue;" />
+												<p:inputTextarea id="adr1" rows="10" cols="50"
+													style="width:100%;" value="#{rentBean.homeAddres}" />
+
+												<p:outputLabel value="واقع در :" for="customRadio2"
+													style="font-family: 'IRANSansBold' !important; font-size:18px; color: deepskyblue;" />
+												<p:selectOneRadio id="customRadio2" layout="responsive"
+													columns="3" style="font-size:14px;"
+													value="#{rentBean.situation}" required="true"
+													requiredMessage="فیلد اجباری">
+													<f:selectItem itemLabel="مجتمع تجاری"
+														itemValue="مجتمع تجاری" />
+													<f:selectItem itemLabel="خیابان اصلی"
+														itemValue="خیابان اصلی" />
+													<f:selectItem itemLabel="خیابان فرعی"
+														itemValue="خیابان فرعی" />
+												</p:selectOneRadio>
+
+												<p:outputLabel value="موقعیت :" for="customRadio3"
+													style="font-family: 'IRANSansBold' !important; font-size:18px; color: deepskyblue;" />
+												<p:selectOneRadio id="customRadio3" layout="responsive"
+													columns="2" style="font-size:14px;"
+													value="#{rentBean.position}">
+													<f:selectItem itemLabel="شمالی" itemValue="شمالی" />
+													<f:selectItem itemLabel="جنوبی" itemValue="جنوبی" />
+													<f:selectItem itemLabel="شرقی" itemValue="شرقی" />
+													<f:selectItem itemLabel="غربی" itemValue="غربی" />
+												</p:selectOneRadio>
+
+											</h:panelGrid>
+										</p:panel>
+									</p:tab>
+
+									<p:tab id="address" title="بخش ۲">
+										<p:panel header="بخش ۲">
+											
+										</p:panel>
+									</p:tab>
+
+								</p:wizard>
+
+							</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
+			</article>
+			<br />
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

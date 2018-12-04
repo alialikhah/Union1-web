@@ -17,6 +17,7 @@ import org.primefaces.model.map.LatLng;
 import dao.entity.MojtameEntity;
 import dao.entity.NaghdOBaresiEntity;
 import service.MojtameServiceLocal;
+import service.SingletonServiceLocal;
 
 @Named
 @RequestScoped
@@ -44,6 +45,8 @@ public class MojtameBean {
 	private double gmapHeight;
 	@Inject
 	private MojtameServiceLocal mojtameServiceLocal;
+	@Inject
+	private SingletonServiceLocal singletonServiceLocal;
 
 	public String getCategory() {
 		return category;
@@ -199,7 +202,8 @@ public class MojtameBean {
 	}
 
 	public List<MojtameEntity> findAllMojtame() {
-		return mojtameServiceLocal.findAllMojtame();
+		//return mojtameServiceLocal.findAllMojtame();
+		return singletonServiceLocal.getMojtameEntities();
 	}
 
 	public void deleteMojtameEntity(long mojtameId) throws IOException {
@@ -302,7 +306,13 @@ public class MojtameBean {
 	}
 	
 	public MojtameEntity findMojtamaById(long mojtamaId) {
-		return mojtameServiceLocal.findMojtameById(mojtamaId);
+		//return mojtameServiceLocal.findMojtameById(mojtamaId);
+		MojtameEntity mojtameEntityX=new MojtameEntity();
+		for (MojtameEntity mojtameEntity : singletonServiceLocal.getMojtameEntities()) {
+			if(mojtameEntity.getMojtameId()==mojtamaId)
+				mojtameEntityX=mojtameEntity;
+		}
+		return mojtameEntityX;
 	}
 	
     public void onPointSelect(PointSelectEvent event) {

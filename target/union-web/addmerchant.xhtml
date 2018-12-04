@@ -10,16 +10,9 @@
 <ui:composition template="/template.xhtml">
 <ui:define name="headtmp">
 <h:outputScript library="javascript" name="merchant.js"/>
-<style>
-.ui-panel {
-    padding: .2em;
-    direction: rtl!important;
-}
-.ui-widget-content {
-    color: #222222;
-    overflow: hidden!important;
-}
-</style>
+	<link href="resources/css/addmerchant.css"
+		rel="stylesheet" type="text/css" />
+
 			<title>Merchant</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	    <link rel="stylesheet" type="text/css" media="all" href="resources/date/skins/aqua/theme.css" title="Aqua" />
@@ -49,7 +42,7 @@
         
         			    <p:outputLabel for="shomareparpaano"
 							value="شماره پرونده پانو" />
-						<p:inputNumber id="shomareparpaano" value="#{merchantRegisterBean.shomareParPaano}"/> 
+						<p:inputNumber id="shomareparpaano" value="#{merchantRegisterBean.shomareParPaano}" /> 
 					
 <!-- 						<p:outputLabel for="shomareparunion"
 						value="شماره پرونده اتحادیه" />
@@ -57,7 +50,7 @@
 						<p:message for="shomareparunion" /> -->
 						
 																		<p:outputLabel value="تاریخ قرار داد"/>
-						<p:inputText id="date_input_5" value="#{merchantRegisterBean.merchantGarardadChange}"  required="true">
+						<p:inputText id="date_input_5" value="#{merchantRegisterBean.merchantGarardadChange}"  >
 							<img id="date_btn_5" src="resources/date/cal.png" style="vertical-align: top;" />
 							</p:inputText>
 							<script type="text/javascript" charset="UTF-8">
@@ -114,7 +107,7 @@
 						<p:message for="merchantFamily" />
 						
 												<p:outputLabel value="تاریخ تولد مدیریت"/>
-						<p:inputText value="#{merchantRegisterBean.merchantBirthDayChange}" id="date_input_1" required="true">
+						<p:inputText value="#{merchantRegisterBean.merchantBirthDayChange}" id="date_input_1">
 							<img id="date_btn_1" src="resources/date/cal.png" style="vertical-align: top;"/>
 							</p:inputText>
 							<script type="text/javascript" charset="UTF-8">
@@ -283,7 +276,7 @@
 						<p:message for="merchantLicenseNumber" />
 						
 																			<p:outputLabel value="تاریخ اعتبار جواز"/>
-						<p:inputText id="date_input_4" value="#{merchantRegisterBean.merchantEtebarChange}" required="true">
+						<p:inputText id="date_input_4" value="#{merchantRegisterBean.merchantEtebarChange}">
 							<img id="date_btn_4" src="resources/date/cal.png" style="vertical-align: top;" />
 							</p:inputText>
 							<script type="text/javascript" charset="UTF-8">
@@ -496,7 +489,7 @@
 						<p:outputLabel value=""/>
 
 
-						<h:outputText value="نمایش سایت" />
+						<h:outputText value="نمایش مدیر فروش" />
 						<p:inputSwitch value="#{merchantRegisterBean.siteShow}" />
 						<p:outputLabel value=""/>
 						
@@ -516,7 +509,7 @@
 						<p:inputSwitch value="#{merchantRegisterBean.twiterShow}" />
 						<p:outputLabel value=""/>
 						
-						<h:outputText value="آیا لوگو دارد ؟" />
+						<h:outputText value="نمایش موبایل" />
 						<p:inputSwitch value="#{merchantRegisterBean.haveLogo}" />
 						<p:outputLabel value=""/>
 		

@@ -4,23 +4,15 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui" xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:rich="http://richfaces.org/rich"
-	xmlns:b="http://bootsfaces.net/ui">
+	xmlns:rich="http://richfaces.org/rich">
 
 <h:head>
-	<!-- maintemp -->
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description"
-		content="گواهینامه فعالیت آنلاین، اتحادیه صنف فروشندگان لوازم صوتی و تصویری ، تلفن همراه و لوازم جانبی" />
-	<meta name="keywords"
-		content="موبایل ، تلویزیون ، رادیو ، تلفن همراه ، سیستم پخش ، قطعات الترونیک ، دوربین ، cd ، سیستم صدا ، پخش ، تصویر ، لوازم جانبی موبایل ، آلات موسیقی ، گیتار" />
+	<meta name="language" content="fa-IR" />
 	<meta name="author" content="علی علی خواه" />
 	<link rel="shortcut icon" href="resources/images/logo_black.png" />
 
-	<link
-		href="resources/maintemp/assets/plugins/font-awesome/css/font-awesome.min.css"
-		rel="stylesheet" type="text/css" />
 	<link href="resources/maintemp/assets/css/normalize.css"
 		rel="stylesheet" type="text/css" />
 	<link
@@ -41,633 +33,281 @@
 	<link
 		href="resources/maintemp/assets/plugins/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.min.css"
 		rel="stylesheet" type="text/css" />
-	<link
+ 	<link
 		href="resources/maintemp/assets/plugins/prettyphoto-master/css/prettyPhoto.css"
 		rel="stylesheet" type="text/css" />
+		<!--  -->
 	<link href="resources/maintemp/assets/css/bootstrap-rtl.min.css"
 		rel="stylesheet" type="text/css" />
 	<link href="resources/maintemp/assets/css/header.css" rel="stylesheet"
-		type="text/css" />
+		type="text/css" /> 
 	<link href="resources/maintemp/assets/css/style.css" rel="stylesheet"
 		type="text/css" />
-
-	<!-- maintemp -->
-	<!-- font -->
+	<link rel="stylesheet" href="resources/efect/css/hover.css" />
+	<link rel="stylesheet" href="resources/efect/css/ihover.css" />
 	<link href="resources/fonts.css" rel="stylesheet" type="text/css" />
-	<!-- font -->
-	<!-- ui -->
-	<ui:insert name="headtemp" />
-	<!-- ui -->
+	<link rel="stylesheet" href="resources/css/TEMPLATE.css" />
 
-	<!--   <h:outputStylesheet library="css" name="font-awesome.min.css"/> 
- <h:outputStylesheet library="css" name="normalize.css"/>
- <h:outputStylesheet library="css" name="bootstrap.min.css"/>
- <h:outputStylesheet library="css" name="bootstrap-select.min.css"/>
- <h:outputStylesheet library="css" name="owl.carousel.css"/>
- <h:outputStylesheet library="css" name="animate.min.css"/>  
- <h:outputStylesheet library="css" name="subscribe-better.css"/>
- <h:outputStylesheet library="css" name="jquery.mCustomScrollbar.min.css"/> 
-<h:outputStylesheet library="css" name="prettyPhoto.css"/> 
-<h:outputStylesheet library="css" name="bootstrap-rtl.min.css"/>  
-<h:outputStylesheet library="css" name="header.css"/>  
-<h:outputStylesheet library="css" name="style.css"/>
-<h:outputStylesheet library="css" name="amazingslider-1.css"/> -->
-
-
-
-	<!-- <h:outputScript library="javascript" name="jquery-2.2.4.min.js"/>
-<h:outputScript library="javascript" name="bootstrap.min.js"/>
-<h:outputScript library="javascript" name="bootstrap-select.min.js"/>
-<h:outputScript library="javascript" name="owl.carousel.min.js"/>
-<h:outputScript library="javascript" name="isotope.pkgd.min.js"/>
-<h:outputScript library="javascript" name="jquery.prettyPhoto.js"/>
-<h:outputScript library="javascript" name="jquery.subscribe-better.min.js"/>
-<h:outputScript library="javascript" name="jquery.mCustomScrollbar.min.js"/>
-<h:outputScript library="javascript" name="jquery.countTo.js"/>
-<h:outputScript library="javascript" name="jquery.plugin.js"/>
-<h:outputScript library="javascript" name="jquery.countdown.js"/>
-<h:outputScript library="javascript" name="theme.js"/>
-<h:outputScript library="javascript" name="amazingslider.js"/>
-<h:outputScript library="javascript" name="initslider-1.js"/>
-<h:outputScript library="javascript" name="initslider-3.js"/> -->
-
-	<style>
-.primary-navbar>li.dropdown {
-	padding-left: 40px !important;
-}
-
-.primary-navbar>li.dropdown>a.dropdown-toggle::before {
-	border: medium none;
-	font-family: FontAwesome;
-	font-size: 22px;
-	position: absolute;
-	left: -20px;
-	top: 8px;
-}
-
-.primary-navbar>li {
-	padding: 20px 7px !important;
-	padding-left: 10px;
-}
-
-.fa-navicon::before, .fa-reorder::before, .fa-bars::before {
-	content: "" !important;
-}
-
-.primary-navbar>li>a {
-	font-size: 13px;
-	padding: 10px 0px;
-	position: relative;
-	text-transform: uppercase;
-}
-
-.cate-navbar>li.dropdown>a.dropdown-toggle::before {
-	border: medium none;
-	content: "" !important;
-	font-family: "FontAwesome";
-	font-size: 18px;
-	position: absolute;
-	left: 15px;
-	top: 13px;
-}
-
-.main-header {
-	background-color: #fff;
-	display: inline-block;
-	width: 100%;
-	vertical-align: middle;
-	position: relative;
-	z-index: 11;
-	transition: all ease-out 0.4s;
-	-webkit-transition: all ease-out 0.4s;
-	padding: 0px !important;
-}
-
-.cate-bar {
-	background-color: black !important;
-}
-
-.fa-navicon::before, .fa-reorder::before, .fa-bars::before {
-	content: "\f0c9" !important;
-}
-
-.popups-light .modal-content {
-	background-image: none !important;
-	height: 300px;
-}
-
-input.rf-au-inp {
-	background-color: #ffffff;
-	background-position: 1px 1px;
-	background-repeat: repeat-x;
-	border: 0px;
-	margin: 0px;
-	padding: 0px;
-	vertical-align: top;
-	width: 100%;
-	height: 100% !important;
-	font-size: 17px !important
-}
-
-.row {
-	margin-right: -15px;
-	margin-left: -15px;
-	margin-bottom: 0px !important;
-	margin-top: 0px !important;
-}
-
-@media screen and (max-width : 960px) {
-	.visible-xs {
-		display: block !important;
-	}
-	.top-right {
-		float: left;
-		margin-left: 10px;
-		position: static;
-		top: 0;
-		padding-bottom: 0px !important;
-		padding-top: 0px !important;
-	}
-	.is-sticky.main-header {
-		padding: 0;
-		position: relative !important;
-		top: 0;
-		right: 0;
-		left: 0;
-		border-bottom: 1px solid #f4f4f4;
-	}
-}
-
-@media screen and (min-width : 960px) {
-	.visible-xs {
-		display: none !important;
-	}
-}
-
-@media screen and (max-width : 960px) {
-	#a1 {
-		font-size: 10px !important;
-	}
-}
-
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2,
-	.col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3,
-	.col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5,
-	.col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6,
-	.col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8,
-	.col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9,
-	.col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11,
-	.col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12
-	{
-	position: relative;
-	min-height: 1px;
-	padding-left: 3px !important;
-	padding-right: 3px !important;
-}
-</style>
-
-
-
+<ui:insert name="headtemp" />
 </h:head>
 <h:body id="home" styleClass="wide">
+
 	<!-- PRELOADER -->
-	<div id="loading">
+	<div id="loading" style="opacity: 0.8; background-color: floralwhite;">
 		<div class="loader">
-			<div class="image">
+			 			<div class="image">
 				<i class="fa fa-shopping-cart"></i>
 			</div>
-			<span class="title-1"></span>
+			<span class="title-1"></span> 
+			<!-- <img src="/resources/images/loading.gif" width="300px!important;" align="middle"/> -->
 		</div>
 	</div>
 	<!-- /PRELOADER -->
 
 	<!-- WRAPPER -->
 	<main class="wrapper home-page2"> <!-- Header --> <header
-		class="header-1"> <section class="header-topbar">
-	<div class="container theme-container">
+		class="header-1">  
+		<section id="had" class="header-topbar" style="background-image: url('resources/images/menu3.jpg'); height:123px; background-size: 100% 100%; background-repeat: no-repeat;">
+	<div class="container theme-container" >
 		<div class="row">
-			<div class="col-md-5 col-sm-6">
-				<p class="gray-clr" style="font-family: 'IRANSansBold' !important;">
-					تلفن تماس با اتحادیه <span class="white-clr">۶۶۷۸۵۴۵۶</span> نام
-					کاربر : <span class="white-clr">#{userBean.userIs()}</span>
-				</p>
-			</div>
-			<div class="col-md-7 col-sm-6">
+			<div class="col-md-12 col-sm-12">
+			<div align="left" style="margin-top: 50px;">
 				<ul class="list-items pull-left top-nav">
-					<li class="dropdown"><p:link outcome="userRegister.xhtml"
-							style="font-family: 'IRANSansBold' !important;" value="ثبت نام" /></li>
-					<li class="dropdown"><p:link outcome="userlogin.xhtml" rendered="#{!userBean.shoeLogout()}"
-							style="font-family: 'IRANSansBold' !important;" value="ورود" /></li>
-					<li class="dropdown"><p:commandLink action="#{userBean.logout()}" rendered="#{userBean.shoeLogout()}"
-							style="font-family: 'IRANSansBold' !important;" value="خروج" /></li>
+					<li id="li1" class="dropdown"><p:link outcome="userRegister.xhtml"
+							style="font-family: 'IRANSansBold' !important; color:white; font-size:16px;" value="ثبت نام" /></li>
 					<li><p:link outcome="merchantlogin.xhtml"
-							style="font-family: 'IRANSansBold' !important;" value="ورود اعضا" /></li>
+							style="font-family: 'IRANSansBold' !important; color:white; font-size:16px;" value="ورود اعضا" /></li>
 				</ul>
-			</div>
-		</div>
-	</div>
-	</section> <section class="main-header">
-	<div class="header-wrap upper-text">
-		<div class="container theme-container rel-div">
-			<div class="row" id="dvhead">
-				<div class="col-lg-2 col-md-2 col-sm-12 co-xs-12">
-					<div class="header-logo">
-						<a href="#"> <img src="resources/images/logo_black.png"
-							alt="logo"
-							style="max-width: 130px; max-height: 82px; margin-top: 0px !important;" /></a>
-						<span class="nav-trigger toggle-hover visible-xs">
-							<li class="cart-hover"><a href="#"
-								class="toggle-icon fa fa-bars"></a>
-								<div class="pop-up-box cart-style-1"></div></li>
-						</span>
-					</div>
-				</div>
-				<div class="col-lg-9 col-md-10 col-sm-12 navigation font-2"
-					style="float: right; display: flex;">
-					<nav>
-					<div class="navbar-collapse no-padding mdv1"
-						id="primary-navigation">
-						<span class="nav-trigger toggle-hover visible-xs"> <a
-							class="toggle-icon fa fa-times" href="#"> </a>
-						</span>
-						<ul class="nav navbar-nav primary-navbar">
-
-
-							<li style="padding-left: 30px !important"><a
-								href="home.xhtml" class="dropdown-toggle"
-								style="font-family: 'IRANSansBold' !important;">خانه</a></li>
-
-
-
-							<li class="dropdown"><a class="dropdown-toggle"
-								data-toggle="dropdown" role="button" aria-haspopup="true"
-								style="font-family: 'IRANSansBold' !important;">ارتباط با
-									اتحادیه</a>
-								<ul class="dropdown-menu">
-									<li><a href="about.xhtml"
-										style="font-family: 'IRANSansBold' !important;"> درباره
-											اتحادیه </a></li>
-									<li><a href="sokhan.xhtml"
-										style="font-family: 'IRANSansBold' !important;"> سخن رییس
-											اتحادیه</a></li>
-									<li><a href="aza.xhtml"
-										style="font-family: 'IRANSansBold' !important;"> اعضای هیت
-											مدیره</a></li>
-									<li><a style="font-family: 'IRANSansBold' !important;">
-											مشاورین</a></li>
-									<li><a style="font-family: 'IRANSansBold' !important;">
-											آموزش</a></li>
-									<li><a href="senfi.xhtml"
-										style="font-family: 'IRANSansBold' !important;"> مقررات
-											نظام صنفی</a></li>
-									<li><a href="danestani.xhtml"
-										style="font-family: 'IRANSansBold' !important;"> دانستنی
-											های صنفی</a></li>
-									<li><a style="font-family: 'IRANSansBold' !important;">
-											کمیسیون ها</a></li>
-									<li><a href="contact.xhtml"
-										style="font-family: 'IRANSansBold' !important;"> تماس با
-											اتحادیه</a></li>
-								</ul></li>
-
-
-							<li class="dropdown"><a class="dropdown-toggle"
-								data-toggle="dropdown" role="button" aria-haspopup="true"
-								style="font-family: 'IRANSansBold' !important;">فروشگاه های
-									آنلاین (طلایی)</a>
-								<ul class="dropdown-menu">
-									<li><a style="font-family: 'IRANSansBold' !important;">
-											موبایل</a></li>
-									<li><a style="font-family: 'IRANSansBold' !important;">
-											لوازم جانبی موبایل</a></li>
-									<li><a style="font-family: 'IRANSansBold' !important;">
-											آلات موسیقی</a></li>
-									<li><a style="font-family: 'IRANSansBold' !important;">
-											صوتی و تصویری خانگی</a></li>
-									<li><a style="font-family: 'IRANSansBold' !important;">
-											صوتی و تصویری اتوموبیل</a></li>
-									<li><a style="font-family: 'IRANSansBold' !important;">
-											قطعات الکترونیک</a></li>
-									<li><a style="font-family: 'IRANSansBold' !important;">کنسول
-											بازی</a></li>
-									<li><a style="font-family: 'IRANSansBold' !important;">
-											CD</a></li>
-									<li><a style="font-family: 'IRANSansBold' !important;">
-											متفرقه</a></li>
-								</ul></li>
-
-
-
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown" role="button" aria-haspopup="true"
-								style="font-family: 'IRANSansBold' !important;">واحد های
-									صنفی اتحادیه</a>
-								<ul class="dropdown-menu">
-									<li><p:link
-											style="font-family: 'IRANSansBold' !important;"
-											outcome="resultmerchant.xhtml" value="موبایل و لوازم جانبی">
-											<f:param name="raste" value="موبایل و لوازم جانبی" />
-										</p:link></li>
-									<li><p:link
-											style="font-family: 'IRANSansBold' !important;"
-											outcome="resultmerchant.xhtml" value="صوتی و تصویری خانگی">
-											<f:param name="raste" value="صوتی و تصویری و خانگی" />
-										</p:link></li>
-
-
-									<li><p:link
-											style="font-family: 'IRANSansBold' !important;"
-											outcome="resultmerchant.xhtml" value="صوتی و تصویری اتومبیل">
-											<f:param name="raste" value="صوتی و تصویری اتومبیل" />
-										</p:link></li>
-
-									<li><p:link
-											style="font-family: 'IRANSansBold' !important;"
-											outcome="resultmerchant.xhtml" value="آلات موسیقی">
-											<f:param name="raste" value="آلات موسیقی" />
-										</p:link></li>
-									<li><p:link
-											style="font-family: 'IRANSansBold' !important;"
-											outcome="resultmerchant.xhtml" value="قطعات الکترونیک">
-											<f:param name="raste" value="قطعات الکترونیک" />
-										</p:link></li>
-
-									<li><p:link
-											style="font-family: 'IRANSansBold' !important;"
-											outcome="resultmerchant.xhtml"
-											value="دوربین عکاسی و فیلم برداری">
-											<f:param name="raste" value="دوربین عکاسی و فیلم برداری" />
-										</p:link></li>
-
-									<li><p:link
-											style="font-family: 'IRANSansBold' !important;"
-											outcome="resultmerchant.xhtml" value="دوربین مدار بسته">
-											<f:param name="raste" value="دوربین مدار بسته" />
-										</p:link></li>
-
-									<li><p:link
-											style="font-family: 'IRANSansBold' !important;"
-											outcome="resultmerchant.xhtml" value="سی دی">
-											<f:param name="raste" value="سی دی" />
-										</p:link></li>
-
-									<li><p:link
-											style="font-family: 'IRANSansBold' !important;"
-											outcome="resultmerchant.xhtml" value="کنسول های بازی">
-											<f:param name="raste" value="کنسول های بازی" />
-										</p:link></li>
-
-									<li><p:link
-											style="font-family: 'IRANSansBold' !important;"
-											outcome="resultmerchant.xhtml" value="متفرقه">
-											<f:param name="raste" value="متفرقه" />
-										</p:link></li>
-								</ul></li>
-
-
-
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown" role="button" aria-haspopup="true"
-								style="font-family: 'IRANSansBold' !important;">نیازمندی ها</a>
-								<ul class="dropdown-menu">
-									<li><a style="font-family: 'IRANSansBold' !important;">
-											نیروی انسانی</a></li>
-									<li><a style="font-family: 'IRANSansBold' !important;">
-											ملک</a></li>
-								</ul></li>
-
-
-
-							<li><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown" role="button" aria-haspopup="true"
-								style="font-family: 'IRANSansBold' !important;">شکایات</a></li>
-
-
-						</ul>
-					</div>
-					</nav>
-				</div>
-				<div class="col-lg-1 col-sm-3 top-right text-left">
-					<!-- 					<ul class="top-elements">
-
-						<li class="cart-hover"><a href="#"
-							class="cart-icon"> <span class="items-count font-1"> 2
-							</span>
-						</a>
-							<div class="pop-up-box cart-style-1">
-								<div class="cart-title block-inline">
-									<h2 class="title-1">سبد خرید</h2>
-									<span class="fa fa-shopping-cart"></span> <i
-										class="items-count font-1"> 2 </i>
-								</div>
-								<div class="cart-item">
-									<div class="cart-list">
-										<div class="cart-img">
-											<img
-												src="resources/images/pro1.jpg" width="110" height="110"
-												alt="" />
-										</div>
-										<div class="cart-detail">
-											<a class="prod-title block-inline" href="#">
-												SAMSUNG s9</a>
-											<p class="fsz-16 font-2 no-margin">
-												<span class="fw-300 gray-clr"> ۲ <sub>X</sub>
-												</span> ۲۰۰۰۰۰
-											</p>
-										</div>
-									</div>
-									<div class="cart-list">
-										<div class="cart-img">
-											<img
-												src="resources/images/pro1.jpg" width="110" height="110"
-												alt="" />
-										</div>
-										<div class="cart-detail">
-											<a class="prod-title block-inline" href="#">
-												SAMSUNG s9</a>
-											<p class="fsz-16 font-2 no-margin">
-												<span class="fw-300 gray-clr"> ۲ <sub>X</sub>
-												</span> ۲۰۰۰۰۰
-											</p>
-										</div>
-									</div>
-								</div>
-								<div class="font-2 fsz-16 cart-total clearfix">
-									<div class="col-sm-7 col-xs-7">مجموع : ۴۰۰۰۰۰</div>
-								</div>
-								<div class="block-inline cart-btns">
-									<ul class="prod-meta">
-										<li><a class="theme-btn btn-black" href="#"
-											style="font-family: 'IRANSansNor';">تسویه</a></li>
-									</ul>
-								</div>
-							</div></li>
-					</ul> -->
 				</div>
 			</div>
-		</div>
+		</div> 
 	</div>
-	</section> </header> <!-- /Header --> <!-- Categories Bar Start --> <section
+
+	</section> 
+	<section
 		class="cate-bar">
-	<div class="container theme-container">
-		<div class="row">
-			<div class="col-md-3 col-sm-4 col-xs-12 cat-menu theme-color-bg">
-				<a
-					style="font-family: 'IRANSansBold' !important; font-size: 12px; color: white;"
-					href="#" id="a1"> اتحادیه صوتی و تصویری و تلفن همراه و لوازم
-					جانبی </a>
+	<div>
+		<div>
+			<div>
 
+				
 			</div>
-			<div class="col-md-9 col-sm-8 col-xs-12 cat-search">
-				<h:form style="font-family: 'IRANSansBold' !important;">
 
-					<rich:autocomplete mode="cachedAjax" tokens=", " minChars="1"
-						autofill="false" autocompleteMethod="#{searchBean.autocomplete}"
-						value="#{searchBean.shopNamePer}" />
-					<a4j:commandButton value="جستجو" action="#{searchBean.searchAct()}"
-						style="height:25px!important; width:50px;background-color:darkgray;" />
+		</div>
+	</div>
+	</section>
+	
+	 <section class="main-header" style="z-index:1000;" id="sec1">
 
+	<div class="header-wrap upper-text">
+		<div class="container theme-container rel-div" style="width: 1500px;">
+			<div class="row" id="dvhead" style="z-index: 100;">
+				<div align="center">
+					<p:button styleClass="btn btn-default btn-lg hvr-buzz-out vw"
+						outcome="home.xhtml"
+						style="margin-top: 15px; margin-bottom: 15px; margin-left: 7px; margin-right: 7px; font-family: 'IRANSansBold' !important;"
+						value="خانه" />
+					<p:commandButton oncomplete="PF('sidebar2').show()"
+						styleClass="btn btn-default btn-lg hvr-buzz-out vw"
+						value="ارتباط با
+									اتحادیه"
+						style="margin-top: 15px; margin-bottom: 15px; margin-left: 7px; margin-right: 7px; font-family: 'IRANSansBold' !important;" />
+
+					<p:commandButton
+						styleClass="btn btn-default btn-lg hvr-buzz-out vw"
+						style="margin-top: 15px; margin-bottom: 15px; margin-left: 7px; margin-right: 7px; font-family: 'IRANSansBold' !important;"
+						value="فروشگاه های
+									آنلاین (طلایی)" />
+					<p:commandButton oncomplete="PF('sidebar3').show()"
+						styleClass="btn btn-default btn-lg hvr-buzz-out vw"
+						style="margin-top: 15px; margin-bottom: 15px; margin-left: 7px; margin-right: 7px; font-family: 'IRANSansBold' !important;"
+						value="واحد های
+									صنفی اتحادیه" />
+
+					<p:commandButton
+						styleClass="btn btn-default btn-lg hvr-buzz-out vw"
+						style="margin-top: 15px; margin-bottom: 15px; margin-left: 7px; margin-right: 7px; font-family: 'IRANSansBold' !important;"
+						value="نیازمندی ها" oncomplete="PF('sidebar4').show()" />
+					<p:button styleClass="btn btn-default btn-lg hvr-buzz-out vw"
+						outcome="shekayat.xhtml"
+						style="margin-top: 15px; margin-bottom: 15px; margin-left: 7px; margin-right: 7px; font-family: 'IRANSansBold' !important;"
+						value="شکایات" target="_blank"/>
+				<h:form style="font-family: 'IRANSansBold' !important; float:left;">
+					<p:panelGrid columns="2" style="width:350px; border-color: #dddddd;">
+						<rich:autocomplete mode="cachedAjax" tokens=", " minChars="1"
+							autofill="false" autocompleteMethod="#{searchBean.autocomplete}"
+							value="#{searchBean.shopNamePer}" style="width:100%;" />
+						<a4j:commandButton value="جستجو"
+							action="#{searchBean.searchAct()}"
+							image="/resources/images/s.png" style="width:70px!important;"/>
+					</p:panelGrid>
 				</h:form>
+
+
 			</div>
 		</div>
 	</div>
-	</section> <!-- / Categories Bar Ends --> <ui:insert name="maintemp" /> <!-- FOOTER -->
-	<footer class="footer-wrap"> <!-- FOOTER-1 Starts --> <section
+	</div>
+	</section> 
+	 <section class="main-header" style="z-index:1000; display:none;" id="sec2">
+	 <div class="header-wrap upper-text">
+		<div class="container theme-container rel-div" style="width:100%!important">
+			<div class="row" id="dvhead" style="z-index: 100;">
+				<div align="right" style="float: right;">
+					<p:commandButton value="||||" oncomplete="PF('sidebar5').show()"
+						styleClass="btn btn-default btn-lg hvr-buzz-out vw"
+						style="margin-top: 15px; margin-bottom: 15px; margin-left: 7px; margin-right: 7px; font-family: 'IRANSansBold' !important;" />
+				</div>
+				<div align="left">
+				<h:form style="font-family: 'IRANSansBold' !important; float:left;">
+					<p:panelGrid id="pg" columns="2" style="border-color: #dddddd;">
+						<rich:autocomplete mode="cachedAjax" tokens=", " minChars="1"
+							autofill="false" autocompleteMethod="#{searchBean.autocomplete}"
+							value="#{searchBean.shopNamePer}" style="width:100%;" />
+						<a4j:commandButton value="جستجو"
+							action="#{searchBean.searchAct()}"
+							image="/resources/images/s.png" style="width:70px!important;"/>
+					</p:panelGrid>
+				</h:form>
+				</div>
+				</div>
+				</div>
+				</div>
+	 </section>
+	
+	
+	</header> <!-- /Header --> <!-- Categories Bar Start -->  <!-- / Categories Bar Ends --> <ui:insert name="maintemp" /> <!-- FOOTER -->
+	<footer class="footer-wrap"><section
 		class="sec-space footer-1">
 	<div class="container theme-container">
 		<div class="row" align="center">
 			<h:graphicImage library="images"
 				value="/resources/images/logo_pano_footer.png" />
+
 		</div>
 	</div>
 	</section> <!-- FOOTER-1 Ends --> </footer> <!-- /FOOTER -->
 
 	<div id="to-top" class="to-top">
-		<i class="fa fa-angle-up"></i>
+		<i class="fa fa-angle-up" style="color: white; line-height: 40px!important;">^</i>
 	</div>
 
 	</main>
 	<!-- /WRAPPER -->
 
-	<!-- Popup: Login-Light -->
-	<div class="modal fade popups-wrap popups-light" id="login-popup"
-		tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<button type="button" class="close close-btn popup-cls"
-					data-dismiss="modal" aria-label="Close">
-					<i class="fa-times fa"></i>
-				</button>
-				<div class="login-wrap">
-					<h2
-						style="font-family: 'IRANSansBold' !important; text-align: center; color: dimgrey;">
-						به زودی</h2>
-
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /Popup: Login-Light -->
 
 
-	<!-- Popup: Login-Light -->
-	<!--         <div class="modal fade popups-wrap popups-light" id="login" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-lg">  
-                <div class="modal-content">   
-                    <button type="button" class="close close-btn popup-cls" data-dismiss="modal" aria-label="Close"> <i class="fa-times fa"></i> </button>
-                    <div class="login-wrap"> 
-                    </div>
-                </div>
-            </div>
-        </div> -->
-	<!-- /Popup: Login-Light -->
+	<p:sidebar widgetVar="sidebar2" position="right" baseZIndex="10000"
+		style="height:420px">
+		<br />
+		<p:link value="درباره
+											اتحادیه" outcome="about.xhtml"
+			style="font-family: 'IRANSansBold' !important;" target="_blank"/>
+		<hr />
+		<p:link value="سخن رییس
+											اتحادیه" outcome="sokhan.xhtml"
+			style="font-family: 'IRANSansBold' !important;" target="_blank"/>
+		<hr />
+		<p:link value="اعضای هیت
+											مدیره" outcome="aza.xhtml"
+			style="font-family: 'IRANSansBold' !important;" target="_blank"/>
+		<hr />
+		<p:link value="مشاورین" outcome="moshaverin.xhtml"
+			style="font-family: 'IRANSansBold' !important;" target="_blank"/>
+		<hr />
+		<p:link value="آموزش" outcome="amozesh.xhtml"
+			style="font-family: 'IRANSansBold' !important;" target="_blank"/>
+		<hr />
+		<p:link value="مقررات
+											نظام صنفی" outcome="senfi.xhtml"
+			style="font-family: 'IRANSansBold' !important;" target="_blank"/>
+		<hr />
+		<p:link value="دانستنی
+											های صنفی" outcome="danestani.xhtml"
+			style="font-family: 'IRANSansBold' !important;" target="_blank"/>
+		<hr />
+		<p:link value="کمیسیون ها" outcome="Commission.xhtml"
+			style="font-family: 'IRANSansBold' !important;" />
+		<hr />
+		<p:link value="تماس با
+											اتحادیه" outcome="contact.xhtml"
+			style="font-family: 'IRANSansBold' !important;" target="_blank"/>
+	</p:sidebar>
+	<p:sidebar widgetVar="sidebar3" position="right" baseZIndex="10000"
+		style="height:380px;">
+		<br />
+		<p:link style="font-family: 'IRANSansBold' !important;"
+			outcome="resultmerchant.xhtml" value="موبایل و لوازم جانبی" target="_blank">
+			<f:param name="raste" value="موبایل و لوازم جانبی" />
+		</p:link>
+		<hr />
+		<p:link style="font-family: 'IRANSansBold' !important;"
+			outcome="resultmerchant.xhtml" value="صوتی و تصویری خانگی" target="_blank">
+			<f:param name="raste" value="صوتی و تصویری و خانگی" />
+		</p:link>
+		<hr />
+		<p:link style="font-family: 'IRANSansBold' !important;"
+			outcome="resultmerchant.xhtml" value="صوتی و تصویری اتومبیل" target="_blank">
+			<f:param name="raste" value="صوتی و تصویری اتومبیل" />
+		</p:link>
+		<hr />
+		<p:link style="font-family: 'IRANSansBold' !important;"
+			outcome="resultmerchant.xhtml" value="آلات موسیقی" target="_blank">
+			<f:param name="raste" value="آلات موسیقی" />
+		</p:link>
+		<hr />
+		<p:link style="font-family: 'IRANSansBold' !important;"
+			outcome="resultmerchant.xhtml" value="قطعات الکترونیک" target="_blank">
+			<f:param name="raste" value="قطعات الکترونیک" />
+		</p:link>
+		<hr />
+		<p:link style="font-family: 'IRANSansBold' !important;"
+			outcome="resultmerchant.xhtml" value="دوربین عکاسی و فیلم برداری" target="_blank">
+			<f:param name="raste" value="دوربین عکاسی و فیلم برداری" />
+		</p:link>
+		<hr />
+		<p:link style="font-family: 'IRANSansBold' !important;"
+			outcome="resultmerchant.xhtml" value="دوربین مدار بسته" target="_blank">
+			<f:param name="raste" value="دوربین مدار بسته" />
+		</p:link>
+		<hr />
+		<p:link style="font-family: 'IRANSansBold' !important;"
+			outcome="resultmerchant.xhtml" value="سی دی" target="_blank">
+			<f:param name="raste" value="سی دی" />
+		</p:link>
 
-	<!-- Popup: Login-Light -->
-	<div class="modal fade popups-wrap popups-light" id="login"
-		tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<button type="button" class="close close-btn popup-cls"
-					data-dismiss="modal" aria-label="Close">
-					<i class="fa-times fa"></i>
-				</button>
-				<div class="login-wrap">
-					<div class="col-sm-4 text-center">
-						<div class="pb-30">
-							<a> <img alt="logo" src="resources/images/logo_black.png"
-								width="200" height="200" /></a>
-						</div>
-					</div>
-					<div class="col-sm-7">
-						<h2 class="fsz-36 section-title">ورود اعضا</h2>
-						<br />
-						<div class="login-form">
-							<h:form class="login">
-								<p:messages id="messages" showDetail="true" closable="true" />
-								<div class="form-group">
-									<p:inputMask styleClass="form-control"
-										placeholder="شماره شناسنامه" dir="ltr" mask="9999999999"
-										rendered="true" />
-								</div>
-								<div class="form-group">
-									<p:commandButton styleClass="theme-btn btn-black-1 small-btn"
-										value="ثبت" />
-								</div>
-							</h:form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /Popup: Login-Light -->
+	</p:sidebar>
+	<p:sidebar widgetVar="sidebar4" position="right" baseZIndex="10000"
+		style="height:120px">
+		<br />
+		<p:link value="جذب نیروی انسانی" outcome="jobhome.xhtml"
+			style="font-family: 'IRANSansBold' !important;" target="_blank"/>
+		<hr />
+		<p:link value="ملک" outcome="homerent.xhtml"
+			style="font-family: 'IRANSansBold' !important;" target="_blank"/>
 
-	<!-- Popup: Login-Light -->
-	<div class="modal fade popups-wrap popups-light" id="loginuser"
-		tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<button type="button" class="close close-btn popup-cls"
-					data-dismiss="modal" aria-label="Close">
-					<i class="fa-times fa"></i>
-				</button>
-				<div class="login-wrap">
-					<div class="col-sm-4 text-center">
-						<div class="pb-30">
-							<a> <img alt="logo" src="resources/images/logo_black.png"
-								width="200" height="200" /></a>
-						</div>
-					</div>
-					<div class="col-sm-7">
-						<h2 class="fsz-36 section-title">ورود کاربران برای گفتگوی
-							آنلاین</h2>
-						<br />
-						<div class="login-form">
-							<h:form class="login">
-								<div class="form-group">
-									<p:inputText styleClass="form-control"
-										placeholder="شماره شناسنامه" dir="rtl" />
-								</div>
-								<div class="form-group">
-									<p:inputText styleClass="form-control" placeholder="email"
-										dir="ltr">
-										<p:keyFilter regEx="/[a-z0-9_\.\-@]/i" />
-									</p:inputText>
-								</div>
-								<div class="form-group">
-									<p:commandButton styleClass="theme-btn btn-black-1 small-btn"
-										value="ثبت" />
-								</div>
-							</h:form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /Popup: Login-Light -->
-
-
+	</p:sidebar>
+<p:sidebar widgetVar="sidebar5" position="right" baseZIndex="10000"
+		style="height:300px">
+		<br />
+		<p:link value="خانه" outcome="home.xhtml"
+			style="font-family: 'IRANSansBold' !important;" target="_blank"/>
+		<hr />
+		<p:commandLink value="ارتباط با اتحادیه" oncomplete="PF('sidebar2').show()"
+			style="font-family: 'IRANSansBold' !important;" target="_blank"/>
+		<hr />
+		<p:link value="فروشگاه های آنلاین (طلایی)"
+			style="font-family: 'IRANSansBold' !important;" target="_blank"/>
+		<hr />
+		<p:commandLink value="واحد های صنفی اتحادیه" oncomplete="PF('sidebar3').show()"
+			style="font-family: 'IRANSansBold' !important;" target="_blank"/>
+		<hr />
+		<p:commandLink value="نیازمندی ها"  oncomplete="PF('sidebar4').show()"
+			style="font-family: 'IRANSansBold' !important;" target="_blank"/>
+		<hr />
+		<p:link value="شکایات" outcome="shekayat.xhtml"
+			style="font-family: 'IRANSansBold' !important;" target="_blank"/>
+	</p:sidebar>
 
 
 	<script
@@ -678,26 +318,23 @@ input.rf-au-inp {
 		src="resources/maintemp/assets/plugins/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 	<script
 		src="resources/maintemp/assets/plugins/owl.carousel.2/owl.carousel.min.js"></script>
-	<script src="resources/maintemp/assets/js/isotope.pkgd.min.js"></script>
-	<script
-		src="resources/maintemp/assets/plugins/prettyphoto-master/js/jquery.prettyPhoto.js"></script>
-	<script
-		src="resources/maintemp/assets/plugins/subscribe-better-master/jquery.subscribe-better.min.js"></script>
-	<script
-		src="resources/maintemp/assets/plugins/malihu-custom-scrollbar-plugin-master/js/minified/jquery.mCustomScrollbar.min.js"></script>
-	<script
-		src="resources/maintemp/assets/plugins/jquery-countTo/jquery.countTo.js"></script>
-	<script
-		src="resources/maintemp/assets/plugins/countdown/jquery.plugin.js"></script>
-	<script
-		src="resources/maintemp/assets/plugins/countdown/jquery.countdown.js"></script>
+	<!-- <script src="resources/maintemp/assets/js/isotope.pkgd.min.js"></script> -->
+<!-- 	<script
+		src="resources/maintemp/assets/plugins/prettyphoto-master/js/jquery.prettyPhoto.js"></script> -->
+	<!-- <script
+		src="resources/maintemp/assets/plugins/subscribe-better-master/jquery.subscribe-better.min.js"></script> -->
+	<!-- <script
+		src="resources/maintemp/assets/plugins/malihu-custom-scrollbar-plugin-master/js/minified/jquery.mCustomScrollbar.min.js"></script> -->
+<!-- 	<script
+		src="resources/maintemp/assets/plugins/jquery-countTo/jquery.countTo.js"></script> -->
+<!-- 	<script
+		src="resources/maintemp/assets/plugins/countdown/jquery.plugin.js"></script> -->
+<!-- 	<script
+		src="resources/maintemp/assets/plugins/countdown/jquery.countdown.js"></script> -->
+
 	<script src="resources/maintemp/assets/js/theme.js"></script>
 
-	<script src="resources/slider11/sliderengine/amazingslider.js"></script>
-	<link rel="stylesheet" type="text/css"
-		href="resources/slider11/sliderengine/amazingslider-1.css" />
-	<script src="resources/slider11/sliderengine/initslider-1.js"></script>
-	<script src="resources/slider3/sliderengine/initslider-3.js"></script>
+
 	<!-- End of head section HTML codes -->
 
 </h:body>

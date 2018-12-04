@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+.ui-panel {
+    padding: .2em;
+    direction: rtl!important;
+}
+.ui-widget-content {
+    color: #222222;
+    overflow: hidden!important;
+}

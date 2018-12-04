@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<h:body>
+	<ui:composition template="/template.xhtml">
+		<ui:define name="headtmp">
+		</ui:define>
+		<ui:define name="centertmp">
+					<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="newsId" />
+				</f:metadata>
+			</ui:define>
+			<h:form enctype="multipart/form-data" acceptcharset="UTF-8" id="form">
+				<p:growl id="growl" />
+				<p:panel id="pnl" header="افزودن خبر" style="margin-bottom:10px;"
+					styleClass="direction:rtl;">
+
+					<p:messages id="messages" />
+					<h:panelGrid columns="3" cellpadding="5" dir="rtl">
+
+					</h:panelGrid>
+
+				</p:panel>
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

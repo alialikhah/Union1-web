@@ -66,4 +66,9 @@ public class TemplateBean {
 		FacesContext.getCurrentInstance().getExternalContext().redirect("jobview.xhtml");
 	}
 	
+	public void goToNews() throws IOException {
+		FacesContext.getCurrentInstance().getExternalContext().redirect("addnews.xhtml");
+	}
+	
+	
 }

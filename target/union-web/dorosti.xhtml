@@ -3,101 +3,60 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
 
-<h:head>
-	<meta charset="utf-8" />
-	<meta name="robots" content="noodp" />
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-	<meta name="Keywords"
-		content="one, page, template, modern, premium, exclusive" />
-	<meta name="description"
-		content="Premium html one page template available exclusively on themeforest." />
-	<title>ابراهیم درستی</title>
-		<link rel="shortcut icon"
-		href="resources/images/logo_black.png" />
-
-	<link rel="stylesheet" type="text/css"
-		href="resources/temp2/assets/css/mnsfy.css" />
-	<link rel="stylesheet" type="text/css" id="skin"
-		href="resources/temp2/assets/css/color/default.css" />
-
-	<style>
-.hero {
-	position: relative;
-	z-index: 1;
-	overflow: hidden;
-	width: 100%;
-	height: 300px !important;
-}
-
-.padding-top-140 {
-	padding-top: 0px !important;
-}
-</style>
-
-<style>
-.block-about-1 p {
-	margin-top: 0em !important;
-	margin-right: 0px!important;
-	margin-bottom: 3em;
-}
-			@media  screen and (max-width : 500px)
-			{
-						#ig2{
-			display: none!important;
-			}
-			#ig1{
-			display: block!important;
-			}
-			}
-</style>
-</h:head>
+<h:head></h:head>
 <body>
-	<div id="page-loader">
-		<div class="container-mid">
-			<div class="spinner-container">
-				<div class="css-spinner"></div>
-			</div>
-		</div>
-	</div>
-	
-	<div id="main">
-		<section id="hero" class="hero hero-2">
-<img id="ig2" src="resources/images/flag.jpg" style="width: 100%; min-height: 100%;"/>
-<img id="ig1" src="resources/images/flag2.jpg" style="width: 100%; min-height: 100%; display: none;"/>
-		</section>
+	<ui:composition template="TEMPLATE.xhtml">
+		<ui:define name="headtemp">
+			<title>ابراهیم درستی</title>
+			<style>
 
-		<section id="about">
-		<div
-			class="content bg-white block-about-1 padding-top-140 padding-bot-130">
-			<div class="container text-left">
-				<div class="row padding-top-50">
+
+</style>
+
+		</ui:define>
+
+		<ui:define name="maintemp">
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="shopName" />
+				</f:metadata>
+			</ui:define>
+
+			<!-- CONTENT AREA -->
+			<article>
+			<br/>
+			<div
+				style="border: solid 5px; border-radius: 70px 10px 70px 70px; border-color: darkgrey; background-image: url('resources/images/back.jpg'); max-width: 1600px; margin: auto;" >
+				<div class="container theme-container ptb-70">
+					<div class="row">
 					<div class="col-sm-12">
-							<img class="img-responsive scroll-animated-from-bottom"
-							src="resources/images/7w.jpg" alt="image" style="max-width: 500px!important; max-height: 500px!important;" align="left"/>
-						
+						<img class="img-responsive scroll-animated-from-bottom"
+							src="resources/azaimage/2.png" alt="image"
+							align="left" width="400"/>
+
 						<p class="scroll-animated-from-bottom"
 							style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl;">
-							<b>ابراهیم درستی</b><br/>
-							<b style="font-size: 16px!important;">ریاست اتحادیه فروشندگان لوازم صوتی ، تصویری ، تلفن همراه و لوازم
-							جانبی</b><br/><br/>
-							در سال 1335 در شهر نجف آباد اصفهان متولد و فارغ التحصیل کارشناسی
-							رشته مدیریت و برنامه ریزی از دانشگاه شهید بهشتی تهران و دارای
-							گواهینامه مدیریت کسب و کار از وزارت علوم ، تحقیقات و فناوری هستم
-							. با افتخار فراوان 40 سال سابقه حضور صنفی در تهران و 21 سال سابقه
-							حضور در اتحادیه را دارم . طی این سالیان ریـاست اتـحادیه صوتـی ،
-							تـصویری ، تـلفن همراه و لوازم جانبـی کشور و تهران ، بنیانگذار و
-							مدیر عامل شرکت تعاونی صوتی و تصویری، تلفن همراه و لوازم جانبی
-							تهران، نائب رئیس اول اتاق اصناف تهران ، نماینده دوره ششم اتاق
-							اصناف ایران، عضو اصلی کمیسیون نظارت سازمان صنعت ، معدن و تجارت
-							استان تهران ، عضو اصلی کمیته تطبیق واجدین شرایط داوطلبین حضور در
-							اتحادیه های صنفی در وزارت صنعت ، معدن و تجارت ، رئیس سابق کمیسیون
-							های اتاق اصناف تهران، نماینده اتاق اصناف تهران در سازمان امور
-							مالیاتی کشور ، نماینده اتاق اصناف تهران در هیات های تجدید نظر
-							سازمان تامین اجتماعی ، ریاست شورای حل اختلاف 2732 قوه قضائیه ،
-							عضو اصلی کمیسیون اقتصاد و کسب در جامعه انجمن های اسلامی اصناف و
+							<b>ابراهیم درستی</b><br /> <b style="font-size: 16px !important;">ریاست
+								اتحادیه فروشندگان لوازم صوتی ، تصویری ، تلفن همراه و لوازم جانبی</b><br />
+							<br /> در سال ۱۳۳۵ در شهر نجف آباد اصفهان متولد و فارغ التحصیل
+							کارشناسی رشته مدیریت و برنامه ریزی از دانشگاه شهید بهشتی تهران و
+							دارای گواهینامه مدیریت کسب و کار از وزارت علوم ، تحقیقات و فناوری
+							هستم . با افتخار فراوان ۴۰ سال سابقه حضور صنفی در تهران و 21 سال
+							سابقه حضور در اتحادیه را دارم . طی این سالیان ریـاست اتـحادیه
+							صوتـی ، تـصویری ، تـلفن همراه و لوازم جانبـی کشور و تهران ،
+							بنیانگذار و مدیر عامل شرکت تعاونی صوتی و تصویری، تلفن همراه و
+							لوازم جانبی تهران، نائب رئیس اول اتاق اصناف تهران ، نماینده دوره
+							ششم اتاق اصناف ایران، عضو اصلی کمیسیون نظارت سازمان صنعت ، معدن و
+							تجارت استان تهران ، عضو اصلی کمیته تطبیق واجدین شرایط داوطلبین
+							حضور در اتحادیه های صنفی در وزارت صنعت ، معدن و تجارت ، رئیس سابق
+							کمیسیون های اتاق اصناف تهران، نماینده اتاق اصناف تهران در سازمان
+							امور مالیاتی کشور ، نماینده اتاق اصناف تهران در هیات های تجدید
+							نظر سازمان تامین اجتماعی ، ریاست شورای حل اختلاف ۲۷۳۲ قوه قضائیه
+							، عضو اصلی کمیسیون اقتصاد و کسب در جامعه انجمن های اسلامی اصناف و
 							بازار ، عضو اصلی کمیسیون بیمه و مالیات در جامعه انجمن های اسلامی
 							اصناف و بازار ، مشاور مرکز امور اصناف و بازرگانان در حوزه مالیات
 							اصناف عهده دار بودم . سوابق فعالیت های اجرایی بنده اعم از عضو
@@ -108,52 +67,24 @@
 							ایران ، دستیار عالی رئیس اتاق اصناف ایران و عضو اتاق فکر اصناف
 							ایران ، مشاور اقتصادی ریاست محترم کمیسیون اقتصادی مجلس شورای
 							اسلامی ، نائب رئیس مجمع امور صنفی توزیعی ـ خدماتی ، کاندید شورای
-							شهر تهران (سال 1392) ، نماینده و قائم مقام ریاست اتاق اصناف تهران
+							شهر تهران (سال ۱۳۹۲) ، نماینده و قائم مقام ریاست اتاق اصناف تهران
 							در کمیته پشتیبانی ستاد اربعین حسینی در استانداری تهران (شهریور
-							1395) را داشته ام .</p>
+							۱۳۹۵) را داشته ام .
+						</p>
 
-													<p class="scroll-animated-from-bottom"
-							style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl;"><br/>
-							<b> و در حال حاضر مسئولیت نائب رئیس اتاق اصناف تهران و رئیس
-								اتحادیه فروشندگان لوازم صوتی ، تصویری ، تلفن همراه و لوازم جانبی
-								عهده دار هستم . </b>
+						<p class="scroll-animated-from-bottom"
+							style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl;">
+							<br /> <b> و در حال حاضر مسئولیت نائب رئیس اتاق اصناف تهران و
+								رئیس اتحادیه فروشندگان لوازم صوتی ، تصویری ، تلفن همراه و لوازم
+								جانبی عهده دار هستم . </b>
 						</p>
 					</div>
-				</div>
-			</div>
-		</div>
-		</section>
-
-
-
-
-
-
-		<footer>
-			<div
-				class="content bg-black bg-parallax block-footer-1 padding-top-110 padding-bot-150">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12 text-center">
-
-						</div>
 					</div>
 				</div>
-				<div class="scroll-top">
-					<div class="scroll-top-inner scroll-animated-from-bottom">
-						<span class="ti-arrow-up"></span>
-					</div>
-				</div>
-				<div class="dzsparallaxer auto-init do-not-set-js-height"
-					data-options="{ mode_scroll: 'normal', animation_duration: '0' , direction: 'reverse' }">
-					<div class="divimage dzsparallaxer--target"
-						style="background-color: black;"></div>
-					<div class="bg-overlay-section"></div>
-				</div>
 			</div>
-		</footer>
-	</div>
-	<script type="text/javascript" src="resources/temp2/assets/js/jfoachm.js"></script>
-	<script type="text/javascript" src="resources/temp2/assets/js/mwlcjnm.js"></script>
+			</article>
+<br/>
+		</ui:define>
+	</ui:composition>
 </body>
 </html>

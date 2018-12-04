@@ -3,9 +3,12 @@
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/HomeBean.java
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/JobKarfarmaBean.java
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/MailTest.java
+/home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/NewsBean.java
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/Group.java
+/home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/RentBean.java
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/HaveLicense.java
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/AllProductsBean.java
+/home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/IpBean.java
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/MerchantRegisterBean.java
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/Occupation.java
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/CommercialBean.java
@@ -19,6 +22,7 @@
 /home/fedoraali/UNION1/union/union-web/src/main/java/chat/ChatroomServerEndpoint.java
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/BrandBean.java
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/DedicatedProductBean.java
+/home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/ShekayatValidator.java
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/SuperAdminBean.java
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/MojtameBean.java
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/MerchantResultBean.java
@@ -45,6 +49,7 @@
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/MerchantAddres.java
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/Area.java
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/TemplateBean.java
+/home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/ShekayatBean.java
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/MerchantPageGmap.java
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/State.java
 /home/fedoraali/UNION1/union/union-web/src/main/java/jsfui/JobKarjoBean.java

@@ -15,6 +15,7 @@ import org.apache.commons.io.IOUtils;
 import dao.entity.MashahirEntity;
 import dao.entity.NaghdOBaresiEntity;
 import service.NaghdServiceLocal;
+import service.SingletonServiceLocal;
 
 @Named
 @RequestScoped
@@ -48,6 +49,8 @@ public class NaghdBean {
 	private Part pic10;
 	@Inject
 	private NaghdServiceLocal naghdServiceLocal;
+	@Inject
+	private SingletonServiceLocal singletonServiceLocal;
 	
 	public String getCategory() {
 		return category;
@@ -224,11 +227,18 @@ public class NaghdBean {
     }
 	
 	public List<NaghdOBaresiEntity> findAllNaghd(){
-		return naghdServiceLocal.findAllNaghd();
+		//return naghdServiceLocal.findAllNaghd();
+		return singletonServiceLocal.getNaghdOBaresiEntities();
 	}
 	
 	public NaghdOBaresiEntity findNagdById(long nagdId) {
-		return naghdServiceLocal.findNagdByID(nagdId);
+		//return naghdServiceLocal.findNagdByID(nagdId);
+		NaghdOBaresiEntity naghdOBaresiEntityX=new NaghdOBaresiEntity();
+		for (NaghdOBaresiEntity naghdOBaresiEntity : singletonServiceLocal.getNaghdOBaresiEntities()) {
+			if(naghdOBaresiEntity.getNaghdId()==nagdId)
+				naghdOBaresiEntityX=naghdOBaresiEntity;
+		}
+		return naghdOBaresiEntityX;
 	}
 	
     public void deleteNAghdEntity(long naghdId) throws IOException{

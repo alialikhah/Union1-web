@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+@media screen and (max-width : 960px) {
+.pf{
+text-align: center!important;
+
+}
+#pfi{
+margin-left: 10px!important;
+}
+}

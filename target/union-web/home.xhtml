@@ -10,148 +10,106 @@
 	<ui:composition template="TEMPLATE.xhtml">
 		<ui:define name="headtemp">
 			<title>اتحادیه صنف فروشندگان دستگاه های صوتی و تصویری ، تلفن
-				همراه و لوازم جانبی</title>
-			<style>
-.black-mask::before {
-	background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0 !important;
-}
+				همراه و لوازم جانبی تهران</title>
+			<meta name="description"
+				content="گواهینامه فعالیت آنلاین،وبسایت رسمی اتحادیه صنف فروشندگان لوازم صوتی و تصویری،تلفن همراه و لوازم جانبی تهران" />
+			<meta name="keywords"
+				content=" اتحادیه، سیستم پخش ،قطعات الکترونیک،دوربین،صوتی تصویری،دوربین،آلات موسیقی " />
+			<meta name="geo.region" content="IR-07" />
+			<meta name="geo.placename" content="Tehran" />
+			<meta name="geo.position"
+				content="35.69046127201924;51.40848349548901" />
+			<meta name="ICBM" content="35.69046127201924, 51.40848349548901" />
+			<link rel="stylesheet" href="resources/efect/css/ihover.css" />
 
-.sub-detail {
-	color: #000;
-	text-transform: uppercase;
-	letter-spacing: 0px !important;
-	font-size: 21px;
-}
 
-.subscribe-2 {
-	border: 2px solid #f4f4f4;
-	padding: 45px 15px;
-	padding-top: 45px;
-	padding-top: 15px !important;
-}
 
-.row {
-	margin-right: -15px;
-	margin-left: -15px;
-	margin-bottom: 10px !important;
-	margin-top: 10px !important;
-}
+	<link href="resources/css/home.css"
+		rel="stylesheet" type="text/css" />
 
-.subscribe-2 {
-	border: 2px solid black !important;
-	padding: 45px 15px;
-	padding-top: 45px;
-	padding-top: 45px;
-	padding-top: 15px !important;
-}
-
-.rwr {
-	padding-left: 25px !important;
-}
-
-@media screen and (max-width : 780px) {
-	#amazingslider-wrapper-1 {
-		height: 200px !important;
-	}
-	.amazingslider-slider-1 {
-		display: block;
-		position: relative;
-		left: 0px;
-		top: 0px;
-		width: 100%;
-		height: auto;
-		height: 200px !important;
-	}
-	.amazingslider-box-1 {
-		display: block;
-		position: relative;
-		left: 0px;
-		top: 0px;
-		width: 100%;
-		height: 200px !important;
-	}
-	.amazingslider-swipe-box-1 {
-		display: block;
-		position: relative;
-		left: 0px;
-		top: 0px;
-		width: 100%;
-		height: 200px !important;
-	}
-	.amazingslider-img-elem-1 {
-		height: 200px !important;
-	}
-	#dv1 {
-		display: none !important;
-	}
-	#dv2 {
-		display: block !important;
-	}
-	.rwr {
-		padding-left: 0px !important;
-	}
-}
-</style>
 		</ui:define>
 
 		<ui:define name="maintemp">
-			<!-- CONTENT AREA -->
-			<article class="light-bg-1"> <!-- Cate-menu & Slider Start -->
-			<!-- Insert to your webpage where you want to display the slider -->
-			<div id="amazingslider-wrapper-1"
-				style="display: block; position: relative; max-width: 1920px; margin: 0px auto 56px;">
-				<div id="amazingslider-1"
-					style="display: block; position: relative; margin: 0 auto;">
-					<ul class="amazingslider-slides" style="display: none;">
-						<h:form>
-							<li><o:graphicImage
-									value="#{sliderBean.findSliderById(1).sliderImage}"
-									dataURI="true" /></li>
-							<li><o:graphicImage
-									value="#{sliderBean.findSliderById(2).sliderImage}"
-									dataURI="true" /></li>
+			<article class="light-bg-1"> 
+			<section
+				class="slider-section">
+			<div id="main-slider" class="main-slider dots-white">
 
-							<li><o:graphicImage
-									value="#{sliderBean.findSliderById(3).sliderImage}"
-									dataURI="true" /></li>
+				<div class="item">
+					<div class="carousel-inner">
+						<o:graphicImage
+							value="#{sliderBean.findSliderById(1).sliderImage}"
+							dataURI="true" />
 
-							<li><o:graphicImage
-									value="#{sliderBean.findSliderById(4).sliderImage}"
-									dataURI="true" /></li>
+					</div>
+				</div>
+				<div class="item">
+					<div class="carousel-inner">
+						<o:graphicImage
+							value="#{sliderBean.findSliderById(2).sliderImage}"
+							dataURI="true" />
 
-							<li><o:graphicImage
-									value="#{sliderBean.findSliderById(5).sliderImage}"
-									dataURI="true" /></li>
+					</div>
+				</div>
+				<div class="item">
+					<div class="carousel-inner">
+						<o:graphicImage
+							value="#{sliderBean.findSliderById(4).sliderImage}"
+							dataURI="true" />
 
-							<li><o:graphicImage
-									value="#{sliderBean.findSliderById(6).sliderImage}"
-									dataURI="true" /></li>
+					</div>
+				</div>
+				<div class="item">
+					<div class="carousel-inner">
+						<o:graphicImage
+							value="#{sliderBean.findSliderById(5).sliderImage}"
+							dataURI="true" />
 
-							<li><o:graphicImage
-									value="#{sliderBean.findSliderById(7).sliderImage}"
-									dataURI="true" /></li>
+					</div>
+				</div>
+				<div class="item">
+					<div class="carousel-inner">
+						<o:graphicImage
+							value="#{sliderBean.findSliderById(6).sliderImage}"
+							dataURI="true" />
 
-							<li><o:graphicImage
-									value="#{sliderBean.findSliderById(8).sliderImage}"
-									dataURI="true" /></li>
-							<li><o:graphicImage
-									value="#{sliderBean.findSliderById(9).sliderImage}"
-									dataURI="true" /></li>
-							<li><o:graphicImage
-									value="#{sliderBean.findSliderById(10).sliderImage}"
-									dataURI="true" /></li>
-						</h:form>
-					</ul>
+					</div>
+				</div>
+				<div class="item">
+					<div class="carousel-inner">
+						<o:graphicImage
+							value="#{sliderBean.findSliderById(7).sliderImage}"
+							dataURI="true" />
 
+					</div>
+				</div>
+				<div class="item">
+					<div class="carousel-inner">
+						<o:graphicImage
+							value="#{sliderBean.findSliderById(8).sliderImage}"
+							dataURI="true" />
+
+					</div>
+				</div>
+				<div class="item">
+					<div class="carousel-inner">
+						<o:graphicImage
+							value="#{sliderBean.findSliderById(10).sliderImage}"
+							dataURI="true" />
+
+					</div>
 				</div>
 			</div>
-			<!-- End of body section HTML codes --> <!-- Featured Product  Start -->
+
+			</section>  
+			
 			<section class="sec-space">
 			<div class="container theme-container">
 
 				<h2 class="section-title"
 					style="font-family: 'IRANSansBold' !important; text-align: center; color: dimgrey;">
 					آخرین قیمت ها</h2>
+
 
 				<div id="prod-featured-slider" class="prod-featured-slider nav-1">
 					<div class="item">
@@ -160,41 +118,11 @@
 							<div class="prod-img">
 								<a class="img-hover"> <img src="resources/images/pro2.jpg"
 									alt="product" />
-								</a> <span class="prod-cat">camera D4 LG</span>
-								<div class="prod-tag-1 font-2">
-									<span style="font-family: 'IRANSansNor' !important;">
-										NEW </span>
-								</div>
-								<a class="caption-link meta-icon" data-toggle="modal"
-									href="#login-popup"> <span class="fa fa-eye"> </span>
-								</a>
+								</a> <span class="prod-cat"
+									style="font-family: 'IRANSansBold' !important;">دوربین</span>
+
 							</div>
-							<figcaption class="prod-content">
-							<h2 class="prod-title">
-								<a style="font-family: 'IRANSansNor' !important;">محصول جدید
-									از کمپانی ..</a>
-							</h2>
-							<div class="block-inline">
-								<div class="rating">
-									<span class="star active"></span> <span class="star active"></span>
-									<span class="star active"></span> <span class="star"></span> <span
-										class="star"></span>
-								</div>
-								<div class="prod-price font-2">
-									<ins style="font-family: 'IRANSansNor' !important;">۴۸۰۰۰۰</ins>
-									<del style="font-family: 'IRANSansNor' !important;">۵۶۰۰۰۰</del>
-								</div>
-							</div>
-							<div class="block-inline">
-								<ul class="prod-meta">
-									<li><a class="fa fa-heart meta-icon"></a></li>
-									<li><a class="fa fa-retweet meta-icon"></a></li>
-									<li><a class="theme-btn btn-black"
-										style="font-family: 'IRANSansNor' !important;"> اضافه به
-											سبد </a></li>
-								</ul>
-							</div>
-							</figcaption> </figure>
+							<figcaption class="prod-content"> </figcaption> </figure>
 						</div>
 					</div>
 					<div class="item">
@@ -203,41 +131,12 @@
 							<div class="prod-img">
 								<a class="img-hover"> <img src="resources/images/apple.jpg"
 									alt="product" />
-								</a> <span class="prod-cat">Apple 7</span>
-								<div class="prod-tag-1 font-2"
-									style="font-family: 'IRANSansNor' !important;">
-									<span> NEW </span>
-								</div>
-								<a class="caption-link meta-icon" data-toggle="modal"
-									href="#login-popup"> <span class="fa fa-eye"> </span>
-								</a>
+								</a> <span class="prod-cat"
+									style="font-family: 'IRANSansBold' !important;">تلفن
+									همراه</span>
+
 							</div>
-							<figcaption class="prod-content">
-							<h2 class="prod-title">
-								<a style="font-family: 'IRANSansNor' !important;"> زیبا ترین
-									و قویترین محصول .. </a>
-							</h2>
-							<div class="block-inline">
-								<div class="rating">
-									<span class="star active"></span> <span class="star active"></span>
-									<span class="star active"></span> <span class="star"></span> <span
-										class="star"></span>
-								</div>
-								<div class="prod-price font-2">
-									<ins style="font-family: 'IRANSansNor' !important;">۳۰۰۰۰۰۰</ins>
-									<del style="font-family: 'IRANSansNor' !important;">۳۶۰۰۰۰۰</del>
-								</div>
-							</div>
-							<div class="block-inline">
-								<ul class="prod-meta">
-									<li><a class="fa fa-heart meta-icon"></a></li>
-									<li><a class="fa fa-retweet meta-icon"></a></li>
-									<li><a class="theme-btn btn-black"
-										style="font-family: 'IRANSansNor' !important;"> اضافه به
-											سبد </a></li>
-								</ul>
-							</div>
-							</figcaption> </figure>
+							<figcaption class="prod-content"> </figcaption> </figure>
 						</div>
 					</div>
 					<div class="item">
@@ -246,41 +145,12 @@
 							<div class="prod-img">
 								<a class="img-hover"> <img src="resources/images/pro3.jpg"
 									alt="product" />
-								</a> <span class="prod-cat">Yamaha t1</span>
-								<div class="prod-tag-1 font-2">
-									<span style="font-family: 'IRANSansNor' !important;">
-										NEW </span>
-								</div>
-								<a class="caption-link meta-icon" data-toggle="modal"
-									href="#login-popup"> <span class="fa fa-eye"> </span>
-								</a>
+								</a> <span class="prod-cat"
+									style="font-family: 'IRANSansBold' !important;">لوازم
+									موسیقی</span>
+
 							</div>
-							<figcaption class="prod-content">
-							<h2 class="prod-title">
-								<a style="font-family: 'IRANSansNor' !important;"> جدیدترین
-									محصول شرکت یاماها .. </a>
-							</h2>
-							<div class="block-inline">
-								<div class="rating">
-									<span class="star active"></span> <span class="star active"></span>
-									<span class="star active"></span> <span class="star"></span> <span
-										class="star"></span>
-								</div>
-								<div class="prod-price font-2">
-									<ins style="font-family: 'IRANSansNor' !important;">۱۱۳۰۰۰۰</ins>
-									<del style="font-family: 'IRANSansNor' !important;">۲۰۰۰۰۰۰</del>
-								</div>
-							</div>
-							<div class="block-inline">
-								<ul class="prod-meta">
-									<li><a class="fa fa-heart meta-icon"></a></li>
-									<li><a class="fa fa-retweet meta-icon"></a></li>
-									<li><a class="theme-btn btn-black"
-										style="font-family: 'IRANSansNor' !important;"> اضافه به
-											سبد </a></li>
-								</ul>
-							</div>
-							</figcaption> </figure>
+							<figcaption class="prod-content"> </figcaption> </figure>
 						</div>
 					</div>
 					<div class="item">
@@ -289,40 +159,11 @@
 							<div class="prod-img">
 								<a class="img-hover"> <img src="resources/images/ps4.jpg"
 									alt="product" />
-								</a> <span class="prod-cat">PS4</span>
-								<div class="prod-tag-1 font-2">
-									<span style="font-family: 'IRANSansNor' !important;">
-										NEW </span>
-								</div>
-								<a class="caption-link meta-icon" data-toggle="modal"
-									href="#login-popup"> <span class="fa fa-eye"> </span>
-								</a>
+								</a> <span class="prod-cat"
+									style="font-family: 'IRANSansBold' !important;">کنسول</span>
+
 							</div>
-							<figcaption class="prod-content">
-							<h2 class="prod-title">
-								<a style="font-family: 'IRANSansNor' !important;"> این محصول
-									فوق العاده از .. </a>
-							</h2>
-							<div class="block-inline">
-								<div class="rating">
-									<span class="star active"></span> <span class="star active"></span>
-									<span class="star active"></span> <span class="star"></span> <span
-										class="star"></span>
-								</div>
-								<div class="prod-price font-2">
-									<ins>۲۰۰۰۰۰۰</ins>
-								</div>
-							</div>
-							<div class="block-inline">
-								<ul class="prod-meta">
-									<li><a class="fa fa-heart meta-icon"></a></li>
-									<li><a class="fa fa-retweet meta-icon"></a></li>
-									<li><a class="theme-btn btn-black"
-										style="font-family: 'IRANSansNor' !important;"> اضافه به
-											سبد </a></li>
-								</ul>
-							</div>
-							</figcaption> </figure>
+							<figcaption class="prod-content"> </figcaption> </figure>
 						</div>
 					</div>
 					<div class="item">
@@ -331,50 +172,80 @@
 							<div class="prod-img">
 								<a class="img-hover"> <img src="resources/images/pro1.jpg"
 									alt="product" />
-								</a> <span class="prod-cat">PS4</span>
-								<div class="prod-tag-1 font-2">
-									<span style="font-family: 'IRANSansNor' !important;">
-										NEW </span>
-								</div>
-								<a class="caption-link meta-icon" data-toggle="modal"
-									href="#login-popup"> <span class="fa fa-eye"> </span>
-								</a>
+								</a> <span class="prod-cat"
+									style="font-family: 'IRANSansBold' !important;">دوربین
+									مدار بسته</span>
+
 							</div>
 							<figcaption class="prod-content">
-							<h2 class="prod-title">
-								<a style="font-family: 'IRANSansNor' !important;"> این محصول
-									فوق العاده از .. </a>
-							</h2>
-							<div class="block-inline">
-								<div class="rating">
-									<span class="star active"></span> <span class="star active"></span>
-									<span class="star active"></span> <span class="star"></span> <span
-										class="star"></span>
-								</div>
-								<div class="prod-price font-2">
-									<ins>۲۰۰۰۰۰۰</ins>
-								</div>
-							</div>
-							<div class="block-inline">
-								<ul class="prod-meta">
-									<li><a class="fa fa-heart meta-icon"></a></li>
-									<li><a class="fa fa-retweet meta-icon"></a></li>
-									<li><a class="theme-btn btn-black"
-										style="font-family: 'IRANSansNor' !important;"> اضافه به
-											سبد </a></li>
-								</ul>
-							</div>
+							<div class="block-inline"></div>
 							</figcaption> </figure>
 						</div>
 					</div>
 				</div>
+
 			</div>
-			</section> <!-- / Featured Product Ends -->
+			</section>  <!-- / Featured Product Ends -->
+<!-- 
+			<div>
+				<div class="container theme-container">
+					<div class="row">
+					<div class="col-md-1"></div>
+						<div class="col-md-5">
+							<section class="main" style="direction:ltr!important">
+
+							<div class="ia-container">
+
+								<figure> <img src="resources/homeEffect/images/1.jpg"
+									alt="image01" /> <input type="radio" name="radio-set"
+									checked="checked" /> <figcaption>
+								<span>True Colors</span></figcaption> <figure> <img
+									src="resources/homeEffect/images/2.jpg" alt="image02" /> <input
+									type="radio" name="radio-set" /> <figcaption>
+								<span>Honest Light</span></figcaption> <figure> <img
+									src="resources/homeEffect/images/3.jpg" alt="image03" /> <input
+									type="radio" name="radio-set" /> <figcaption>
+								<span>Silent Serenity</span></figcaption> <figure> <img
+									src="resources/homeEffect/images/4.jpg" alt="image04" /> <input
+									type="radio" name="radio-set" /> <figcaption>
+								<span>Warm Welcome</span></figcaption> <figure> <img
+									src="resources/homeEffect/images/5.jpg" alt="image05" /> <input
+									type="radio" name="radio-set" /> <figcaption>
+								<span>Sensible Magic</span></figcaption> <figure> <img
+									src="resources/homeEffect/images/6.jpg" alt="image06" /> <input
+									type="radio" name="radio-set" /> <figcaption>
+								<span>Lovely Midnight</span></figcaption> <figure> <img
+									src="resources/homeEffect/images/7.jpg" alt="image07" /> <input
+									type="radio" name="radio-set" /> <figcaption>
+								<span>Illuminated Darkness</span></figcaption> <figure> <img
+									src="resources/homeEffect/images/8.jpg" alt="image08" /> <input
+									id="ia-selector-last" type="radio" name="radio-set" /> <figcaption>
+								<span>Happy Child</span></figcaption> </figure> </figure> </figure> </figure> </figure> </figure> </figure> </figure>
+
+							</div>
+							ia-container </section>
+						</div>
+						<div class="col-md-5" style="padding-top: 30px;">
+							<div style="height: 150px;width: 100%;background-color: red;"></div>
+							<div style="height: 150px;width: 100%;background-color: green;"></div>
+							<div style="height: 150px;width: 100%;background-color: blue;"></div>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+				</div>
+			</div> -->
+
+
+
+
+
+
+
 			<div id="spe"></div>
 
 
 			<img alt="product" src="resources/images/com.jpg" width="1920"
-				height="600" style="max-width: 100%; min-width: 100%;" /> <section
+				height="600" style="max-width: 100%; min-width: 100%;" />  <section
 				class="dealof-day">
 			<div class="container theme-container">
 				<br /> <br />
@@ -389,34 +260,11 @@
 							<div class="prod-img">
 								<a class="img-hover"> <img alt="product"
 									src="resources/Pics/Camera/Edited/4-2.jpg" />
-								</a> <span class="prod-cat">Camera n8</span>
-								<div class="prod-tag-1 font-2">
-									<span> SALE </span>
-								</div>
-								<a class="caption-link meta-icon" data-toggle="modal"
-									href="#login-popup"> <span class="fa fa-eye"> </span>
-								</a>
+								</a> <span class="prod-cat"
+									style="font-family: 'IRANSansBold' !important;">دوربین</span>
+
 							</div>
-							<figcaption class="prod-content">
-							<h2 class="prod-title">
-								<a style="font-family: 'IRANSansNor' !important;"> این نمونه
-									از دوربین دید در .. </a>
-							</h2>
-							<div class="block-inline">
-								<div class="rating">
-									<span class="star active"></span> <span class="star active"></span>
-									<span class="star active"></span> <span class="star"></span> <span
-										class="star"></span>
-								</div>
-								<div class="prod-price font-2">
-									<ins style="font-family: 'IRANSansNor' !important;">۱۰۰۰۰۰۰</ins>
-									<del style="font-family: 'IRANSansNor' !important;">۱۲۰۰۰۰۰</del>
-								</div>
-							</div>
-							<div class="deal-cntdwn">
-								<div id="cntdwn-1" class="cntdwn-1"></div>
-							</div>
-							</figcaption> </figure>
+							<figcaption class="prod-content"> </figcaption> </figure>
 						</div>
 					</div>
 					<div class="item">
@@ -425,34 +273,12 @@
 							<div class="prod-img">
 								<a class="img-hover"> <img alt="product"
 									src="resources/images/4-2.jpg" />
-								</a> <span class="prod-cat">SONY l9</span>
-								<div class="prod-tag-1 font-2">
-									<span> SALE </span>
-								</div>
-								<a class="caption-link meta-icon" data-toggle="modal"
-									href="#login-popup"> <span class="fa fa-eye"> </span>
-								</a>
+								</a> <span class="prod-cat"
+									style="font-family: 'IRANSansBold' !important;">لوازم
+									خودرو</span>
+
 							</div>
-							<figcaption class="prod-content">
-							<h2 class="prod-title">
-								<a style="font-family: 'IRANSansNor' !important;"> تجهیزات
-									جانبی خودرو های .. </a>
-							</h2>
-							<div class="block-inline">
-								<div class="rating">
-									<span class="star active"></span> <span class="star active"></span>
-									<span class="star active"></span> <span class="star"></span> <span
-										class="star"></span>
-								</div>
-								<div class="prod-price font-2">
-									<ins style="font-family: 'IRANSansNor' !important;">۱۲۰۰۰۰۰</ins>
-									<del style="font-family: 'IRANSansNor' !important;">۱۴۰۰۰۰۰</del>
-								</div>
-							</div>
-							<div class="deal-cntdwn">
-								<div id="cntdwn-2" class="cntdwn-2"></div>
-							</div>
-							</figcaption> </figure>
+							<figcaption class="prod-content"> </figcaption> </figure>
 						</div>
 					</div>
 					<div class="item">
@@ -461,33 +287,11 @@
 							<div class="prod-img">
 								<a class="img-hover"> <img alt="product"
 									src="resources/Pics/Console/Edited/9-2.jpg" />
-								</a> <span class="prod-cat">PS4</span>
-								<div class="prod-tag-1 font-2">
-									<span> Sale </span>
-								</div>
-								<a class="caption-link meta-icon" data-toggle="modal"
-									href="#login-popup"> <span class="fa fa-eye"> </span>
-								</a>
+								</a> <span class="prod-cat"
+									style="font-family: 'IRANSansBold' !important;">کنسول</span>
+
 							</div>
-							<figcaption class="prod-content">
-							<h2 class="prod-title">
-								<a style="font-family: 'IRANSansNor' !important;"> پلی
-									استیشن از محبوبترین ..</a>
-							</h2>
-							<div class="block-inline">
-								<div class="rating">
-									<span class="star active"></span> <span class="star active"></span>
-									<span class="star active"></span> <span class="star"></span> <span
-										class="star"></span>
-								</div>
-								<div class="prod-price font-2">
-									<ins style="font-family: 'IRANSansNor' !important;">۲۰۰۰۰۰</ins>
-								</div>
-							</div>
-							<div class="deal-cntdwn">
-								<div id="cntdwn-3" class="cntdwn-3"></div>
-							</div>
-							</figcaption> </figure>
+							<figcaption class="prod-content"> </figcaption> </figure>
 						</div>
 					</div>
 					<div class="item">
@@ -496,33 +300,12 @@
 							<div class="prod-img">
 								<a class="img-hover"> <img alt="product"
 									src="resources/Pics/Mobile/Edited/9-2.jpg" />
-								</a> <span class="prod-cat">SAMSUNG s9</span>
-								<div class="prod-tag-1 font-2">
-									<span> Sale </span>
-								</div>
-								<a class="caption-link meta-icon" data-toggle="modal"
-									href="#login-popup"> <span class="fa fa-eye"> </span>
-								</a>
+								</a> <span class="prod-cat"
+									style="font-family: 'IRANSansBold' !important;">تلفن
+									همراه</span>
+
 							</div>
-							<figcaption class="prod-content">
-							<h2 class="prod-title">
-								<a style="font-family: 'IRANSansNor' !important;">زیبایی در
-									طراحی از مهمترین ..</a>
-							</h2>
-							<div class="block-inline">
-								<div class="rating">
-									<span class="star active"></span> <span class="star active"></span>
-									<span class="star active"></span> <span class="star"></span> <span
-										class="star"></span>
-								</div>
-								<div class="prod-price font-2">
-									<ins style="font-family: 'IRANSansNor' !important;">۴۰۰۰۰۰۰</ins>
-								</div>
-							</div>
-							<div class="deal-cntdwn">
-								<div id="cntdwn-4" class="cntdwn-4"></div>
-							</div>
-							</figcaption> </figure>
+							<figcaption class="prod-content"> </figcaption> </figure>
 						</div>
 					</div>
 					<div class="item">
@@ -531,34 +314,13 @@
 							<div class="prod-img">
 								<a class="img-hover"> <img
 									src="resources/Pics/HeadPhones/Edited/1-2.jpg" alt="product" />
-								</a> <span class="prod-cat">DENON n3</span>
-								<div class="prod-tag-1 font-2">
-									<span> Sale </span>
-								</div>
-								<a class="caption-link meta-icon" data-toggle="modal"
-									href="#login-popup"> <span class="fa fa-eye"> </span>
-								</a>
+								</a> <span class="prod-cat"
+									style="font-family: 'IRANSansBold' !important;">لوازم
+									جانبی</span>
+
+
 							</div>
-							<figcaption class="prod-content">
-							<h2 class="prod-title">
-								<a style="font-family: 'IRANSansNor' !important;">هد فن دنون
-									با بهره گیری ..</a>
-							</h2>
-							<div class="block-inline">
-								<div class="rating">
-									<span class="star active"></span> <span class="star active"></span>
-									<span class="star active"></span> <span class="star"></span> <span
-										class="star"></span>
-								</div>
-								<div class="prod-price font-2">
-									<ins style="font-family: 'IRANSansNor' !important;">۲۰۰۰۰۰</ins>
-									<del style="font-family: 'IRANSansNor' !important;">۲۲۰۰۰۰</del>
-								</div>
-							</div>
-							<div class="deal-cntdwn">
-								<div id="cntdwn-5" class="cntdwn-5"></div>
-							</div>
-							</figcaption> </figure>
+							<figcaption class="prod-content"> </figcaption> </figure>
 						</div>
 					</div>
 					<div class="item">
@@ -567,185 +329,30 @@
 							<div class="prod-img">
 								<a class="img-hover"> <img
 									src="resources/Pics/Piano/Edited/8-2.jpg" alt="product" />
-								</a> <span class="prod-cat">yamaha y5</span>
-								<div class="prod-tag-1 font-2">
-									<span> Sale </span>
-								</div>
-								<a class="caption-link meta-icon" data-toggle="modal"
-									href="#login-popup"> <span class="fa fa-eye"> </span>
-								</a>
+								</a> <span class="prod-cat"
+									style="font-family: 'IRANSansBold' !important;">لوازم
+									موسیقی</span>
+
 							</div>
-							<figcaption class="prod-content">
-							<h2 class="prod-title">
-								<a style="font-family: 'IRANSansNor' !important;">این پیانو
-									بر اساس طرحی از ..</a>
-							</h2>
-							<div class="block-inline">
-								<div class="rating">
-									<span class="star active"></span> <span class="star active"></span>
-									<span class="star active"></span> <span class="star"></span> <span
-										class="star"></span>
-								</div>
-								<div class="prod-price font-2">
-									<ins style="font-family: 'IRANSansNor' !important;">۱۳۰۰۰۰۰</ins>
-									<del style="font-family: 'IRANSansNor' !important;">۱۴۰۰۰۰۰</del>
-								</div>
-							</div>
-							<div class="deal-cntdwn">
-								<div id="cntdwn-6" class="cntdwn-6"></div>
-							</div>
-							</figcaption> </figure>
+							<figcaption class="prod-content"> </figcaption> </figure>
 						</div>
 					</div>
 				</div>
 			</div>
-			</section> <!-- / Deal of The Day Ends --> <br />
+			</section>  <!-- / Deal of The Day Ends --> <br />
 			<br />
-			<h2 class="section-title"
-				style="font-family: 'IRANSansBold' !important; text-align: center; color: dimgrey;">
-				ارتباط با اتحادیه</h2>
-			<!-- Counter & Subscribe Starts--> <section class="sec-space"
-				style="padding-top:30px!important;">
+
+
+
+
+
+
+
+
+
+
+			 <section class="dealof-day">
 			<div class="container theme-container">
-				<div class="row">
-					<div class="col-md-6 col-sm-6 text-center subscribe-home3"
-						style="padding-bottom: 5px;">
-						<div class="row rwr">
-							<p:link outcome="about.xhtml">
-								<div class="col-xs-6 col-sm-6">
-									<div class="subscribe-2">
-										<img src="resources/Icones/darbarema.png" alt="" width="100"
-											height="100" />
-									</div>
-								</div>
-							</p:link>
-
-
-							<div class="col-xs-6 col-sm-6">
-								<p:link outcome="aza.xhtml">
-									<div class="subscribe-2">
-										<img src="resources/Icones/heyatmodire.png" alt="" width="100"
-											height="100" />
-									</div>
-								</p:link>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-6 text-center subscribe-home3"
-						style="padding-bottom: 5px;">
-						<div class="row">
-
-							<p:link outcome="sokhan.xhtml">
-								<div class="col-xs-6 col-sm-6">
-									<div class="subscribe-2">
-										<img src="resources/Icones/sokhan.png" alt="" width="100"
-											height="100" />
-									</div>
-								</div>
-							</p:link>
-
-							<div class="col-xs-6 col-sm-6">
-								<div class="subscribe-2">
-									<img src="resources/Icones/moshaverin.png" alt="" width="100"
-										height="100" />
-								</div>
-							</div>
-
-
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6 text-center subscribe-home3"
-						style="padding-bottom: 5px;">
-						<div class="row rwr">
-							<div class="col-xs-6 col-sm-6">
-								<div class="subscribe-2">
-									<img src="resources/Icones/icon_amoozesh.png" alt=""
-										width="100" height="100" />
-								</div>
-							</div>
-							<p:link outcome="senfi.xhtml">
-								<div class="col-xs-6 col-sm-6">
-									<div class="subscribe-2">
-										<img src="resources/Icones/senfi.png" alt="" width="100"
-											height="100" />
-									</div>
-								</div>
-							</p:link>
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-6 text-center subscribe-home3"
-						style="padding-bottom: 5px;">
-						<div class="row">
-							<p:link outcome="danestani.xhtml">
-								<div class="col-xs-6 col-sm-6">
-									<div class="subscribe-2">
-										<img src="resources/Icones/danestani.png" alt="" width="100"
-											height="100" />
-									</div>
-
-								</div>
-							</p:link>
-							<div class="col-xs-6 col-sm-6">
-								<div class="subscribe-2">
-									<img src="resources/Icones/comission.png" alt="" width="100"
-										height="100" />
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-6 col-sm-6 text-center subscribe-home3"
-						style="padding-bottom: 5px;">
-						<div class="row rwr">
-							<div class="col-xs-6 col-sm-6">
-								<div class="subscribe-2">
-									<img src="resources/Icones/shekayat.png" alt="" width="100"
-										height="100" />
-								</div>
-							</div>
-							<p:link outcome="jobhome.xhtml">
-								<div class="col-xs-6 col-sm-6">
-									<div class="subscribe-2">
-										<img src="resources/Icones/niazmandi.png" alt="" width="100"
-											height="100" />
-									</div>
-								</div>
-							</p:link>
-
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-6 text-center subscribe-home3"
-						style="padding-bottom: 5px;">
-						<div class="row">
-							<p:link outcome="contact.xhtml">
-								<div class="col-xs-6 col-sm-6">
-									<div class="subscribe-2">
-										<img src="resources/Icones/tamas.png" alt="" width="100"
-											height="100" />
-									</div>
-								</div>
-							</p:link>
-							
-							<div class="col-xs-6 col-sm-6">
-							<p:link outcome="merchantlogin.xhtml">
-								<div class="subscribe-2">
-									<img src="resources/Icones/icon_vorood.png" alt="" width="100"
-										height="100" />
-								</div>
-								</p:link>
-							</div>
-							
-						</div>
-					</div>
-				</div>
-			</div>
-			</section> <!-- / Counter & Subscribe Ends --> <section class="dealof-day">
-			<div class="container theme-container">
-				<!-- Related Post Starts-->
 				<div class="related-blog">
 					<h2 class="section-title pb-30"
 						style="font-family: 'IRANSansBold' !important; text-align: center; color: dimgrey;">
@@ -842,9 +449,9 @@
 					</div>
 				</div>
 			</div>
-			</section> <!-- / Related Post Ends --> <br />
+			</section>  <br />
 
-			<!-- Banner-2 Start --> <section
+			<section
 				class="sec-space sec-banner-2 clearfix"> <p:link
 				outcome="mashahir.xhtml">
 				<div class="banner-1 box-hover col-sm-6">
@@ -864,8 +471,7 @@
 						</div>
 					</div>
 				</div>
-			</p:link> </section> <!-- / Banner-2 Ends --> <br />
-			<!-- Product-Item Starts --> <section>
+			</p:link> </section> <section>
 			<div id="dv1" class="container theme-container">
 
 				<div class="banner-1 box-hover col-md-4 col-sm-6">
@@ -875,16 +481,16 @@
 						<div class="text-middle">
 							<div class="tbl-cell">
 								<p class="section-title pb-15"
-									style="font-family: 'IRANSansBold' !important;">NEWS
-								</p>
-								<p style="font-family: 'IRANSansNor' !important;">Iran and world news</p>
+									style="font-family: 'IRANSansBold' !important;">NEWS</p>
+								<p style="font-family: 'IRANSansNor' !important;">Iran and
+									world news</p>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-6 no-padding img-effect">
-					<a href="#login-popup" data-toggle="modal" class="img-hover"> <img
-						alt="item" src="resources/images/etenes.png" />
+					<a href="news.xhtml" class="img-hover"> <img alt="item"
+						src="resources/images/etenes.png" />
 					</a>
 				</div>
 
@@ -896,8 +502,7 @@
 						<div class="text-middle">
 							<div class="tbl-cell">
 								<p class="section-title pb-15"
-									style="font-family: 'IRANSansBold' !important;">اخبار روز
-								</p>
+									style="font-family: 'IRANSansBold' !important;">اخبار روز</p>
 								<p style="font-family: 'IRANSansNor' !important;">مطالب
 									مربوط به اخبار ایران و جهان</p>
 							</div>
@@ -937,8 +542,8 @@
 
 			<div id="dv2" class="container theme-container" style="display: none">
 				<div class="col-md-4 col-sm-6 no-padding img-effect">
-					<a href="#login-popup" data-toggle="modal" class="img-hover"> <img
-						alt="item" src="resources/images/etenes.png" />
+					<a href="news.xhtml" class="img-hover"> <img alt="item"
+						src="resources/images/etenes.png" />
 					</a>
 				</div>
 				<div class="banner-1 box-hover col-md-4 col-sm-6">
@@ -971,9 +576,9 @@
 						<div class="text-middle">
 							<div class="tbl-cell">
 								<p class="section-title pb-15"
-									style="font-family: 'IRANSansBold' !important;">NEWS
-								</p>
-								<p style="font-family: 'IRANSansNor' !important;">Iran and world news</p>
+									style="font-family: 'IRANSansBold' !important;">NEWS</p>
+								<p style="font-family: 'IRANSansNor' !important;">Iran and
+									world news</p>
 							</div>
 						</div>
 					</div>
@@ -992,8 +597,7 @@
 						<div class="text-middle">
 							<div class="tbl-cell">
 								<p class="section-title pb-15"
-									style="font-family: 'IRANSansBold' !important;">اخبار روز
-								</p>
+									style="font-family: 'IRANSansBold' !important;">اخبار روز</p>
 								<p style="font-family: 'IRANSansNor' !important;">مطالب
 									مربوط به اخبار ایران و جهان</p>
 							</div>
@@ -1006,12 +610,9 @@
 
 
 			</div>
-			</section> <!-- / Product-Item Ends --> </article>
-			<!-- / CONTENT AREA -->
-			<br />
-			<br />
-			<br />
-			<br />
+			</section>  <!-- / Product-Item Ends --> </article>
+
+			<br /> 
 			<h2 class="section-title"
 				style="font-family: 'IRANSansBold' !important; text-align: center; color: dimgrey;">
 				مجتمع تجاری های منتخب</h2>
@@ -1019,7 +620,7 @@
 			<br />
 			<!-- Special Promo Starts-->
 			<section class="special-promo-sec black-mask"> <p:link
-				outcome="singlemojtama.xhtml" styleClass="col-sm-3 col-xs-12 promo">
+				outcome="singlemojtama.xhtml" styleClass="col-sm-3 col-xs-12 promo" target="_blank">
 				<o:graphicImage
 					value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()).mojtamePic1}"
 					dataURI="true" />
@@ -1029,7 +630,7 @@
 				</p>
 				<f:param name="mojtamaId"
 					value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()).mojtameId}" />
-			</p:link> <p:link outcome="singlemojtama.xhtml"
+			</p:link> <p:link outcome="singlemojtama.xhtml" target="_blank"
 				styleClass="col-sm-3 col-xs-12 promo">
 				<o:graphicImage
 					value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-1).mojtamePic1}"
@@ -1038,9 +639,9 @@
 					<h:outputText
 						value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-1).mojtameTitle}" />
 				</p>
-				<f:param name="mojtamaId"
+				<f:param name="mojtamaId" target="_blank"
 					value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-1).mojtameId}" />
-			</p:link> <p:link outcome="singlemojtama.xhtml"
+			</p:link> <p:link outcome="singlemojtama.xhtml" target="_blank"
 				styleClass="col-sm-3 col-xs-12 promo">
 				<o:graphicImage
 					value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-2).mojtamePic1}"
@@ -1051,7 +652,7 @@
 				</p>
 				<f:param name="mojtamaId"
 					value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()-2).mojtameId}" />
-			</p:link> <p:link outcome="singlemojtama.xhtml"
+			</p:link> <p:link outcome="singlemojtama.xhtml" target="_blank"
 				styleClass="col-sm-3 col-xs-12 promo">
 
 				<o:graphicImage
@@ -1067,7 +668,210 @@
 			<!-- / Special Promo  Ends -->
 			<br />
 			<br />
+			<!--  -->
+			<!--  -->
+			<!--  -->
+			<!--  -->
+			<!--  -->
+			<div style="background-color: black;">
+				<div class="container theme-container">
+					<div class="row">
+						<div class="col-md-2 col-sm-4" align="center">
 
+
+							<div class="ih-item circle colored effect19">
+								<p:link outcome="about.xhtml" target="_blank">
+									<div class="img">
+										<img src="resources/Icones2/about.jpg" alt="img" width="150"
+											height="150" />
+									</div>
+									<div class="info">
+										<h3>VIEW</h3>
+									</div>
+								</p:link>
+							</div>
+
+						</div>
+						<div class="col-md-2 col-sm-4" align="center">
+
+
+							<div class="ih-item circle colored effect19">
+								<p:link outcome="aza.xhtml" target="_blank">
+									<div class="img">
+										<img src="resources/Icones2/aza.jpg" alt="img" width="150"
+											height="150" />
+									</div>
+									<div class="info">
+										<h3>VIEW</h3>
+									</div>
+								</p:link>
+							</div>
+
+						</div>
+						<div class="col-md-2 col-sm-4" align="center">
+
+
+							<div class="ih-item circle colored effect19">
+								<p:link outcome="sokhan.xhtml" target="_blank">
+									<div class="img">
+										<img src="resources/Icones2/sokhan.jpg" alt="img" width="150"
+											height="150" />
+									</div>
+									<div class="info">
+										<h3>VIEW</h3>
+									</div>
+								</p:link>
+							</div>
+
+						</div>
+						<div class="col-md-2 col-sm-4" align="center">
+
+							<div class="ih-item circle colored effect19">
+								<p:link outcome="moshaverin.xhtml" target="_blank">
+									<div class="img">
+										<img src="resources/Icones2/moshav.jpg" alt="img" width="150"
+											height="150" />
+									</div>
+									<div class="info">
+										<h3>VIEW</h3>
+									</div>
+								</p:link>
+							</div>
+
+						</div>
+
+
+						<div class="col-md-2 col-sm-4" align="center">
+
+							<div class="ih-item circle colored effect19">
+								<p:link outcome="Commission.xhtml">
+									<div class="img">
+										<img src="resources/Icones2/com.jpg" alt="img" width="150"
+											height="150" />
+									</div>
+									<div class="info">
+										<h3>VIEW</h3>
+									</div>
+								</p:link>
+							</div>
+
+						</div>
+						<div class="col-md-2 col-sm-4" align="center">
+
+
+							<div class="ih-item circle colored effect19">
+								<p:link outcome="contact.xhtml" target="_blank">
+									<div class="img">
+										<img src="resources/Icones2/cont.jpg" alt="img" width="150"
+											height="150" />
+									</div>
+									<div class="info">
+										<h3>VIEW</h3>
+									</div>
+								</p:link>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="row">
+						<div class="col-md-2 col-sm-4" align="center">
+
+
+							<div class="ih-item circle colored effect19">
+								<p:link outcome="senfi.xhtml" target="_blank">
+									<div class="img">
+										<img src="resources/Icones2/mogaa.jpg" alt="img" width="150"
+											height="150" />
+									</div>
+									<div class="info">
+										<h3>VIEW</h3>
+									</div>
+								</p:link>
+							</div>
+
+						</div>
+						<div class="col-md-2 col-sm-4" align="center">
+
+							<div class="ih-item circle colored effect19">
+								<p:link outcome="danestani.xhtml" target="_blank">
+									<div class="img">
+										<img src="resources/Icones2/danes.jpg" alt="img" width="150"
+											height="150" />
+									</div>
+									<div class="info">
+										<h3>VIEW</h3>
+									</div>
+								</p:link>
+							</div>
+
+						</div>
+						<div class="col-md-2 col-sm-4" align="center">
+
+							<div class="ih-item circle colored effect19">
+								<p:link outcome="amozesh.xhtml" target="_blank">
+									<div class="img">
+										<img src="resources/Icones2/amoz.jpg" alt="img" width="150"
+											height="150" />
+									</div>
+									<div class="info">
+										<h3>VIEW</h3>
+									</div>
+								</p:link>
+							</div>
+
+						</div>
+
+						<div class="col-md-2 col-sm-4" align="center">
+
+							<div class="ih-item circle colored effect19">
+								<p:link outcome="shekayat.xhtml" target="_blank">
+									<div class="img">
+										<img src="resources/Icones2/shek.jpg" alt="img" width="150"
+											height="150" />
+									</div>
+									<div class="info">
+										<h3>VIEW</h3>
+									</div>
+								</p:link>
+							</div>
+
+						</div>
+
+						<div class="col-md-2 col-sm-4" align="center">
+							<div class="ih-item circle colored effect19">
+								<p:link outcome="jobhome.xhtml" target="_blank">
+									<div class="img">
+										<img src="resources/images/niro.jpg" alt="img" width="150"
+											height="150" />
+									</div>
+									<div class="info">
+										<h3>VIEW</h3>
+									</div>
+								</p:link>
+							</div>
+
+						</div>
+
+
+						<div class="col-md-2 col-sm-4" align="center">
+
+							<div class="ih-item circle colored effect19">
+								<p:link outcome="homerent.xhtml" target="_blank">
+									<div class="img">
+										<img src="resources/Icones2/melk.jpg" alt="img" width="150"
+											height="150" />
+									</div>
+									<div class="info">
+										<h3>VIEW</h3>
+									</div>
+								</p:link>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
 
 		</ui:define>
 

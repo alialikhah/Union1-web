@@ -3,129 +3,79 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
 
-<h:head>
-	<meta charset="utf-8" />
-	<meta name="robots" content="noodp" />
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-	<meta name="Keywords"
-		content="one, page, template, modern, premium, exclusive" />
-	<meta name="description"
-		content="Premium html one page template available exclusively on themeforest." />
-	<title>نصرالله اورانی پور</title>
-		<link rel="shortcut icon"
-		href="resources/images/logo_black.png" />
-
-	<link rel="stylesheet" type="text/css"
-		href="resources/temp2/assets/css/mnsfy.css" />
-	<link rel="stylesheet" type="text/css" id="skin"
-		href="resources/temp2/assets/css/color/default.css" />
-
-	<style>
-.hero {
-	position: relative;
-	z-index: 1;
-	overflow: hidden;
-	width: 100%;
-	height: 300px !important;
-}
-
-.padding-top-140 {
-	padding-top: 0px !important;
-}
-</style>
-
-<style>
-.block-about-1 p {
-	margin-top: 0em !important;
-	margin-right: 0px!important;
-	margin-bottom: 3em;
-}
-			@media  screen and (max-width : 500px)
-			{
-						#ig2{
-			display: none!important;
-			}
-			#ig1{
-			display: block!important;
-			}
-			}
-</style>
-</h:head>
+<h:head></h:head>
 <body>
-	<div id="page-loader">
-		<div class="container-mid">
-			<div class="spinner-container">
-				<div class="css-spinner"></div>
-			</div>
-		</div>
-	</div>
-	
-	<div id="main">
-		<section id="hero" class="hero hero-2">
-<img id="ig2" src="resources/images/flag.jpg" style="width: 100%; min-height: 100%;"/>
-<img id="ig1" src="resources/images/flag2.jpg" style="width: 100%; min-height: 100%; display: none;"/>
-		</section>
+	<ui:composition template="TEMPLATE.xhtml">
+		<ui:define name="headtemp">
+			<title>نصرالله اورانی پور</title>
+			<style>
+</style>
 
-		<section id="about">
-		<div
-			class="content bg-white block-about-1 padding-top-140 padding-bot-130">
-			<div class="container text-left">
-				<div class="row padding-top-50">
-					<div class="col-sm-12">
-							<img class="img-responsive scroll-animated-from-bottom"
-							src="resources/images/2w.jpg" alt="image" style="max-width: 500px!important; max-height: 500px!important;" align="left"/>
-						
-						<p class="scroll-animated-from-bottom"
-							style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl;">
-							<b>نصرالله اورانی پور</b><br/>
-							<b style="font-size: 16px!important;">خزانه دار اتحادیه فروشندگان لوازم صوتی ، تصویری ، تلفن همراه و لوازم جانبی  </b><br/><br/>
-							در 26/02/1328 در شهر کرمانشاه متولد و در سال 1351 فارغ التحصیل کارشناسی رشته علوم ( اداری ، مدیریت اجرایی ، مدیریت سازمان ها و اصول و فنون تاکتیک ) هستم .
-در این مدت دوره های آموزشی قوانین و مقررات نظام صنفی ، دوره های مرتبط با صنوف ، مشاغل و مطالعات مستمر در مورد مسائل مالیاتی ، بیمه ، کار و تامین اجتماعی را گذرانده ام و در انتها بزرگ ترین آموزه ام از بزرگان و پیشکسوتـان صنفی بوده که بیشترین افتخار من است و تلفیق علم و تجربه را آموزشی بزرگ می دانم . یادآور می شوم سابقه 25 سال در تشکل های صنفی صوت و تصویر نشان و اعتبار کاری در یادگیری از اساتید پیشکسوت صنفی را داریم . 
-فعالیت های اجرایی بنده اعم از 45 سال سابقه در امور اداری و کسبی ، 25 سال سابقه در امور تعاونی و اتحادیه ، بنیانگذار شرکت تعاونی صنف فروشندگان دستگاه های صوتی و تصویری ، تلفن همراه و لوازم جانبی ، بنیانگذار بیمه تکمیلی درمان گروهی از سال 1374 ، بنیانگذار هیئت مدیره پاساژ بزرگ لباف ( شمال میدان امام ) از سال 1368 ، نائب رئیس اتحادیه صوت و تصویری ، تلفن همراه و قطعات یدکی تهران ، نائب رئیس اتحادیه کشوری صوت و تـصویـری ، تـلفن همراه و لوازم جانبـی ، نـماینده کارفرمایـان اصناف در شعبه 26 تامین اجتماعی تهران (محدوده خیابان جمهوری ، خیابان امام خمینی، خیابان فردوسی غربی ، حدفاصل جمهوری ، خیابان امام خمینی ) ، نماینده صنف در سازمان امور مالیاتی شرق تهران و جنوب تهران می باشم . .</p>
+		</ui:define>
 
-													<p class="scroll-animated-from-bottom"
-							style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl;"><br/>
-							<b> در نهایت خدمت گذار کلیه اعضاء و مسئول مالی ( خزانه دار ) در انتخابات هیئت مدیره مورخه 03/08/1396 اتحادیه لوازم صوتی ، تصویری ، تلفن همراه و لوازم جانبی می باشم . </b>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		</section>
+		<ui:define name="maintemp">
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="shopName" />
+				</f:metadata>
+			</ui:define>
 
-
-
-
-
-
-		<footer>
+			<!-- CONTENT AREA -->
+			<article> <br />
 			<div
-				class="content bg-black bg-parallax block-footer-1 padding-top-110 padding-bot-150">
-				<div class="container">
+				style="border: solid 5px; border-radius: 70px 10px 70px 70px; border-color: darkgrey; background-image: url('resources/images/back.jpg'); max-width: 1600px; margin: auto;">
+				<div class="container theme-container ptb-70">
 					<div class="row">
-						<div class="col-lg-12 text-center">
+						<div class="col-sm-12">
+							<img class="img-responsive scroll-animated-from-bottom"
+								src="resources/azaimage/3.png" alt="image" align="left"
+								width="400" />
 
+							<p class="scroll-animated-from-bottom"
+								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl;">
+								<b>نصرالله اورانی پور</b><br /> <b
+									style="font-size: 16px !important;">خزانه دار اتحادیه
+									فروشندگان لوازم صوتی ، تصویری ، تلفن همراه و لوازم جانبی </b><br />
+								<br /> در ۱۳۲۸/۲/۲۸ در شهر کرمانشاه متولد و در سال ۱۳۵۱ فارغ
+								التحصیل کارشناسی رشته علوم ( اداری ، مدیریت اجرایی ، مدیریت
+								سازمان ها و اصول و فنون تاکتیک ) هستم . در این مدت دوره های
+								آموزشی قوانین و مقررات نظام صنفی ، دوره های مرتبط با صنوف ،
+								مشاغل و مطالعات مستمر در مورد مسائل مالیاتی ، بیمه ، کار و تامین
+								اجتماعی را گذرانده ام و در انتها بزرگ ترین آموزه ام از بزرگان و
+								پیشکسوتـان صنفی بوده که بیشترین افتخار من است و تلفیق علم و
+								تجربه را آموزشی بزرگ می دانم . یادآور می شوم سابقه ۲۵ سال در
+								تشکل های صنفی صوت و تصویر نشان و اعتبار کاری در یادگیری از
+								اساتید پیشکسوت صنفی را داریم . فعالیت های اجرایی بنده اعم از ۴۵
+								سال سابقه در امور اداری و کسبی ، ۲۵ سال سابقه در امور تعاونی و
+								اتحادیه ، بنیانگذار شرکت تعاونی صنف فروشندگان دستگاه های صوتی و
+								تصویری ، تلفن همراه و لوازم جانبی ، بنیانگذار بیمه تکمیلی درمان
+								گروهی از سال ۱۳۷۴ ، بنیانگذار هیئت مدیره پاساژ بزرگ لباف ( شمال
+								میدان امام ) از سال ۱۳۶۸ ، نائب رئیس اتحادیه صوت و تصویری ، تلفن
+								همراه و قطعات یدکی تهران ، نائب رئیس اتحادیه کشوری صوت و
+								تـصویـری ، تـلفن همراه و لوازم جانبـی ، نـماینده کارفرمایـان
+								اصناف در شعبه ۲۶ تامین اجتماعی تهران (محدوده خیابان جمهوری ،
+								خیابان امام خمینی، خیابان فردوسی غربی ، حدفاصل جمهوری ، خیابان
+								امام خمینی ) ، نماینده صنف در سازمان امور مالیاتی شرق تهران و
+								جنوب تهران می باشم . .
+							</p>
+
+							<p class="scroll-animated-from-bottom"
+								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl;">
+								<br /> <b> در نهایت خدمت گذار کلیه اعضاء و مسئول مالی (
+									خزانه دار ) در انتخابات هیئت مدیره مورخه ۱۳۹۶/۸/۳ اتحادیه
+									لوازم صوتی ، تصویری ، تلفن همراه و لوازم جانبی می باشم . </b>
+							</p>
 						</div>
 					</div>
 				</div>
-				<div class="scroll-top">
-					<div class="scroll-top-inner scroll-animated-from-bottom">
-						<span class="ti-arrow-up"></span>
-					</div>
-				</div>
-				<div class="dzsparallaxer auto-init do-not-set-js-height"
-					data-options="{ mode_scroll: 'normal', animation_duration: '0' , direction: 'reverse' }">
-					<div class="divimage dzsparallaxer--target"
-						style="background-color: black;"></div>
-					<div class="bg-overlay-section"></div>
-				</div>
 			</div>
-		</footer>
-	</div>
-	<script type="text/javascript" src="resources/temp2/assets/js/jfoachm.js"></script>
-	<script type="text/javascript" src="resources/temp2/assets/js/mwlcjnm.js"></script>
+			</article>
+			<br />
+		</ui:define>
+	</ui:composition>
 </body>
 </html>

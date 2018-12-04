@@ -1,6 +1,7 @@
 package jsfui;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -14,6 +15,7 @@ import org.apache.commons.io.IOUtils;
 
 import dao.entity.NaghdOBaresiEntity;
 import dao.entity.SliderEntity;
+import service.SingletonServiceLocal;
 import service.SliderServiceLocal;
 
 @Named
@@ -25,9 +27,11 @@ public class SliderBean {
 	}
 	@Inject
 	private SliderServiceLocal sliderServiceLocal;
-	
+	@Inject
+	private SingletonServiceLocal singletonServiceLocal;
 	private Part sliderImg;
 	private String sliderTitle;
+
 	public Part getSliderImg() {
 		return sliderImg;
 	}
@@ -41,6 +45,7 @@ public class SliderBean {
 		this.sliderTitle = sliderTitle;
 	}
 	
+
 	public void insertToSlider() throws IOException {
 		FacesContext context = FacesContext.getCurrentInstance();
 		SliderEntity sliderEntity=new SliderEntity();
@@ -81,6 +86,12 @@ public class SliderBean {
 		}
 		
     }
+    
+    public List<SliderEntity> findAllSlider2(){
+    	return singletonServiceLocal.getSliderList();
+    }
+    
+    
     
 	public void updateSliderTitle(long slideId) throws IOException {
 		FacesContext context = FacesContext.getCurrentInstance();

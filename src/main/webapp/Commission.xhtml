@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<h:head></h:head>
+<body>
+	<ui:composition template="TEMPLATE.xhtml">
+		<ui:define name="headtemp">
+			<title>کمیسیون ها</title>
+	<link href="resources/css/amozesh.css"
+		rel="stylesheet" type="text/css" />
+		</ui:define>
+
+		<ui:define name="maintemp">
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="shopName" />
+				</f:metadata>
+			</ui:define>
+
+			<!-- CONTENT AREA -->
+			<article> <br />
+			<div
+				style="border: solid 5px; border-radius: 70px 10px 70px 70px; border-color: darkgrey; background-image: url('resources/images/back.jpg'); max-width: 1600px; margin: auto;">
+				<div class="container theme-container ptb-70">
+					<div class="row">
+						<div class="col-md-3 col-sm-6" align="center">
+							<p:link outcome="commision1.xhtml">
+								<h:graphicImage value="/resources/danestaniImage/com.png" />
+								<h4>
+									<b>کمیسیون رسیدگی به شکایات</b>
+								</h4>
+
+							</p:link>
+						</div>
+						<div class="col-md-3 col-sm-6" align="center">
+							<p:link outcome="commision2.xhtml">
+								<h:graphicImage value="/resources/danestaniImage/thumbnail21.png" />
+								<h4>
+									<b>کمیسیون حل اختلاف</b>
+								</h4>
+
+							</p:link>
+						</div>
+						<div class="col-md-3 col-sm-6" align="center">
+							<p:link outcome="commision3.xhtml">
+								<h:graphicImage value="/resources/danestaniImage/thumbnail31.png" />
+								<h4>
+									<b>کمیسیون آموزشی</b>
+								</h4>
+
+							</p:link>
+						</div>
+						<div class="col-md-3 col-sm-6" align="center">
+							<p:link outcome="commision4.xhtml">
+								<h:graphicImage value="/resources/danestaniImage/thumbnail41.png" />
+								<h4>
+									<b>کمیسیون فنی</b>
+								</h4>
+
+							</p:link>
+						</div>
+
+					</div>
+										<div class="row">
+						<div class="col-md-3 col-sm-6" align="center">
+							<p:link outcome="commision5.xhtml">
+								<h:graphicImage value="/resources/images/bazresi.png" />
+								<h4>
+									<b>کمیسیون بازرسی</b>
+								</h4>
+
+							</p:link>
+						</div>
+						<div class="col-md-3 col-sm-6" align="center">
+							<p:link outcome="commision6.xhtml">
+								<h:graphicImage value="/resources/images/sayer.png" />
+								<h4>
+									<b>سایر مقررات</b>
+								</h4>
+
+							</p:link>
+						</div>
+						<div class="col-md-3 col-sm-6" align="center">
+						</div>
+						<div class="col-md-3 col-sm-6" align="center">
+						</div>
+
+					</div>
+				</div>
+			</div>
+			</article>
+			<br />
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

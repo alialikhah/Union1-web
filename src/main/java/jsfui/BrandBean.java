@@ -77,10 +77,8 @@ public class BrandBean {
 		try {
 			for (BrandEntity brand : addBrandServiceLocal.findAllBrands()) {
 				brands.add(brand.getBrandName());
-				System.err.println(brand.getBrandName());
 			}
 		} catch (Exception e) {
-             System.err.println("brand not find");
 		}
 	}
 	

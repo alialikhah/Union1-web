@@ -172,15 +172,14 @@ public class AddProductBean implements Serializable{
 
 	}*/
 	
+
 	@PostConstruct
 	public void init() {
 		Brand[] brand=Brand.values();
 		for (Brand brand2 : brand) {
 			this.allBrand.add(brand2.toString());
-			System.err.println(brand2.toString());
 		}
 	}
-	
 	
 	
 

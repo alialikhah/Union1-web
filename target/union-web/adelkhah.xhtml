@@ -3,141 +3,68 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
 
-<h:head>
-	<meta charset="utf-8" />
-	<meta name="robots" content="noodp" />
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-	<meta name="Keywords"
-		content="one, page, template, modern, premium, exclusive" />
-	<meta name="description"
-		content="Premium html one page template available exclusively on themeforest." />
-	<title>احمد عادل خواه</title>
-		<link rel="shortcut icon"
-		href="resources/images/logo_black.png" />
-	<link rel="stylesheet" type="text/css"
-		href="resources/temp2/assets/css/mnsfy.css" />
-	<link rel="stylesheet" type="text/css" id="skin"
-		href="resources/temp2/assets/css/color/default.css" />
-
-	<style>
-.hero {
-	position: relative;
-	z-index: 1;
-	overflow: hidden;
-	width: 100%;
-	height: 300px !important;
-}
-
-.padding-top-140 {
-	padding-top: 0px !important;
-}
-</style>
-
-	<style>
-.block-about-1 p {
-	margin-top: 0em !important;
-	margin-right: 0px!important;
-	margin-bottom: 3em;
-}
-			@media  screen and (max-width : 500px)
-			{
-						#ig2{
-			display: none!important;
-			}
-			#ig1{
-			display: block!important;
-			}
-			}
-</style>
-</h:head>
+<h:head></h:head>
 <body>
-	<div id="page-loader">
-		<div class="container-mid">
-			<div class="spinner-container">
-				<div class="css-spinner"></div>
-			</div>
-		</div>
-	</div>
+	<ui:composition template="TEMPLATE.xhtml">
+		<ui:define name="headtemp">
+			<title>احمد عادل خواه</title>
+			<style>
+</style>
 
-	<div id="main">
-		<section id="hero" class="hero hero-2">
-<img id="ig2" src="resources/images/flag.jpg" style="width: 100%; min-height: 100%;"/>
-<img id="ig1" src="resources/images/flag2.jpg" style="width: 100%; min-height: 100%; display: none;"/>
-		</section>
+		</ui:define>
 
-		<section id="about">
-		<div
-			class="content bg-white block-about-1 padding-top-140 padding-bot-130">
-			<div class="container text-left">
-				<div class="row padding-top-50">
-					<div class="col-sm-12">
-						<img class="img-responsive scroll-animated-from-bottom"
-							src="resources/images/9w.jpg" alt="image"
-							style="max-width: 500px !important; max-height: 500px !important;"
-							align="left" />
+		<ui:define name="maintemp">
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="shopName" />
+				</f:metadata>
+			</ui:define>
 
-						<p class="scroll-animated-from-bottom"
-							style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl;">
-							<b>احمد عادل خواه</b><br /> <b
-								style="font-size: 16px !important;">نائب رئیس اول اتحادیه
-								لوازم فروشندگان لوازم صوتی ، تصویری ، تلفن همراه و لوازم جانبی</b><br />
-							<br /> در 20/07/1337 در شهر مشهد متولد و دارای مدرک کاردانی رشته
-							مکانیک عمومی در سال 1357 و همچنین دارای مدرک دوره ناپیوسته مدیریت
-							بازرگانی هستم . طی این مدت ، 37 سال سابقه صنفی و عضویت در اتحادیه
-							، 10 سال سابقه در بازار گوشی تلفن همراه ، ریاست و عضو در شرکت
-							تعاونی صوت و تصویر تهران ، عضو شورای حل اختلاف 2732 ، عضو هیئت
-							مدیره اتحادیه به مدت 17 سال ( 8 سال به سمت خزانه دار ، 7 سال به
-							عنوان بازرس اتحادیه و 2 سال نائب رئیس اول اتحادیه ) را برعهده
-							داشته ام . ضناً مقام اول مسابقات شطرنج دهه فجر اتاق اصناف تهران
-							را کسب کرده ام 
-						</p>
+			<!-- CONTENT AREA -->
+			<article> <br />
+			<div
+				style="border: solid 5px; border-radius: 70px 10px 70px 70px; border-color: darkgrey; background-image: url('resources/images/back.jpg'); max-width: 1600px; margin: auto;">
+				<div class="container theme-container ptb-70">
+					<div class="row">
+						<div class="col-sm-12">
+							<img class="img-responsive scroll-animated-from-bottom"
+								src="resources/azaimage/1.png" alt="image" align="left"
+								width="400" />
 
-						<p class="scroll-animated-from-bottom"
-							style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl;">
-							<br /> <b> در حال حاضر افتخار نائب رئیس اول اتحادیه و نماینده
-								کمیسیون دارایی مرکز شهر تهران را بر عهده دارم و امیدوارم بتوانیم
-								با لطف خدای مهربان و همکاری عزیزان بتوانیم قدم های مثبت در جهت
-								نیل به رسیدن اهداف اصناف محترم قدم برداریم . </b>
-						</p>
+							<p class="scroll-animated-from-bottom"
+								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl;">
+								<b>احمد عادل خواه</b><br /> <b
+									style="font-size: 16px !important;">نائب رئیس اول اتحادیه
+									لوازم فروشندگان لوازم صوتی ، تصویری ، تلفن همراه و لوازم جانبی</b><br />
+								<br /> در ۱۳۳۷/۷/۲۰ در شهر مشهد متولد و دارای مدرک کاردانی
+								رشته مکانیک عمومی در سال ۱۳۵۷ و همچنین دارای مدرک دوره ناپیوسته
+								مدیریت بازرگانی هستم . طی این مدت ، ۳۷ سال سابقه صنفی و عضویت در
+								اتحادیه ، ۱۰ سال سابقه در بازار گوشی تلفن همراه ، ریاست و عضو در
+								شرکت تعاونی صوت و تصویر تهران ، عضو شورای حل اختلاف ۲۷۳۲ ، عضو
+								هیئت مدیره اتحادیه به مدت ۱۷ سال ( ۸ سال به سمت خزانه دار ، ۷
+								سال به عنوان بازرس اتحادیه و ۲ سال نائب رئیس اول اتحادیه ) را
+								برعهده داشته ام . ضناً مقام اول مسابقات شطرنج دهه فجر اتاق اصناف
+								تهران را کسب کرده ام
+							</p>
+
+							<p class="scroll-animated-from-bottom"
+								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 22px; direction: rtl;">
+								<br /> <b> در حال حاضر افتخار نائب رئیس اول اتحادیه و
+									نماینده کمیسیون دارایی مرکز شهر تهران را بر عهده دارم و
+									امیدوارم بتوانیم با لطف خدای مهربان و همکاری عزیزان بتوانیم قدم
+									های مثبت در جهت نیل به رسیدن اهداف اصناف محترم قدم برداریم . </b>
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		</section>
-
-
-
-
-
-
-		<footer>
-		<div
-			class="content bg-black bg-parallax block-footer-1 padding-top-110 padding-bot-150">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 text-center"></div>
-				</div>
-			</div>
-			<div class="scroll-top">
-				<div class="scroll-top-inner scroll-animated-from-bottom">
-					<span class="ti-arrow-up"></span>
-				</div>
-			</div>
-			<div class="dzsparallaxer auto-init do-not-set-js-height"
-				data-options="{ mode_scroll: 'normal', animation_duration: '0' , direction: 'reverse' }">
-				<div class="divimage dzsparallaxer--target"
-					style="background-color: black;"></div>
-				<div class="bg-overlay-section"></div>
-			</div>
-		</div>
-		</footer>
-	</div>
-	<script type="text/javascript"
-		src="resources/temp2/assets/js/jfoachm.js"></script>
-	<script type="text/javascript"
-		src="resources/temp2/assets/js/mwlcjnm.js"></script>
+			</article>
+			<br />
+		</ui:define>
+	</ui:composition>
 </body>
 </html>

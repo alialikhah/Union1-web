@@ -2,7 +2,9 @@ package jsfui;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.security.SignatureException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -30,6 +32,7 @@ import dao.entity.BrandEntity;
 import dao.entity.MerchantEntity;
 import service.AddBrandServiceLocal;
 import service.MerchantRegisterServiceLocal;
+import service.SingletonServiceLocal;
 
 @Named
 @RequestScoped
@@ -43,6 +46,8 @@ public class MerchantRegisterBean implements Serializable {
 	public MerchantRegisterBean() {
 		// TODO Auto-generated constructor stub
 	}
+	@Inject
+	private SingletonServiceLocal singletonServiceLocal;
 
 	private String merchantName; // 4
 	private String merchantFamily; // 44
@@ -128,6 +133,19 @@ public class MerchantRegisterBean implements Serializable {
 	private boolean watsupShow;
 	private boolean twiterShow;
 	private boolean haveLogo;
+	
+	private BrandEntity brand2;
+	
+	
+	
+
+	public BrandEntity getBrand2() {
+		return brand2;
+	}
+
+	public void setBrand2(BrandEntity brand2) {
+		this.brand2 = brand2;
+	}
 	private List<BrandEntity> brandPartList = new ArrayList<>();
 
 	public List<BrandEntity> getBrandPartList() {
@@ -778,9 +796,6 @@ public class MerchantRegisterBean implements Serializable {
 
 	@PostConstruct
 	public void addLists() {
-
-		System.err.println("################################");
-
 		Area[] areas = Area.values();
 		for (Area area : areas) {
 			this.areas.add(area.getAreaName());
@@ -800,7 +815,6 @@ public class MerchantRegisterBean implements Serializable {
 		Occupation[] occupations = Occupation.values();
 		for (Occupation occupation : occupations) {
 			this.occupations.add(occupation.getOccName());
-			System.err.println(occupation);
 		}
 
 		SocialNetwork[] socialNetwork = SocialNetwork.values();
@@ -1020,19 +1034,16 @@ public class MerchantRegisterBean implements Serializable {
 		for (char c : yearchar) {
 			yearstr += c;
 		}
-		System.err.println(yearstr);
 
 		ans.getChars(4, 6, monthchar, 0);
 		for (char cc : monthchar) {
 			monthstr += cc;
 		}
-		System.err.println(monthstr);
 
 		ans.getChars(6, 8, daychar, 0);
 		for (char ccc : daychar) {
 			daystr += ccc;
 		}
-		System.err.println(daystr);
 
 		return jalali_to_gregorian2(Integer.parseInt(yearstr), Integer.parseInt(monthstr), Integer.parseInt(daystr));
 
@@ -1073,9 +1084,6 @@ public class MerchantRegisterBean implements Serializable {
 			gd -= v;
 		}
 		int[] out = { gy, gm, gd };
-		System.err.println("year:" + gy);
-		System.err.println("month:" + gm);
-		System.err.println("day:" + gd);
 		// Date date=new Date(gy,gm,gd);
 		Calendar calendar = new GregorianCalendar(gy, gm - 1, gd);
 		Date date = new Date();
@@ -1091,7 +1099,6 @@ public class MerchantRegisterBean implements Serializable {
 		for (String t : arr) {
 			ans += t;
 		}
-		System.err.println(ans);
 		char[] daychar = new char[2];
 		char[] monthchar = new char[2];
 		char[] yearchar = new char[4];
@@ -1102,19 +1109,16 @@ public class MerchantRegisterBean implements Serializable {
 		for (char c : yearchar) {
 			yearstr += c;
 		}
-		System.err.println(yearstr);
 
 		ans.getChars(4, 6, monthchar, 0);
 		for (char cc : monthchar) {
 			monthstr += cc;
 		}
-		System.err.println(monthstr);
 
 		ans.getChars(6, 8, daychar, 0);
 		for (char ccc : daychar) {
 			daystr += ccc;
 		}
-		System.err.println(daystr);
 
 		return jalali_to_gregorian3(Integer.parseInt(yearstr), Integer.parseInt(monthstr), Integer.parseInt(daystr));
 
@@ -1155,10 +1159,6 @@ public class MerchantRegisterBean implements Serializable {
 			gd -= v;
 		}
 		int[] out = { gy, gm, gd };
-		System.err.println("year:" + gy);
-		System.err.println("month:" + gm);
-		System.err.println("day:" + gd);
-		// Date date=new Date(gy,gm,gd);
 		Calendar calendar = new GregorianCalendar(gy, gm - 1, gd);
 		Date date = new Date();
 		date = calendar.getTime();
@@ -1173,7 +1173,6 @@ public class MerchantRegisterBean implements Serializable {
 		for (String t : arr) {
 			ans += t;
 		}
-		System.err.println(ans);
 		char[] daychar = new char[2];
 		char[] monthchar = new char[2];
 		char[] yearchar = new char[4];
@@ -1184,19 +1183,16 @@ public class MerchantRegisterBean implements Serializable {
 		for (char c : yearchar) {
 			yearstr += c;
 		}
-		System.err.println(yearstr);
 
 		ans.getChars(4, 6, monthchar, 0);
 		for (char cc : monthchar) {
 			monthstr += cc;
 		}
-		System.err.println(monthstr);
 
 		ans.getChars(6, 8, daychar, 0);
 		for (char ccc : daychar) {
 			daystr += ccc;
 		}
-		System.err.println(daystr);
 
 		return jalali_to_gregorian3(Integer.parseInt(yearstr), Integer.parseInt(monthstr), Integer.parseInt(daystr));
 
@@ -1237,10 +1233,7 @@ public class MerchantRegisterBean implements Serializable {
 			gd -= v;
 		}
 		int[] out = { gy, gm, gd };
-		System.err.println("year:" + gy);
-		System.err.println("month:" + gm);
-		System.err.println("day:" + gd);
-		// Date date=new Date(gy,gm,gd);
+
 		Calendar calendar = new GregorianCalendar(gy, gm - 1, gd);
 		Date date = new Date();
 		date = calendar.getTime();
@@ -1255,7 +1248,6 @@ public class MerchantRegisterBean implements Serializable {
 		for (String t : arr) {
 			ans += t;
 		}
-		System.err.println(ans);
 		char[] daychar = new char[2];
 		char[] monthchar = new char[2];
 		char[] yearchar = new char[4];
@@ -1266,19 +1258,16 @@ public class MerchantRegisterBean implements Serializable {
 		for (char c : yearchar) {
 			yearstr += c;
 		}
-		System.err.println(yearstr);
 
 		ans.getChars(4, 6, monthchar, 0);
 		for (char cc : monthchar) {
 			monthstr += cc;
 		}
-		System.err.println(monthstr);
 
 		ans.getChars(6, 8, daychar, 0);
 		for (char ccc : daychar) {
 			daystr += ccc;
 		}
-		System.err.println(daystr);
 
 		return jalali_to_gregorian3(Integer.parseInt(yearstr), Integer.parseInt(monthstr), Integer.parseInt(daystr));
 
@@ -1319,10 +1308,6 @@ public class MerchantRegisterBean implements Serializable {
 			gd -= v;
 		}
 		int[] out = { gy, gm, gd };
-		System.err.println("year:" + gy);
-		System.err.println("month:" + gm);
-		System.err.println("day:" + gd);
-		// Date date=new Date(gy,gm,gd);
 		Calendar calendar = new GregorianCalendar(gy, gm - 1, gd);
 		Date date = new Date();
 		date = calendar.getTime();
@@ -1348,19 +1333,16 @@ public class MerchantRegisterBean implements Serializable {
 		for (char c : yearchar) {
 			yearstr += c;
 		}
-		System.err.println(yearstr);
 
 		ans.getChars(4, 6, monthchar, 0);
 		for (char cc : monthchar) {
 			monthstr += cc;
 		}
-		System.err.println(monthstr);
 
 		ans.getChars(6, 8, daychar, 0);
 		for (char ccc : daychar) {
 			daystr += ccc;
 		}
-		System.err.println(daystr);
 
 		return jalali_to_gregorian3(Integer.parseInt(yearstr), Integer.parseInt(monthstr), Integer.parseInt(daystr));
 
@@ -1390,7 +1372,6 @@ public class MerchantRegisterBean implements Serializable {
 		int jm = (days < 186) ? 1 + (int) (days / 31) : 7 + (int) ((days - 186) / 30);
 		int jd = 1 + ((days < 186) ? (days % 31) : ((days - 186) % 30));
 		int[] out = { jy, jm, jd };
-		System.err.println("year:" + jy + "mounth:" + jm + "day:" + jd);
 		// return out;
 		// return null;
 		return jy + "-" + jm + "-" + jd;
@@ -1413,21 +1394,48 @@ public class MerchantRegisterBean implements Serializable {
 		for (String brand : this.brandName) {
 			brands += brand + "-";
 		}
-		System.err.println(brands);
 		return brands;
 	}
 
 	public List<BrandEntity> findMerchantBrands(String shopName) {
 		try {
-			String[] barandParts = merchantRegisterServiceLocal.findMerchantByShopNameEng(shopName).getBrands().split("-");
+			String[] barandParts = merchantRegisterServiceLocal.findMerchantByShopNameEng(shopName).getBrands()
+					.split("-");
 			for (String string : barandParts) {
 				this.brandPartList.add(addBrandServiceLocal.findBrandByName(string));
 			}
 			return this.brandPartList;
 		} catch (Exception e) {
-			System.err.println("merchant not find");
 			return null;
 		}
+	}
+	
+
+	public List<BrandEntity> findMerchantBrands2(String shopName) {
+
+		
+			String[] barandParts= {};
+			try {
+		for (MerchantEntity merchantEntity : singletonServiceLocal.getMerchantList()) {
+			if(merchantEntity.getMerchantShopNameEng().equals(shopName)) {
+				barandParts=merchantEntity.getBrands().split("-");
+				for (String string : barandParts) {
+					this.brandPartList.add(this.findBrandByName(string));
+				}
+			}
+			}
+		return this.brandPartList;
+		}catch (Exception e) {
+			return new ArrayList<>();
+			}
+	}
+	public BrandEntity findBrandByName(String brandName) {
+		for (BrandEntity brandEntity : singletonServiceLocal.getBrandList()) {
+			if(brandEntity.getBrandName().equals(brandName)) {
+			 this.brand2=brandEntity;
+			}
+		}
+		return this.brand2;
 	}
 
 	// **********************************************brand**********************
@@ -1476,12 +1484,24 @@ public class MerchantRegisterBean implements Serializable {
 		merchantEntity.setMerchantMobasherat(merchantStewardShip);
 		merchantEntity.setMerchantEMark(merchantEMark);
 		merchantEntity.setShomarehParPaano(shomareParPaano);
+		try {
 		merchantEntity.setMerchantBirthDay(changeDate());
-		//merchantEntity.setMerchantKhateme(changeDate2());
-		//merchantEntity.setMerchantMobasherDate(changeDate3());
+		}catch(Exception e) {
+			merchantEntity.setMerchantBirthDay(null);
+		}
+		// merchantEntity.setMerchantKhateme(changeDate2());
+		// merchantEntity.setMerchantMobasherDate(changeDate3());
+		try {
 		merchantEntity.setMerchantEtebar(changeDate4());
+		}catch (Exception e) {
+			merchantEntity.setMerchantEtebar(null);
+		}
+		try {
 		merchantEntity.setMerchantGarardad(changeDate5());
-		//merchantEntity.setMerchantStart(changeDate6());
+		}catch (Exception e) {
+			merchantEntity.setMerchantGarardad(null);
+		}
+		// merchantEntity.setMerchantStart(changeDate6());
 		merchantEntity.setMerchantInstagramAddres(merchantInstagramAddres);
 		merchantEntity.setMerchantInstagramNumber(merchantInstagramNumber);
 		merchantEntity.setMerchantTelegramAddres(merchantTelegramAddres);
@@ -1503,18 +1523,43 @@ public class MerchantRegisterBean implements Serializable {
 		merchantEntity.setHaveLogo(haveLogo);
 		merchantEntity.setShomarehParUnion(shomareParUnion);
 		merchantEntity.setBrands(this.convertBrand());
+		try {
 		byte[] licenseByte = IOUtils.toByteArray(licenseImage.getInputStream());
-		byte[] shop1Byte = IOUtils.toByteArray(shopImg1.getInputStream());
-		byte[] shop2Byte = IOUtils.toByteArray(shopImg2.getInputStream());
-		byte[] shop3Byte = IOUtils.toByteArray(shopImg3.getInputStream());
-		byte[] shop4Byte = IOUtils.toByteArray(shopImg4.getInputStream());
-		byte[] logoByte = IOUtils.toByteArray(logo.getInputStream());
 		merchantEntity.setLicenceImg(licenseByte);
+		}catch (Exception e) {
+			merchantEntity.setLicenceImg(null);
+		}
+		try {
+		byte[] shop1Byte = IOUtils.toByteArray(shopImg1.getInputStream());
 		merchantEntity.setShopImg2(shop1Byte);
+		}catch (Exception e) {
+			merchantEntity.setShopImg2(null);
+		}
+		try {
+		byte[] shop2Byte = IOUtils.toByteArray(shopImg2.getInputStream());
 		merchantEntity.setShopImg3(shop2Byte);
+		}catch (Exception e) {
+			merchantEntity.setShopImg3(null);
+		}
+		try {
+		byte[] shop3Byte = IOUtils.toByteArray(shopImg3.getInputStream());
 		merchantEntity.setShopImg4(shop3Byte);
+		}catch (Exception e) {
+			merchantEntity.setShopImg4(null);
+		}
+		try {
+		byte[] shop4Byte = IOUtils.toByteArray(shopImg4.getInputStream());
 		merchantEntity.setShopImg5(shop4Byte);
+		}catch (Exception e) {
+			merchantEntity.setShopImg5(null);
+		}
+		try {
+		byte[] logoByte = IOUtils.toByteArray(logo.getInputStream());
 		merchantEntity.setLogo(logoByte);
+		}catch (Exception e) {
+			merchantEntity.setLogo(null);
+		}
+		
 		try {
 			System.err.println(this.brands);
 			merchantRegisterServiceLocal.insertToMarchantEntity(merchantEntity);
@@ -1619,7 +1664,6 @@ public class MerchantRegisterBean implements Serializable {
 		try {
 			merchantRegisterServiceLocal.updateMerchantEntity(merchantEntity);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		FacesContext.getCurrentInstance().getExternalContext()
@@ -1635,7 +1679,6 @@ public class MerchantRegisterBean implements Serializable {
 		try {
 			merchantRegisterServiceLocal.updateMerchantEntity(merchantEntity);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		FacesContext.getCurrentInstance().getExternalContext()
@@ -1807,7 +1850,7 @@ public class MerchantRegisterBean implements Serializable {
 		MerchantEntity merchantEntity = new MerchantEntity();
 		long id = Long.parseLong(merchantId);
 		merchantEntity = this.findMerchantById(id);
-		merchantEntity.setMerchantTelegramAddres(merchantTelegram);
+		merchantEntity.setMerchantTelegramAddres(merchantTelegramAddres);
 		try {
 			merchantRegisterServiceLocal.updateMerchantEntity(merchantEntity);
 		} catch (Exception e) {
@@ -1818,12 +1861,12 @@ public class MerchantRegisterBean implements Serializable {
 				.redirect("merchantedit.xhtml" + "?merchantID=" + merchantId);
 	}
 
-	public void updateMerchantInstagram(String merchantId) throws IOException {
+	public void updateInstagramAddres(String merchantId) throws IOException {
 		FacesContext context = FacesContext.getCurrentInstance();
 		MerchantEntity merchantEntity = new MerchantEntity();
 		long id = Long.parseLong(merchantId);
 		merchantEntity = this.findMerchantById(id);
-		merchantEntity.setMerchantInstagramAddres(merchantInstagram);
+		merchantEntity.setMerchantInstagramAddres(merchantInstagramAddres);
 		try {
 			merchantRegisterServiceLocal.updateMerchantEntity(merchantEntity);
 		} catch (Exception e) {
@@ -2120,6 +2163,198 @@ public class MerchantRegisterBean implements Serializable {
 				.redirect("merchantedit.xhtml" + "?merchantID=" + merchantId);
 	}
 
+	public void updateTelegramNumber(String merchantId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		MerchantEntity merchantEntity = new MerchantEntity();
+		long id = Long.parseLong(merchantId);
+		merchantEntity = this.findMerchantById(id);
+		merchantEntity.setMerchantTelegramNumber(merchantTelegramNumber);
+		try {
+			merchantRegisterServiceLocal.updateMerchantEntity(merchantEntity);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("merchantedit.xhtml" + "?merchantID=" + merchantId);
+	}
+
+	public void updateInstagramNumber(String merchantId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		MerchantEntity merchantEntity = new MerchantEntity();
+		long id = Long.parseLong(merchantId);
+		merchantEntity = this.findMerchantById(id);
+		merchantEntity.setMerchantInstagramNumber(merchantInstagramNumber);
+		try {
+			merchantRegisterServiceLocal.updateMerchantEntity(merchantEntity);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("merchantedit.xhtml" + "?merchantID=" + merchantId);
+	}
+
+	public void updateTwiter(String merchantId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		MerchantEntity merchantEntity = new MerchantEntity();
+		long id = Long.parseLong(merchantId);
+		merchantEntity = this.findMerchantById(id);
+		merchantEntity.setMerchantTwiter(merchantTwiter);
+		try {
+			merchantRegisterServiceLocal.updateMerchantEntity(merchantEntity);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("merchantedit.xhtml" + "?merchantID=" + merchantId);
+	}
+
+	public void updateWatsup(String merchantId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		MerchantEntity merchantEntity = new MerchantEntity();
+		long id = Long.parseLong(merchantId);
+		merchantEntity = this.findMerchantById(id);
+		merchantEntity.setMerchantWatsup(merchantWatsup);
+		try {
+			merchantRegisterServiceLocal.updateMerchantEntity(merchantEntity);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("merchantedit.xhtml" + "?merchantID=" + merchantId);
+	}
+
+	public void updateShowPhone(String merchantId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		MerchantEntity merchantEntity = new MerchantEntity();
+		long id = Long.parseLong(merchantId);
+		merchantEntity = this.findMerchantById(id);
+		merchantEntity.setPhoneShow(phoneShow);
+		try {
+			merchantRegisterServiceLocal.updateMerchantEntity(merchantEntity);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("merchantedit.xhtml" + "?merchantID=" + merchantId);
+	}
+
+	public void updateShowFax(String merchantId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		MerchantEntity merchantEntity = new MerchantEntity();
+		long id = Long.parseLong(merchantId);
+		merchantEntity = this.findMerchantById(id);
+		merchantEntity.setFaxShow(faxShow);
+		try {
+			merchantRegisterServiceLocal.updateMerchantEntity(merchantEntity);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("merchantedit.xhtml" + "?merchantID=" + merchantId);
+	}
+	
+	public void updateShowSite(String merchantId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		MerchantEntity merchantEntity = new MerchantEntity();
+		long id = Long.parseLong(merchantId);
+		merchantEntity = this.findMerchantById(id);
+		merchantEntity.setSiteShow(siteShow);
+		try {
+			merchantRegisterServiceLocal.updateMerchantEntity(merchantEntity);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("merchantedit.xhtml" + "?merchantID=" + merchantId);
+	}
+	
+	public void updateShowInstagram(String merchantId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		MerchantEntity merchantEntity = new MerchantEntity();
+		long id = Long.parseLong(merchantId);
+		merchantEntity = this.findMerchantById(id);
+		merchantEntity.setInstagramShow(instagramShow);
+		try {
+			merchantRegisterServiceLocal.updateMerchantEntity(merchantEntity);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("merchantedit.xhtml" + "?merchantID=" + merchantId);
+	}
+	
+	public void updateShowTelegram(String merchantId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		MerchantEntity merchantEntity = new MerchantEntity();
+		long id = Long.parseLong(merchantId);
+		merchantEntity = this.findMerchantById(id);
+		merchantEntity.setTelegramShow(telegramShow);
+		try {
+			merchantRegisterServiceLocal.updateMerchantEntity(merchantEntity);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("merchantedit.xhtml" + "?merchantID=" + merchantId);
+	}
+	
+	public void updateShowWatsup(String merchantId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		MerchantEntity merchantEntity = new MerchantEntity();
+		long id = Long.parseLong(merchantId);
+		merchantEntity = this.findMerchantById(id);
+		merchantEntity.setWatsupShow(watsupShow);
+		try {
+			merchantRegisterServiceLocal.updateMerchantEntity(merchantEntity);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("merchantedit.xhtml" + "?merchantID=" + merchantId);
+	}
+	
+	public void updateShowTwiter(String merchantId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		MerchantEntity merchantEntity = new MerchantEntity();
+		long id = Long.parseLong(merchantId);
+		merchantEntity = this.findMerchantById(id);
+		merchantEntity.setTwiterShow(twiterShow);
+		try {
+			merchantRegisterServiceLocal.updateMerchantEntity(merchantEntity);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("merchantedit.xhtml" + "?merchantID=" + merchantId);
+	}
+	
+	public void updateShowMobile(String merchantId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		MerchantEntity merchantEntity = new MerchantEntity();
+		long id = Long.parseLong(merchantId);
+		merchantEntity = this.findMerchantById(id);
+		merchantEntity.setHaveLogo(haveLogo);
+		try {
+			merchantRegisterServiceLocal.updateMerchantEntity(merchantEntity);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		FacesContext.getCurrentInstance().getExternalContext()
+				.redirect("merchantedit.xhtml" + "?merchantID=" + merchantId);
+	}
+
 	// *****************************************update
 	// pictures*****************************************
 
@@ -2217,6 +2452,7 @@ public class MerchantRegisterBean implements Serializable {
 	// Calendar******************************
 
 	public String convertToJalali1(String merchantId) {
+		try {
 		MerchantEntity merchantEntity = new MerchantEntity();
 		long id = Long.parseLong(merchantId);
 		merchantEntity = this.findMerchantById(id);
@@ -2254,7 +2490,6 @@ public class MerchantRegisterBean implements Serializable {
 			month1 = 11;
 		else if (month.equals("Dec"))
 			month1 = 12;
-		System.err.println("***month***:" + month1);
 
 		char[] dy = new char[2];
 		dateEng.getChars(8, 10, dy, 0);
@@ -2264,7 +2499,6 @@ public class MerchantRegisterBean implements Serializable {
 		}
 
 		int day1 = Integer.parseInt(day);
-		System.err.println("***day****:" + day1);
 
 		char[] yer = new char[4];
 		dateEng.getChars(25, 29, yer, 0);
@@ -2273,17 +2507,19 @@ public class MerchantRegisterBean implements Serializable {
 			year += c;
 		}
 		int year1 = Integer.parseInt(year);
-		System.err.println("****year***:" + year1);
 		return gregorian_to_jalali(year1, month1, day1);
+		}catch (Exception e) {
+			return null;
+		}
 
 	}
 
 	public String convertToJalali2(String merchantId) {
+		try {
 		MerchantEntity merchantEntity = new MerchantEntity();
 		long id = Long.parseLong(merchantId);
 		merchantEntity = this.findMerchantById(id);
 		String dateEng = merchantEntity.getMerchantGarardad().toString();
-		System.err.println(dateEng);
 		char[] mnth = new char[3];
 		dateEng.getChars(4, 7, mnth, 0);
 		String month = "";
@@ -2316,7 +2552,6 @@ public class MerchantRegisterBean implements Serializable {
 			month1 = 11;
 		else if (month.equals("Dec"))
 			month1 = 12;
-		System.err.println("***month***:" + month1);
 
 		char[] dy = new char[2];
 		dateEng.getChars(8, 10, dy, 0);
@@ -2326,7 +2561,6 @@ public class MerchantRegisterBean implements Serializable {
 		}
 
 		int day1 = Integer.parseInt(day);
-		System.err.println("***day****:" + day1);
 
 		char[] yer = new char[4];
 		dateEng.getChars(25, 29, yer, 0);
@@ -2335,17 +2569,19 @@ public class MerchantRegisterBean implements Serializable {
 			year += c;
 		}
 		int year1 = Integer.parseInt(year);
-		System.err.println("****year***:" + year1);
 		return gregorian_to_jalali(year1, month1, day1);
+		}catch (Exception e) {
+			return null;
+		}
 
 	}
 
 	public String convertToJalali3(String merchantId) {
+		try {
 		MerchantEntity merchantEntity = new MerchantEntity();
 		long id = Long.parseLong(merchantId);
 		merchantEntity = this.findMerchantById(id);
 		String dateEng = merchantEntity.getMerchantEtebar().toString();
-		System.err.println(dateEng);
 		char[] mnth = new char[3];
 		dateEng.getChars(4, 7, mnth, 0);
 		String month = "";
@@ -2378,7 +2614,6 @@ public class MerchantRegisterBean implements Serializable {
 			month1 = 11;
 		else if (month.equals("Dec"))
 			month1 = 12;
-		System.err.println("***month***:" + month1);
 
 		char[] dy = new char[2];
 		dateEng.getChars(8, 10, dy, 0);
@@ -2388,7 +2623,6 @@ public class MerchantRegisterBean implements Serializable {
 		}
 
 		int day1 = Integer.parseInt(day);
-		System.err.println("***day****:" + day1);
 
 		char[] yer = new char[4];
 		dateEng.getChars(25, 29, yer, 0);
@@ -2397,8 +2631,10 @@ public class MerchantRegisterBean implements Serializable {
 			year += c;
 		}
 		int year1 = Integer.parseInt(year);
-		System.err.println("****year***:" + year1);
 		return gregorian_to_jalali(year1, month1, day1);
+		}catch (Exception e) {
+			return null;
+		}
 
 	}
 
@@ -2443,5 +2679,29 @@ public class MerchantRegisterBean implements Serializable {
 	 * "merchantedit.xhtml?merchantID="+
 	 * findMerchantByShomareParvande().getMerchantId() + "&faces-redirect=true"; }
 	 */
+	
+	
+	
+	
+	public boolean isImg1(long merchantId) {
+		
+		return Arrays.equals(this.findMerchantById(merchantId).getLicenceImg(), null);
+	}
+	public boolean isImg2(long merchantId) {
+		
+		return Arrays.equals(this.findMerchantById(merchantId).getShopImg2(), null);
+	}
+	public boolean isImg3(long merchantId) {
+		
+		return Arrays.equals(this.findMerchantById(merchantId).getShopImg3(), null);
+	}
+	public boolean isImg4(long merchantId) {
+		
+		return Arrays.equals(this.findMerchantById(merchantId).getShopImg4(), null);
+	}
+	public boolean isImg5(long merchantId) {
+		
+		return Arrays.equals(this.findMerchantById(merchantId).getShopImg5(), null);
+	}
 
 }

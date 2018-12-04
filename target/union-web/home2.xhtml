@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Landing Page</title>
+<!-- 	<link rel="stylesheet" href="resources/efect/css/bootstrap.rtl.css" />
+	<link rel="stylesheet"
+		href="resources/efect/css/bootstrap-theme.min.css" /> -->
+	<link rel="stylesheet" href="resources/efect/css/ihover.css" />
+<!-- 	<link rel="stylesheet" href="resources/efect/css/hover.css" />
+	<link rel="stylesheet" href="resources/efect/css/style.css" />
+	<link rel="stylesheet" href="resources/efect/css/animate.css" />
+	<link rel="stylesheet"
+		href="resources/efect/fonts/font-awesome.min.css" /> -->
+</h:head>
+<h:body>
+<div class="row">
+  <div class="col-sm-6">
+ 
+    <!-- normal -->
+    <div class="ih-item circle effect1"><a href="#">
+        <div class="spinner"></div>
+        <div class="img"><img src="images/assets/2.jpg" alt="img"/></div>
+        <div class="info">
+          <div class="info-back">
+            <h3>Heading here</h3>
+            <p>Description goes here</p>
+          </div>
+        </div></a></div>
+    <!-- end normal -->
+ 
+  </div>
+ 
+  <div class="col-sm-6">
+ 
+    <!-- colored -->
+    <div class="ih-item circle colored effect1"><a href="#">
+        <div class="spinner"></div>
+        <div class="img"><img src="images/assets/5.jpg" alt="img"/></div>
+        <div class="info">
+          <div class="info-back">
+            <h3>Heading here</h3>
+            <p>Description goes here</p>
+          </div>
+        </div></a></div>
+    <!-- end colored -->
+ 
+  </div>
+</div>
+ 
+ 	<div class="contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h2 style="font-family: BYekan;">راه های ارتباط با فرادرس</h2>
+				</div>
+				<div class="col-md-6 contact-social">
+					<ul class="list-inline">
+						<li><a href="#" class="btn btn-default btn-lg hvr-grow"><span>Email<i class="fa fa-envelope"></i></span></a></li>
+						<li><a href="#" class="btn btn-default btn-lg hvr-float"><span>Instagram<i class="fa fa-instagram"></i></span></a></li>
+						<li><a href="#" class="btn btn-default btn-lg hvr-wobble-vertical"><span>Telegram<i class="fa fa-telegram"></i></span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+             
+<p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+        <img src="/resources/images/loading.gif" />
+</p:dialog>
+ 
+<h:form>
+    <p:commandButton value="Send" icon="pi pi-refresh" />
+</h:form>
+
+<!-- 	<script src="resources/efect/js/jquery.js"></script>
+	<script src="resources/efect/js/bootstrap.min.js"></script> -->
+</h:body>
+</html>

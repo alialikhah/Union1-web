@@ -1,0 +1,17 @@
+@charset "UTF-8";
+.ui-paginator.ui-paginator-top {
+    border-bottom: 0 none;
+    display: none;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: 1px solid #777777;
+    background: #dddddd !important;
+    font-weight: normal;
+    color: black!important;
+}
+
+.ui-widget-content {
+    border: none!important;
+    background: #f9f9f9 url("/javax.faces.resource/images/ui-bg_highlight-hard_100_f9f9f9_1x100.png.xhtml?ln=primefaces-black-tie") 50% top repeat-x;
+    color: #222222;
+}

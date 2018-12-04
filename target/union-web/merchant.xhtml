@@ -3,76 +3,26 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui">
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui">
 
 <h:head></h:head>
 <body>
+
 	<ui:composition template="TEMPLATE.xhtml">
 		<ui:define name="headtemp">
-			<meta name="description"
-				content="گواهینامه فعالیت آنلاین، اتحادیه صنف فروشندگان لوازم صوتی و تصویری ، تلفن همراه و لوازم جانبی" />
-			<meta name="keywords"
-				content="موبایل ، تلویزیون ، رادیو ، تلفن همراه ، سیستم پخش ، قطعات الترونیک ، دوربین ، cd ، سیستم صدا ، پخش ، تصویر ، لوازم جانبی موبایل ، آلات موسیقی ، گیتار" />
-			<meta name="author" content="علی علی خواه" />
 			<title>فروشگاه
-				#{merchantPageBean.findByMerchantShop(shopName).merchantShopNamePer}
+				#{merchantPageBean.findMerchantByEng(shopName).merchantShopNamePer}
 			</title>
-			<script
-				src="https://maps.google.com/maps/api/js?key=AIzaSyC5iFeXAWE72U4rr3l5oFje4g-ntNyQ0Ko"
-				type="text/javascript"></script>
-			<style>
-#ig1 {
-	padding: 20px;
-	padding-top: 80px;
-}
+			<meta name="geo.region" content="IR-07" />
+			<meta name="geo.placename" content="Tehran" />
+			<meta name="geo.position"
+				content="#{merchantAddres.findAddresByMerchant2(merchantPageBean.findByMerchantShop(shopName).merchantId).merchandWidth};#{merchantAddres.findAddresByMerchant2(merchantPageBean.findByMerchantShop(shopName).merchantId).merchantHeight}" />
+			<meta name="ICBM"
+				content="#{merchantAddres.findAddresByMerchant2(merchantPageBean.findByMerchantShop(shopName).merchantId).merchandWidth}, #{merchantAddres.findAddresByMerchant2(merchantPageBean.findByMerchantShop(shopName).merchantId).merchantHeight}" />
 
-#ig2 {
-	padding: 20px;
-	padding-top: 80px;
-}
-
-@media screen and (max-width : 500px) {
-	#amazingslider-wrapper-1 {
-		height: 200px !important;
-	}
-	.amazingslider-slider-1 {
-		display: block;
-		position: relative;
-		left: 0px;
-		top: 0px;
-		width: 100%;
-		height: auto;
-		height: 200px !important;
-	}
-	.amazingslider-box-1 {
-		display: block;
-		position: relative;
-		left: 0px;
-		top: 0px;
-		width: 100%;
-		height: 200px !important;
-	}
-	.amazingslider-swipe-box-1 {
-		display: block;
-		position: relative;
-		left: 0px;
-		top: 0px;
-		width: 100%;
-		height: 200px !important;
-	}
-	.amazingslider-img-elem-1 {
-		height: 200px !important;
-	}
-	#ig1 {
-		padding: 0px !important;
-		padding-top: 0px !important;
-	}
-	#ig2 {
-		padding: 0px !important;
-		padding-top: 0px !important;
-	}
-}
-</style>
+	<link href="resources/css/merchant.css"
+		rel="stylesheet" type="text/css" />
 		</ui:define>
 
 		<ui:define name="maintemp">
@@ -83,20 +33,44 @@
 			</ui:define>
 
 			<article class="light-bg-1"> <!-- Insert to your webpage where you want to display the slider -->
-			<div id="amazingslider-wrapper-3"
+			<!-- 			<div id="amazingslider-wrapper-3"
 				style="display: block; position: relative; max-width: 1920px; margin: 0px auto 56px;">
 				<div id="amazingslider-3"
 					style="display: block; position: relative; margin: 0 auto;">
 					<ul class="amazingslider-slides" style="display: none;">
 						<h:form id="form2">
 							<li><o:graphicImage
-									value="#{merchantPageBean.findByMerchantShop(shopName).shopImg2}"
-									dataURI="true" /></li>
+									value="#{merchantPageBean.findMerchantByEng(shopName).shopImg2}"
+									dataURI="true"
+									alt="#{merchantPageBean.findMerchantByEng(shopName).merchantShopNamePer}" /></li>
 						</h:form>
 					</ul>
 				</div>
+			</div> --> <section class="slider-section">
+			<div id="main-slider" class="main-slider dots-white">
+
+				<div class="item">
+					<div class="carousel-inner">
+						<o:graphicImage
+							value="#{merchantPageBean.findMerchantByEng(shopName).shopImg2}"
+							dataURI="true"
+							alt="#{merchantPageBean.findMerchantByEng(shopName).merchantShopNamePer}" />
+
+					</div>
+				</div>
+				<div class="item">
+					<div class="carousel-inner">
+						<o:graphicImage
+							value="#{merchantPageBean.findMerchantByEng(shopName).shopImg2}"
+							dataURI="true"
+							alt="#{merchantPageBean.findMerchantByEng(shopName).merchantShopNamePer}" />
+
+					</div>
+				</div>
+
 			</div>
-			<!-- End of body section HTML codes --> <!-- Page Starts-->
+
+			</section> <!-- End of body section HTML codes --> <!-- Page Starts-->
 			<div class="container theme-container pt-70">
 
 
@@ -108,9 +82,10 @@
 					<aside class="col-md-12 col-sm-12 single-post">
 					<div class="blog-wrap">
 						<o:graphicImage id="ig1"
-							value="#{merchantPageBean.findByMerchantShop(shopName).shopImg5}"
+							value="#{merchantPageBean.findMerchantByEng(shopName).shopImg5}"
 							dataURI="true"
-							style=" padding-bottom: 0px; padding-left: 0px; float:left;" />
+							style=" padding-bottom: 0px; padding-left: 0px; float:left;"
+							alt="#{merchantPageBean.findMerchantByEng(shopName).merchantShopNamePer}" />
 
 						<p
 							style="font-family: 'IRANSansBold' !important; text-align: right; font-size: 30px; color: goldenrod;">درباره
@@ -118,14 +93,14 @@
 						<p
 							style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
 							<b> <h:outputText
-									value="#{merchantPageBean.findByMerchantShop(shopName).merchantDescription}" />
+									value="#{merchantPageBean.findMerchantByEng(shopName).merchantDescription}" />
 
 							</b>
 						</p>
 						<p
 							style="text-align: center; font-family: 'IRANSansBold' !important; font-size: 26px; color: red;">
 							<h:outputText
-								value="#{merchantPageBean.findByMerchantShop(shopName).merchantShoar}" />
+								value="#{merchantPageBean.findMerchantByEng(shopName).merchantShoar}" />
 						</p>
 
 
@@ -140,9 +115,10 @@
 
 
 				</div>
-			</div><br />
+			</div>
+			<br />
 			<p:outputPanel
-				rendered="#{merchantPageBean.findByMerchantShop(shopName).merchantGroup.equals('طلایی')}">
+				rendered="#{merchantPageBean.findMerchantByEng(shopName).merchantGroup.equals('طلایی')}">
 				<!-- / Page Ends -->
 				<!-- Featured Product  Start -->
 				<section class="sec-space">
@@ -372,7 +348,7 @@
 				<!-- / Featured Product Ends -->
 				<!-- Products Brand Starts-->
 			</p:outputPanel> <p:outputPanel
-				rendered="#{merchantPageBean.findByMerchantShop(shopName).merchantGroup.equals('نقره ای')}">
+				rendered="#{merchantPageBean.findMerchantByEng(shopName).merchantGroup.equals('نقره ای')}">
 				<!-- / Page Ends -->
 				<!-- Featured Product  Start -->
 				<section class="sec-space">
@@ -593,19 +569,17 @@
 				<h2 class="section-title pb-40"
 					style="font-family: 'IRANSansBold' !important;">برند ها</h2>
 				<div id="brand-slider" class="brand-slider dots-black brand-wrap">
-					<p:repeat var="brnd" value="#{merchantRegisterBean.findMerchantBrands(shopName)}">
-					<div class="item" style="border: solid 1px;">
-						
-						
-							
-												<o:graphicImage
-							value="#{brnd.brandPic}"
-							dataURI="true"
-							 />   
-						
-						
-					</div>
-</p:repeat>
+					<p:repeat var="brnd"
+						value="#{merchantPageBean.findMerchantBrands2(shopName)}">
+						<div class="item" style="border: solid 1px;">
+
+
+
+							<o:graphicImage value="#{brnd.brandPic}" dataURI="true" />
+
+
+						</div>
+					</p:repeat>
 				</div>
 			</div>
 			</section> <!-- / Product Brand Ends --> <!-- Page Starts-->
@@ -617,9 +591,10 @@
 					<aside class="col-md-6 col-sm-12 single-post">
 					<div class="blog-wrap">
 						<o:graphicImage id="ig2"
-							value="#{merchantPageBean.findByMerchantShop(shopName).licenceImg}"
+							value="#{merchantPageBean.findMerchantByEng(shopName).licenceImg}"
 							dataURI="true"
-							style=" padding-bottom: 0px; padding-left: 0px;float:left; max-width:100%; min-width:100%" />
+							style=" padding-bottom: 0px; padding-left: 0px;float:left; max-width:100%; min-width:100%"
+							alt="گواهینامه فعالیت آنلاین" />
 					</div>
 					</aside>
 					<!-- Product Details Starts-->
@@ -668,81 +643,151 @@
 						<br />
 						<p
 							style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
-							<img src="resources/images/address.png" alt="" width="25"
+							<img src="resources/images/locationt.png" alt="" width="25"
 								height="25" /><b> آدرس : <h:outputText
-									value="#{merchantAddres.findAddresByMerchant2(merchantPageBean.findByMerchantShop(shopName).merchantId).merchantPostAddres}" /></b>
-						</p>
-						<p
-							style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
-							<img src="resources/images/phone.png" alt="" width="25"
-								height="25" /><b> تلفن : <h:outputText
-									value="#{merchantPageBean.findByMerchantShop(shopName).merchantPhone}" /></b>
+									value="#{merchantAddres.findAddresByMerchant3(merchantPageBean.findMerchantByEng(shopName).merchantId).merchantPostAddres}" /></b>
 						</p>
 						<p:outputPanel
-							rendered="#{merchantPageBean.findByMerchantShop(shopName).haveLogo}">
-							<p
-								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
-								<img src="resources/images/phone.png" alt="" width="25"
-									height="25" /><b> شماره موبایل : <h:outputText
-										value="#{merchantPageBean.findByMerchantShop(shopName).merchantMobile}" /></b>
-							</p>
+							rendered="#{merchantPageBean.findMerchantByEng(shopName).phoneShow}">
+							<p:outputPanel
+								rendered="#{!merchantPageBean.findMerchantByEng(shopName).merchantPhone.equals('')}">
+								<p
+									style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
+									<img src="resources/images/phonet.png" alt="" width="25"
+										height="25" /><b> تلفن : <h:outputText
+											value="#{merchantPageBean.findMerchantByEng(shopName).merchantPhone}" /></b>
+								</p>
+							</p:outputPanel>
 						</p:outputPanel>
+
 						<p:outputPanel
-							rendered="#{!merchantPageBean.findByMerchantShop(shopName).merchantFax.equals('')}">
+							rendered="#{!merchantPageBean.findMerchantByEng(shopName).merchantFax.equals('')}">
 							<p
 								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
-								<img src="resources/images/fax.png" alt="" width="25"
+								<img src="resources/images/faxt.png" alt="" width="25"
 									height="25" /><b> فکس : <h:outputText
-										value="#{merchantPageBean.findByMerchantShop(shopName).merchantFax}" /></b>
+										value="#{merchantPageBean.findMerchantByEng(shopName).merchantFax}" /></b>
 							</p>
 						</p:outputPanel>
+
 						<p:outputPanel
-							rendered="#{!merchantPageBean.findByMerchantShop(shopName).merchantTelegramAddres.equals('')}">
+							rendered="#{!merchantPageBean.findMerchantByEng(shopName).merchantSiteAddres.equals('')}">
 							<p
 								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
-								<img src="resources/images/telegram.png" alt="" width="25"
-									height="25" /><b> آدرس تلگرام : <h:outputText
-										value="#{merchantPageBean.findByMerchantShop(shopName).merchantTelegramAddres}" /></b>
-							</p>
-						</p:outputPanel>
-						<p:outputPanel
-							rendered="#{!merchantPageBean.findByMerchantShop(shopName).merchantWatsup.equals('')}">
-							<p
-								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
-								<img src="resources/images/whatsapp.png" alt="" width="25"
-									height="25" /><b> شماره واتساپ :<h:outputText
-										value="#{merchantPageBean.findByMerchantShop(shopName).merchantWatsup}" /></b>
-							</p>
-						</p:outputPanel>
-						<p:outputPanel
-							rendered="#{!merchantPageBean.findByMerchantShop(shopName).merchantInstagramAddres.equals('')}">
-							<p
-								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
-								<img src="resources/images/instagram.png" alt="" width="25"
-									height="25" /><b> آدرس اینستاگرام :<h:outputText
-										value="#{merchantPageBean.findByMerchantShop(shopName).merchantInstagramAddres}" /></b>
-							</p>
-						</p:outputPanel>
-						<p:outputPanel
-							rendered="#{!merchantPageBean.findByMerchantShop(shopName).merchantSiteAddres.equals('')}">
-							<p
-								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
-								<img src="resources/images/site.png" alt="" width="25"
+								<img src="resources/images/webt.png" alt="" width="25"
 									height="25" /><b> آدرس سایت :<p:link
-										href="#{merchantPageBean.findByMerchantShop(shopName).merchantSiteAddres}"
-										onclick="window.open('http://#{merchantPageBean.findByMerchantShop(shopName).merchantSiteAddres}'); return false;"
-										value="#{merchantPageBean.findByMerchantShop(shopName).merchantSiteAddres}" /></b>
+										href="#{merchantPageBean.findMerchantByEng(shopName).merchantSiteAddres}"
+										onclick="window.open('http://#{merchantPageBean.findMerchantByEng(shopName).merchantSiteAddres}'); return false;"
+										value="#{merchantPageBean.findMerchantByEng(shopName).merchantSiteAddres}" /></b>
+							</p>
+						</p:outputPanel>
+
+						<p:outputPanel
+							rendered="#{!merchantPageBean.findMerchantByEng(shopName).merchantEmail.equals('')}">
+							<p
+								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
+								<img src="resources/images/emailt.png" alt="" width="25"
+									height="25" /><b> آدرس ایمیل :<h:outputText
+										value="#{merchantPageBean.findMerchantByEng(shopName).merchantEmail}" /></b>
+							</p>
+						</p:outputPanel>
+
+						<p:outputPanel
+							rendered="#{merchantPageBean.findMerchantByEng(shopName).instagramShow}">
+							<p:outputPanel
+								rendered="#{!merchantPageBean.findMerchantByEng(shopName).merchantInstagramAddres.equals('')}">
+								<p
+									style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
+									<img src="resources/images/instagramt.png" alt="" width="25"
+										height="25" /><b> آدرس اینستاگرام :<h:outputText
+											value="#{merchantPageBean.findMerchantByEng(shopName).merchantInstagramAddres}" /></b>
+								</p>
+							</p:outputPanel>
+						</p:outputPanel>
+
+						<p:outputPanel
+							rendered="#{!merchantPageBean.findMerchantByEng(shopName).merchantTelegramAddres.equals('')}">
+							<p
+								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
+								<img src="resources/images/telegramt.png" alt="" width="25"
+									height="25" /><b> آدرس تلگرام : <h:outputText
+										value="#{merchantPageBean.findMerchantByEng(shopName).merchantTelegramAddres}" /></b>
 							</p>
 						</p:outputPanel>
 						<p:outputPanel
-							rendered="#{!merchantPageBean.findByMerchantShop(shopName).merchantEmail.equals('')}">
-							<p
-								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
-								<img src="resources/images/email.png" alt="" width="25"
-									height="25" /><b> آدرس ایمیل :<h:outputText
-										value="#{merchantPageBean.findByMerchantShop(shopName).merchantEmail}" /></b>
-							</p>
+							rendered="#{merchantPageBean.findMerchantByEng(shopName).telegramShow}">
+							<p:outputPanel
+								rendered="#{!merchantPageBean.findMerchantByEng(shopName).merchantTelegramNumber.equals('')}">
+								<p
+									style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
+									<img src="resources/images/telegramt.png" alt="" width="25"
+										height="25" /><b> شماره تلگرام : <h:outputText
+											value="#{merchantPageBean.findMerchantByEng(shopName).merchantTelegramNumber}" /></b>
+								</p>
+							</p:outputPanel>
 						</p:outputPanel>
+
+						<p:outputPanel
+							rendered="#{merchantPageBean.findMerchantByEng(shopName).watsupShow}">
+							<p:outputPanel
+								rendered="#{!merchantPageBean.findMerchantByEng(shopName).merchantWatsup.equals('')}">
+								<p
+									style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
+									<img src="resources/images/whatsappt.png" alt="" width="25"
+										height="25" /><b> شماره واتساپ :<h:outputText
+											value="#{merchantPageBean.findMerchantByEng(shopName).merchantWatsup}" /></b>
+								</p>
+							</p:outputPanel>
+						</p:outputPanel>
+
+						<p:outputPanel
+							rendered="#{merchantPageBean.findMerchantByEng(shopName).siteShow}">
+							<p:outputPanel
+								rendered="#{!merchantPageBean.findMerchantByEng(shopName).merchantSaliManagerName.equals('')}">
+								<p
+									style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
+									<img src="resources/images/user.png" alt="" width="25"
+										height="25" /><b> نام مدیر فروش : <h:outputText
+											value="#{merchantPageBean.findMerchantByEng(shopName).merchantSaliManagerName}" /></b>
+								</p>
+							</p:outputPanel>
+
+							<p:outputPanel
+								rendered="#{!merchantPageBean.findMerchantByEng(shopName).merchantSailManagerMobile.equals('')}">
+								<p
+									style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
+									<img src="resources/images/phonet.png" alt="" width="25"
+										height="25" /><b> شماره مدیر فروش : <h:outputText
+											value="#{merchantPageBean.findMerchantByEng(shopName).merchantSailManagerMobile}" /></b>
+								</p>
+							</p:outputPanel>
+						</p:outputPanel>
+
+						<p:outputPanel
+							rendered="#{merchantPageBean.findMerchantByEng(shopName).haveLogo}">
+							<p:outputPanel
+								rendered="#{!merchantPageBean.findMerchantByEng(shopName).merchantMobile.equals('')}">
+								<p
+									style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
+									<img src="resources/images/phonet.png" alt="" width="25"
+										height="25" /><b> شماره موبایل : <h:outputText
+											value="#{merchantPageBean.findMerchantByEng(shopName).merchantMobile}" /></b>
+								</p>
+							</p:outputPanel>
+						</p:outputPanel>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 					</div>
 					</aside>
@@ -751,12 +796,18 @@
 						<!--                             <img 
 							src="resources/temp2/assets/images/about/1.jpg" alt="image" style=" padding: 20px; padding-bottom: 0px;
 padding-left: 0px; padding-top: 80px;" align="left"/> -->
-						<p:gmap id="gmap"
+						<!-- 						<p:gmap id="gmap"
 							center="#{merchantAddres.findAddresByMerchant2(merchantPageBean.findByMerchantShop(shopName).merchantId).merchandWidth}, #{merchantAddres.findAddresByMerchant2(merchantPageBean.findByMerchantShop(shopName).merchantId).merchantHeight}"
 							streetView="true" zoom="17" type="ROADMAP"
 							style="width:100%;height:400px"
 							model="#{merchantPageGmap.ali(merchantAddres.findAddresByMerchant2(merchantPageBean.findByMerchantShop(shopName).merchantId).merchandWidth,merchantAddres.findAddresByMerchant2(merchantPageBean.findByMerchantShop(shopName).merchantId).merchantHeight)}">
-						</p:gmap>
+						</p:gmap> -->
+
+						<b:openStreetMap width="100%" height="500px"
+							center="#{merchantAddres.findAddresByMerchant3(merchantPageBean.findMerchantByEng(shopName).merchantId).merchandWidth}, #{merchantAddres.findAddresByMerchant3(merchantPageBean.findMerchantByEng(shopName).merchantId).merchantHeight}"
+							marker="#{merchantAddres.findAddresByMerchant3(merchantPageBean.findMerchantByEng(shopName).merchantId).merchandWidth}, #{merchantAddres.findAddresByMerchant3(merchantPageBean.findMerchantByEng(shopName).merchantId).merchantHeight}"
+							popupMsg="Museo de la evolución humana, Burgos, Spain." zoom="17"
+							urlTemplate="https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png" />
 					</div>
 					</aside>
 

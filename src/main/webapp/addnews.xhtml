@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<h:body>
+	<ui:composition template="/template.xhtml">
+		<ui:define name="headtmp">
+
+		</ui:define>
+		<ui:define name="centertmp">
+			<h:form enctype="multipart/form-data" acceptcharset="UTF-8" id="form">
+				<p:growl id="growl" />
+				<p:panel id="pnl" header="افزودن خبر" style="margin-bottom:10px;"
+					styleClass="direction:rtl;">
+
+					<p:messages id="messages" />
+					<h:panelGrid columns="3" cellpadding="5" dir="rtl">
+
+						<p:outputLabel for="category" value="کتگوری" />
+						<p:inputText id="category" dir="rtl" value="#{newsBean.category}"
+							size="50" styleClass="ali">
+							<f:validateLength maximum="99" />
+						</p:inputText>
+						<p:message for="category" />
+
+						<p:outputLabel for="title" value="عنوان" />
+						<p:inputText id="title" dir="rtl" value="#{newsBean.title}"
+							size="50" styleClass="ali">
+							<f:validateLength maximum="199" />
+						</p:inputText>
+						<p:message for="title" />
+
+						<p:outputLabel for="naghdHead1" value="نام نویسنده :" />
+						<p:inputText id="naghdHead1" dir="rtl" value="#{newsBean.author}"
+							label="Firstname" size="50" styleClass="ali">
+							<f:validateLength maximum="149" />
+						</p:inputText>
+						<p:message for="naghdHead1" />
+
+						<p:outputLabel for="naghdText1" value="متن کوتاه" />
+						<p:inputTextarea id="naghdText1" dir="rtl"
+							value="#{newsBean.head}" size="150" styleClass="ali">
+							<f:validateLength maximum="499" />
+						</p:inputTextarea>
+						<p:message for="naghdText1" />
+
+						<p:outputLabel for="naghdText2" value="متن خبر" />
+						<p:inputTextarea id="naghdText2" value="#{newsBean.description}"
+							size="150" styleClass="ali">
+							<f:validateLength maximum="4999" />
+						</p:inputTextarea>
+						<p:message for="naghdText2" />
+
+						<p:outputLabel value="نمایش مهمترین خبر" />
+						<p:inputSwitch value="#{newsBean.important}" />
+						<p:outputLabel value="" />
+						<p:outputLabel value="نمایش در اسلایدر" />
+						<p:inputSwitch value="#{newsBean.veryImportant}" />
+						<p:outputLabel value="" />
+						<p:outputLabel value="گواهینامه" />
+						<p:inputSwitch value="#{newsBean.govahiname}" />
+						<p:outputLabel value="" />
+						<p:outputLabel value="پروانه" />
+						<p:inputSwitch value="#{newsBean.parvane}" />
+						<p:outputLabel value="" />
+
+
+
+						<p:outputLabel value="عکس کوچک" />
+						<h:inputFile value="#{newsBean.imageSmall}" required="true"
+							requiredMessage="please select shop1Image image" />
+						<p:outputLabel value="" />
+						<p:outputLabel value="عکس بزرگ ۱" />
+						<h:inputFile value="#{newsBean.imageBig1}" required="true"
+							requiredMessage="please select shop2Image image" />
+						<p:outputLabel value="" />
+
+						<h:commandButton id="saveBtn" value="ذخیره" icon="ui-icon-check"
+							style="margin:0" update="pnl" ajax="true" execute="@form"
+							action="#{newsBean.insertToNews()}">
+						</h:commandButton>
+
+
+					</h:panelGrid>
+
+				</p:panel>
+
+				<p:blockUI block="pnl" trigger="saveBtn" />
+
+			</h:form>
+		</ui:define>
+		<ui:define name="righttmp">
+			<h:form>
+				<p:dataTable var="news" value="#{newsBean.findAllNews()}" rows="10"
+					paginator="true" resizableColumns="true" liveResize="true"
+					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15" dir="rtl">
+					<p:column headerText="شماره">
+						<h:outputText value="#{news.newsId}" />
+					</p:column>
+
+					<p:column headerText="عنوان">
+						<h:outputText value="#{news.title}" />
+					</p:column>
+
+					<p:column width="100">
+						<f:facet name="header">
+							<h:outputText value="ویرایش" />
+						</f:facet>
+						<p:button value="ویرایش" outcome="newsedit.xhtml"
+							style="width:100%!important;">
+							<f:param name="newsId" value="#{news.newsId}" />
+						</p:button>
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

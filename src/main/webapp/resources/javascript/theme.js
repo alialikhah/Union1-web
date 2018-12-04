@@ -145,22 +145,25 @@ $(document).ready(function () {
 // owlCarousel Slider //
 
     //Main Slider carousel 
-    if ($('#main-slider').length > 0) {
+   // if ($('#main-slider').length > 0) {
         $("#main-slider").owlCarousel({
             //animateOut: 'slideOutDown',
             //animateIn: 'flipInX',
             animateIn: 'fadeInDown',
             animateOut: 'slideOutDown',
             rtl:true,
-            items: 1,
-            dots: true,
-            nav: false,
+            dots: false,
             loop: true,
+            autoplay: true,
+            autoplayHoverPause: true,
+            smartSpeed: 100,
+            nav: true,
+            margin: 30,
             responsive: {
                 0: {items: 1}
             }
         });
-    }
+    //}
     /*------------------- Product Slider -------------------*/
     if ($('#prod-slider-1, #prod-slider-2').length > 0) {
         $("#prod-slider-1, #prod-slider-2").owlCarousel({

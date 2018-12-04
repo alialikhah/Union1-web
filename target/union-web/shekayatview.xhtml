@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<h:body>
+<ui:composition template="shekayattemp.xhtml">
+<ui:define name="mains">
+	<p:dataTable var="shaki" value="#{shekayatBean.findAllShekayat()}"
+		reflow="true" style="margin-top:20px">
+		<f:facet name="header">
+            DataTable
+        </f:facet>
+		<p:column headerText="Id">
+			<h:outputText value="#{shaki.shekayatId}" />
+		</p:column>
+
+		<p:column headerText="نام">
+			<h:outputText value="#{shaki.shakiName}" />
+		</p:column>
+
+		<p:column headerText="Brand">
+			<h:outputText value="#{shaki.shakiSsn}" />
+		</p:column>
+
+		<p:column headerText="رسیدگی">
+			<p:button value="رسیدگی" outcome="shekayatedit.xhtml">
+				<f:param value="#{shaki.shekayatId}" name="shakiId" />
+			</p:button>
+		</p:column>
+		
+		<p:column headerText="وضعیت">
+			<h:outputText value="#{shaki.vaziat}" />
+		</p:column>
+
+	</p:dataTable>
+
+
+	<div
+		style="position: relative; width: 100%; height: 100px; background-color: black; opacity: 0.5"></div>
+		</ui:define>
+		</ui:composition>
+</h:body>
+</html>

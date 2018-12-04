@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<h:head></h:head>
+<body>
+	<ui:composition template="TEMPLATE.xhtml">
+		<ui:define name="headtemp">
+			<title>#{mojtameBean.findMojtamaById(mojtamaId).mojtameTitle}</title>
+
+
+		</ui:define>
+
+		<ui:define name="maintemp">
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="newsId" />
+				</f:metadata>
+			</ui:define>
+
+			<!-- CONTENT AREA -->
+			<article> <br />
+			<div
+				style="border: solid 5px; border-radius: 70px 10px 70px 70px; border-color: darkgrey; background-image: url('resources/images/back.jpg'); max-width: 1600px; margin: auto; background-repeat: no-repeat;">
+				<div class="container theme-container ptb-70">
+					<div>
+						<br /> <br />
+						<!-- Product Details Starts-->
+						<aside class="col-md-12 col-sm-12 single-post">
+						<div class="blog-wrap">
+							<o:graphicImage id="ig1"
+								value="#{newsBean.findNewsById(newsId).imageSmall}"
+								dataURI="true" width="300"
+								style=" padding-bottom: 0px; padding-left: 0px; float:left; margin-right: 15px;"
+								alt="#{newsBean.findNewsById(newsId).title}" />
+
+							<h2
+								style="font-family: 'IRANSansBold' !important; text-align: right; color: goldenrod; line-height: 50px;">#{newsBean.findNewsById(newsId).head}</h2>
+							<p
+								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
+								<b> <h:outputText
+										value="#{newsBean.findNewsById(newsId).description}" />
+
+								</b>
+							</p>
+
+						</div>
+						</aside>
+
+
+
+					</div>
+					<br />
+
+				</div>
+				</div>
+			</article>
+			<br />
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

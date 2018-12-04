@@ -3,143 +3,96 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui">
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:b="http://bootsfaces.net/ui">
 
 <h:head></h:head>
 <body>
 	<ui:composition template="TEMPLATE.xhtml">
 		<ui:define name="headtemp">
-			<script
-				src="http://maps.google.com/maps/api/js?key=AIzaSyC5iFeXAWE72U4rr3l5oFje4g-ntNyQ0Ko"
-				type="text/javascript"></script>
-				<style>
-				#ig1{
-				padding: 20px;
-				padding-top: 80px;
-				}
-								#ig2{
-				padding: 20px;
-				padding-top: 80px;
-				}
-							@media  screen and (max-width : 500px)
-			{
+			<title>تماس با اتحادیه</title>
+			<style>
+</style>
 
-			#amazingslider-wrapper-1{
-			height: 200px!important;
-			}
-			.amazingslider-slider-1 {
-    display: block;
-    position: relative;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: auto;
-    height: 200px!important;
-}
-			.amazingslider-box-1 {
-    display: block;
-    position: relative;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 200px!important;
-}
-.amazingslider-swipe-box-1 {
-    display: block;
-    position: relative;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 200px!important;
-}
-.amazingslider-img-elem-1{
-height: 200px!important;
-}
-				#ig1{
-				padding: 0px!important;
-				padding-top: 0px!important;
-				}
-								#ig2{
-				padding: 0px!important;
-				padding-top: 0px!important;
-				}
-			}
-			</style>
 		</ui:define>
 
 		<ui:define name="maintemp">
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="shopName" />
+				</f:metadata>
+			</ui:define>
 
-			<article class="light-bg-1"> <!-- Insert to your webpage where you want to display the slider -->
-
-			
-			
-					
-			
-			
-			
-
-
-
-			<!-- Page Starts-->
-			<div class="container theme-container pt-70">
-
-				<div class="row"
-					style="background-color: #f2f2f2; padding: 10px 10px 20px 10px; border: 1px solid #BFBFBF; background-color: white; box-shadow: 10px 10px 5px #aaaaaa;">
-					<br />
-					<br />
-
-					<!-- Product Details Starts-->
-					<aside class="col-md-6 col-sm-8 single-post">
-					<div class="blog-wrap">
-						<p
-							style="font-family: 'IRANSansBold' !important; text-align: right; font-size: 30px; color: goldenrod;">اتحادیه صنف فروشندگان دستگاه های صوتی و تصویری ، تلفن همراه و لوازم جانبی</p>
+			<!-- CONTENT AREA -->
+			<article> <br />
+			<div
+				style="border: solid 5px; border-radius: 70px 10px 70px 70px; border-color: darkgrey; background-image: url('resources/images/back.jpg'); max-width: 1600px; margin: auto;">
+				<div class="container theme-container ptb-70">
+					<div class="row">
+						<div class="col-md-6">
+											<div class="blog-wrap">
+						<h2
+							style="font-family: 'IRANSansBold' !important; text-align: center; color: #bc9a5c;">اتحادیه
+							صنف فروشندگان دستگاه های صوتی و تصویری ، تلفن همراه و لوازم جانبی</h2>
 						<br />
 						<p
 							style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
-							<img src="resources/images/address.png" alt="" width="25" height="25"/><b> آدرس : تهران ، خیابان حافظ ، خیابان جامی ، خیابان احمد محمد بیک ، ساختمان شماره ۲۲ </b>
+							<img src="resources/images/locationt.png" alt="" width="25"
+								height="25" /><b> آدرس : تهران ، خیابان حافظ ، خیابان جامی
+								، خیابان احمد محمد بیک ، ساختمان شماره ۲۲ </b>
 						</p>
 						<p
 							style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
-							<img src="resources/images/phone.png" alt="" width="25" height="25"/><b> تلفن  :  ۳۵ ـ ۳۲  ۶۵  ۷۵  ۶۶  (۰۲۱ ) <h:outputText
+							<img src="resources/images/phonet.png" alt="" width="25"
+								height="25" /><b> تلفن : ۳۵ ـ ۳۲ ۶۵ ۷۵ ۶۶ (۰۲۱ ) <h:outputText
 									value="#{merchantPageBean.findByMerchantShop(shopName).merchantPhone}" /></b>
 						</p>
-												<p
+						<p
 							style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
-							<img src="resources/images/mail.png" alt="" width="25" height="25"/><b> نمابر : ۳۱  ۵۶  ۶۷  ۶۶ ( ۰۲۱ )<h:outputText
+							<img src="resources/images/faxt.png" alt="" width="25"
+								height="25" /><b> نمابر : ۳۱ ۵۶ ۶۷ ۶۶ ( ۰۲۱ )<h:outputText
 									value="#{merchantPageBean.findByMerchantShop(shopName).merchantPhone}" /></b>
 						</p>
-						
-												<p
+
+						<p
 							style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
-							<img src="resources/images/mail.png" alt="" width="25" height="25"/><b> کد پستی : ۴۶  ۶۸  ۸۴  ۳۸  ۱۱<h:outputText
+							<img src="resources/images/emailt.png" alt="" width="25"
+								height="25" /><b> کد پستی : ۴۶ ۶۸ ۸۴ ۳۸ ۱۱<h:outputText
 									value="#{merchantPageBean.findByMerchantShop(shopName).merchantPhone}" /></b>
 						</p>
-																		<p
+						<p
 							style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
-							<img src="resources/images/mail.png" alt="" width="25" height="25"/><b> سامانه پیام کوتاه : ۵۰۰۰۲۳۰۰۰۹۹۹<h:outputText
+							<img src="resources/images/emailt.png" alt="" width="25"
+								height="25" /><b> سامانه پیام کوتاه : ۵۰۰۰۲۳۰۰۰۹۹۹<h:outputText
 									value="#{merchantPageBean.findByMerchantShop(shopName).merchantPhone}" /></b>
+						</p>
+						<p
+							style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
+							<img src="resources/images/clock.png" alt="" width="25"
+								height="25" /><b> ساعت تماس با اتحادیه شنبه تا چهارشنبه
+								ساعت ۷:۳۰ تا ۱۴:۳۰</b>
+						</p>
+						<p
+							style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 50px;">
+							<img src="resources/images/calendar.png" alt="" width="25"
+								height="25" /><b> زمان پاسخگویی به شکایات یکشنبه و سه شنبه</b>
 						</p>
 					</div>
-					</aside>
-					<aside class="col-md-6 col-sm-8 single-post">
-					<div class="blog-wrap">
-						<!--                             <img 
-							src="resources/temp2/assets/images/about/1.jpg" alt="image" style=" padding: 20px; padding-bottom: 0px;
-padding-left: 0px; padding-top: 80px;" align="left"/> -->
-<p:gmap center="35.69046127201924,51.40848349548901" zoom="17" type="ROADMAP" style="width:100%;height:400px" model="#{merchantPageGmap.simpleModel2}" />
+						</div>
+						<div class="col-md-6">
+												<b:openStreetMap width="100%" height="500px"
+							center="35.69046127201924,51.40848349548901"
+							marker="35.69046127201924,51.40848349548901"
+							popupMsg="Museo de la evolución humana, Burgos, Spain." zoom="17"
+							urlTemplate="https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png" />
+						</div>
 					</div>
-					</aside>
-
-					<!-- Product Details Ends -->
-
-
-
 				</div>
 			</div>
+			</article>
 			<br />
-
-
-			 </article>
 		</ui:define>
 	</ui:composition>
 </body>

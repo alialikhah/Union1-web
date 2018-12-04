@@ -6,6 +6,7 @@ jsfui/JobKarfarmaBean.class
 jsfui/Occupation.class
 jsfui/NotFindBean.class
 jsfui/ProductDetailsBean.class
+jsfui/NewsBean.class
 jsfui/HomeBean.class
 jsfui/AddProductBean.class
 jsfui/MashahirEngBean.class
@@ -15,12 +16,15 @@ jsfui/JobKarjoBean.class
 jsfui/IndexBean.class
 jsfui/Group.class
 jsfui/Union.class
+jsfui/RentBean.class
 jsfui/SearchBean.class
 jsfui/OnlinePageBean.class
 jsfui/MailTest.class
 jsfui/PageRedirectBean.class
 jsfui/City.class
+jsfui/ShekayatBean.class
 jsfui/Area.class
+jsfui/ShekayatValidator.class
 jsfui/HaveEtebar.class
 jsfui/MerchantResultBean.class
 jsfui/Brand.class

@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<h:head></h:head>
+<body>
+	<ui:composition template="TEMPLATE.xhtml">
+		<ui:define name="headtemp">
+			<title>شکایات</title>
+	<link href="resources/css/shekayat.css"
+		rel="stylesheet" type="text/css" />
+
+		</ui:define>
+
+		<ui:define name="maintemp">
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="shopName" />
+				</f:metadata>
+			</ui:define>
+
+			<!-- CONTENT AREA -->
+			<article> <br />
+			<div
+				style="border: solid 5px; border-radius: 70px 10px 70px 70px; border-color: darkgrey; background-image: url('resources/images/back.jpg'); max-width: 1600px; margin: auto;">
+				<div class="container theme-container ptb-70">
+					<div class="row">
+						<div class="col-sm-12">
+							<h:form enctype="multipart/form-data">
+
+								<p:growl id="growl" sticky="true" showDetail="true" />
+								<p:wizard>
+									<p:tab id="personal" title="شاکی">
+										<p:panel header="اطلاعات شاکی">
+											<p:messages />
+											<h:panelGrid columns="2" columnClasses="label, value">
+												<p:outputLabel for="input"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="نام و نام خانوادگی *" />
+												<p:inputText styleClass="it" id="input"
+													style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
+													value="#{shekayatBean.shakiName}" rendered="true"
+													requiredMessage="فیلد اجباری">
+													<f:validateLength maximum="100" minimum="3" />
+												</p:inputText>
+
+												<p:outputLabel for="msk"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="کد ملی" />
+												<p:inputText styleClass="it" id="msk" dir="ltr"
+													value="#{shekayatBean.shakiSsn}" required="true" placeholder="xxxxxxxxxx"
+													requiredMessage="فیلد اجباری *"
+													style=" width: 100%; background-color: white !important;">
+													
+													<f:validateLength maximum="12" />
+												</p:inputText>
+
+												<p:outputLabel for="tele"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="تلفن ثابت" />
+												<p:inputText styleClass="it" id="tele" dir="ltr" placeholder="21xxxxxxxx"
+													value="#{shekayatBean.shakiPhone}"
+													style=" width: 100%; background-color: white !important;">
+													<f:validateLength minimum="0" maximum="10" />
+												</p:inputText>
+
+												<p:outputLabel for="mob"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="تلفن همراه (9xxxxxxxxx)" />
+												<p:inputText styleClass="it" id="mob" dir="ltr" placeholder="9xxxxxxxxx"
+													style=" width: 100%; background-color: white !important;"
+													value="#{shekayatBean.shakiMobile}" required="true"
+													requiredMessage="فیلد اجباری">
+													<f:validateRegex pattern="^(0|[1-9][0-9]*)$" />
+													<f:validateLength maximum="10" minimum="10" />
+												</p:inputText>
+
+
+												<p:outputLabel for="input4"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="ایمیل" />
+												<p:inputText dir="ltr" styleClass="it" id="input4"
+													value="#{shekayatBean.shakiEmail}"
+													style=" width: 100%; background-color: white !important;">
+													<f:validateLength minimum="0" maximum="150" />
+												</p:inputText>
+
+												<p:outputLabel for="pos2"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="کد پستی" />
+												<p:inputText styleClass="it" id="pos2" dir="ltr"
+													style=" width: 100%; background-color: white !important;"
+													value="#{shekayatBean.vahedeSenfiPostCode}">
+													<f:validateLength minimum="0" maximum="20" />
+												</p:inputText>
+
+												<p:outputLabel for="area"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="آدرس" />
+
+
+												<p:inputTextarea styleClass="it" id="area"
+													style=" width: 100%; background-color:white!important;"
+													value="#{shekayatBean.shakiAddres}" required="true"
+													requiredMessage="فیلد اجباری ">
+													<f:validateLength minimum="2" maximum="500" />
+												</p:inputTextarea>
+
+											</h:panelGrid>
+										</p:panel>
+									</p:tab>
+
+									<p:tab id="address" title="طرف شکایت">
+										<p:panel header="اطلاعات طرف شکایت">
+											<p:messages />
+											<h:panelGrid columns="2" columnClasses="label, value">
+												<p:outputLabel for="input1"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="نام واحد صنفی" />
+												<p:inputText styleClass="it" id="input1"
+													style=" width: 100%; background-color: white !important; font-size:16px;"
+													value="#{shekayatBean.vahedeSenfiName}" required="true"
+													requiredMessage="فیلد اجباری">
+													<f:validateLength minimum="2" maximum="150" />
+												</p:inputText>
+
+												<p:outputLabel for="input2"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="نام متصدی" />
+												<p:inputText styleClass="it" id="input2"
+													style=" width: 100%; background-color: white !important;"
+													value="#{shekayatBean.motesadiName}"
+													>
+													<f:validateLength minimum="0" maximum="150" />
+												</p:inputText>
+
+												<p:outputLabel for="tele2"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="تلفن واحد صنفی" />
+												<p:inputText styleClass="it" id="tele2" dir="ltr" placeholder="21xxxxxxxx" required="true" requiredMessage="فیلد اجباری"
+													style=" width: 100%; background-color: white !important;"
+													value="#{shekayatBean.vahedeSenfiPhone}" >
+													<f:validateLength minimum="10" maximum="10" />
+												</p:inputText>
+
+												<p:outputLabel for="mob2"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="تلفن همراه (9xxxxxxxxx)" />
+												<p:inputText styleClass="it" id="mob2" dir="ltr" placeholder="9xxxxxxxxx"
+													style=" width: 100%; background-color: white !important;"
+													value="#{shekayatBean.vahedeSenfiMobile}" >
+													<f:validateLength minimum="0" maximum="10" />
+												</p:inputText>
+
+												<p:outputLabel for="input3"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="شناسه صنفی" />
+												<p:inputText styleClass="it" id="input3"
+													style=" width: 100%; background-color: white !important;"
+													value="#{shekayatBean.vahedeShenaseSenfi}">
+													<f:validateLength minimum="0" maximum="50" />
+												</p:inputText>
+
+												<p:outputLabel for="pos22"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="کد پستی" />
+												<p:inputText styleClass="it" id="pos22" dir="ltr"
+													style=" width: 100%; background-color: white !important;"
+													value="#{shekayatBean.vahedeSenfiPostCode}">
+													<f:validateLength minimum="0" maximum="20" />
+												</p:inputText>
+
+												<p:outputLabel for="area2"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="آدرس" />
+												<p:inputTextarea styleClass="it" id="area2"
+													style=" width: 100%; background-color: white !important;"
+													value="#{shekayatBean.vahedeShenaseAddres}" rendered="true"
+													requiredMessage="فیلد اجباری">
+													<f:validateLength minimum="2" maximum="500" />
+												</p:inputTextarea>
+
+											</h:panelGrid>
+										</p:panel>
+									</p:tab>
+
+									<p:tab id="contact" title="ثبت شکایت">
+										<p:panel header="ثبت شکایت">
+											<p:messages />
+											<h:panelGrid columns="1" style="background-color:white!important;">
+												<p:outputLabel for="onemenu"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="عنوان شکایت *" />
+
+												<h:selectOneMenu id="onemenu" styleClass="it2" value="#{shekayatBean.shekayatTitle}" style="background-color: #dddddd;">
+													<f:selectItem itemValue="گرانفروشی" itemLabel="گرانفروشی" />
+													<f:selectItem itemValue="تقلب" itemLabel="تقلب" />
+													<f:selectItem itemValue="عدم درج قیمت و نصب نرخنامه"
+														itemLabel="عدم درج قیمت و نصب نرخنامه" />
+													<f:selectItem itemValue="عدم صدور صورت حساب"
+														itemLabel="عدم صدور صورت حساب" />
+													<f:selectItem itemValue="نداشتن پروانه کسب"
+														itemLabel="نداشتن پروانه کسب" />
+													<f:selectItem itemValue="عدم انجام خدمات پس از فروش در دوره ضمانت"
+														itemLabel="عدم انجام خدمات پس از فروش در دوره ضمانت" />
+												</h:selectOneMenu>
+
+
+												<p:outputLabel for="area3"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="شرح شکایت *" />
+												<p:inputTextarea styleClass="it2" id="area3"
+													value="#{shekayatBean.sharh}"
+													style="width: 100%; background-color: white !important;"
+													rendered="true" requiredMessage="فیلد اجباری">
+													<f:validateLength minimum="10" maximum="5000" />
+												</p:inputTextarea>
+
+												<p:outputLabel for="fac"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="فاکتور" />
+												<h:inputFile id="fac" styleClass="it2"  value="#{shekayatBean.shakiFactor}" style="background-color: #dddddd;"
+													required="true"
+													requiredMessage="تصویر مناسب با فرمت jpg or png با حجم کمتر از 400k">
+													<f:validator validatorId="shekayatValidator" />
+												</h:inputFile>
+												
+
+											</h:panelGrid>
+											<h:commandButton id="saveBtn" value="ثبت"
+												icon="ui-icon-check"
+												style="margin:0; width:100px; height:30px; font-size:18px;"
+												update="pnl" ajax="true" execute="@form"
+												action="#{shekayatBean.inserToShekayat()}">
+											</h:commandButton>
+										</p:panel>
+									</p:tab>
+
+								</p:wizard>
+
+							</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
+			</article>
+			<br />
+		</ui:define>
+	</ui:composition>
+</body>
+</html>
