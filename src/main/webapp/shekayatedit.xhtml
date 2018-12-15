@@ -3,170 +3,177 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<f:metadata>
+	<f:event listener="#{userBean.isUser}" type="preRenderView"></f:event>
+	<f:viewParam name="shakiId" />
+</f:metadata>
+
 
 <h:head></h:head>
-<h:body>
-<ui:composition template="shekayattemp.xhtml">
-<ui:define name="mains">
-	<ui:define name="metadata">
-		<f:metadata>
-			<f:viewParam name="shakiId" />
-		</f:metadata>
-	</ui:define>
+<body>
+	<ui:composition template="/template/TEMPLATE.xhtml">
+		<ui:define name="headtemp">
+			<title>شکایات</title>
+			<link href="resources/css/shekayat.css" rel="stylesheet"
+				type="text/css" />
+			<style>
+.ui-grid {
+	clear: both;
+	padding: 0;
+	margin: 0;
+	background-color: #dddddd !important;
+}
+
+.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield
+	{
+	background: #dddddd !important;
+	-moz-box-shadow: inset 0 2px 2px #8f8f8f;
+	-webkit-box-shadow: inset 0 2px 2px #8f8f8f;
+	box-shadow: inset 0 2px 2px #8f8f8f;
+	color: #222222;
+}
+</style>
+		</ui:define>
+
+		<ui:define name="maintemp">
+<!-- 			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="shakiId" />
+				</f:metadata>
+			</ui:define> -->
+
+			<!-- CONTENT AREA -->
+			<article> <br />
+			<div
+				style="border: solid 5px; border-radius: 70px 10px 70px 70px; border-color: darkgrey; background-image: url('resources/images/back.jpg'); max-width: 1600px; margin: auto;">
+				<div class="container theme-container ptb-70">
+					<div class="row">
+						<div class="col-sm-12">
+							<h2 style="text-align: right;">خواهان</h2>
+							<p:panelGrid columns="2" layout="grid">
+								<p:outputLabel for="input" value="نام و نام خانوادگی  :" />
+								<p:outputLabel id="input"
+									value="#{shekayatBean.findShekayatById(shakiId).shakiName}" />
+
+								<p:outputLabel for="msk" value="کد ملی" />
+								<p:outputLabel id="msk" dir="ltr"
+									value="#{shekayatBean.findShekayatById(shakiId).shakiSsn}" />
+
+								<p:outputLabel for="tele" value="تلفن ثابت" />
+								<p:outputLabel id="tele" dir="ltr"
+									value="#{shekayatBean.findShekayatById(shakiId).shakiPhone}" />
+
+								<p:outputLabel for="mob" value="تلفن همراه" />
+								<p:outputLabel id="mob" dir="ltr"
+									value="#{shekayatBean.findShekayatById(shakiId).shakiMobile}" />
+
+								<p:outputLabel for="input4" value="ایمیل" dir="ltr" />
+								<p:outputLabel id="input4"
+									value="#{shekayatBean.findShekayatById(shakiId).shakiEmail}" />
+
+								<p:outputLabel for="pos" value="کد پستی" />
+								<p:outputLabel id="pos" dir="ltr"
+									value="#{shekayatBean.findShekayatById(shakiId).shakiPostCode}" />
+
+								<p:outputLabel for="area" value="آدرس" />
+								<p:outputLabel id="area" dir="rtl"
+									value="#{shekayatBean.findShekayatById(shakiId).shakiAddres}" />
+
+							</p:panelGrid>
+							<p:separator />
+							<h2 style="text-align: right;">خوانده</h2>
+							<p:panelGrid columns="2">
+								<p:outputLabel for="input1" value="نام واحد صنفی" />
+								<p:outputLabel id="input1"
+									value="#{shekayatBean.findShekayatById(shakiId).vahedeSenfiName}" />
+
+								<p:outputLabel for="input2" value="نام متصدی" />
+								<p:outputLabel id="input2"
+									value="#{shekayatBean.findShekayatById(shakiId).motesadiName}" />
+
+								<p:outputLabel for="tele2" value="تلفن واحد صنفی" />
+								<p:outputLabel id="tele2" dir="ltr"
+									value="#{shekayatBean.findShekayatById(4).vahedeSenfiPhone}" />
+
+								<p:outputLabel for="mob2" value="تلفن همراه" />
+								<p:outputLabel id="mob2" dir="ltr"
+									value="#{shekayatBean.findShekayatById(shakiId).vahedeSenfiMobile}" />
 
 
-	<div class="ui-fluid" dir="rtl">
-		<h:form enctype="multipart/form-data" acceptcharset="UTF-8" id="form">
-			<p:growl id="growl" />
-			<p:panel id="pnl" header="ثبت شکایت"
-				style="margin-bottom:10px; text-align:center;">
-				<p:messages id="messages" />
-				<p:panelGrid columns="4"
-					columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-2,ui-grid-col-4"
-					layout="grid" styleClass="ui-panelgrid-blank">
-					<p:outputLabel for="onemenu" value="وضعیت شکایت" />
-					<p:selectOneMenu id="onemenu" value="#{shekayatBean.vaziat}">
-						<f:selectItem itemLabel="Select One" itemValue="" />
-						<f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
-						<f:selectItem itemLabel="PS4" itemValue="PS4" />
-						<f:selectItem itemLabel="Wii U" itemValue="Wii U" />
-					</p:selectOneMenu>
-					<p:outputLabel for="input55" value="شماره  :" />
-					<p:inputText id="input55"
-						value="#{shekayatBean.findShekayatById(shakiId).shekayatId}"
-						readonly="true" />
+								<p:outputLabel for="input3" value="شناسه صنفی" />
+								<p:outputLabel id="input3"
+									value="#{shekayatBean.findShekayatById(shakiId).vahedeShenaseSenfi}" />
 
-					<p:outputLabel for="input66" value="پرونده  :" />
-					<p:inputText id="input66" value="#{shekayatBean.parvande}"
-						 />
+								<p:outputLabel for="pos2" value="کد پستی" />
+								<p:outputLabel id="pos2" dir="ltr"
+									value="#{shekayatBean.findShekayatById(shakiId).vahedeSenfiPostCode}" />
 
+								<p:outputLabel for="area2" value="آدرس" />
+								<p:outputLabel id="area2"
+									value="#{shekayatBean.findShekayatById(shakiId).vahedeShenaseAddres}" />
 
-					<p:outputLabel for="input88" value="رهگیری  :" />
-					<p:inputText id="input88" value="#{shekayatBean.rahgiri}"
-						 />
+								<p:outputLabel for="onemenu" value="عنوان شکایت" />
+								<p:outputLabel id="onemenu"
+									value="#{shekayatBean.findShekayatById(shakiId).shekayatTitle}" />
 
-					<h:commandButton id="saveBtn" value="ثبت" icon="ui-icon-check"
-						style="margin:0" update="pnl" ajax="true" execute="@form"
-						action="#{shekayatBean.shekayatUpdate(shakiId)}">
-					</h:commandButton>
+								<p:outputLabel for="area3" value="شرح شکایت" />
+								<p:outputLabel id="area3"
+									value="#{shekayatBean.findShekayatById(shakiId).sharh}" />
 
-				</p:panelGrid>
-				<p:separator />
-				</p:panel>
-				
-		</h:form>
+							</p:panelGrid>
+							<p:separator />
+							<h:form enctype="multipart/form-data" acceptcharset="UTF-8"
+								id="form">
+								<p:growl id="growl" />
+								<p:panel id="pnl" header="ثبت شکایت"
+									style="margin-bottom:10px; text-align:center;">
+									<p:messages id="messages" />
+									<p:panelGrid columns="2" layout="grid">
 
-		<h2 style="text-align: right;">شاکی</h2>
-		<p:panelGrid columns="4"
-			columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-2,ui-grid-col-4"
-			layout="grid" styleClass="ui-panelgrid-blank">
-			<p:outputLabel for="input" value="نام و نام خانوادگی  :" />
-			<p:inputText id="input"
-				value="#{shekayatBean.findShekayatById(shakiId).shakiName}"
-				readonly="true" />
+										<p:outputLabel for="basic"
+											style="font-family: 'IRANSansNor' !important;"
+											value="وضعیت شکایت" />
+										<p:selectOneListbox id="basic" value="#{userBean.role}"
+											required="true" requiredMessage="فیلد اجباری">
+											<f:selectItem itemLabel="admin" itemValue="admin" />
+											<f:selectItem itemLabel="shekayet" itemValue="shekayet" />
+										</p:selectOneListbox>
+										<p:outputLabel for="input55" value="شماره  :" />
+										<p:inputText id="input55"
+											value="#{shekayatBean.findShekayatById(shakiId).shekayatId}"
+											readonly="true" />
 
-			<p:outputLabel for="msk" value="کد ملی" />
-			<p:inputMask mask="9999999999" id="msk" dir="ltr"
-				value="#{shekayatBean.findShekayatById(shakiId).shakiSsn}"
-				readonly="true" />
-
-			<p:outputLabel for="tele" value="تلفن ثابت" />
-			<p:inputMask mask="99999999" id="tele" dir="ltr"
-				value="#{shekayatBean.findShekayatById(shakiId).shakiPhone}"
-				readonly="true" />
-
-			<p:outputLabel for="mob" value="تلفن همراه" />
-			<p:inputMask mask="9999999999" id="mob" dir="ltr"
-				value="#{shekayatBean.findShekayatById(shakiId).shakiMobile}"
-				readonly="true" />
-
-			<p:outputLabel for="input4" value="ایمیل" dir="ltr" />
-			<p:inputText id="input4"
-				value="#{shekayatBean.findShekayatById(shakiId).shakiEmail}"
-				readonly="true" />
-
-			<p:outputLabel for="pos" value="کد پستی" />
-			<p:inputMask mask="9999999999" id="pos" dir="ltr"
-				value="#{shekayatBean.findShekayatById(shakiId).shakiPostCode}"
-				readonly="true" />
-
-			<p:outputLabel for="area" value="آدرس" />
-			<p:inputTextarea id="area"
-				value="#{shekayatBean.findShekayatById(shakiId).shakiAddres}"
-				readonly="true" />
-
-		</p:panelGrid>
-		<p:separator />
-		<h2 style="text-align: right;">طرف شکایت</h2>
-		<p:panelGrid columns="4"
-			columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-2,ui-grid-col-4"
-			layout="grid" styleClass="ui-panelgrid-blank">
-			<p:outputLabel for="input1" value="نام واحد صنفی" />
-			<p:inputText id="input1"
-				value="#{shekayatBean.findShekayatById(shakiId).vahedeSenfiName}"
-				readonly="true" />
-
-			<p:outputLabel for="input2" value="نام متصدی" />
-			<p:inputText id="input2"
-				value="#{shekayatBean.findShekayatById(shakiId).motesadiName}"
-				readonly="true" />
-
-			<p:outputLabel for="tele2" value="تلفن واحد صنفی" />
-			<p:inputMask mask="99999999" id="tele2" dir="ltr"
-				value="#{shekayatBean.findShekayatById(shakiId).vahedeSenfiPhone}"
-				readonly="true" />
-
-			<p:outputLabel for="mob2" value="تلفن همراه" />
-			<p:inputMask mask="9999999999" id="mob2" dir="ltr"
-				value="#{shekayatBean.findShekayatById(shakiId).vahedeSenfiMobile}"
-				readonly="true" />
+										<p:outputLabel for="input66" value="پرونده  :" />
+										<p:inputText id="input66" value="#{shekayatBean.parvande}" />
 
 
-			<p:outputLabel for="input3" value="شناسه صنفی" />
-			<p:inputText id="input3"
-				value="#{shekayatBean.findShekayatById(shakiId).vahedeShenaseSenfi}"
-				readonly="true" />
+										<p:outputLabel for="input88" value="رهگیری  :" />
+										<p:inputText id="input88" value="#{shekayatBean.rahgiri}" />
 
-			<p:outputLabel for="pos2" value="کد پستی" />
-			<p:inputMask mask="9999999999" id="pos2" dir="ltr"
-				value="#{shekayatBean.findShekayatById(shakiId).vahedeSenfiPostCode}"
-				readonly="true" />
 
-			<p:outputLabel for="area2" value="آدرس" />
-			<p:inputTextarea id="area2"
-				value="#{shekayatBean.findShekayatById(shakiId).vahedeShenaseAddres}"
-				readonly="true" />
 
-		</p:panelGrid>
-		<p:separator />
-		<p:panelGrid columns="4"
-			columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-2,ui-grid-col-4"
-			layout="grid" styleClass="ui-panelgrid-blank">
-			<p:outputLabel for="onemenu" value="عنوان شکایت" />
-			<p:inputText id="onemenu"
-				value="#{shekayatBean.findShekayatById(shakiId).shekayatTitle}"
-				readonly="true" />
+										<h:commandButton id="saveBtn" value="ثبت" icon="ui-icon-check"
+											style="margin:0" update="pnl" ajax="true" execute="@form"
+											action="#{shekayatBean.shekayatUpdate(shakiId)}">
+										</h:commandButton>
 
-		</p:panelGrid>
-		<p:separator />
-		<p:panelGrid columns="4"
-			columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-2,ui-grid-col-4"
-			layout="grid" styleClass="ui-panelgrid-blank">
-			<p:outputLabel for="area3" value="شرح شکایت" />
-			<p:inputTextarea id="area3"
-				value="#{shekayatBean.findShekayatById(shakiId).sharh}"
-				readonly="true" />
+									</p:panelGrid>
+									<p:separator />
+								</p:panel>
 
-			<!-- 					<p:outputLabel for="fac" value="فاکتور" />
-					<h:inputFile id="fac" value="#{shekayatBean.findShekayatById(shakiId)}" /> -->
-		</p:panelGrid>
-		<p:separator />
-	</div>
+							</h:form>
 
-	<div
-		style="position: relative; width: 100%; height: 100px; background-color: black; opacity: 0.5"></div>
-</ui:define>
-</ui:composition>
-</h:body>
+						</div>
+					</div>
+				</div>
+			</div>
+			</article>
+			<br />
+		</ui:define>
+	</ui:composition>
+</body>
 </html>

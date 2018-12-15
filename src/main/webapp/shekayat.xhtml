@@ -9,7 +9,7 @@
 
 <h:head></h:head>
 <body>
-	<ui:composition template="TEMPLATE.xhtml">
+	<ui:composition template="/template/TEMPLATE.xhtml">
 		<ui:define name="headtemp">
 			<title>شکایات</title>
 	<link href="resources/css/shekayat.css"
@@ -35,8 +35,8 @@
 
 								<p:growl id="growl" sticky="true" showDetail="true" />
 								<p:wizard>
-									<p:tab id="personal" title="شاکی">
-										<p:panel header="اطلاعات شاکی">
+									<p:tab id="personal" title="خواهان">
+										<p:panel header="اطلاعات خواهان">
 											<p:messages />
 											<h:panelGrid columns="2" columnClasses="label, value">
 												<p:outputLabel for="input"
@@ -51,12 +51,12 @@
 
 												<p:outputLabel for="msk"
 													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
-													value="کد ملی" />
+													value="کد ملی (حروف به انگلیسی)" />
 												<p:inputText styleClass="it" id="msk" dir="ltr"
 													value="#{shekayatBean.shakiSsn}" required="true" placeholder="xxxxxxxxxx"
 													requiredMessage="فیلد اجباری *"
 													style=" width: 100%; background-color: white !important;">
-													
+													<f:validateRegex pattern="^([0-9][0-9]*)$" />
 													<f:validateLength maximum="12" />
 												</p:inputText>
 
@@ -71,13 +71,13 @@
 
 												<p:outputLabel for="mob"
 													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
-													value="تلفن همراه (9xxxxxxxxx)" />
+													value="تلفن همراه (9xxxxxxxxx به انگلیسی) " />
 												<p:inputText styleClass="it" id="mob" dir="ltr" placeholder="9xxxxxxxxx"
 													style=" width: 100%; background-color: white !important;"
 													value="#{shekayatBean.shakiMobile}" required="true"
 													requiredMessage="فیلد اجباری">
-													<f:validateRegex pattern="^(0|[1-9][0-9]*)$" />
-													<f:validateLength maximum="10" minimum="10" />
+													<f:validateRegex pattern="^([0-9][0-9]*)$" />
+													<f:validateLength maximum="14" minimum="10" />
 												</p:inputText>
 
 
@@ -115,8 +115,8 @@
 										</p:panel>
 									</p:tab>
 
-									<p:tab id="address" title="طرف شکایت">
-										<p:panel header="اطلاعات طرف شکایت">
+									<p:tab id="address" title="خوانده">
+										<p:panel header="اطلاعات خوانده">
 											<p:messages />
 											<h:panelGrid columns="2" columnClasses="label, value">
 												<p:outputLabel for="input1"
@@ -141,11 +141,12 @@
 
 												<p:outputLabel for="tele2"
 													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
-													value="تلفن واحد صنفی" />
+													value="تلفن واحد صنفی (حروف به انگلیسی)" />
 												<p:inputText styleClass="it" id="tele2" dir="ltr" placeholder="21xxxxxxxx" required="true" requiredMessage="فیلد اجباری"
 													style=" width: 100%; background-color: white !important;"
 													value="#{shekayatBean.vahedeSenfiPhone}" >
-													<f:validateLength minimum="10" maximum="10" />
+													<f:validateRegex pattern="^([0-9][0-9]*)$" />
+													<f:validateLength minimum="14" maximum="10" />
 												</p:inputText>
 
 												<p:outputLabel for="mob2"
@@ -160,7 +161,7 @@
 												<p:outputLabel for="input3"
 													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
 													value="شناسه صنفی" />
-												<p:inputText styleClass="it" id="input3"
+												<p:inputText styleClass="it" id="input3" dir="ltr"
 													style=" width: 100%; background-color: white !important;"
 													value="#{shekayatBean.vahedeShenaseSenfi}">
 													<f:validateLength minimum="0" maximum="50" />
@@ -177,7 +178,7 @@
 
 												<p:outputLabel for="area2"
 													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
-													value="آدرس" />
+													value="آدرس *" />
 												<p:inputTextarea styleClass="it" id="area2"
 													style=" width: 100%; background-color: white !important;"
 													value="#{shekayatBean.vahedeShenaseAddres}" rendered="true"
@@ -213,11 +214,11 @@
 
 												<p:outputLabel for="area3"
 													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
-													value="شرح شکایت *" />
+													value="شرح شکایت" />
 												<p:inputTextarea styleClass="it2" id="area3"
 													value="#{shekayatBean.sharh}"
 													style="width: 100%; background-color: white !important;"
-													rendered="true" requiredMessage="فیلد اجباری">
+													required="true" requiredMessage="فیلد اجباری">
 													<f:validateLength minimum="10" maximum="5000" />
 												</p:inputTextarea>
 

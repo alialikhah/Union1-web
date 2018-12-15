@@ -5,6 +5,9 @@
     <javaee:param-name>javax.faces.PROJECT_STAGE</javaee:param-name>
     <javaee:param-value>.xhtml</javaee:param-value>
   </javaee:context-param>
+  	<javaee:session-config>
+		<javaee:session-timeout>20</javaee:session-timeout>
+	</javaee:session-config>
   <javaee:welcome-file-list>
     <javaee:welcome-file>/home.xhtml</javaee:welcome-file>
   </javaee:welcome-file-list>

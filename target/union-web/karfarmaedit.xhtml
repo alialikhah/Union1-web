@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<ui:composition template="/template/templateA.xhtml">
+		<ui:define name="headtmp">
+			<meta charset="UTF-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1" />
+			<title>Merchant</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<link rel="stylesheet" type="text/css" media="all"
+				href="resources/date/skins/aqua/theme.css" title="Aqua" />
+			<link rel="alternate stylesheet" type="text/css" media="all"
+				href="resources/date/skins/calendar-blue.css" title="winter" />
+			<link rel="alternate stylesheet" type="text/css" media="all"
+				href="resources/date/skins/calendar-system.css" title="system" />
+
+
+			<script charset="UTF-8" type="text/javascript"
+				src="resources/date/jalali.js"></script>
+
+			<script charset="UTF-8" type="text/javascript"
+				src="resources/date/calendar.js"></script>
+
+			<script charset="UTF-8" type="text/javascript"
+				src="resources/date/calendar-setup.js"></script>
+
+			<script charset="UTF-8" type="text/javascript"
+				src="resources/date/lang/calendar-fa.js"></script>
+
+			<script charset="UTF-8" type="text/javascript"
+				src="resources/date/alidate.js"></script>
+
+			<h:outputStylesheet library="css" name="merchantedit.css" />
+
+			<link href="resources/css/merchantedit.css" rel="stylesheet"
+				type="text/css" />
+
+
+		</ui:define>
+
+		<ui:define name="centertmp"> 
+	<ui:define name="metadata">
+		<f:metadata>
+			<f:viewParam name="karfarma" />
+		</f:metadata>
+	</ui:define>
+
+
+
+	<p:panelGrid columns="2" style="direction:rtl!important">
+		<f:facet name="header">
+    ویرایش درخواست های شغل
+    </f:facet>
+
+
+		<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel
+			value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karafarmaAddress}" />
+
+		<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel
+			value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karafarmaId}" />
+
+		<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel
+			value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karfarmaCompanyName}" />
+
+		<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel
+			value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karfarmaDescription}" />
+
+
+		<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel
+			value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karfarmaEmail}" />
+
+
+		<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel
+			value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karfarmaEtebar}" />
+
+
+		<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel
+			value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karfarmaJavazNum}" />
+
+		<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karfarmaJobCity}" />
+
+		<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel
+			value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karfarmaJobTitle}" />
+
+
+		<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel
+			value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karfarmaMobile}" />
+
+		<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel
+			value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karfarmaName}" />
+
+
+		<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel
+			value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karfarmaNiroMorede}" />
+		<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel
+			value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karfarmaNoeDarkhast}" />
+		<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel
+			value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karfarmaPasokhName}" />
+
+		<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel
+			value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karfarmaPasokhSemat}" />
+
+		<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karfarmaPhone}" />
+
+		<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karfarmaSenf}" />
+		
+				<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karfarmaSite}" />
+		
+				<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karfarmaTakhasosMorede}" />
+		
+				<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karfarmaPhone}" />
+		
+						<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel value="#{jobKarfarmaBean.findKarfarmaById(karfarma).karfarmaSenf}" />
+		
+								<p:outputLabel value="نام فروشنده:" />
+		<p:outputLabel value="#{jobKarfarmaBean.findKarfarmaById(karfarma).mizanHogog}" />
+
+
+		<h:outputText value="نمایش :" />
+		<h:outputText value="#{jobKarfarmaBean.findKarfarmaById(karfarma).taeed}" />
+		<h:form id="frm371" style="display:none">
+			<p:selectBooleanCheckbox value="#{jobKarfarmaBean.taeed}" />
+			<p:commandButton value="ثبت تغییرات"
+				action="#{jobKarfarmaBean.updateKarfarma(karfarma)}" />
+		</h:form>
+		<p:commandButton value="ویرایش">
+			<p:effect type="explode" event="click" for="frm371">
+				<f:param name="mode" value="'show'" />
+			</p:effect>
+		</p:commandButton>
+
+
+
+	</p:panelGrid>
+
+
+
+
+
+
+			</ui:define>
+	</ui:composition> 
+
+</h:body>
+</html>

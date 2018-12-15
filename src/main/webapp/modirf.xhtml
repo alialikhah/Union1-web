@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<h:head></h:head>
+<!-- 		<f:metadata>
+			<f:event listener="#{adminBean.isUser}" type="preRenderView"></f:event>
+		</f:metadata> -->
+<body>
+	<ui:composition template="/template/TEMPLATE.xhtml">
+		<ui:define name="headtemp">
+			<title>شکایات</title>
+			<link href="resources/css/shekayat.css" rel="stylesheet"
+				type="text/css" />
+							<style>
+				.ui-widget-content {
+					color: #222222;
+					background-color: #dddddd!important;
+				}
+				            </style>
+		</ui:define>
+
+		<ui:define name="maintemp">
+
+			<article> <br />
+			<div
+				style="border: solid 5px; border-radius: 70px 10px 70px 70px; border-color: darkgrey; background-image: url('resources/images/back.jpg'); max-width: 1600px; margin: auto;">
+				<div class="container theme-container ptb-70">
+					<div class="row">
+						<div class="col-sm-12">
+							<h:form id="form">
+
+								<p:growl id="msgs" showDetail="true" />
+
+								<h3 style="margin-top: 0">افزودن کاربر</h3>
+								<p:tabView id="pnl">
+									<p:tab title="اضافه کردن کاربر سیستم">
+										<p:messages />
+										<h:panelGrid columns="2" columnClasses="label, value">
+
+											<p:outputLabel for="input1"
+												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+												value="نام و نام خانوادگی" />
+											<p:inputText styleClass="it" id="input1"
+												style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
+												value="#{userBean.wholeName}" required="true"
+												requiredMessage="فیلد اجباری">
+												<f:validateLength maximum="100" minimum="3" />
+											</p:inputText>
+
+											<p:outputLabel for="input2"
+												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+												value="نام کاربری *" />
+											<p:inputText styleClass="it" id="input2" dir="ltr"
+												style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
+												value="#{userBean.userName}" rendered="true"
+												requiredMessage="فیلد اجباری">
+												<f:validateLength maximum="100" minimum="3" />
+											</p:inputText>
+
+											<p:outputLabel for="msk1"
+												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+												value="پسوورد" />
+											<p:inputText styleClass="it" id="msk1" dir="ltr"
+												value="#{userBean.password}" required="true"
+												requiredMessage="فیلد اجباری *"
+												style=" width: 100%; background-color: white !important;">
+												<f:validateLength minimum="6" maximum="30" />
+											</p:inputText>
+
+											<p:outputLabel for="basic" style="font-family: 'IRANSansNor' !important;" value="رول یوزر" />
+											<p:selectOneListbox id="basic" value="#{userBean.role}"
+												required="true" requiredMessage="فیلد اجباری">
+												<f:selectItem itemLabel="admin" itemValue="admin" />
+												<f:selectItem itemLabel="shekayet" itemValue="shekayet" />
+											</p:selectOneListbox>
+
+											<h:commandButton id="saveBtn" value="ثبت"
+												icon="ui-icon-check"
+												style="margin:0; width:100px; height:30px; font-size:18px;"
+												update="pnl" ajax="true" execute="@form"
+												action="#{userBean.insertUser()}">
+											</h:commandButton>
+										</h:panelGrid>
+									</p:tab>
+									<p:tab title="بخش ۲">
+									</p:tab>
+								</p:tabView>
+							</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
+			</article>
+			<br />
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

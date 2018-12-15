@@ -8,8 +8,8 @@
 	xmlns:rich="http://richfaces.org/rich">
 
 <h:head></h:head>
-<body>
-	<ui:composition template="TEMPLATE.xhtml">
+<body onload="clearInput()">
+	<ui:composition template="/template/TEMPLATE.xhtml">
 		<ui:define name="headtemp">
 			<title>نیروی انسانی</title>
 			<link href="resources/css/jobhome.css" rel="stylesheet"
@@ -37,8 +37,13 @@
 							<hr />
 							<p:tabView>
 								<p:tab title="ثبت نام کارجو">
-									<h:form>
-										<h:panelGrid columns="2" columnClasses="label, value">
+								
+								
+									<h:form id="form">
+									<p:growl id="growl" sticky="true" showDetail="true" />
+									<p:messages />
+									<p:panel id="panel">
+										<h:panelGrid columns="2" columnClasses="label, value" >
 											<p:outputLabel for="input"
 												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
 												value="نام و نام خانوادگی *" />
@@ -90,7 +95,7 @@
 												value="تاریخ تولد" />
 											<p:inputText styleClass="it" id="inputt22"
 												style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
-												required="true" requiredMessage="فیلد اجباری">
+												required="true" requiredMessage="فیلد اجباری" value="#{jobKarjoBean.karjoBirth}">
 												<f:validateLength maximum="100" minimum="3" />
 											</p:inputText>
 
@@ -128,13 +133,13 @@
 
 											<p:outputLabel for="msk"
 												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
-												value="کد ملی" />
+												value="کد ملی (حروف به انگلیسی)" />
 											<p:inputText styleClass="it" id="msk" dir="ltr"
 												value="#{jobKarjoBean.karjoSsn}" required="true"
 												requiredMessage="فیلد اجباری"
 												style=" width: 100%; background-color: white !important;">
-												<f:validateRegex pattern="^(0|[1-9][0-9]*)$" />
-												<f:validateLength maximum="1" minimum="12" />
+												<f:validateRegex pattern="^([0-9][0-9]*)$" />
+												<f:validateLength maximum="12" minimum="1" />
 											</p:inputText>
 
 											<p:outputLabel
@@ -143,19 +148,18 @@
 											<p:inputText styleClass="it" id="tele" dir="ltr"
 												value="#{jobKarjoBean.karjoPhone}"
 												style=" width: 100%; background-color: white !important;">
-												<f:validateRegex pattern="^(0|[1-9][0-9]*)$" />
 												<f:validateLength maximum="100" minimum="0" />
 											</p:inputText>
 
 											<p:outputLabel for="mob"
 												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
-												value="تلفن همراه" />
+												value="تلفن همراه (به انگلیسی)" />
 											<p:inputText styleClass="it" id="mob" dir="ltr"
 												style=" width: 100%; background-color: white !important;"
 												value="#{jobKarjoBean.karjoMobile}" required="true"
 												placeholder="9xxxxxxxxx" requiredMessage="فیلد اجباری">
-												<f:validateRegex pattern="^(0|[1-9][0-9]*)$" />
-												<f:validateLength maximum="10" minimum="10" />
+												<f:validateRegex pattern="^([0-9][0-9]*)$" />
+												<f:validateLength maximum="12" minimum="10" />
 											</p:inputText>
 
 											<p:outputLabel for="area"
@@ -181,32 +185,28 @@
 
 
 										</h:panelGrid>
+										</p:panel>
 										<h:commandButton
 											style="font-family: 'IRANSansBold' !important;" value="ثبت"
 											styleClass="btn"
-											action="#{jobKarjoBean.insertToKarjoEntity()}" />
+											action="#{jobKarjoBean.insertToKarjoEntity()}"
+											 />
 									</h:form>
 								</p:tab>
 								<p:tab title="ثبت در خواست کارفرما">
 									<h:form>
+									<p:growl id="growl2" sticky="true" showDetail="true" />
+									<p:messages />
+										<p:panel>
 										<h:panelGrid columns="2" columnClasses="label, value">
-
-											<p:outputLabel
-												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
-												value="شهر درخواست" />
-											<p:inputText styleClass="it" readonly="true"
-												style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
-												value="تهران"/>
-
-
 											<p:outputLabel for="inputt2x"
 												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
 												value="نوع صنف" />
 											<p:inputText styleClass="it" id="inputt2x"
 												style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
-												value="#{jobKarfarmaBean.karfarmaSenf}" rendered="true"
+												value="#{jobKarfarmaBean.karfarmaSenf}" required="true"
 												requiredMessage="فیلد اجباری">
-												<f:validateLength maximum="100" minimum="3" />
+												<f:validateLength maximum="100" minimum="0" />
 											</p:inputText>
 
 											<p:outputLabel for="inputt2xx"
@@ -215,107 +215,116 @@
 											<p:inputText styleClass="it" id="inputt2xx"
 												style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
 												value="#{jobKarfarmaBean.karfarmaCompanyName}"
-												rendered="true" requiredMessage="فیلد اجباری">
+												required="true" requiredMessage="فیلد اجباری">
 												<f:validateLength maximum="100" minimum="3" />
 											</p:inputText>
+
 
 											<p:outputLabel for="inputt2xxx"
 												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
 												value="نام مدیریت" />
 											<p:inputText styleClass="it" id="inputt2xxx"
 												style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
-												value="#{jobKarfarmaBean.karfarmaName}" rendered="true"
+												value="#{jobKarfarmaBean.karfarmaName}" required="true"
 												requiredMessage="فیلد اجباری">
+												<f:validateLength maximum="100" minimum="3" />
+											</p:inputText>
+
+
+											<p:outputLabel
+												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+												value="شهر درخواست" />
+											<p:inputText styleClass="it" readonly="true"
+												style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
+												value="تهران" />
+
+
+											<p:outputLabel for="inputt2xxxxx"
+												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+												value="آدرس" />
+											<p:inputText styleClass="it" id="inputt2xxxxx"
+												style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
+												value="#{jobKarfarmaBean.karafarmaAddress}" required="true"
+												requiredMessage="فیلد اجباری">
+												<f:validateLength maximum="499" minimum="3" />
+											</p:inputText>
+
+											<p:outputLabel for="telex"
+												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+												value="تلفن ثابت (حروف به انگلیسی)" />
+											<p:inputText styleClass="it" id="telex" dir="ltr"
+												value="#{jobKarfarmaBean.karfarmaPhone}" required="true"
+												requiredMessage="فیلد اجباری"
+												style=" width: 100%; background-color: white !important;"
+												placeholder="21xxxxxxxx">
+												<f:validateRegex pattern="^([0-9][0-9]*)$" />
+												<f:validateLength maximum="14" minimum="8" />
+											</p:inputText>
+
+											<p:outputLabel for="mobx"
+												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+												value="تلفن همراه (حروف به انگلیسی)" />
+											<p:inputText styleClass="it" id="mobx" dir="ltr"
+												style=" width: 100%; background-color: white !important;"
+												value="#{jobKarfarmaBean.karfarmaMobile}" required="true"
+												requiredMessage="فیلد اجباری" placeholder="9xxxxxxxxxx">
+												<f:validateRegex pattern="^([0-9][0-9]*)$" />
+												<f:validateLength maximum="12" minimum="10" />
+											</p:inputText>
+
+											<p:outputLabel for="inputt2xxxxxx"
+												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+												value="آدرس سایت" />
+											<p:inputText styleClass="it" id="inputt2xxxxxx" dir="ltr"
+												style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
+												value="#{jobKarfarmaBean.karfarmaSite}" required="true"
+												requiredMessage="فیلد اجباری"
+												placeholder="www.erefiran.com/xxxxxx">
 												<f:validateLength maximum="100" minimum="3" />
 											</p:inputText>
 
 											<p:outputLabel for="inputt2xxxx"
 												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
 												value="آدرس ایمیل" />
-											<p:inputText styleClass="it" id="inputt2xxxx"
+											<p:inputText styleClass="it" id="inputt2xxxx" dir="ltr"
 												style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
-												value="#{jobKarfarmaBean.karfarmaEmail}" rendered="true"
-												requiredMessage="فیلد اجباری">
-												<f:validateLength maximum="100" minimum="3" />
+												value="#{jobKarfarmaBean.karfarmaEmail}">
+												<f:validateLength maximum="100" minimum="0" />
 											</p:inputText>
 
-											<p:outputLabel for="inputt2xxxxxx"
+											<p:outputLabel
 												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
-												value="آدرس سایت" />
-											<p:inputText styleClass="it" id="inputt2xxxxxx"
+												value="نام مسول پاسخگویی" />
+											<p:inputText styleClass="it" id="inputt2vv"
 												style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
-												value="#{jobKarfarmaBean.karfarmaSite}" rendered="true"
-												requiredMessage="فیلد اجباری">
-												<f:validateLength maximum="100" minimum="3" />
+												value="#{jobKarfarmaBean.karfarmaPasokhName}"
+												>
+												<f:validateLength maximum="100" minimum="0" />
 											</p:inputText>
 
-
-											<p:outputLabel for="telex"
-												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
-												value="تلفن ثابت *" />
-											<p:inputText styleClass="it" id="telex" dir="ltr"
-												value="#{jobKarfarmaBean.karfarmaPhone}" rendered="true"
-												requiredMessage="فیلد اجباری"
-												style=" width: 100%; background-color: white !important;">
-												<f:validateRegex pattern="^(0|[1-9][0-9]*)$" />
-												<f:validateLength maximum="100" minimum="3" />
-											</p:inputText>
-
-											<p:outputLabel for="inputt2xxxxx"
-												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
-												value="آدرس سایت" />
-											<p:inputText styleClass="it" id="inputt2xxxxx"
-												style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
-												value="#{jobKarfarmaBean.karfarmaSite}" rendered="true"
-												requiredMessage="فیلد اجباری">
-												<f:validateLength maximum="100" minimum="3" />
-											</p:inputText>
-
-
-											<p:outputLabel for="mobx"
-												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
-												value="تلفن همراه *" />
-											<p:inputText styleClass="it" id="mobx" dir="ltr"
-												style=" width: 100%; background-color: white !important;"
-												value="#{jobKarfarmaBean.karfarmaMobile}" rendered="true"
-												requiredMessage="فیلد اجباری">
-												<f:validateRegex pattern="^(0|[1-9][0-9]*)$" />
-												<f:validateLength maximum="11" minimum="11" />
-											</p:inputText>
 
 											<p:outputLabel for="inputt2v"
 												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
 												value="سمت مسول پاسخگویی" />
 											<p:inputText styleClass="it" id="inputt2v"
 												style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
-												value="#{jobKarfarmaBean.karfarmaPasokhSemat}"
-												rendered="true" requiredMessage="فیلد اجباری">
-												<f:validateLength maximum="100" minimum="3" />
-											</p:inputText>
-
-											<p:outputLabel for="inputt2vv"
-												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
-												value="نام مسول پاسخگویی" />
-											<p:inputText styleClass="it" id="inputt2vv"
-												style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
-												value="#{jobKarfarmaBean.karfarmaPasokhName}"
-												rendered="true" requiredMessage="فیلد اجباری">
-												<f:validateLength maximum="100" minimum="3" />
+												value="#{jobKarfarmaBean.karfarmaPasokhSemat}">
+												<f:validateLength maximum="100" minimum="0" />
 											</p:inputText>
 
 											<p:outputLabel for="inputt2vvv"
 												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
-												value="نیروی مورد نیاز" />
+												value="عنوان درخواست (نیروی مورد نیاز)" />
 											<p:inputText styleClass="it" id="inputt2vvv"
 												style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
 												value="#{jobKarfarmaBean.karfarmaNiroMorede}"
-												rendered="true" requiredMessage="فیلد اجباری">
+												required="true" requiredMessage="فیلد اجباری">
 												<f:validateLength maximum="100" minimum="3" />
 											</p:inputText>
 
 											<p:outputLabel for="inputt2vvvv"
 												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
-												value="درخواست همکاری" />
+												value="نوع همکاری" />
 											<h:selectOneMenu id="inputt2vvvv"
 												value="#{jobKarfarmaBean.karfarmaNoeDarkhast}"
 												styleClass="form-control" required="true">
@@ -331,8 +340,8 @@
 											<p:inputTextarea styleClass="it" id="areaaa"
 												style=" width: 100%; background-color:white!important;"
 												value="#{jobKarfarmaBean.karfarmaTakhasosMorede}"
-												rendered="true" requiredMessage="فیلد اجباری ">
-												<f:validateLength minimum="2" maximum="500" />
+												required="true" requiredMessage="فیلد اجباری ">
+												<f:validateLength minimum="3" maximum="499" />
 											</p:inputTextarea>
 
 
@@ -342,16 +351,26 @@
 											<p:inputTextarea styleClass="it" id="areaa"
 												style=" width: 100%; background-color:white!important;"
 												value="#{jobKarfarmaBean.karfarmaDescription}"
-												rendered="true" requiredMessage="فیلد اجباری ">
-												<f:validateLength minimum="2" maximum="500" />
+												required="true" requiredMessage="فیلد اجباری ">
+												<f:validateLength minimum="3" maximum="499" />
 											</p:inputTextarea>
+
+											<p:outputLabel for="inputt2vvvr"
+												style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+												value="میزان حقوق پرداختی" />
+											<p:inputText styleClass="it" id="inputt2vvvr"
+												style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
+												value="#{jobKarfarmaBean.mizanHogog}">
+												<f:validateLength maximum="500" minimum="3" />
+											</p:inputText>
 
 
 										</h:panelGrid>
+										</p:panel>
 										<h:commandButton
 											style="font-family: 'IRANSansBold' !important;" value="ثبت"
 											styleClass="btn"
-											action="#{jobKarjoBean.insertToKarjoEntity()}" />
+											action="#{jobKarfarmaBean.insertToKarfarma()}" />
 									</h:form>
 								</p:tab>
 							</p:tabView>

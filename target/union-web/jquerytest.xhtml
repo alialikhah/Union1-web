@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<script
+		src="resources/maintemp/assets/plugins/main-jquery/jquery-2.2.4.min.js"></script>
+		<style>
+				p
+		{
+			width : 200px;
+			height:600px;
+			background-color : yellow;
+			color:red;
+			position:fixed;
+			right: 0px;
+			top: 0px;
+			display: none;
+		}
+		</style>
+		<script>
+			$(document).ready(function(){
+				$('#btnHide').click(function(){
+					$('p').hide(1000)
+				})
+				
+				$('#btnShow').click(function(){
+					$('p').show(1000)
+				})
+				
+				$('#btnToggle').click(function(){
+					$('p').toggle(1000)
+				})
+				
+				$('#btnFadeOut').click(function(){
+					$('p').fadeOut(1000)
+				})
+				
+				$('#btnFadeIn').click(function(){
+					$('p').fadeIn(1000)
+				})
+				
+				$('#btnFadeToggle').click(function(){
+					$('p').fadeToggle(1000)
+				})
+				
+				$('#btnFadeTo').click(function(){
+					$('p').fadeTo(200 , 0.2)
+				})
+				
+				$('#btnSlideUp').click(function(){
+					$('p').slideUp(1000)
+				})
+				
+				$('#btnSlideDown').click(function(){
+					$('p').slideDown(1000)
+				})
+				
+				$('#btnSlideToggle').click(function(){
+					$('p').slideToggle(1000)
+				})
+				
+				$('#btnAnimate').click(function(){
+					$('#p1').animate({'width':'200px' , 'height' : '600px' , 'display':'block' } , 500)
+
+				
+				})
+				
+				$('#btnStop').click(function(){
+					$('#p1').stop(true , true);
+				})
+			})
+		</script>
+</h:head> 
+	<body>
+	    <p id="p1">salaam 1</p>
+		<input type="button" value="Hide" id="btnHide" />
+		<input type="button" value="Show" id="btnShow" />
+		<input type="button" value="Toggle" id="btnToggle" />
+		<input type="button" value="Fade Out" id="btnFadeOut" />
+		<input type="button" value="Fade In" id="btnFadeIn" />
+		<input type="button" value="Fade Toggle" id="btnFadeToggle" />
+		<input type="button" value="Fade To" id="btnFadeTo" />
+		<input type="button" value="Slide Up" id="btnSlideUp" />
+		<input type="button" value="Slide Down" id="btnSlideDown" />
+		<input type="button" value="Slide Toggle" id="btnSlideToggle" />
+		<input type="button" value="Animate" id="btnAnimate" />
+		<input type="button" value="Stop" id="btnStop" />
+		
+	</body>
+</html>

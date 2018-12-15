@@ -38,6 +38,9 @@ function clearInput() {
 	document.getElementById("form:merchantDescription").value="";
 	document.getElementById("form:shoar").value="";
 	
+	////////////////////////////////////////////////////
+	document.getElementById("j_idt28:form:input").value="";
+	
 }
 
 

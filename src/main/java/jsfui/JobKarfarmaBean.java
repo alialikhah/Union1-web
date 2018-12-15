@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -42,6 +43,8 @@ public class JobKarfarmaBean {
 	private Part karfarmaPic;
 	private String karfarmaJobCity;
 	private String karfarmaJobTitle;
+	private String karafarmaAddress;
+	private String mizanHogog;
 	public String getKarfarmaSenf() {
 		return karfarmaSenf;
 	}
@@ -159,7 +162,22 @@ public class JobKarfarmaBean {
 	public void setKarfarmaJobTitle(String karfarmaJobTitle) {
 		this.karfarmaJobTitle = karfarmaJobTitle;
 	}
+
+	public String getKarafarmaAddress() {
+		return karafarmaAddress;
+	}
+	public void setKarafarmaAddress(String karafarmaAddress) {
+		this.karafarmaAddress = karafarmaAddress;
+	}
+
+	public String getMizanHogog() {
+		return mizanHogog;
+	}
+	public void setMizanHogog(String mizanHogog) {
+		this.mizanHogog = mizanHogog;
+	}
 	public void insertToKarfarma() {
+		FacesContext context = FacesContext.getCurrentInstance();
 		JobKarfarmaEntity jobKarfarmaEntity=new JobKarfarmaEntity();
 		jobKarfarmaEntity.setKarfarmaCompanyName(karfarmaCompanyName);
 		jobKarfarmaEntity.setKarfarmaDescription(karfarmaDescription);
@@ -179,7 +197,28 @@ public class JobKarfarmaBean {
 		jobKarfarmaEntity.setTaeed(false);
 		jobKarfarmaEntity.setKarfarmaJobCity(karfarmaJobCity);
 		jobKarfarmaEntity.setKarfarmaJobTitle(karfarmaJobTitle);
+		jobKarfarmaEntity.setKarafarmaAddress(karafarmaAddress);
+		jobKarfarmaEntity.setMizanHogog(mizanHogog);
 		jobKarfarmaServiceLocal.insertToKarfarmaEntity(jobKarfarmaEntity);
+		context.addMessage(null, new FacesMessage("با موفقیت ثبت گردید."));
+		this.setKarafarmaAddress("");
+		this.setKarfarmaCompanyName("");
+		this.setKarfarmaDescription("");
+		this.setKarfarmaEmail("");
+		this.setKarfarmaJavazNum("");
+		this.setKarfarmaJobCity("");
+		this.setKarfarmaJobTitle("");
+		this.setKarfarmaMobile("");
+		this.setKarfarmaName("");
+		this.setKarfarmaNiroMorede("");
+		this.setKarfarmaNoeDarkhast("");
+		this.setKarfarmaPasokhName("");
+		this.setKarfarmaTakhasosMorede("");
+		this.setKarfarmaPasokhSemat("");
+		this.setKarfarmaPhone("");
+		this.setKarfarmaSenf("");
+		this.setMizanHogog("");
+		this.setKarfarmaSite("");
 	}
 	
     
@@ -198,7 +237,15 @@ public class JobKarfarmaBean {
     	jobKarfarmaEntity.setTaeed(taeed);
     	jobKarfarmaServiceLocal.updateKarfarma(jobKarfarmaEntity);
 		FacesContext.getCurrentInstance().getExternalContext()
-		.redirect("jobedit.xhtml" + "?jobID=" + jobId);
+		.redirect("karfarmaedit.xhtml" + "?karfarma=" + jobId);
+    }
+    
+  
+    public void deleteKarfarma(long karafarmaId) throws IOException{
+    	JobKarfarmaEntity jobKarfarmaEntity=new JobKarfarmaEntity();
+    	jobKarfarmaEntity=jobKarfarmaServiceLocal.findKarfarmaById(karafarmaId);
+    	jobKarfarmaServiceLocal.deleteKarfarma(jobKarfarmaEntity);
+    	FacesContext.getCurrentInstance().getExternalContext().redirect("karfarmaview.xhtml");
     }
 	
 }

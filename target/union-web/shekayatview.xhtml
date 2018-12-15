@@ -3,14 +3,45 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:o="http://omnifaces.org/ui"
+    xmlns:p="http://primefaces.org/ui"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<f:metadata>
+	<f:event listener="#{userBean.isUser}" type="preRenderView"></f:event>
+</f:metadata>
+
 
 <h:head></h:head>
-<h:body>
-<ui:composition template="shekayattemp.xhtml">
-<ui:define name="mains">
-	<p:dataTable var="shaki" value="#{shekayatBean.findAllShekayat()}"
-		reflow="true" style="margin-top:20px">
+<body>
+	<ui:composition template="/template/TEMPLATE.xhtml">
+		<ui:define name="headtemp">
+			<title>شکایات</title>
+	<link href="resources/css/shekayat.css"
+		rel="stylesheet" type="text/css" />
+
+		</ui:define>
+
+		<ui:define name="maintemp">
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="shopName" />
+				</f:metadata>
+			</ui:define>
+
+			<!-- CONTENT AREA -->
+			<article> <br />
+			<div
+				style="border: solid 5px; border-radius: 70px 10px 70px 70px; border-color: darkgrey; background-image: url('resources/images/back.jpg'); max-width: 1600px; margin: auto;">
+				<div class="container theme-container ptb-70">
+					<div class="row">
+						<div class="col-sm-12">
+
+		    <p:dataTable var="shaki" value="#{shekayatBean.findAllShekayatOrder()}" rows="10" rowKey="#{shki.shekayatId}" 
+                         paginator="true" resizableColumns="true" liveResize="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15" dir="rtl" style="margin-top:20px">
 		<f:facet name="header">
             DataTable
         </f:facet>
@@ -27,7 +58,7 @@
 		</p:column>
 
 		<p:column headerText="رسیدگی">
-			<p:button value="رسیدگی" outcome="shekayatedit.xhtml">
+			<p:button value="رسیدگی" outcome="shekayatedit.xhtml" style="color:green!important;">
 				<f:param value="#{shaki.shekayatId}" name="shakiId" />
 			</p:button>
 		</p:column>
@@ -35,13 +66,16 @@
 		<p:column headerText="وضعیت">
 			<h:outputText value="#{shaki.vaziat}" />
 		</p:column>
-
-	</p:dataTable>
-
-
-	<div
-		style="position: relative; width: 100%; height: 100px; background-color: black; opacity: 0.5"></div>
+</p:dataTable>
+								
+						</div>
+					</div>
+				</div>
+			</div>
+			</article>
+			<br />
 		</ui:define>
-		</ui:composition>
-</h:body>
+	</ui:composition>
+</body>
 </html>
+

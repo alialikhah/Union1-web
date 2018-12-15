@@ -14,59 +14,50 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
--->
-<!-- Marker file indicating JSF 2.2 should be enabled in the application -->
-<faces-config version="2.2"
-    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="
-        http://xmlns.jcp.org/xml/ns/javaee
-        http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
-        
-                <application>
-        <resource-bundle>
-        <base-name>locale</base-name>
-        <var>lcl</var>
-        </resource-bundle>
-        <locale-config>
-        <default-locale>en</default-locale>
-        <supported-locale>fa</supported-locale>
-        </locale-config>
-        </application>
-        
-        <navigation-rule>
-        <from-view-id>/product.xhtml</from-view-id>
-        <navigation-case>
-        <from-action>#{pageRedirectBean.goPage()}</from-action>
-        <from-outcome>success</from-outcome>
-        <to-view-id>/productdetails.xhtml</to-view-id>
-        </navigation-case>
-        </navigation-rule>
-        
-        <navigation-rule>
-   		<from-view-id>/index.xhtml</from-view-id> 
-   		<navigation-case>
-   		<from-action>#{indexBean.goSuperAdminPage()}</from-action>
-        <from-outcome>sadmin</from-outcome>
-        <to-view-id>/superadmin.xhtml</to-view-id>
-   		</navigation-case>
-		</navigation-rule>
-        
-        <navigation-rule>
-   		<from-view-id>/template.xhtml</from-view-id> 
-   		<navigation-case>
-   		<from-action>#{productBean.goToProductPage()}</from-action>
-        <from-outcome>productpage</from-outcome>
-        <to-view-id>/product.xhtml</to-view-id>
-   		</navigation-case>
-		</navigation-rule>
-        
-        <navigation-rule>
-   		<from-view-id>/INDEX.xhtml</from-view-id> 
-   		<navigation-case>
-   		<from-action>#{indexBean.goProductsPage()}</from-action>
-        <from-outcome>procs</from-outcome>
-        <to-view-id>/products.xhtml</to-view-id>
-   		</navigation-case>
-		</navigation-rule>
+
+ Marker file indicating JSF 2.2 should be enabled in the application -->
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="         http://xmlns.jcp.org/xml/ns/javaee         http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+ <navigation-rule>
+  <from-view-id>/product.xhtml</from-view-id>
+  <navigation-case>
+   <from-action>#{pageRedirectBean.goPage()}</from-action>
+   <from-outcome>success</from-outcome>
+   <to-view-id>/productdetails.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/index.xhtml</from-view-id>
+  <navigation-case>
+   <from-action>#{indexBean.goSuperAdminPage()}</from-action>
+   <from-outcome>sadmin</from-outcome>
+   <to-view-id>/superadmin.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/templateA.xhtml</from-view-id>
+  <navigation-case>
+   <from-action>#{productBean.goToProductPage()}</from-action>
+   <from-outcome>productpage</from-outcome>
+   <to-view-id>/product.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/INDEX.xhtml</from-view-id>
+  <navigation-case>
+   <from-action>#{indexBean.goProductsPage()}</from-action>
+   <from-outcome>procs</from-outcome>
+   <to-view-id>/products.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <application>
+  <resource-bundle>
+   <base-name>locale</base-name>
+   <var>lcl</var>
+  </resource-bundle>
+  <locale-config>
+   <default-locale>en</default-locale>
+   <supported-locale>fa</supported-locale>
+  </locale-config>
+ </application>
 </faces-config>

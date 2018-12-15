@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
+<f:view locale="fa" >
+		<f:metadata>
+			<f:event listener="#{adminBean.isUser}" type="preRenderView"></f:event>
+		</f:metadata>
+
+<h:head>
+
+		
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="resources/css/template.css"
+		rel="stylesheet" type="text/css" />
+<ui:insert name="headtmp"/>
+
+
+</h:head>
+
+
+<h:body onload="clearInput()"> 
+<div class="header">
+			<ui:insert name="toptmp"/>
+		</div>
+		<div class="row">
+			<div class="col-1 col-m-3 menu">
+					<h:form>
+					<p:commandButton action="#{templateBean.goToAddMerchant()}" value="افزودن فروشنده"/>
+					<p:commandButton action="#{templateBean.goToAddviewmerchant()}" value="ویرایش فروشنده ها"/>
+					<p:commandButton action="#{templateBean.goToAddaddproduct()}" value="افزودن کالا"/>
+					<p:commandButton action="#{templateBean.goToAddproductview()}" value="ویرایش کالا"/>
+					<p:commandButton action="#{templateBean.goToAddaddslider()}" value="ویرایش اسلایدر"/>
+					<p:commandButton action="#{templateBean.goToAddcommercialedit()}" value="ویرایش تبلیغات"/>
+					<p:commandButton action="#{templateBean.goToAdddedivateproductedit()}" value="ویرایش کالای منتسب"/>
+					<p:commandButton action="#{templateBean.goToaddbrand()}" value="دادن برند"/>
+					<p:commandButton action="#{templateBean.goToMashahir()}" value="دادن مشاهیر"/>
+					<p:commandButton action="#{templateBean.goToMashahirEng()}" value="دادن مشاهیر خارجی"/>
+					<p:commandButton action="#{templateBean.goToNaghd()}" value="دادن نقد و بررسی"/>
+					<p:commandButton action="#{templateBean.goToMojtame()}" value="دادن مجتمع"/>
+					<p:commandButton action="#{templateBean.goToNews()}" value="دادن خبر"/>
+					<p:commandButton action="#{templateBean.goToKarjo()}" value="دیدن کارجو"/>
+					<p:commandButton action="#{templateBean.goToKarfarma()}" value="دیدن کارفرما"/>
+					<p:commandButton action="#{templateBean.goToRent()}" value="دیدن ملک"/>
+					<p:commandButton action="#{adminBean.exitAdmin()}" value="خروج"/>
+		        	</h:form>
+			</div>
+			<div class="col-8 col-m-9">
+				 <ui:insert name="centertmp"/> 
+				
+			</div>
+			
+			<div class="col-3 col-m-12 right">
+                  <ui:insert name="righttmp"/> 
+			</div>
+			
+			
+		</div>
+		<div class="footer">
+		    <!-- <ui:insert name="bottomtmp"/> -->
+		</div>
+</h:body>
+</f:view>
+</html>

@@ -4,6 +4,9 @@ h1, h2, h3, h4, h5, h6, p {
 	font-family: 'IRANSansNor' !important;
 	text-align: justify;
 }
+p{
+	font-size: 24px;
+}
 
 @media screen and (max-width : 900px) {
 	#dv1 {

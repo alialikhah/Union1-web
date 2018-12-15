@@ -1,5 +1,6 @@
 package jsfui;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -11,6 +12,7 @@ import org.apache.commons.io.IOUtils;
 import dao.entity.NewsEntity;
 import service.NewsServiceLocal;
 import service.SingletonServiceLocal;
+import javax.faces.context.FacesContext;
 
 @Named
 @RequestScoped
@@ -190,6 +192,15 @@ public class NewsBean {
 
 	public List<NewsEntity> findAllGovahiname() {
 		return singletonServiceLocal.getNewsEntitiesGovahiname();
+	}
+	
+	public void deleteNews(long newsId) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		NewsEntity newsEntity=new NewsEntity();
+		newsEntity=this.findNewsById(newsId);
+		newsServiceLocal.deleteNews(newsEntity);
+		FacesContext.getCurrentInstance().getExternalContext()
+		.redirect("addnews.xhtml");
 	}
 
 }

@@ -7,7 +7,7 @@
 
 <h:head></h:head>
 <body>
-	<ui:composition template="TEMPLATE.xhtml">
+	<ui:composition template="/template/TEMPLATE.xhtml">
 		<ui:define name="headtemp">
 			<title>اتحادیه صنف فروشندگان دستگاه های صوتی و تصویری ، تلفن
 				همراه و لوازم جانبی تهران</title>
@@ -24,14 +24,12 @@
 
 
 
-	<link href="resources/css/home.css"
-		rel="stylesheet" type="text/css" />
+			<link href="resources/css/home.css" rel="stylesheet" type="text/css" />
 
 		</ui:define>
 
 		<ui:define name="maintemp">
-			<article class="light-bg-1"> 
-			<section
+			<article class="light-bg-1"> <section
 				class="slider-section">
 			<div id="main-slider" class="main-slider dots-white">
 
@@ -101,9 +99,7 @@
 				</div>
 			</div>
 
-			</section>  
-			
-			<section class="sec-space">
+			</section> <section class="sec-space">
 			<div class="container theme-container">
 
 				<h2 class="section-title"
@@ -185,8 +181,7 @@
 				</div>
 
 			</div>
-			</section>  <!-- / Featured Product Ends -->
-<!-- 
+			</section> <!-- / Featured Product Ends --> <!-- 
 			<div>
 				<div class="container theme-container">
 					<div class="row">
@@ -245,7 +240,7 @@
 
 
 			<img alt="product" src="resources/images/com.jpg" width="1920"
-				height="600" style="max-width: 100%; min-width: 100%;" />  <section
+				height="600" style="max-width: 100%; min-width: 100%;" /> <section
 				class="dealof-day">
 			<div class="container theme-container">
 				<br /> <br />
@@ -339,7 +334,7 @@
 					</div>
 				</div>
 			</div>
-			</section>  <!-- / Deal of The Day Ends --> <br />
+			</section> <!-- / Deal of The Day Ends --> <br />
 			<br />
 
 
@@ -351,7 +346,7 @@
 
 
 
-			 <section class="dealof-day">
+			<section class="dealof-day">
 			<div class="container theme-container">
 				<div class="related-blog">
 					<h2 class="section-title pb-30"
@@ -449,10 +444,9 @@
 					</div>
 				</div>
 			</div>
-			</section>  <br />
+			</section> <br />
 
-			<section
-				class="sec-space sec-banner-2 clearfix"> <p:link
+			<section class="sec-space sec-banner-2 clearfix"> <p:link
 				outcome="mashahir.xhtml">
 				<div class="banner-1 box-hover col-sm-6">
 					<img src="resources/images/mash2.jpg" alt="banner" />
@@ -489,9 +483,14 @@
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-6 no-padding img-effect">
-					<a href="news.xhtml" class="img-hover"> <img alt="item"
+					<!-- 					<a href="news.xhtml" class="img-hover"> <img alt="item"
 						src="resources/images/etenes.png" />
-					</a>
+					</a> -->
+					<h:form>
+						<p:link outcome="news.xhtml" styleClass="img-hover">
+							<img alt="item" src="resources/images/etenes.png" />
+						</p:link>
+					</h:form>
 				</div>
 
 
@@ -514,6 +513,7 @@
 						class="img-hover"> <img alt="item"
 						src="resources/images/worldnews.png" />
 					</a>
+
 				</div>
 
 				<div class="banner-1 box-hover col-md-4 col-sm-6">
@@ -537,14 +537,18 @@
 						class="img-hover"> <img alt="item"
 						src="resources/images/iranews.png" />
 					</a>
+
 				</div>
 			</div>
 
 			<div id="dv2" class="container theme-container" style="display: none">
 				<div class="col-md-4 col-sm-6 no-padding img-effect">
-					<a href="news.xhtml" class="img-hover"> <img alt="item"
+					<!-- 					<a href="news.xhtml" class="img-hover"> <img alt="item"
 						src="resources/images/etenes.png" />
-					</a>
+					</a> -->
+					<p:link outcome="news.xhtml" styleClass="img-hover">
+						<img alt="item" src="resources/images/etenes.png" />
+					</p:link>
 				</div>
 				<div class="banner-1 box-hover col-md-4 col-sm-6">
 					<img src="resources/maintemp/assets/img/home-3/item-pattern.jpg"
@@ -610,9 +614,9 @@
 
 
 			</div>
-			</section>  <!-- / Product-Item Ends --> </article>
+			</section> <!-- / Product-Item Ends --> </article>
 
-			<br /> 
+			<br />
 			<h2 class="section-title"
 				style="font-family: 'IRANSansBold' !important; text-align: center; color: dimgrey;">
 				مجتمع تجاری های منتخب</h2>
@@ -620,7 +624,8 @@
 			<br />
 			<!-- Special Promo Starts-->
 			<section class="special-promo-sec black-mask"> <p:link
-				outcome="singlemojtama.xhtml" styleClass="col-sm-3 col-xs-12 promo" target="_blank">
+				outcome="singlemojtama.xhtml" styleClass="col-sm-3 col-xs-12 promo"
+				target="_blank">
 				<o:graphicImage
 					value="#{mojtameBean.findMojtamaById(mojtameBean.findAllMojtame().size()).mojtamePic1}"
 					dataURI="true" />
@@ -696,7 +701,9 @@
 
 
 							<div class="ih-item circle colored effect19">
-								<p:link outcome="aza.xhtml" target="_blank">
+
+								<h:form>
+								<p:link outcome="aza.xhtml">
 									<div class="img">
 										<img src="resources/Icones2/aza.jpg" alt="img" width="150"
 											height="150" />
@@ -705,6 +712,7 @@
 										<h3>VIEW</h3>
 									</div>
 								</p:link>
+								</h:form>
 							</div>
 
 						</div>

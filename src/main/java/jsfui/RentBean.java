@@ -1,76 +1,110 @@
 package jsfui;
 
-import javax.enterprise.context.RequestScoped;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.Column;
+import javax.servlet.http.Part;
+
+import org.apache.commons.io.IOUtils;
+
+import dao.entity.RentEntity;
+import service.RentServiceLocal;
 
 @Named
-@RequestScoped
-public class RentBean {
+@ViewScoped
+public class RentBean implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6812319423856259667L;
+
+
 
 	public RentBean() {
 		// TODO Auto-generated constructor stub
 	}
 
-	private String rentType;// نوع آگهی
-	private String homeType;// نوع ملک
-	private String situation;// واقع در
-	private String position;// موقعیت
-	private String homeAddres; // آدرس ملک
-	private int tedadTabage; // تعداد طبقات
-	private int tedadVahed; // تعداد واحد در هر طبقه
-	private String vadieeMoney;// مبلغ درخواستی ودیعه :
-	private String ejareMony;// مبلغ درخواستی اجاره ماهیانه :
-	private int tabageNum;// طبقه
-	private String zirbana;
-	private boolean homePhone;
-	private boolean homeKitchen;
-	private boolean homeService;
-	private boolean homeKafposh;
-	private boolean homeParking;
-	private boolean homeAnbar;
-	private boolean homeBalkon;
-	private boolean sardarbTablo;
-	private String metrajTablo;
-	private boolean cooler;
-	private boolean gaz;
-	private boolean shofaj;
-	private boolean fancoel;
-	private boolean packag;
-	private boolean chiler;
-	private boolean asansor;
-	private boolean hayat;
-	private boolean hayatKhalvat;
-	private boolean zirZamin;
-	private boolean pasio;
-	private boolean seraydar;
-	private boolean herasat;
-	private boolean pelebargi;
-	private boolean foodkort;
-	private boolean resturant;
-	private boolean kafishap;
-	private boolean sportSalon;
-	private boolean arayeshgah;
-	private boolean estakhr;
-	private boolean sona;
-	private boolean children;
-	private boolean teatre;
-	private String tarakom;
-	private String mashahat;
-	private String toleBar;
-	private String eslahi;
+	private String rentType;
+	private String homeType;
+	private String address;
+	private String vage;
+	private String mogeiat;
+	private String tedadTabage;
+	private String tedadVahed;
+	private String vadieeMoney;
+	private String ejareMony;
+	private List<String> emkanat = new ArrayList<>();
+	private List<String> vaziatSanad = new ArrayList<>();
 	private String senBana;
+	private String masahat;
 	private String vaziatMelk;
-	private String nama;
-	private String vaziatSanad;
-	private String ertefa;
 	private String description;
 	private boolean parvane;
 	private String etehadieName;
-	private String answererName;
 	private String phone;
-	private String mobile;
-	private String addres;
+	private Part pic1;
+	private boolean show;
+	
+	@Inject
+	private RentServiceLocal rentServiceLocal;
+	
+	
+
+	public Part getPic1() {
+		return pic1;
+	}
+
+	public void setPic1(Part pic1) {
+		this.pic1 = pic1;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getVage() {
+		return vage;
+	}
+
+	public void setVage(String vage) {
+		this.vage = vage;
+	}
+
+	public String getMogeiat() {
+		return mogeiat;
+	}
+
+	public void setMogeiat(String mogeiat) {
+		this.mogeiat = mogeiat;
+	}
+
+	public List<String> getEmkanat() {
+		return emkanat;
+	}
+
+	public void setEmkanat(List<String> emkanat) {
+		this.emkanat = emkanat;
+	}
+
+	public String getMasahat() {
+		return masahat;
+	}
+
+	public void setMasahat(String masahat) {
+		this.masahat = masahat;
+	}
 
 	public String getRentType() {
 		return rentType;
@@ -88,43 +122,19 @@ public class RentBean {
 		this.homeType = homeType;
 	}
 
-	public String getSituation() {
-		return situation;
-	}
-
-	public void setSituation(String situation) {
-		this.situation = situation;
-	}
-
-	public String getPosition() {
-		return position;
-	}
-
-	public void setPosition(String position) {
-		this.position = position;
-	}
-
-	public String getHomeAddres() {
-		return homeAddres;
-	}
-
-	public void setHomeAddres(String homeAddres) {
-		this.homeAddres = homeAddres;
-	}
-
-	public int getTedadTabage() {
+	public String getTedadTabage() {
 		return tedadTabage;
 	}
 
-	public void setTedadTabage(int tedadTabage) {
+	public void setTedadTabage(String tedadTabage) {
 		this.tedadTabage = tedadTabage;
 	}
 
-	public int getTedadVahed() {
+	public String getTedadVahed() {
 		return tedadVahed;
 	}
 
-	public void setTedadVahed(int tedadVahed) {
+	public void setTedadVahed(String tedadVahed) {
 		this.tedadVahed = tedadVahed;
 	}
 
@@ -144,302 +154,6 @@ public class RentBean {
 		this.ejareMony = ejareMony;
 	}
 
-	public int getTabageNum() {
-		return tabageNum;
-	}
-
-	public void setTabageNum(int tabageNum) {
-		this.tabageNum = tabageNum;
-	}
-
-	public String getZirbana() {
-		return zirbana;
-	}
-
-	public void setZirbana(String zirbana) {
-		this.zirbana = zirbana;
-	}
-
-	public boolean isHomePhone() {
-		return homePhone;
-	}
-
-	public void setHomePhone(boolean homePhone) {
-		this.homePhone = homePhone;
-	}
-
-	public boolean isHomeKitchen() {
-		return homeKitchen;
-	}
-
-	public void setHomeKitchen(boolean homeKitchen) {
-		this.homeKitchen = homeKitchen;
-	}
-
-	public boolean isHomeService() {
-		return homeService;
-	}
-
-	public void setHomeService(boolean homeService) {
-		this.homeService = homeService;
-	}
-
-	public boolean isHomeKafposh() {
-		return homeKafposh;
-	}
-
-	public void setHomeKafposh(boolean homeKafposh) {
-		this.homeKafposh = homeKafposh;
-	}
-
-	public boolean isHomeParking() {
-		return homeParking;
-	}
-
-	public void setHomeParking(boolean homeParking) {
-		this.homeParking = homeParking;
-	}
-
-	public boolean isHomeAnbar() {
-		return homeAnbar;
-	}
-
-	public void setHomeAnbar(boolean homeAnbar) {
-		this.homeAnbar = homeAnbar;
-	}
-
-	public boolean isHomeBalkon() {
-		return homeBalkon;
-	}
-
-	public void setHomeBalkon(boolean homeBalkon) {
-		this.homeBalkon = homeBalkon;
-	}
-
-	public boolean isSardarbTablo() {
-		return sardarbTablo;
-	}
-
-	public void setSardarbTablo(boolean sardarbTablo) {
-		this.sardarbTablo = sardarbTablo;
-	}
-
-	public String getMetrajTablo() {
-		return metrajTablo;
-	}
-
-	public void setMetrajTablo(String metrajTablo) {
-		this.metrajTablo = metrajTablo;
-	}
-
-	public boolean isCooler() {
-		return cooler;
-	}
-
-	public void setCooler(boolean cooler) {
-		this.cooler = cooler;
-	}
-
-	public boolean isGaz() {
-		return gaz;
-	}
-
-	public void setGaz(boolean gaz) {
-		this.gaz = gaz;
-	}
-
-	public boolean isShofaj() {
-		return shofaj;
-	}
-
-	public void setShofaj(boolean shofaj) {
-		this.shofaj = shofaj;
-	}
-
-	public boolean isFancoel() {
-		return fancoel;
-	}
-
-	public void setFancoel(boolean fancoel) {
-		this.fancoel = fancoel;
-	}
-
-	public boolean isPackag() {
-		return packag;
-	}
-
-	public void setPackag(boolean packag) {
-		this.packag = packag;
-	}
-
-	public boolean isChiler() {
-		return chiler;
-	}
-
-	public void setChiler(boolean chiler) {
-		this.chiler = chiler;
-	}
-
-	public boolean isAsansor() {
-		return asansor;
-	}
-
-	public void setAsansor(boolean asansor) {
-		this.asansor = asansor;
-	}
-
-	public boolean isHayat() {
-		return hayat;
-	}
-
-	public void setHayat(boolean hayat) {
-		this.hayat = hayat;
-	}
-
-	public boolean isHayatKhalvat() {
-		return hayatKhalvat;
-	}
-
-	public void setHayatKhalvat(boolean hayatKhalvat) {
-		this.hayatKhalvat = hayatKhalvat;
-	}
-
-	public boolean isZirZamin() {
-		return zirZamin;
-	}
-
-	public void setZirZamin(boolean zirZamin) {
-		this.zirZamin = zirZamin;
-	}
-
-	public boolean isPasio() {
-		return pasio;
-	}
-
-	public void setPasio(boolean pasio) {
-		this.pasio = pasio;
-	}
-
-	public boolean isSeraydar() {
-		return seraydar;
-	}
-
-	public void setSeraydar(boolean seraydar) {
-		this.seraydar = seraydar;
-	}
-
-	public boolean isHerasat() {
-		return herasat;
-	}
-
-	public void setHerasat(boolean herasat) {
-		this.herasat = herasat;
-	}
-
-	public boolean isPelebargi() {
-		return pelebargi;
-	}
-
-	public void setPelebargi(boolean pelebargi) {
-		this.pelebargi = pelebargi;
-	}
-
-	public boolean isFoodkort() {
-		return foodkort;
-	}
-
-	public void setFoodkort(boolean foodkort) {
-		this.foodkort = foodkort;
-	}
-
-	public boolean isResturant() {
-		return resturant;
-	}
-
-	public void setResturant(boolean resturant) {
-		this.resturant = resturant;
-	}
-
-	public boolean isKafishap() {
-		return kafishap;
-	}
-
-	public void setKafishap(boolean kafishap) {
-		this.kafishap = kafishap;
-	}
-
-	public boolean isSportSalon() {
-		return sportSalon;
-	}
-
-	public void setSportSalon(boolean sportSalon) {
-		this.sportSalon = sportSalon;
-	}
-
-	public boolean isArayeshgah() {
-		return arayeshgah;
-	}
-
-	public void setArayeshgah(boolean arayeshgah) {
-		this.arayeshgah = arayeshgah;
-	}
-
-	public boolean isEstakhr() {
-		return estakhr;
-	}
-
-	public void setEstakhr(boolean estakhr) {
-		this.estakhr = estakhr;
-	}
-
-	public boolean isSona() {
-		return sona;
-	}
-
-	public void setSona(boolean sona) {
-		this.sona = sona;
-	}
-
-	public boolean isChildren() {
-		return children;
-	}
-
-	public void setChildren(boolean children) {
-		this.children = children;
-	}
-
-	public boolean isTeatre() {
-		return teatre;
-	}
-
-	public void setTeatre(boolean teatre) {
-		this.teatre = teatre;
-	}
-
-	public String getTarakom() {
-		return tarakom;
-	}
-
-	public void setTarakom(String tarakom) {
-		this.tarakom = tarakom;
-	}
-
-	public String getMashahat() {
-		return mashahat;
-	}
-
-	public void setMashahat(String mashahat) {
-		this.mashahat = mashahat;
-	}
-
-	public String getEslahi() {
-		return eslahi;
-	}
-
-	public void setEslahi(String eslahi) {
-		this.eslahi = eslahi;
-	}
-
 	public String getSenBana() {
 		return senBana;
 	}
@@ -456,28 +170,12 @@ public class RentBean {
 		this.vaziatMelk = vaziatMelk;
 	}
 
-	public String getNama() {
-		return nama;
-	}
-
-	public void setNama(String nama) {
-		this.nama = nama;
-	}
-
-	public String getVaziatSanad() {
+	public List<String> getVaziatSanad() {
 		return vaziatSanad;
 	}
 
-	public void setVaziatSanad(String vaziatSanad) {
+	public void setVaziatSanad(List<String> vaziatSanad) {
 		this.vaziatSanad = vaziatSanad;
-	}
-
-	public String getErtefa() {
-		return ertefa;
-	}
-
-	public void setErtefa(String ertefa) {
-		this.ertefa = ertefa;
 	}
 
 	public String getDescription() {
@@ -504,14 +202,6 @@ public class RentBean {
 		this.etehadieName = etehadieName;
 	}
 
-	public String getAnswererName() {
-		return answererName;
-	}
-
-	public void setAnswererName(String answererName) {
-		this.answererName = answererName;
-	}
-
 	public String getPhone() {
 		return phone;
 	}
@@ -519,31 +209,107 @@ public class RentBean {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	
+	
 
-	public String getMobile() {
-		return mobile;
+	public boolean isShow() {
+		return show;
 	}
 
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
+	public void setShow(boolean show) {
+		this.show = show;
 	}
 
-	public String getAddres() {
-		return addres;
-	}
-
-	public void setAddres(String addres) {
-		this.addres = addres;
-	}
-
-	public String getToleBar() {
-		return toleBar;
-	}
-
-	public void setToleBar(String toleBar) {
-		this.toleBar = toleBar;
+	public String convertEmkanat() {
+		String emkanatAll = "";
+		for (String string : this.emkanat) {
+			emkanatAll += string + "-";
+		}
+		return emkanatAll;
 	}
 	
+	public String convertVaziateSanad() {
+		String vaziateSanad = "";
+		for (String string : this.vaziatSanad) {
+			vaziateSanad+=string + "-";
+		}
+		return vaziateSanad;
+	}
+
+	public void insertToRent() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		RentEntity rentEntity = new RentEntity();
+		rentEntity.setDescription(description);
+		rentEntity.setEjareMony(Integer.parseInt(ejareMony));
+		rentEntity.setEmkanat(convertEmkanat());
+		rentEntity.setEtehadieName(etehadieName);
+		rentEntity.setHomeType(homeType);
+		rentEntity.setMasahat(Integer.parseInt(masahat));
+		rentEntity.setMogeiat(mogeiat);
+		rentEntity.setParvane(parvane);
+		rentEntity.setPhone(phone);
+		rentEntity.setAddress(address);
+		try {
+			byte[] pivByte = IOUtils.toByteArray(pic1.getInputStream());
+			rentEntity.setPic1(pivByte);
+		} catch (IOException e) {
+			System.err.println("Error in image");
+			rentEntity.setPic1(null);
+		}
+		rentEntity.setRentType(rentType);
+		rentEntity.setSenBana(Integer.parseInt(senBana));
+		rentEntity.setTedadTabage(Integer.parseInt(tedadTabage));
+		rentEntity.setTedadVahed(Integer.parseInt(tedadVahed));
+		rentEntity.setVadieeMoney(Integer.parseInt(vadieeMoney));
+		rentEntity.setVage(vage);
+		rentEntity.setVaziatMelk(vaziatMelk);
+		rentEntity.setVaziatSanad(convertVaziateSanad());
+		rentServiceLocal.insertToRent(rentEntity);	
+		context.addMessage(null, new FacesMessage("با موفقیت ثبت گردید."));
+		this.address="";
+		this.description="";
+		this.ejareMony="";
+		this.emkanat.clear();
+		this.etehadieName="";
+		this.homeType="";
+		this.masahat="";
+		this.parvane=false;
+		this.mogeiat="";
+		this.phone="";
+		this.rentType="";
+		this.senBana="";
+		this.tedadTabage="";
+		this.tedadVahed="";
+		this.vage="";
+		this.vaziatMelk="";
+		this.vaziatSanad.clear();
+	}
+	
+    
+	public List<RentEntity> findAllRent(){
+    return rentServiceLocal.findAllRent();	
+    }
+	
+	public RentEntity findRentById(long rentId) {
+		return rentServiceLocal.findRentById(rentId);
+	}
+	
+	public void deleteRent(long rentId) throws IOException {
+		RentEntity rentEntity=new RentEntity();
+		rentEntity=rentServiceLocal.findRentById(rentId);
+		rentServiceLocal.deleteRent(rentEntity);
+		FacesContext.getCurrentInstance().getExternalContext().redirect("rentview.xhtml");
+
+	}
+	
+    public void updateRent(long rentId) throws IOException {
+    	RentEntity rentEntity2=new RentEntity();
+    	rentEntity2=rentServiceLocal.findRentById(rentId);
+    	rentEntity2.setShow(show);
+    	rentServiceLocal.updateRent(rentEntity2);
+		FacesContext.getCurrentInstance().getExternalContext()
+		.redirect("rentedit.xhtml" + "?rent=" + rentId);
+    }
 	
 
 }

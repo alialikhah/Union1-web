@@ -9,7 +9,7 @@
 <h:head></h:head>
 <body>
 
-	<ui:composition template="TEMPLATE.xhtml">
+	<ui:composition template="/template/TEMPLATE.xhtml">
 		<ui:define name="headtemp">
 			<title>فروشگاه
 				#{merchantPageBean.findMerchantByEng(shopName).merchantShopNamePer}
@@ -72,7 +72,29 @@
 
 			</section> <!-- End of body section HTML codes --> <!-- Page Starts-->
 			<div class="container theme-container pt-70">
+				<div class="row"
+					style="background-color: #f2f2f2; padding: 10px 10px 20px 10px; border: 1px solid #BFBFBF; background-color: white; box-shadow: 10px 10px 5px #aaaaaa;">
+					<br /> <br />
+					<!-- Product Details Starts-->
+					<aside class="col-md-12 col-sm-12 single-post">
+					<div class="blog-wrap">
 
+						<p
+							style="text-align: center; font-family: 'IRANSansBold' !important; font-size: 20px; direction: rtl; color: indigo; line-height: 50px;">
+							<b>تعداد بازدید صفحه تا این لحظه : <h:outputText
+									value="#{merchantPageBean.findMerchantByEng(shopName).viewPage}" />
+
+							</b>
+						</p>
+
+					</div>
+					</aside>
+
+					<!-- Product Details Ends -->
+
+
+
+				</div><br/>
 
 
 				<div class="row"
@@ -862,7 +884,7 @@ padding-left: 0px; padding-top: 80px;" align="left"/> -->
 									<span class="fa fa-pencil"></span>
 								</div>
 								<div class="form-group col-sm-12">
-									<button class="theme-btn btn-black small-btn" type="submit">
+									<button type="submit">
 										<b> ارسال پیام</b>
 									</button>
 								</div>

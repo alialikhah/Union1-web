@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<h:body> 
+ <ui:composition template="/template/templateA.xhtml">
+<ui:define name="headtmp">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</ui:define>
+<ui:define name="centertmp"> 
+<h:form>
+    <p:dataTable var="karjo" value="#{jobKarjoBean.findAllKarjo()}" rows="10" rowKey="#{karjo.karjoId}" 
+                         paginator="true" resizableColumns="true" liveResize="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15" dir="rtl">
+                         
+         <p:column headerText="id" filterBy="#{karjo.karjoId}" sortBy="#{karjo.karjoId}" filterMatchMode="contains" width="90">
+            <h:outputText value="#{karjo.karjoId}" />
+        </p:column>
+ 
+        <p:column headerText="نام کارجو" filterBy="#{karjo.karjoName}" sortBy="#{karjo.karjoId}" filterMatchMode="contains" width="90">
+            <h:outputText value="#{karjo.karjoName}" />
+        </p:column>
+        
+         <p:column headerText="نام فروشگاه" filterBy="#{karjo.karjoSsn}" sortBy="#{karjo.karjoId}" filterMatchMode="contains" width="100">
+            <h:outputText value="#{karjo.karjoSsn}" />
+        </p:column>
+        
+         <p:column width="100">
+            <f:facet name="header">
+            <h:outputText value="و.فروشنده " /> 
+            </f:facet>
+            <p:button value="ویرایش" outcome="karjoedit.xhtml" style="width:100%!important;">
+            <f:param name="karjoId" value="#{karjo.karjoId}"/>
+            </p:button>
+        </p:column>
+        
+        <p:column width="100">
+                    <f:facet name="header">
+            <h:outputText value="حذف" /> 
+            </f:facet>
+        <p:commandButton value="delete"  action="#{jobKarjoBean.deleteKarjo(karjo.karjoId)}" style="width:100%!important;">
+        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
+        </p:commandButton>
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+        </p:confirmDialog>
+        </p:column>
+      
+    </p:dataTable>
+    </h:form>
+ </ui:define>
+</ui:composition>
+</h:body> 
+</html>

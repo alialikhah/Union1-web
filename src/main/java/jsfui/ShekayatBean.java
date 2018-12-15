@@ -26,6 +26,7 @@ import org.apache.commons.io.IOUtils;
 
 import dao.entity.Shekayat1;
 import service.ShekayatServiceLocal;
+import service.SingletonServiceLocal;
 
 @Named
 @ViewScoped
@@ -42,6 +43,8 @@ public class ShekayatBean implements Serializable {
 
 	@Inject
 	private ShekayatServiceLocal shekayatServiceLocal;
+	@Inject
+	private SingletonServiceLocal singletonServiceLocal;
 	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 	private String shakiName;
 	private String shakiSsn;
@@ -71,8 +74,8 @@ public class ShekayatBean implements Serializable {
 	// admin
 	private String shekayatAdmin;
 	private String shekayatPass;
-	
-	private List<String> titleList=new ArrayList<>();
+
+	private List<String> titleList = new ArrayList<>();
 
 	public String getShakiName() {
 		return shakiName;
@@ -273,7 +276,6 @@ public class ShekayatBean implements Serializable {
 	public void setShowButton(boolean showButton) {
 		this.showButton = showButton;
 	}
-	
 
 	public List<String> getTitleList() {
 		return titleList;
@@ -282,6 +284,7 @@ public class ShekayatBean implements Serializable {
 	public void setTitleList(List<String> titleList) {
 		this.titleList = titleList;
 	}
+
 	@PostConstruct
 	public void init() {
 		titleList.add("گرانفروشی");
@@ -321,17 +324,41 @@ public class ShekayatBean implements Serializable {
 		shekayatServiceLocal.inserToShekayat(shekayat1);
 
 		context.addMessage(null, new FacesMessage("در خواست با موفقیت ثبت گردید."));
-		this.showButton=true;
+		this.showButton = true;
+		this.motesadiName = "";
+		this.parvande = "";
+		this.rahgiri = "";
+		this.shakiAddres = "";
+		this.shakiEmail = "";
+		this.shakiMobile = "";
+		this.shakiName = "";
+		this.shakiPhone = "";
+		this.shakiPostCode = "";
+		this.shakiSsn = "";
+		this.sharh = "";
+		this.shekayatAdmin = "";
+		this.shekayatPass = "";
+		this.shekayatTitle = "";
+		this.vahedeSenfiMobile = "";
+		this.vahedeSenfiName = "";
+		this.vahedeSenfiPhone = "";
+		this.vahedeSenfiPostCode = "";
+		this.vahedeShenaseAddres = "";
+		this.vahedeShenaseSenfi = "";
+		this.vaziat = "";
 		/*
 		 * FacesContext.getCurrentInstance().getExternalContext()
 		 * .redirect("shekayatprint.xhtml");
 		 */
 	}
 
-
 	public List<Shekayat1> findAllShekayat() {
-		return shekayatServiceLocal.findAllShekayat();
+		return singletonServiceLocal.getShekayat1s();
 	}
+	
+	public List<Shekayat1> findAllShekayatOrder(){
+    	return singletonServiceLocal.getShekayat1s2();
+    }
 
 	public Shekayat1 findShekayatById(long shakiId) {
 		return shekayatServiceLocal.findShekayatById(shakiId);
@@ -382,7 +409,5 @@ public class ShekayatBean implements Serializable {
 			contex.getApplication().getNavigationHandler().handleNavigation(contex, null, "/shekayatlogin.xhtml");
 		}
 	}
-	
-	
 
 }

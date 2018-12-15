@@ -7,7 +7,7 @@
 
 <h:head></h:head>
 <h:body>
-	<ui:composition template="/template.xhtml">
+	<ui:composition template="/template/templateA.xhtml">
 		<ui:define name="headtmp">
 
 		</ui:define>
@@ -116,6 +116,25 @@
 							<f:param name="newsId" value="#{news.newsId}" />
 						</p:button>
 					</p:column>
+
+					<p:column width="100">
+						<f:facet name="header">
+							<h:outputText value="حذف" />
+						</f:facet>
+						<p:commandButton value="delete"
+							action="#{newsBean.deleteNews(news.newsId)}"
+							style="width:100%!important;">
+							<p:confirm header="Confirmation" message="Are you sure?"
+								icon="ui-icon-alert" />
+						</p:commandButton>
+						<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+							<p:commandButton value="Yes" type="button"
+								styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+							<p:commandButton value="No" type="button"
+								styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+						</p:confirmDialog>
+					</p:column>
+
 				</p:dataTable>
 			</h:form>
 		</ui:define>

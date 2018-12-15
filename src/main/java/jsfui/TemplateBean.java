@@ -70,5 +70,16 @@ public class TemplateBean {
 		FacesContext.getCurrentInstance().getExternalContext().redirect("addnews.xhtml");
 	}
 	
+	public void goToKarjo() throws IOException {
+		FacesContext.getCurrentInstance().getExternalContext().redirect("karjoview.xhtml");
+	}
+	
+	public void goToKarfarma() throws IOException {
+		FacesContext.getCurrentInstance().getExternalContext().redirect("karfarmaview.xhtml");
+	}
+	
+	public void goToRent() throws IOException {
+		FacesContext.getCurrentInstance().getExternalContext().redirect("rentview.xhtml");
+	}
 	
 }

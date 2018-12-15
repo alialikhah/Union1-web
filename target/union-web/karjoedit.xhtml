@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<ui:composition template="/template/templateA.xhtml">
+		<ui:define name="headtmp">
+			<meta charset="UTF-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1" />
+			<title>Merchant</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<link rel="stylesheet" type="text/css" media="all"
+				href="resources/date/skins/aqua/theme.css" title="Aqua" />
+			<link rel="alternate stylesheet" type="text/css" media="all"
+				href="resources/date/skins/calendar-blue.css" title="winter" />
+			<link rel="alternate stylesheet" type="text/css" media="all"
+				href="resources/date/skins/calendar-system.css" title="system" />
+
+
+			<script charset="UTF-8" type="text/javascript"
+				src="resources/date/jalali.js"></script>
+
+			<script charset="UTF-8" type="text/javascript"
+				src="resources/date/calendar.js"></script>
+
+			<script charset="UTF-8" type="text/javascript"
+				src="resources/date/calendar-setup.js"></script>
+
+			<script charset="UTF-8" type="text/javascript"
+				src="resources/date/lang/calendar-fa.js"></script>
+
+			<script charset="UTF-8" type="text/javascript"
+				src="resources/date/alidate.js"></script>
+
+			<h:outputStylesheet library="css" name="merchantedit.css" />
+
+			<link href="resources/css/merchantedit.css" rel="stylesheet"
+				type="text/css" />
+
+
+		</ui:define>
+
+		<ui:define name="centertmp"> -->
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="karjoId" />
+				</f:metadata>
+			</ui:define>
+
+
+
+			<p:panelGrid columns="2" style="direction:rtl!important">
+				<f:facet name="header">
+    ویرایش درخواست های شغل
+    </f:facet>
+
+
+				<p:outputLabel value="نام فروشنده:" />
+				<p:outputLabel
+					value="#{jobKarjoBean.findKarjoById(karjoId).karjoBirth}" />
+
+				<p:outputLabel value="نام فروشنده:" />
+				<p:outputLabel
+					value="#{jobKarjoBean.findKarjoById(karjoId).karjoCityName}" />
+
+				<p:outputLabel value="نام فروشنده:" />
+				<p:outputLabel
+					value="#{jobKarjoBean.findKarjoById(karjoId).karjoDescription}" />
+
+				<p:outputLabel value="نام فروشنده:" />
+				<p:outputLabel
+					value="#{jobKarjoBean.findKarjoById(karjoId).karjoEmail}" />
+
+
+				<p:outputLabel value="نام فروشنده:" />
+				<p:outputLabel
+					value="#{jobKarjoBean.findKarjoById(karjoId).karjoFather}" />
+
+
+				<p:outputLabel value="نام فروشنده:" />
+				<p:outputLabel
+					value="#{jobKarjoBean.findKarjoById(karjoId).karjoField}" />
+
+
+				<p:outputLabel value="نام فروشنده:" />
+				<p:outputLabel
+					value="#{jobKarjoBean.findKarjoById(karjoId).karjoGender}" />
+
+				<p:outputLabel value="نام فروشنده:" />
+				<p:outputLabel
+					value="#{jobKarjoBean.findKarjoById(karjoId).karjoId}" />
+
+				<p:outputLabel value="نام فروشنده:" />
+				<p:outputLabel
+					value="#{jobKarjoBean.findKarjoById(karjoId).karjoMadrak}" />
+
+
+				<p:outputLabel value="نام فروشنده:" />
+				<p:outputLabel
+					value="#{jobKarjoBean.findKarjoById(karjoId).karjoMaharat}" />
+
+				<p:outputLabel value="نام فروشنده:" />
+				<p:outputLabel
+					value="#{jobKarjoBean.findKarjoById(karjoId).karjoMobile}" />
+
+
+				<p:outputLabel value="نام فروشنده:" />
+				<p:outputLabel
+					value="#{jobKarjoBean.findKarjoById(karjoId).karjoName}" />
+				<p:outputLabel value="نام فروشنده:" />
+				<p:outputLabel
+					value="#{jobKarjoBean.findKarjoById(karjoId).karjoNoeFaal}" />
+				<p:outputLabel value="نام فروشنده:" />
+				<p:outputLabel
+					value="#{jobKarjoBean.findKarjoById(karjoId).karjoNoeHamkari}" />
+
+				<p:outputLabel value="نام فروشنده:" />
+				<p:outputLabel
+					value="#{jobKarjoBean.findKarjoById(karjoId).karjoPhone}" />
+
+				<p:outputLabel value="نام فروشنده:" />
+				<p:outputLabel
+					value="#{jobKarjoBean.findKarjoById(karjoId).karjoSsn}" />
+
+
+
+			
+							<h:outputText value="نمایش :" />
+				<h:outputText
+					value="#{jobKarjoBean.findKarjoById(karjoId).show}" />
+				<h:form id="frm371" style="display:none">
+					<p:selectBooleanCheckbox value="#{jobKarjoBean.show}" />
+					<p:commandButton value="ثبت تغییرات"
+						action="#{jobKarjoBean.updateKarjo(karjoId)}" />
+				</h:form>
+				<p:commandButton value="ویرایش">
+					<p:effect type="explode" event="click" for="frm371">
+						<f:param name="mode" value="'show'" />
+					</p:effect>
+				</p:commandButton>
+			
+			
+			
+			</p:panelGrid>
+
+
+
+
+
+
+		</ui:define>
+	</ui:composition> 
+
+</h:body>
+</html>

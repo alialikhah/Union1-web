@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#product.xhtml" PATH="/product.xhtml" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#product.xhtml:0" NAME="item"
+   PATH="/product.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{pageRedirectBean.goPage()}:#productdetails.xhtml"
+    NAME="output" PATH="/productdetails.xhtml"
+    TARGET="rules:#productdetails.xhtml"
+    TITLE="#{pageRedirectBean.goPage()}:success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#index.xhtml" PATH="/index.xhtml" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#index.xhtml:0" NAME="item"
+   PATH="/index.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="sadmin:#{indexBean.goSuperAdminPage()}:#superadmin.xhtml"
+    NAME="output" PATH="/superadmin.xhtml"
+    TARGET="rules:#superadmin.xhtml"
+    TITLE="#{indexBean.goSuperAdminPage()}:sadmin" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#templateA.xhtml" PATH="/templateA.xhtml" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#templateA.xhtml:0" NAME="item"
+   PATH="/templateA.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="productpage:#{productBean.goToProductPage()}:#product.xhtml"
+    NAME="output" PATH="/product.xhtml" TARGET="rules:#product.xhtml"
+    TITLE="#{productBean.goToProductPage()}:productpage" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#INDEX.xhtml" PATH="/INDEX.xhtml" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#INDEX.xhtml:0" NAME="item"
+   PATH="/INDEX.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="procs:#{indexBean.goProductsPage()}:#products.xhtml"
+    NAME="output" PATH="/products.xhtml" TARGET="rules:#products.xhtml"
+    TITLE="#{indexBean.goProductsPage()}:procs" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#superadmin.xhtml" PATH="/superadmin.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#products.xhtml" PATH="/products.xhtml" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#productdetails.xhtml"
+  PATH="/productdetails.xhtml" model-entity="JSFProcessGroup"/>
+</PROCESS>

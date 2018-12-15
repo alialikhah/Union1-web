@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	#{i18n['transferringToBankPage']}<img
+		src="#{domainUtilBean.getMrdomainStatisUrl()}/712.GIF" />
+	<script language="javascript">
+		var form = document.createElement("form");
+		form.setAttribute("method",
+				"post");
+		form.setAttribute("action",
+				"https://bpm.shaparak.ir/pgwchannel/startpay.mellat ");
+		var hiddenField = document.createElement("input");
+		hiddenField.setAttribute("name", "RefId");
+		hiddenField.setAttribute("value",
+				"#{bankBean.token}");
+		form.appendChild(hiddenField);
+		var hiddenField = document.createElement("input");
+		hiddenField.setAttribute("name", "RedirectURL");
+		hiddenField.setAttribute("value",
+				"http://127.0.0.1:8080/verifymelat.xhtml");
+		form.appendChild(hiddenField);
+		document.body.appendChild(form);
+		form.submit();
+		document.body.removeChild(form);
+	</script>
+</ui:composition>

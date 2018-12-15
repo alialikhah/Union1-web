@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+	  xmlns:rich="http://richfaces.org/rich"
+	  xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+<!-- <h:form>
+<a4j:poll id="poll" interval="2000" enabled="#{pollBean.pollEnabled}" render="poll,grid" />
+        <h:panelGrid columns="1" width="80%" id="grid">
+            <h:outputText id="serverDate" style="font-size:16px" value="#{testBean.count}" />
+        </h:panelGrid>
+</h:form> -->
+<h:form>
+    <h:outputText id="txt_count" value="#{testBean.count}" />
+    <p:poll interval="3" update="txt_count" />
+</h:form>
+</body> 
+</html>
