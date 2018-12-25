@@ -1578,6 +1578,10 @@ public class MerchantRegisterBean implements Serializable {
 	public List<MerchantEntity> findAllMerchants() {
 		return merchantRegisterServiceLocal.findAllMErchantEntity();
 	}
+	
+	public List<MerchantEntity> findAllMerchant2(){
+		return singletonServiceLocal.getMerchantList();
+	}
 
 	public MerchantEntity findMerchantById(long merchantId) {
 		try {

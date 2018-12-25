@@ -40,6 +40,12 @@
 	.rwr {
 		padding-left: 0px !important;
 	}
+	#dvf1{
+	display: none!important;
+	}
+	#dvf2{
+	display: block!important;
+	}
 }
 
 .owl-controls {

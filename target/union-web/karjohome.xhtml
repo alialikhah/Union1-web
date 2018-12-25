@@ -1,0 +1,436 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<h:head></h:head>
+<body onload="clearInput()">
+	<ui:composition template="/template/TEMPLATE.xhtml">
+		<ui:define name="headtemp">
+			<title>نیروی انسانی</title>
+			<link href="resources/css/jobhome.css" rel="stylesheet"
+				type="text/css" />
+			<link href="resources/css/amozesh2.css" rel="stylesheet"
+				type="text/css" />
+		</ui:define>
+
+		<ui:define name="maintemp">
+
+			<!-- CONTENT AREA -->
+			<article> <br />
+			<div
+				style="border: solid 5px; border-radius: 70px 10px 70px 70px; border-color: darkgrey; background-image: url('resources/images/back.jpg'); max-width: 1600px; margin: auto;">
+				<div class="container theme-container ptb-70">
+					<div class="row">
+						<div class="col-sm-12" id="dj1">
+							<h2>استخدام</h2>
+							<p>قابل توجه متقاظیان محترم آگهی های درج شده پس از ۴۵ روز از
+								روی سایت برداشته میشود لذا در صورت نیاز مجدد اقدام نمایید .</p>
+							<h2>قوانین و مقررات</h2>
+							<p>۱- مسوولیت صحت اطلاعات قسمت نیازمندی ها به عهده ی کار فرما
+								و کارجو می باشد.</p>
+							<p>۲- این اتحادیه هیچگونه مسوولیتی نسبت به در آگهی ها ندارد .</p>
+							<hr />
+							<h:form>
+								<p:dataGrid var="kjo" layout="grid"
+									value="#{jobKarjoBean.findAllKarjo()}" paginator="true"
+									rows="12" columns="1">
+									<p:outputPanel rendered="#{kjo.show}">
+										<p:panel style="text-align:right">
+
+											
+											<p>
+												<b>شغل درخواستی :</b>#{kjo.karjoNoeFaal}
+											</p>
+											<p>
+												<b>نوع همکاری :</b>#{kjo.karjoNoeHamkari}
+											</p>
+											<p>
+												<b>میزان تحصیلات :</b>#{kjo.karjoMadrak}
+											</p>
+											<p>
+												<b>رشته تحصیلی :</b>#{kjo.karjoField}
+											</p>
+											<p>
+												<b>تخصص :</b>#{kjo.karjoMaharat}
+											</p>
+											<p>
+												<b>توضیحات :</b>#{kjo.karjoDescription}
+											</p>
+											<p>
+												<b>میزان حقوق درخواستی :</b>
+											</p>
+											<p>
+												<b>نام و نام خانوادگی :</b>#{kjo.karjoName}
+											</p>
+											<p>
+												<b>تلفن :</b>#{kjo.karjoPhone}
+											</p>
+											<p>
+												<b>ایمیل :</b>#{kjo.karjoEmail}
+											</p>
+										</p:panel>
+									</p:outputPanel>
+								</p:dataGrid>
+							</h:form>
+							<p:tabView>
+								<p:tab title="ثبت نام کارجو">
+
+
+									<h:form id="form">
+										<p:growl id="growl" />
+										<p:messages />
+										<p:panel id="panel">
+											<h:panelGrid columns="2" columnClasses="label, value">
+												<p:outputLabel for="input"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="نام و نام خانوادگی *" />
+												<p:inputText styleClass="it" id="input"
+													style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
+													value="#{jobKarjoBean.karjoName}" reqired="true"
+													requiredMessage="فیلد اجباری">
+													<f:validateLength maximum="100" minimum="3" />
+												</p:inputText>
+
+												<p:outputLabel
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="جنسیت" />
+												<h:selectOneRadio id="console" styleClass="form-control"
+													value="#{jobKarjoBean.karjoGender}">
+													<f:selectItem
+														style="font-family: 'IRANSansBold' !important;"
+														itemLabel="زن" itemValue="زن" />
+													<f:selectItem
+														style="font-family: 'IRANSansBold' !important;"
+														itemLabel="مرد" itemValue="مرد" />
+												</h:selectOneRadio>
+
+
+
+												<p:outputLabel for="inputt"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="نام پدر" />
+												<p:inputText styleClass="it" id="inputt"
+													style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
+													value="#{jobKarjoBean.karjoFather}" required="true"
+													requiredMessage="فیلد اجباری">
+													<f:validateLength maximum="100" minimum="3" />
+												</p:inputText>
+
+
+												<p:outputLabel for="inputt2"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="محل تولد" />
+												<p:inputText styleClass="it" id="inputt2"
+													style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
+													value="#{jobKarjoBean.karjoCityName}" required="true"
+													requiredMessage="فیلد اجباری">
+													<f:validateLength maximum="100" minimum="3" />
+												</p:inputText>
+
+												<p:outputLabel for="inputt22"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="تاریخ تولد" />
+												<p:inputText styleClass="it" id="inputt22"
+													style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
+													required="true" requiredMessage="فیلد اجباری"
+													value="#{jobKarjoBean.karjoBirth}">
+													<f:validateLength maximum="100" minimum="3" />
+												</p:inputText>
+
+												<p:outputLabel for="inputt222"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="میزان تحصیلات" requiredMessage="فیلد اجباری" />
+												<h:selectOneMenu id="inputt222" styleClass="form-control"
+													value="#{jobKarjoBean.karjoMadrak}" required="true">
+													<f:selectItem
+														style="font-family: 'IRANSansNor' !important;"
+														itemLabel="زیر دیپلم" itemValue="زیر دیپلم" />
+													<f:selectItem
+														style="font-family: 'IRANSansNor' !important;"
+														itemLabel="دیپلم" itemValue="دیپلم" />
+													<f:selectItem
+														style="font-family: 'IRANSansNor' !important;"
+														itemLabel="دانشجو" itemValue="دانشجو" />
+													<f:selectItem
+														style="font-family: 'IRANSansNor' !important;"
+														itemLabel="کاردانی" itemValue="کاردانی" />
+													<f:selectItem
+														style="font-family: 'IRANSansNor' !important;"
+														itemLabel="کارشناسی" itemValue="کارشناسی" />
+													<f:selectItem
+														style="font-family: 'IRANSansNor' !important;"
+														itemLabel="کارشناسی ارشد" itemValue="کارشناسی ارشد" />
+													<f:selectItem
+														style="font-family: 'IRANSansNor' !important;"
+														itemLabel="دکترا" itemValue="دکترا" />
+												</h:selectOneMenu>
+
+												<p:outputLabel for="inputtv"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="رشته تحصیلی" />
+												<p:inputText styleClass="it" id="inputtv"
+													style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
+													value="#{jobKarjoBean.karjoField}" required="true"
+													requiredMessage="فیلد اجباری">
+													<f:validateLength maximum="100" minimum="1" />
+												</p:inputText>
+
+
+												<p:outputLabel for="msk"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="کد ملی (حروف به انگلیسی)" />
+												<p:inputText styleClass="it" id="msk" dir="ltr"
+													value="#{jobKarjoBean.karjoSsn}" required="true"
+													requiredMessage="فیلد اجباری"
+													style=" width: 100%; background-color: white !important;">
+													<f:validateRegex pattern="^([0-9][0-9]*)$" />
+													<f:validateLength maximum="12" minimum="1" />
+												</p:inputText>
+
+												<p:outputLabel
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="تلفن ثابت" />
+												<p:inputText styleClass="it" id="tele" dir="ltr"
+													value="#{jobKarjoBean.karjoPhone}"
+													style=" width: 100%; background-color: white !important;">
+													<f:validateLength maximum="100" minimum="0" />
+												</p:inputText>
+
+												<p:outputLabel for="mob"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="تلفن همراه (به انگلیسی)" />
+												<p:inputText styleClass="it" id="mob" dir="ltr"
+													style=" width: 100%; background-color: white !important;"
+													value="#{jobKarjoBean.karjoMobile}" required="true"
+													placeholder="09xxxxxxxxx" requiredMessage="فیلد اجباری">
+													<f:validateRegex pattern="^([0-9][0-9]*)$" />
+													<f:validateLength maximum="11" minimum="11" />
+												</p:inputText>
+
+												<p:outputLabel for="area"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="مهارت ها وتخصص ها *" />
+												<p:inputTextarea styleClass="it" id="area"
+													style=" width: 100%; background-color:white!important;"
+													value="#{jobKarjoBean.karjoMaharat}" rendered="true"
+													requiredMessage="فیلد اجباری ">
+													<f:validateLength minimum="10" maximum="500" />
+												</p:inputTextarea>
+
+
+												<p:outputLabel for="areaa"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="توضیحات (شرح و آگهی)" />
+												<p:inputTextarea styleClass="it" id="areaa"
+													style=" width: 100%; background-color:white!important;"
+													value="#{jobKarjoBean.karjoDescription}" required="true"
+													requiredMessage="فیلد اجباری ">
+													<f:validateLength minimum="10" maximum="500" />
+												</p:inputTextarea>
+
+
+											</h:panelGrid>
+										</p:panel>
+										<h:commandButton
+											style="font-family: 'IRANSansBold' !important;" value="ثبت"
+											styleClass="btn"
+											action="#{jobKarjoBean.insertToKarjoEntity()}" />
+									</h:form>
+								</p:tab>
+							</p:tabView>
+						</div>
+
+						<div class="col-sm-12" id="dj2" style="display: none;">
+							<h2>استخدام</h2>
+							<p>قابل توجه متقاظیان محترم آگهی های درج شده پس از ۴۵ روز از
+								روی سایت برداشته میشود لذا در صورت نیاز مجدد اقدام نمایید .</p>
+							<h2>قوانین و مقررات</h2>
+							<p>۱- مسوولیت صحت اطلاعات قسمت نیازمندی ها به عهده ی کار فرما
+								و کارجو می باشد.</p>
+							<p>۲- این اتحادیه هیچگونه مسوولیتی نسبت به در آگهی ها ندارد .</p>
+							<hr />
+							<p:tabView>
+								<p:tab title="ثبت نام کارجو">
+
+
+									<h:form id="form">
+										<p:growl id="growl" />
+										<p:messages />
+										<p:panel id="panel">
+											<h:panelGrid columns="1" columnClasses="label, value">
+												<p:outputLabel for="input"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="نام و نام خانوادگی *" />
+												<p:inputText styleClass="it" id="input"
+													style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
+													value="#{jobKarjoBean.karjoName}" reqired="true"
+													requiredMessage="فیلد اجباری">
+													<f:validateLength maximum="100" minimum="3" />
+												</p:inputText>
+
+												<p:outputLabel
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="جنسیت" />
+												<h:selectOneRadio id="console" styleClass="form-control"
+													value="#{jobKarjoBean.karjoGender}">
+													<f:selectItem
+														style="font-family: 'IRANSansBold' !important;"
+														itemLabel="زن" itemValue="زن" />
+													<f:selectItem
+														style="font-family: 'IRANSansBold' !important;"
+														itemLabel="مرد" itemValue="مرد" />
+												</h:selectOneRadio>
+
+
+
+												<p:outputLabel for="inputt"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="نام پدر" />
+												<p:inputText styleClass="it" id="inputt"
+													style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
+													value="#{jobKarjoBean.karjoFather}" required="true"
+													requiredMessage="فیلد اجباری">
+													<f:validateLength maximum="100" minimum="3" />
+												</p:inputText>
+
+
+												<p:outputLabel for="inputt2"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="محل تولد" />
+												<p:inputText styleClass="it" id="inputt2"
+													style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
+													value="#{jobKarjoBean.karjoCityName}" required="true"
+													requiredMessage="فیلد اجباری">
+													<f:validateLength maximum="100" minimum="3" />
+												</p:inputText>
+
+												<p:outputLabel for="inputt22"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="تاریخ تولد" />
+												<p:inputText styleClass="it" id="inputt22"
+													style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
+													required="true" requiredMessage="فیلد اجباری"
+													value="#{jobKarjoBean.karjoBirth}">
+													<f:validateLength maximum="100" minimum="3" />
+												</p:inputText>
+
+												<p:outputLabel for="inputt222"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="میزان تحصیلات" requiredMessage="فیلد اجباری" />
+												<h:selectOneMenu id="inputt222" styleClass="form-control"
+													value="#{jobKarjoBean.karjoMadrak}" required="true">
+													<f:selectItem
+														style="font-family: 'IRANSansNor' !important;"
+														itemLabel="زیر دیپلم" itemValue="زیر دیپلم" />
+													<f:selectItem
+														style="font-family: 'IRANSansNor' !important;"
+														itemLabel="دیپلم" itemValue="دیپلم" />
+													<f:selectItem
+														style="font-family: 'IRANSansNor' !important;"
+														itemLabel="دانشجو" itemValue="دانشجو" />
+													<f:selectItem
+														style="font-family: 'IRANSansNor' !important;"
+														itemLabel="کاردانی" itemValue="کاردانی" />
+													<f:selectItem
+														style="font-family: 'IRANSansNor' !important;"
+														itemLabel="کارشناسی" itemValue="کارشناسی" />
+													<f:selectItem
+														style="font-family: 'IRANSansNor' !important;"
+														itemLabel="کارشناسی ارشد" itemValue="کارشناسی ارشد" />
+													<f:selectItem
+														style="font-family: 'IRANSansNor' !important;"
+														itemLabel="دکترا" itemValue="دکترا" />
+												</h:selectOneMenu>
+
+												<p:outputLabel for="inputtv"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="رشته تحصیلی" />
+												<p:inputText styleClass="it" id="inputtv"
+													style="font-family: 'IRANSansNor' !important;width: 100%; background-color: white!important;"
+													value="#{jobKarjoBean.karjoField}" required="true"
+													requiredMessage="فیلد اجباری">
+													<f:validateLength maximum="100" minimum="1" />
+												</p:inputText>
+
+
+												<p:outputLabel for="msk"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="کد ملی (حروف به انگلیسی)" />
+												<p:inputText styleClass="it" id="msk" dir="ltr"
+													value="#{jobKarjoBean.karjoSsn}" required="true"
+													requiredMessage="فیلد اجباری"
+													style=" width: 100%; background-color: white !important;">
+													<f:validateRegex pattern="^([0-9][0-9]*)$" />
+													<f:validateLength maximum="12" minimum="1" />
+												</p:inputText>
+
+												<p:outputLabel
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="تلفن ثابت" />
+												<p:inputText styleClass="it" id="tele" dir="ltr"
+													value="#{jobKarjoBean.karjoPhone}"
+													style=" width: 100%; background-color: white !important;">
+													<f:validateLength maximum="100" minimum="0" />
+												</p:inputText>
+
+												<p:outputLabel for="mob"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="تلفن همراه (به انگلیسی)" />
+												<p:inputText styleClass="it" id="mob" dir="ltr"
+													style=" width: 100%; background-color: white !important;"
+													value="#{jobKarjoBean.karjoMobile}" required="true"
+													placeholder="09xxxxxxxxx" requiredMessage="فیلد اجباری">
+													<f:validateRegex pattern="^([0-9][0-9]*)$" />
+													<f:validateLength maximum="11" minimum="11" />
+												</p:inputText>
+
+												<p:outputLabel for="area"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="مهارت ها وتخصص ها *" />
+												<p:inputTextarea styleClass="it" id="area"
+													style=" width: 100%; background-color:white!important;"
+													value="#{jobKarjoBean.karjoMaharat}" rendered="true"
+													requiredMessage="فیلد اجباری ">
+													<f:validateLength minimum="10" maximum="500" />
+												</p:inputTextarea>
+
+
+												<p:outputLabel for="areaa"
+													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
+													value="توضیحات (شرح و آگهی)" />
+												<p:inputTextarea styleClass="it" id="areaa"
+													style=" width: 100%; background-color:white!important;"
+													value="#{jobKarjoBean.karjoDescription}" required="true"
+													requiredMessage="فیلد اجباری ">
+													<f:validateLength minimum="10" maximum="500" />
+												</p:inputTextarea>
+
+
+											</h:panelGrid>
+										</p:panel>
+										<h:commandButton
+											style="font-family: 'IRANSansBold' !important;" value="ثبت"
+											styleClass="btn"
+											action="#{jobKarjoBean.insertToKarjoEntity()}" />
+									</h:form>
+								</p:tab>
+							</p:tabView>
+						</div>
+
+
+
+					</div>
+				</div>
+			</div>
+			</article>
+		</ui:define>
+	</ui:composition>
+
+
+</body>
+</html>

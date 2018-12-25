@@ -8,21 +8,21 @@
 	xmlns:rich="http://richfaces.org/rich">
 
 <h:head></h:head>
-<!-- 		<f:metadata>
-			<f:event listener="#{adminBean.isUser}" type="preRenderView"></f:event>
-		</f:metadata> -->
+<f:metadata>
+	<f:event listener="#{userBean.isUser2}" type="preRenderView"></f:event>
+</f:metadata>
 <body>
 	<ui:composition template="/template/TEMPLATE.xhtml">
 		<ui:define name="headtemp">
 			<title>شکایات</title>
 			<link href="resources/css/shekayat.css" rel="stylesheet"
 				type="text/css" />
-							<style>
-				.ui-widget-content {
-					color: #222222;
-					background-color: #dddddd!important;
-				}
-				            </style>
+			<style>
+.ui-widget-content {
+	color: #222222;
+	background-color: #dddddd !important;
+}
+</style>
 		</ui:define>
 
 		<ui:define name="maintemp">
@@ -35,7 +35,7 @@
 						<div class="col-sm-12">
 							<h:form id="form">
 
-								<p:growl id="msgs" showDetail="true" />
+								<p:growl id="msgs" />
 
 								<h3 style="margin-top: 0">افزودن کاربر</h3>
 								<p:tabView id="pnl">
@@ -73,7 +73,9 @@
 												<f:validateLength minimum="6" maximum="30" />
 											</p:inputText>
 
-											<p:outputLabel for="basic" style="font-family: 'IRANSansNor' !important;" value="رول یوزر" />
+											<p:outputLabel for="basic"
+												style="font-family: 'IRANSansNor' !important;"
+												value="رول یوزر" />
 											<p:selectOneListbox id="basic" value="#{userBean.role}"
 												required="true" requiredMessage="فیلد اجباری">
 												<f:selectItem itemLabel="admin" itemValue="admin" />
@@ -91,6 +93,13 @@
 									<p:tab title="بخش ۲">
 									</p:tab>
 								</p:tabView>
+							</h:form>
+							<br />
+							<h:form>
+								<h:commandButton id="lkj" value="خروج" icon="ui-icon-check"
+									style="margin:0; width:100px; height:30px; font-size:18px;"
+									action="#{userBean.exitAdmin()}">
+								</h:commandButton>
 							</h:form>
 						</div>
 					</div>

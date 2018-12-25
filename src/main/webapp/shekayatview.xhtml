@@ -3,79 +3,68 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:o="http://omnifaces.org/ui"
-    xmlns:p="http://primefaces.org/ui"
-	xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:rich="http://richfaces.org/rich">
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui">
+
 
 <f:metadata>
 	<f:event listener="#{userBean.isUser}" type="preRenderView"></f:event>
 </f:metadata>
+<h:head>
+	<title>شکایات</title>
+	<link href="resources/fonts.css" rel="stylesheet" type="text/css" />
+	<link rel="shortcut icon" href="resources/images/logo_black.png" />
+</h:head>
+<h:body style=" background-color: #dddddd;">
+	<div>
+		<h:form>
+			<p:commandLink value="خروج" action="#{userBean.exitAdmin()}"
+				style="padding-left:100px; font-size:22px; text-decoration: none!important;" />
+		</h:form>
+		<h:form>
+		<p:dataTable var="shaki"
+			value="#{shekayatBean.findAllShekayatOrder()}" rows="10"
+			rowKey="#{shki.shekayatId}" paginator="true" resizableColumns="true"
+			liveResize="true"
+			paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			rowsPerPageTemplate="5,10,15" dir="rtl" style="margin:20px">
 
-
-<h:head></h:head>
-<body>
-	<ui:composition template="/template/TEMPLATE.xhtml">
-		<ui:define name="headtemp">
-			<title>شکایات</title>
-	<link href="resources/css/shekayat.css"
-		rel="stylesheet" type="text/css" />
-
-		</ui:define>
-
-		<ui:define name="maintemp">
-			<ui:define name="metadata">
-				<f:metadata>
-					<f:viewParam name="shopName" />
-				</f:metadata>
-			</ui:define>
-
-			<!-- CONTENT AREA -->
-			<article> <br />
-			<div
-				style="border: solid 5px; border-radius: 70px 10px 70px 70px; border-color: darkgrey; background-image: url('resources/images/back.jpg'); max-width: 1600px; margin: auto;">
-				<div class="container theme-container ptb-70">
-					<div class="row">
-						<div class="col-sm-12">
-
-		    <p:dataTable var="shaki" value="#{shekayatBean.findAllShekayatOrder()}" rows="10" rowKey="#{shki.shekayatId}" 
-                         paginator="true" resizableColumns="true" liveResize="true"
-                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                         rowsPerPageTemplate="5,10,15" dir="rtl" style="margin-top:20px">
-		<f:facet name="header">
+			<f:facet name="header">
             DataTable
         </f:facet>
-		<p:column headerText="Id">
-			<h:outputText value="#{shaki.shekayatId}" />
-		</p:column>
+			<p:column headerText="Id" filterBy="#{shaki.shekayatId}"
+				sortBy="#{shaki.shekayatId}">
+				<h:outputText value="#{shaki.shekayatId}" />
+			</p:column>
 
-		<p:column headerText="نام">
-			<h:outputText value="#{shaki.shakiName}" />
-		</p:column>
+			<p:column headerText="نام" filterBy="#{shaki.shakiName}"
+				sortBy="#{shaki.shekayatId}">
+				<h:outputText value="#{shaki.shakiName}" />
+			</p:column>
 
-		<p:column headerText="Brand">
-			<h:outputText value="#{shaki.shakiSsn}" />
-		</p:column>
+			<p:column headerText="کد ملی شاکی" filterBy="#{shaki.shakiSsn}"
+				sortBy="#{shaki.shekayatId}">
+				<h:outputText value="#{shaki.shakiSsn}" />
+			</p:column>
 
-		<p:column headerText="رسیدگی">
-			<p:button value="رسیدگی" outcome="shekayatedit.xhtml" style="color:green!important;">
-				<f:param value="#{shaki.shekayatId}" name="shakiId" />
-			</p:button>
-		</p:column>
-		
-		<p:column headerText="وضعیت">
-			<h:outputText value="#{shaki.vaziat}" />
-		</p:column>
-</p:dataTable>
-								
-						</div>
-					</div>
-				</div>
-			</div>
-			</article>
-			<br />
-		</ui:define>
-	</ui:composition>
-</body>
+			<p:column headerText="شماره رهگیری" filterBy="#{shaki.shomare}"
+				sortBy="#{shaki.shekayatId}">
+				<h:outputText value="#{shaki.shomare}" />
+			</p:column>
+
+			<p:column headerText="رسیدگی">
+				<p:button value="رسیدگی" outcome="shekayatedit.xhtml">
+					<f:param value="#{shaki.shekayatId}" name="shakiId" />
+				</p:button>
+			</p:column>
+
+			<p:column headerText="وضعیت">
+				<p:outputPanel rendered="#{shaki.checkO}">
+					<h:outputText value="رسیدگی شد" style="color:red;" />
+				</p:outputPanel>
+
+			</p:column>
+		</p:dataTable>
+		</h:form>
+	</div>
+</h:body>
 </html>
-

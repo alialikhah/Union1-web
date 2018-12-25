@@ -16,6 +16,7 @@ import org.apache.commons.io.IOUtils;
 
 import dao.entity.RentEntity;
 import service.RentServiceLocal;
+import service.SingletonServiceLocal;
 
 @Named
 @ViewScoped
@@ -52,10 +53,12 @@ public class RentBean implements Serializable{
 	private String phone;
 	private Part pic1;
 	private boolean show;
+	private String foroshMoney;
 	
 	@Inject
 	private RentServiceLocal rentServiceLocal;
-	
+	@Inject
+	private SingletonServiceLocal singletonServiceLocal;
 	
 
 	public Part getPic1() {
@@ -219,6 +222,17 @@ public class RentBean implements Serializable{
 	public void setShow(boolean show) {
 		this.show = show;
 	}
+	
+
+
+
+	public String getForoshMoney() {
+		return foroshMoney;
+	}
+
+	public void setForoshMoney(String foroshMoney) {
+		this.foroshMoney = foroshMoney;
+	}
 
 	public String convertEmkanat() {
 		String emkanatAll = "";
@@ -245,6 +259,7 @@ public class RentBean implements Serializable{
 		rentEntity.setEtehadieName(etehadieName);
 		rentEntity.setHomeType(homeType);
 		rentEntity.setMasahat(Integer.parseInt(masahat));
+		rentEntity.setForoshMoney(Integer.parseInt(foroshMoney));
 		rentEntity.setMogeiat(mogeiat);
 		rentEntity.setParvane(parvane);
 		rentEntity.setPhone(phone);
@@ -282,6 +297,7 @@ public class RentBean implements Serializable{
 		this.tedadVahed="";
 		this.vage="";
 		this.vaziatMelk="";
+		this.foroshMoney="";
 		this.vaziatSanad.clear();
 	}
 	
@@ -289,6 +305,10 @@ public class RentBean implements Serializable{
 	public List<RentEntity> findAllRent(){
     return rentServiceLocal.findAllRent();	
     }
+	
+	public List<RentEntity> findAllRent2(){
+		return singletonServiceLocal.getRentEntities();
+	}
 	
 	public RentEntity findRentById(long rentId) {
 		return rentServiceLocal.findRentById(rentId);

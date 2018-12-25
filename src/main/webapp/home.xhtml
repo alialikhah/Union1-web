@@ -3,7 +3,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui">
 
 <h:head></h:head>
 <body>
@@ -679,7 +680,8 @@
 			<!--  -->
 			<!--  -->
 			<div style="background-color: black;">
-				<div class="container theme-container">
+				<div class="container theme-container"
+					style="padding-bottom: 30px; padding-top: 30px;">
 					<div class="row">
 						<div class="col-md-2 col-sm-4" align="center">
 
@@ -703,15 +705,15 @@
 							<div class="ih-item circle colored effect19">
 
 								<h:form>
-								<p:link outcome="aza.xhtml">
-									<div class="img">
-										<img src="resources/Icones2/aza.jpg" alt="img" width="150"
-											height="150" />
-									</div>
-									<div class="info">
-										<h3>VIEW</h3>
-									</div>
-								</p:link>
+									<p:link outcome="aza.xhtml">
+										<div class="img">
+											<img src="resources/Icones2/aza.jpg" alt="img" width="150"
+												height="150" />
+										</div>
+										<div class="info">
+											<h3>VIEW</h3>
+										</div>
+									</p:link>
 								</h:form>
 							</div>
 
@@ -737,7 +739,7 @@
 							<div class="ih-item circle colored effect19">
 								<p:link outcome="moshaverin.xhtml" target="_blank">
 									<div class="img">
-										<img src="resources/Icones2/moshav.jpg" alt="img" width="150"
+										<img src="resources/imgs/moshaverin.jpg" alt="img" width="150"
 											height="150" />
 									</div>
 									<div class="info">
@@ -781,7 +783,12 @@
 
 						</div>
 
+
+
 					</div>
+
+
+
 					<div class="row">
 						<div class="col-md-2 col-sm-4" align="center">
 
@@ -850,7 +857,22 @@
 							<div class="ih-item circle colored effect19">
 								<p:link outcome="jobhome.xhtml" target="_blank">
 									<div class="img">
-										<img src="resources/images/niro.jpg" alt="img" width="150"
+										<img src="resources/Icones2/karfarma.jpg" alt="img"
+											width="150" height="150" />
+									</div>
+									<div class="info">
+										<h3>VIEW</h3>
+									</div>
+								</p:link>
+							</div>
+
+						</div>
+
+						<div class="col-md-2 col-sm-4" align="center">
+							<div class="ih-item circle colored effect19">
+								<p:link outcome="karjohome.xhtml" target="_blank">
+									<div class="img">
+										<img src="resources/Icones2/karjo.jpg" alt="img" width="150"
 											height="150" />
 									</div>
 									<div class="info">
@@ -862,6 +884,11 @@
 						</div>
 
 
+
+
+
+					</div>
+					<div class="row">
 						<div class="col-md-2 col-sm-4" align="center">
 
 							<div class="ih-item circle colored effect19">
@@ -877,6 +904,203 @@
 							</div>
 
 						</div>
+						<div class="col-md-2 col-sm-4" align="center">
+
+							<div class="ih-item circle colored effect19">
+								<a href="/sodor.pdf">
+									<div class="img">
+										<img src="resources/imgs/sodorparvane.jpg" alt="img"
+											width="150" height="150" />
+									</div>
+									<div class="info">
+										<h3>VIEW</h3>
+									</div>
+								</a>
+							</div>
+
+						</div>
+						<div class="col-md-2 col-sm-4" align="center">
+
+
+							<div class="ih-item circle colored effect19">
+								<a href="/tamdid.pdf">
+									<div class="img">
+										<img src="resources/imgs/tamdidparvane.jpg" alt="img"
+											width="150" height="150" />
+									</div>
+									<div class="info">
+										<h3>VIEW</h3>
+									</div>
+								</a>
+							</div>
+
+						</div>
+
+						<div class="col-md-2 col-sm-4" align="center">
+
+
+							<div class="ih-item circle colored effect19">
+								<b:link onclick="$('.modalPseudoClass').modal()">
+									<div class="img">
+										<img src="resources/Icones2/vor.jpg" alt="img" width="150"
+											height="150" />
+									</div>
+									<div class="info">
+										<h3>VIEW</h3>
+									</div>
+								</b:link>
+							</div>
+
+						</div>
+
+						<div class="col-md-2 col-sm-4" align="center">
+
+
+							<div class="ih-item circle colored effect19">
+								<b:link>
+									<div class="img">
+										<img src="resources/Icones2/soon.jpg" alt="img" width="150"
+											height="150" />
+									</div>
+									<div class="info">
+										<h3>VIEW</h3>
+									</div>
+								</b:link>
+							</div>
+
+						</div>
+
+						<div class="col-md-2 col-sm-4" align="center">
+
+
+							<div class="ih-item circle colored effect19">
+								<b:link>
+									<div class="img">
+										<img src="resources/Icones2/soon.jpg" alt="img" width="150"
+											height="150" />
+									</div>
+									<div class="info">
+										<h3>VIEW</h3>
+									</div>
+								</b:link>
+							</div>
+
+						</div>
+					</div>
+
+
+
+				</div>
+			</div>
+
+
+
+
+			<div style="background-color: lightgrey;">
+				<div class="container theme-container"
+					style="padding-top: 10px; padding-bottom: 10px;">
+					<div class="row" align="center">
+						<div class="col-md-2 col-sm-3" align="right" id="dvf1"
+							style="padding-right: 40px; border-left: 1px solid;">
+							<h:graphicImage library="images"
+								value="/resources/Icones2/sanat.png"
+								onclick="window.open('http://www.mimt.gov.ir'); return false;" />
+							<br /> <br />
+							<h:graphicImage library="images"
+								value="/resources/Icones2/asnafiran.png"
+								onclick="window.open('http://www.otaghasnafeiran.ir'); return false;" />
+							<br /> <br />
+							<h:graphicImage library="images"
+								value="/resources/Icones2/asnafteh.png"
+								onclick="window.open('http://www.otaghasnaftehran.ir'); return false;" />
+							<br /> <br />
+							<h:graphicImage library="images"
+								value="/resources/Icones2/gomrok.png"
+								onclick="window.open('http://www.irica.gov.ir'); return false;" />
+
+
+
+						</div>
+
+						<div class="col-xs-12" align="center" id="dvf2"
+							style="padding-right: 40px; display: none;">
+							<h:graphicImage library="images"
+								value="/resources/Icones2/sanat.png" style="margin:30px;"
+								onclick="window.open('http://www.mimt.gov.ir'); return false;" />
+							<h:graphicImage library="images"
+								value="/resources/Icones2/asnafiran.png" style="margin:30px;"
+								onclick="window.open('http://www.otaghasnafeiran.ir'); return false;" />
+							<h:graphicImage library="images"
+								value="/resources/Icones2/asnafteh.png" style="margin:30px;"
+								onclick="window.open('http://www.otaghasnaftehran.ir'); return false;" />
+							<br /> <br />
+							<h:graphicImage library="images"
+								value="/resources/Icones2/gomrok.png" style="margin:30px;"
+								onclick="window.open('http://www.irica.gov.ir'); return false;" />
+
+
+						</div>
+
+
+
+
+
+						<div class="col-md-6 col-sm-6" align="center">
+							<p
+								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 38px; margin-bottom: 20px;">
+								<img src="resources/images/locationt.png" alt="" width="25"
+									height="25" /><b> آدرس : تهران ، خیابان حافظ ، خیابان جامی
+									، خیابان احمد محمد بیک ، ساختمان شماره ۲۲ </b>
+							</p>
+							<p
+								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 38px; margin-bottom: 20px;">
+								<img src="resources/images/phonet.png" alt="" width="25"
+									height="25" /><b> تلفن : ۳۵ ـ ۳۲ ۶۵ ۷۵ ۶۶ (۰۲۱ ) <h:outputText
+										value="#{merchantPageBean.findByMerchantShop(shopName).merchantPhone}" /></b>
+							</p>
+							<p
+								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 38px; margin-bottom: 20px;">
+								<img src="resources/images/faxt.png" alt="" width="25"
+									height="25" /><b> نمابر : ۳۱ ۵۶ ۶۷ ۶۶ ( ۰۲۱ )<h:outputText
+										value="#{merchantPageBean.findByMerchantShop(shopName).merchantPhone}" /></b>
+							</p>
+
+							<p
+								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 38px; margin-bottom: 20px;">
+								<img src="resources/images/emailt.png" alt="" width="25"
+									height="25" /><b> کد پستی : ۴۶ ۶۸ ۸۴ ۳۸ ۱۱<h:outputText
+										value="#{merchantPageBean.findByMerchantShop(shopName).merchantPhone}" /></b>
+							</p>
+							<p
+								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 38px; margin-bottom: 20px;">
+								<img src="resources/images/emailt.png" alt="" width="25"
+									height="25" /><b> سامانه پیام کوتاه : ۵۰۰۰۲۳۰۰۰۹۹۹<h:outputText
+										value="#{merchantPageBean.findByMerchantShop(shopName).merchantPhone}" /></b>
+							</p>
+							<p
+								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 38px; margin-bottom: 20px;">
+								<img src="resources/images/clock.png" alt="" width="25"
+									height="25" /><b> ساعت تماس با اتحادیه شنبه تا چهارشنبه
+									ساعت ۷:۳۰ تا ۱۴:۳۰</b>
+							</p>
+							<p
+								style="text-align: justify; font-family: 'IRANSansNor' !important; font-size: 20px; direction: rtl; color: black; line-height: 35px;">
+								<img src="resources/images/calendar.png" alt="" width="25"
+									height="25" /><b> زمان پاسخگویی به شکایات یکشنبه و سه شنبه</b>
+							</p>
+						</div>
+
+						<div class="col-md-4 col-sm-3" align="center"
+							style="border-right: 1px solid;">
+							<b:openStreetMap width="100%" height="470px"
+								center="35.69046127201924,51.40848349548901"
+								marker="35.69046127201924,51.40848349548901"
+								popupMsg="Museo de la evolución humana, Burgos, Spain."
+								zoom="17"
+								urlTemplate="https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png" />
+						</div>
+
+
 					</div>
 				</div>
 			</div>

@@ -35,9 +35,48 @@
 							<h2>قوانین و مقررات</h2>
 							<p>۱- این اتحادیه هیچگونه مسوولیتی نسبت به درج آگهی ها ندارد.</p>
 							<hr />
+							<h:form>
+								<p:dataGrid var="rent" layout="grid"
+									value="#{rentBean.findAllRent2()}" paginator="true" rows="12"
+									columns="1">
+									<p:outputPanel rendered="#{rent.show}">
+										<p:panel style="text-align:right">
+												<o:graphicImage id="ig1" value="#{rent.pic1}" dataURI="true"
+													style=" padding-bottom: 0px; padding-left: 0px; float:left; margin-right: 10px;"
+													width="400" height="400" />
+												<h3>#{rent.homeType}</h3>
+												<p>
+													<b>متراژ :</b>#{rent.masahat}
+												</p>
+												<p>
+													<b>امکانات :</b>#{rent.emkanat}
+												</p>
+												<p>
+													<b>توضیحات :</b>#{rent.description}
+												</p>
+												<p>
+													<b>مبلغ ودیعه (ریال) :</b>#{rent.vadieeMoney}
+												</p>
+												<p>
+													<b>مبلغ اجاره (ریال) :</b>#{rent.ejareMony}
+												</p>
+												<p>
+													<b>مبلغ فروش (ریال) :</b>#{rent.foroshMoney}
+												</p>
+												<p>
+													<b>آدرس :</b>#{rent.address}
+												</p>
+												<p>
+													<b>شماره تماس :</b>#{rent.phone}
+												</p>
+										</p:panel>
+									</p:outputPanel>
+								</p:dataGrid>
+							</h:form>
+
 							<h:form enctype="multipart/form-data">
 
-								<p:growl id="growl" sticky="true" showDetail="true" />
+								<p:growl id="growl" />
 								<p:wizard>
 									<p:tab id="personal" title="بخش ۱">
 										<p:panel header="بخش ۱">
@@ -112,7 +151,8 @@
 									<p:tab id="address" title="بخش ۲">
 										<p:panel header="بخش ۲">
 											<h:panelGrid columns="2" columnClasses="label, value">
-												<p:outputLabel value="تعداد طبقات (حروف به انگلیسی)" for="it1"
+												<p:outputLabel value="تعداد طبقات (حروف به انگلیسی)"
+													for="it1"
 													style="font-family: 'IRANSansBold' !important; font-size:18px; color: deepskyblue;" />
 												<p:inputText id="it1" style="width:100%;" dir="ltr"
 													value="#{rentBean.tedadTabage}" required="true"
@@ -121,7 +161,8 @@
 													<f:validateLength maximum="12" minimum="1" />
 												</p:inputText>
 
-												<p:outputLabel value="تعداد واحد در هر طبقه (حروف به انگلیسی)" for="it2"
+												<p:outputLabel
+													value="تعداد واحد در هر طبقه (حروف به انگلیسی)" for="it2"
 													style="font-family: 'IRANSansBold' !important; font-size:18px; color: deepskyblue;" />
 												<p:inputText id="it2" style="width:100%;" dir="ltr"
 													required="true" requiredMessage="فیلد اجباری"
@@ -130,23 +171,32 @@
 													<f:validateLength maximum="12" minimum="1" />
 												</p:inputText>
 
-												<p:outputLabel value="مبلغ ودیعه به ریال (حروف به انگلیسی)" for="it3"
+												<p:outputLabel value="مبلغ ودیعه به ریال (حروف به انگلیسی)"
+													for="it3"
 													style="font-family: 'IRANSansBold' !important; font-size:18px; color: deepskyblue;" />
 												<p:inputText id="it3" style="width:100%;" dir="ltr"
-													required="true" requiredMessage="فیلد اجباری"
 													value="#{rentBean.vadieeMoney}">
-													<f:validateRegex pattern="^(0|[1-9][0-9]*)$" />
-													<f:validateLength maximum="12" minimum="1" />
+													<f:validateRegex pattern="^([0-9][0-9]*)$" />
+													<f:validateLength maximum="14" minimum="0" />
 												</p:inputText>
 
-												<p:outputLabel value="مبلغ اجاره ماهیانه به ریال (حروف به انگلیسی)"
+												<p:outputLabel
+													value="مبلغ اجاره ماهیانه به ریال (حروف به انگلیسی)"
 													for="it4"
 													style="font-family: 'IRANSansBold' !important; font-size:18px; color: deepskyblue;" />
 												<p:inputText id="it4" style="width:100%;" dir="ltr"
-													required="true" requiredMessage="فیلد اجباری"
 													value="#{rentBean.ejareMony}">
-													<f:validateRegex pattern="^(0|[1-9][0-9]*)$" />
-													<f:validateLength maximum="12" minimum="1" />
+													<f:validateRegex pattern="^([0-9][0-9]*)$" />
+													<f:validateLength maximum="14" minimum="0" />
+												</p:inputText>
+
+												<p:outputLabel value="مبلغ فروش به ریال (حروف به انگلیسی)"
+													for="it22"
+													style="font-family: 'IRANSansBold' !important; font-size:18px; color: deepskyblue;" />
+												<p:inputText id="it22" style="width:100%;" dir="ltr"
+													value="#{rentBean.foroshMoney}">
+													<f:validateRegex pattern="^([0-9][0-9]*)$" />
+													<f:validateLength maximum="14" minimum="0" />
 												</p:inputText>
 
 											</h:panelGrid>
@@ -212,7 +262,8 @@
 
 
 
-												<p:outputLabel value="مساحت زمین بر حسب متر مربع(حروف به انگلیسی)"
+												<p:outputLabel
+													value="مساحت زمین بر حسب متر مربع(حروف به انگلیسی)"
 													for="it12"
 													style="font-family: 'IRANSansBold' !important; font-size:18px; color: deepskyblue;" />
 												<p:inputText id="it12" style="width:100%;" dir="ltr"
@@ -240,7 +291,7 @@
 
 												<p:outputLabel value="نام اتحادیه مربوطه :" for="it13"
 													style="font-family: 'IRANSansBold' !important; font-size:18px; color: deepskyblue;" />
-												<p:inputText id="it13" style="width:100%;" dir="ltr"
+												<p:inputText id="it13" style="width:100%;" dir="rtl"
 													required="true" requiredMessage="فیلد اجباری"
 													value="#{rentBean.etehadieName}">
 													<f:validateLength maximum="199" minimum="1" />
@@ -250,9 +301,9 @@
 													style="font-family: 'IRANSansBold' !important; font-size:18px; color: deepskyblue;" />
 												<p:inputText id="it14" style="width:100%;" dir="ltr"
 													required="true" requiredMessage="فیلد اجباری"
-													placeholder="21xxxxxxxx" value="#{rentBean.phone}">
+													placeholder="021xxxxxxxx" value="#{rentBean.phone}">
 													<f:validateRegex pattern="^([0-9][0-9]*)$" />
-													<f:validateLength maximum="12" minimum="10" />
+													<f:validateLength maximum="12" minimum="11" />
 												</p:inputText>
 											</h:panelGrid>
 										</p:panel>

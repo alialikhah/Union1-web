@@ -5,6 +5,9 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"> 
  <f:view locale="fa" >
+ 		<f:metadata>
+			<f:event listener="#{userBean.isUser3}" type="preRenderView"></f:event>
+		</f:metadata>
 <h:head>
 
 </h:head> 

@@ -5,7 +5,10 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:o="http://omnifaces.org/ui">  
-
+		<f:metadata>
+			<f:event listener="#{userBean.isUser3}" type="preRenderView"></f:event>
+			<f:viewParam name="mashahirEngId"/>
+		</f:metadata>
 <h:head>
 </h:head> 
 <h:body> 
@@ -39,11 +42,11 @@
 	</ui:define>
 	
 <ui:define name="centertmp">
-	  <ui:define name="metadata">
+<!-- 	  <ui:define name="metadata">
       <f:metadata>
       <f:viewParam name="mashahirEngId"/>
       </f:metadata>
-      </ui:define> 
+      </ui:define>  -->
       
       
       

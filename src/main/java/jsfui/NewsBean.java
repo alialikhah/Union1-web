@@ -177,6 +177,10 @@ public class NewsBean {
 	public List<NewsEntity> findAllNews() {
 		return singletonServiceLocal.getNewsEntities();
 	}
+	
+	public List<NewsEntity> findAllNews2(){
+		return newsServiceLocal.findAllNews();
+	}
 
 	public List<NewsEntity> findAllImportant() {
 		return singletonServiceLocal.getNewsEntitiesImportant();

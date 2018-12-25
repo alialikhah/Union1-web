@@ -2,6 +2,8 @@ package jsfui;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -24,6 +26,7 @@ import javax.servlet.http.Part;
 
 import org.apache.commons.io.IOUtils;
 
+import dao.entity.MerchantEntity;
 import dao.entity.Shekayat1;
 import service.ShekayatServiceLocal;
 import service.SingletonServiceLocal;
@@ -65,11 +68,12 @@ public class ShekayatBean implements Serializable {
 	private Part shakiFactor;
 	// after shekayat
 	private String vaziat;
-	private String parvande;
-	private String date;
-	private String rahgiri;
 
-	private boolean showButton = false;;
+	private String tarikh;
+	private long shomare;
+	private boolean check;
+
+	private boolean showButton = false;
 
 	// admin
 	private String shekayatAdmin;
@@ -181,30 +185,6 @@ public class ShekayatBean implements Serializable {
 		this.vaziat = vaziat;
 	}
 
-	public String getParvande() {
-		return parvande;
-	}
-
-	public void setParvande(String parvande) {
-		this.parvande = parvande;
-	}
-
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
-	}
-
-	public String getRahgiri() {
-		return rahgiri;
-	}
-
-	public void setRahgiri(String rahgiri) {
-		this.rahgiri = rahgiri;
-	}
-
 	public String getShekayatAdmin() {
 		return shekayatAdmin;
 	}
@@ -285,6 +265,32 @@ public class ShekayatBean implements Serializable {
 		this.titleList = titleList;
 	}
 
+	public String getTarikh() {
+		return tarikh;
+	}
+
+	public void setTarikh(String tarikh) {
+		this.tarikh = tarikh;
+	}
+
+	public long getShomare() {
+		return shomare;
+	}
+
+	public void setShomare(long shomare) {
+		this.shomare = shomare;
+	}
+
+	public boolean isCheck() {
+		return check;
+	}
+
+	public void setCheck(boolean check) {
+		this.check = check;
+	}
+	
+
+
 	@PostConstruct
 	public void init() {
 		titleList.add("گرانفروشی");
@@ -298,10 +304,7 @@ public class ShekayatBean implements Serializable {
 	public void inserToShekayat() throws IOException {
 		FacesContext context = FacesContext.getCurrentInstance();
 		Shekayat1 shekayat1 = new Shekayat1();
-		shekayat1.setDate(date);
 		shekayat1.setMotesadiName(motesadiName);
-		shekayat1.setParvande(parvande);
-		shekayat1.setRahgiri(rahgiri);
 		shekayat1.setShakiAddres(shakiAddres);
 		shekayat1.setShakiEmail(shakiEmail);
 		shekayat1.setShakiMobile(shakiMobile);
@@ -311,6 +314,7 @@ public class ShekayatBean implements Serializable {
 		shekayat1.setShakiPostCode(shakiPostCode);
 		shekayat1.setShakiSsn(shakiSsn);
 		shekayat1.setSharh(sharh);
+		shekayat1.setDate(new Date());
 		shekayat1.setShekayatTitle(shekayatTitle);
 		shekayat1.setVahedeSenfiMobile(vahedeSenfiMobile);
 		shekayat1.setVahedeSenfiName(vahedeSenfiName);
@@ -318,7 +322,6 @@ public class ShekayatBean implements Serializable {
 		shekayat1.setVahedeSenfiPostCode(vahedeSenfiPostCode);
 		shekayat1.setVahedeShenaseAddres(vahedeShenaseAddres);
 		shekayat1.setVahedeShenaseSenfi(vahedeShenaseSenfi);
-		shekayat1.setVaziat(vaziat);
 		byte[] factorByte = IOUtils.toByteArray(shakiFactor.getInputStream());
 		shekayat1.setShakiFactor(factorByte);
 		shekayatServiceLocal.inserToShekayat(shekayat1);
@@ -326,8 +329,7 @@ public class ShekayatBean implements Serializable {
 		context.addMessage(null, new FacesMessage("در خواست با موفقیت ثبت گردید."));
 		this.showButton = true;
 		this.motesadiName = "";
-		this.parvande = "";
-		this.rahgiri = "";
+
 		this.shakiAddres = "";
 		this.shakiEmail = "";
 		this.shakiMobile = "";
@@ -355,10 +357,10 @@ public class ShekayatBean implements Serializable {
 	public List<Shekayat1> findAllShekayat() {
 		return singletonServiceLocal.getShekayat1s();
 	}
-	
-	public List<Shekayat1> findAllShekayatOrder(){
-    	return singletonServiceLocal.getShekayat1s2();
-    }
+
+	public List<Shekayat1> findAllShekayatOrder() {
+		return singletonServiceLocal.getShekayat1s2();
+	}
 
 	public Shekayat1 findShekayatById(long shakiId) {
 		return shekayatServiceLocal.findShekayatById(shakiId);
@@ -368,10 +370,10 @@ public class ShekayatBean implements Serializable {
 		FacesContext context = FacesContext.getCurrentInstance();
 		Shekayat1 shekayat1 = new Shekayat1();
 		shekayat1 = shekayatServiceLocal.findShekayatById(shakiId);
-		Date date = new Date();
-		shekayat1.setDate(date.toString());
 		shekayat1.setVaziat(vaziat);
-		shekayat1.setRahgiri(rahgiri);
+		shekayat1.setCheckO(true);
+		shekayat1.setShomare(shomare);
+		shekayat1.setTarikh(tarikh);
 		shekayatServiceLocal.shekayatUpdate(shekayat1);
 		context.addMessage(null, new FacesMessage("با موفقیت ثبت گردید."));
 		this.showButton = true;
@@ -408,6 +410,134 @@ public class ShekayatBean implements Serializable {
 		} catch (Exception e) {
 			contex.getApplication().getNavigationHandler().handleNavigation(contex, null, "/shekayatlogin.xhtml");
 		}
+	}
+
+	
+	
+	
+	
+	
+	
+	public void sendSmsOk(String mobile ,String token1,String token2) {
+		FacesContext context = FacesContext.getCurrentInstance();
+		try {
+			URL url = new URL(
+					"https://www.saharsms.com/api/gONhkiXUT8sBU1yUJUAQPAqOYlcIOho4/json/SendVerify?receptor=" + mobile +"&template=16147-submit&token=" + token1 +"&token2=" + token2 + "&token3=8-14");
+			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+			System.out.println(httpURLConnection.getResponseMessage());
+			httpURLConnection.disconnect();
+			context.addMessage(null, new FacesMessage("پیامک حضور شخص با موفقیت ارسال شد"));
+		} catch (IOException e) {
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "خطای ارسال پیامک", "خطای ارسال پیامک"));
+		}
+
+	}
+
+	public void sendSmsNok(String mobile) {
+		FacesContext context = FacesContext.getCurrentInstance();
+		try {
+			URL url = new URL(
+					"https://www.saharsms.com/api/gONhkiXUT8sBU1yUJUAQPAqOYlcIOho4/json/SendVerify?receptor="+ mobile + "&template=16147-subject&token=end");
+			System.err.println("https://www.saharsms.com/api/gONhkiXUT8sBU1yUJUAQPAqOYlcIOho4/json/SendVerify?receptor="+ mobile + "&template=16147-subject&token=end");
+			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+			System.out.println(httpURLConnection.getResponseMessage());
+			httpURLConnection.disconnect();
+			context.addMessage(null, new FacesMessage("پیامک عدم ارتباط با اتحادیه با موفقیت ارسال شد"));
+		} catch (IOException e) {
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "خطای ارسال پیامک", "خطای ارسال پیامک"));
+		}
+
+	}
+	
+	public String gregorian_to_jalali(int gy, int gm, int gd) {
+		int[] g_d_m = { 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334 };
+		int jy;
+		if (gy > 1600) {
+			jy = 979;
+			gy -= 1600;
+		} else {
+			jy = 0;
+			gy -= 621;
+		}
+		int gy2 = (gm > 2) ? (gy + 1) : gy;
+		int days = (365 * gy) + ((int) ((gy2 + 3) / 4)) - ((int) ((gy2 + 99) / 100)) + ((int) ((gy2 + 399) / 400)) - 80
+				+ gd + g_d_m[gm - 1];
+		jy += 33 * ((int) (days / 12053));
+		days %= 12053;
+		jy += 4 * ((int) (days / 1461));
+		days %= 1461;
+		if (days > 365) {
+			jy += (int) ((days - 1) / 365);
+			days = (days - 1) % 365;
+		}
+		int jm = (days < 186) ? 1 + (int) (days / 31) : 7 + (int) ((days - 186) / 30);
+		int jd = 1 + ((days < 186) ? (days % 31) : ((days - 186) % 30));
+		int[] out = { jy, jm, jd };
+		// return out;
+		// return null;
+		return jy + "-" + jm + "-" + jd;
+	}
+	
+	
+	public String convertToJalali(long shakiId) {
+		try {
+		Shekayat1 shekayat1=new Shekayat1();
+		shekayat1=this.findShekayatById(shakiId);
+		String dateEng = shekayat1.getDate().toString();
+		char[] mnth = new char[3];
+		dateEng.getChars(4, 7, mnth, 0);
+		String month = "";
+		for (char c : mnth) {
+			month += c;
+		}
+		System.err.println(month);
+		int month1 = 0;
+		if (month.equals("Jan"))
+			month1 = 1;
+		else if (month.equals("Feb"))
+			month1 = 2;
+		else if (month.equals("Mar"))
+			month1 = 3;
+		else if (month.equals("Apr"))
+			month1 = 4;
+		else if (month.equals("May"))
+			month1 = 5;
+		else if (month.equals("Jun"))
+			month1 = 6;
+		else if (month.equals("Jul"))
+			month1 = 7;
+		else if (month.equals("Aug"))
+			month1 = 8;
+		else if (month.equals("Sep"))
+			month1 = 9;
+		else if (month.equals("Oct"))
+			month1 = 10;
+		else if (month.equals("Nov"))
+			month1 = 11;
+		else if (month.equals("Dec"))
+			month1 = 12;
+
+		char[] dy = new char[2];
+		dateEng.getChars(8, 10, dy, 0);
+		String day = "";
+		for (char c : dy) {
+			day += c;
+		}
+
+		int day1 = Integer.parseInt(day);
+
+		char[] yer = new char[4];
+		dateEng.getChars(25, 29, yer, 0);
+		String year = "";
+		for (char c : yer) {
+			year += c;
+		}
+		int year1 = Integer.parseInt(year);
+		return gregorian_to_jalali(year1, month1, day1);
+		}catch (Exception e) {
+			return null;
+		}
+
 	}
 
 }

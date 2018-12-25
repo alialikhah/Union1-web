@@ -3,9 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
 <f:view locale="fa" >
-		<f:metadata>
-			<f:event listener="#{adminBean.isUser}" type="preRenderView"></f:event>
-		</f:metadata>
+
 
 <h:head>
 
@@ -43,7 +41,7 @@
 					<p:commandButton action="#{templateBean.goToKarjo()}" value="دیدن کارجو"/>
 					<p:commandButton action="#{templateBean.goToKarfarma()}" value="دیدن کارفرما"/>
 					<p:commandButton action="#{templateBean.goToRent()}" value="دیدن ملک"/>
-					<p:commandButton action="#{adminBean.exitAdmin()}" value="خروج"/>
+					<p:commandButton action="#{userBean.exitAdmin()}" value="خروج"/>
 		        	</h:form>
 			</div>
 			<div class="col-8 col-m-9">

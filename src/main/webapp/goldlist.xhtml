@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<h:head>
+
+</h:head>
+<h:body>
+
+	<ui:composition template="/template/TEMPLATE.xhtml">
+		<ui:define name="headtemp">
+<title>
+#{raste}
+</title>
+	<link href="resources/css/resultmerchant.css"
+		rel="stylesheet" type="text/css" />
+		</ui:define>
+
+		<ui:define name="maintemp">
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="gold" />
+				</f:metadata>
+			</ui:define>
+
+			<article>
+			<div class="container theme-container ptb-70">
+				<div class="row">
+
+					<p:dataGrid var="rasteVar" layout="grid"
+						value="#{merchantResultBean.findMerchantGold(gold)}"
+						paginator="true" rows="12" columns="3">
+						<p:link outcome="merchant.xhtml" target="_blank">
+							<p:panel style="text-align:center">
+								<!-- <h:panelGrid columns="1" style="width:100%"> -->
+								<o:graphicImage id="ig1" value="#{rasteVar.shopImg5}"
+									dataURI="true" />
+								<h:outputText style="font-family: 'IRANSansBold' !important;"
+									value="#{rasteVar.merchantShopNamePer}" />
+
+								<!-- </h:panelGrid> -->
+							</p:panel>
+							<f:param name="shopName" value="#{rasteVar.merchantShopNameEng}" />
+						</p:link>
+					</p:dataGrid>
+
+
+
+				</div>
+			</div>
+			</article>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

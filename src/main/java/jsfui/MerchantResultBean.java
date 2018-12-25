@@ -122,6 +122,29 @@ public class MerchantResultBean implements Serializable{
 	}
 
 	
+	public List<MerchantEntity> findMerchantGold(String raste){
+		if(raste.equals("موبایل و لوازم جانبی"))
+		//return merchantResultServiceLocal.findMerchantByRaste(raste);
+		return singletonServiceLocal.getMerchantMobileListGold();
+		else if (raste.equals("صوتی و تصویری و خانگی"))
+		return singletonServiceLocal.getMerchantKhanegiListGold();
+		else if (raste.equals("صوتی و تصویری اتومبیل"))
+		return singletonServiceLocal.getMerchantCarListGold();
+		else if (raste.equals("آلات موسیقی"))
+		return singletonServiceLocal.getMerchantMusicListGold();
+		else if (raste.equals("قطعات الکترونیک"))
+		return singletonServiceLocal.getMerchantElecListGold();
+		else if (raste.equals("دوربین عکاسی و فیلم برداری"))
+		return singletonServiceLocal.getMerchantCamListGold();
+		else if (raste.equals("دوربین مدار بسته"))
+		return singletonServiceLocal.getMerchantCctvListGold();
+		else if (raste.equals("سی دی"))
+		return singletonServiceLocal.getMerchantCctvListGold();
+		else
+			return null;
+	}
+
+	
     public void onPointSelect(PointSelectEvent event) {
         LatLng latlng = event.getLatLng();
         this.widthStr=(float) latlng.getLat();

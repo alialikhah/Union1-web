@@ -149,7 +149,7 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 	</url-mapping>
 
 	<url-mapping id="Tehran-Digi"> <!-- 29 -->
-		<pattern value="/tehran_dji" />
+		<pattern value="/Tehran-Digi" />
 		<view-id value="faces/merchant.xhtml?shopName=Tehran-Digi" />
 	</url-mapping>
 
@@ -464,7 +464,7 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 
 
 	<url-mapping id="Shojaei"> <!-- 80 -->
-		<pattern value="/shojaei" />
+		<pattern value="/shojaie" />
 		<view-id value="faces/merchant.xhtml?shopName=Shojaei" />
 	</url-mapping>
 
@@ -478,7 +478,7 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 
 
 	<url-mapping id="Zaans"> <!-- 82 -->
-		<pattern value="/zaans" />
+		<pattern value="/zans" />
 		<view-id value="faces/merchant.xhtml?shopName=Zaans" />
 	</url-mapping>
 
@@ -605,7 +605,7 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 	</url-mapping>
 
 	<url-mapping id="Sot-Va-Tasvir-Sadegie"> <!-- 102 -->
-		<pattern value="/sototasvir_sadegie" />
+		<pattern value="/Sot-Va-Tasvir-Sadeghie" />
 		<view-id
 			value="faces/merchant.xhtml?shopName=Sot-Va-Tasvir-Sadegie" />
 	</url-mapping>
@@ -631,7 +631,7 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 	</url-mapping>
 
 	<url-mapping id="Sprint-Electronic"> <!-- 107 -->
-		<pattern value="/sprint_electronic" />
+		<pattern value="/sprint" />
 		<view-id
 			value="faces/merchant.xhtml?shopName=Sprint-Electronic" />
 	</url-mapping>
@@ -646,9 +646,9 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 		<view-id value="faces/merchant.xhtml?shopName=Kazemi" />
 	</url-mapping>
 
-	<url-mapping id="Raham"> <!-- 110 -->
-		<pattern value="/raham" />
-		<view-id value="faces/merchant.xhtml?shopName=Raham" />
+	<url-mapping id="Roham"> <!-- 110 -->
+		<pattern value="/roham" />
+		<view-id value="faces/merchant.xhtml?shopName=Roham" />
 	</url-mapping>
 
 	<url-mapping id="NoAvar">  <!-- 111 -->
@@ -657,17 +657,17 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 	</url-mapping>
 
 	<url-mapping id="Option-Land"> <!-- 112 -->
-		<pattern value="/option_land" />
+		<pattern value="/optionland" />
 		<view-id value="faces/merchant.xhtml?shopName=Option-Land" />
 	</url-mapping>
 
 	<url-mapping id="Donyaye-Seda"> <!-- 113 -->
-		<pattern value="/donyaye_seda" />
+		<pattern value="/donyayeseda" />
 		<view-id value="faces/merchant.xhtml?shopName=Donyaye-Seda" />
 	</url-mapping>
 
 	<url-mapping id="Star-Plus">  <!-- 114 -->
-		<pattern value="/star_plus" />
+		<pattern value="/starplus" />
 		<view-id value="faces/merchant.xhtml?shopName=Star-Plus" />
 	</url-mapping>
 
@@ -677,7 +677,7 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 	</url-mapping>
 
 	<url-mapping id="75"> <!-- 116 -->
-		<pattern value="/75" />
+		<pattern value="/75store" />
 		<view-id value="faces/merchant.xhtml?shopName=75" />
 	</url-mapping>
 
@@ -687,28 +687,28 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 	</url-mapping>
 
 	<url-mapping id="Sport-Mehdi"> <!-- 118 -->
-		<pattern value="/sport_mehdi" />
+		<pattern value="/mehdi_sport" />
 		<view-id value="faces/merchant.xhtml?shopName=Sport-Mehdi" />
 	</url-mapping>
 
-	<url-mapping id="Mobtaker-Pejvak-Parisa"> <!-- 119 -->
-		<pattern value="/mobtaker_pejvak_parisa" />
+	<url-mapping id="Mobtaker-Pejvak-Persia"> <!-- 119 -->
+		<pattern value="/pejvak_persia" />
 		<view-id
-			value="faces/merchant.xhtml?shopName=Mobtaker-Pejvak-Parisa" />
+			value="faces/merchant.xhtml?shopName=Mobtaker-Pejvak-Persia" />
 	</url-mapping>
 
 	<url-mapping id="Gasemi"> <!-- 120 -->
-		<pattern value="/gasemi" />
+		<pattern value="/ghasemi" />
 		<view-id value="faces/merchant.xhtml?shopName=Gasemi" />
 	</url-mapping>
 
 	<url-mapping id="Alsonm"> <!-- 121 -->
-		<pattern value="/alsonm" />
+		<pattern value="/Alsonm" />
 		<view-id value="faces/merchant.xhtml?shopName=Alsonm" />
 	</url-mapping>
 
 	<url-mapping id="Mobile-Azadi"><!-- 122 -->
-		<pattern value="/mobile_azadi" />
+		<pattern value="/azadi" />
 		<view-id value="faces/merchant.xhtml?shopName=Mobile-Azadi" />
 	</url-mapping>
 
@@ -718,12 +718,12 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 	</url-mapping>
 
 	<url-mapping id="Pouyan"> <!-- 124 -->
-		<pattern value="/pouyan" />
+		<pattern value="/Pouyan" />
 		<view-id value="faces/merchant.xhtml?shopName=Pouyan" />
 	</url-mapping>
 
 	<url-mapping id="Pars-Iran"> <!-- 125 -->
-		<pattern value="/pars_iran" />
+		<pattern value="/parsiran" />
 		<view-id value="faces/merchant.xhtml?shopName=Pars-Iran" />
 	</url-mapping>
 
@@ -733,12 +733,12 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 	</url-mapping>
 
 	<url-mapping id="PayeTakht"> <!-- 127 -->
-		<pattern value="/payetakht" />
+		<pattern value="/paytakht" />
 		<view-id value="faces/merchant.xhtml?shopName=PayeTakht" />
 	</url-mapping>
 
 	<url-mapping id="Rasaneh"> <!-- 128 -->
-		<pattern value="/rasaneh" />
+		<pattern value="/resane" />
 		<view-id value="faces/merchant.xhtml?shopName=Rasaneh" />
 	</url-mapping>
 
@@ -759,38 +759,38 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 	</url-mapping>
 
 	<url-mapping id="Meli"> <!-- 132 -->
-		<pattern value="/meli" />
+		<pattern value="/melli" />
 		<view-id value="faces/merchant.xhtml?shopName=Meli" />
 	</url-mapping>
 
 	<url-mapping id="Tech-Avancy"> <!-- 133 -->
-		<pattern value="/techavanees" />
+		<pattern value="/Tech-Avancy" />
 		<view-id value="faces/merchant.xhtml?shopName=Tech-Avancy" />
 	</url-mapping>
 
 	<url-mapping id="Sam-Tasvir"> <!-- 134 -->
-		<pattern value="/sam_tasvir" />
+		<pattern value="/Sam-Tasvir-Yekta" />
 		<view-id value="faces/merchant.xhtml?shopName=Sam-Tasvir" />
 	</url-mapping>
 
 	<url-mapping id="Raymond"> <!-- 135 -->
-		<pattern value="/raymond" />
+		<pattern value="/Raymond" />
 		<view-id value="faces/merchant.xhtml?shopName=Raymond" />
 	</url-mapping>
 
 	<url-mapping id="Payetakht-Shop"> <!-- 136 -->
-		<pattern value="/payetakht_shop" />
+		<pattern value="/paytakht_store" />
 		<view-id value="faces/merchant.xhtml?shopName=Payetakht-Shop" />
 	</url-mapping>
 
 	<url-mapping id="Diaco"> <!-- 137 -->
-		<pattern value="/diaco" />
+		<pattern value="/Diaco" />
 		<view-id value="faces/merchant.xhtml?shopName=Diaco" />
 	</url-mapping>
 
-	<url-mapping id="Tops"> <!-- 138 -->
-		<pattern value="/tops" />
-		<view-id value="faces/merchant.xhtml?shopName=Tops" />
+	<url-mapping id="Top"> <!-- 138 -->
+		<pattern value="/Top" />
+		<view-id value="faces/merchant.xhtml?shopName=Top" />
 	</url-mapping>
 
 
@@ -805,7 +805,7 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 	</url-mapping>
 
 	<url-mapping id="Doniaye-Kala"> <!-- 141 -->
-		<pattern value="/doniaye_kala" />
+		<pattern value="/donyayekala" />
 		<view-id value="faces/merchant.xhtml?shopName=Doniaye-Kala" />
 	</url-mapping>
 
@@ -820,7 +820,7 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 	</url-mapping>
 
 	<url-mapping id="Mobile-Persian"> <!-- 144 -->
-		<pattern value="/mobile_persian" />
+		<pattern value="/persian_mobile" />
 		<view-id value="faces/merchant.xhtml?shopName=Mobile-Persian" />
 	</url-mapping>
 
@@ -851,14 +851,14 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 
 
 	<url-mapping id="Iranian"> <!-- 150 -->
-		<pattern value="/iranian" />
+		<pattern value="/iranian_store" />
 		<view-id value="faces/merchant.xhtml?shopName=Iranian" />
 	</url-mapping>
 
 
 
 	<url-mapping id="Pasargad-Mobile"> <!-- 151 -->
-		<pattern value="/pasargad_mobile" />
+		<pattern value="/pasargad" />
 		<view-id value="faces/merchant.xhtml?shopName=Pasargad-Mobile" />
 	</url-mapping>
 
@@ -869,12 +869,12 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 	</url-mapping>
 
 	<url-mapping id="Partian"> <!-- 153 -->
-		<pattern value="/partiyan" />
+		<pattern value="/partian" />
 		<view-id value="faces/merchant.xhtml?shopName=Partian" />
 	</url-mapping>
 
 	<url-mapping id="Mohsen-Store"> <!-- 154 -->
-		<pattern value="/mohsen_store" />
+		<pattern value="/mohsen" />
 		<view-id value="faces/merchant.xhtml?shopName=Mohsen-Store" />
 	</url-mapping>
 
@@ -884,12 +884,12 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 	</url-mapping>
 
 	<url-mapping id="Sport-Amir"> <!-- 156 -->
-		<pattern value="/sport_amir" />
+		<pattern value="/amir_sport" />
 		<view-id value="faces/merchant.xhtml?shopName=Sport-Amir" />
 	</url-mapping>
 
 	<url-mapping id="Mobile-Clinic"> <!-- 157 -->
-		<pattern value="/mobile_clinic" />
+		<pattern value="/clinic_mobile" />
 		<view-id value="faces/merchant.xhtml?shopName=Mobile-Clinic" />
 	</url-mapping>
 
@@ -899,7 +899,7 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 	</url-mapping>
 
 	<url-mapping id="Mahdi-Mobile-Store"> <!-- 159 -->
-		<pattern value="/mahdi_mobile_store" />
+		<pattern value="/mahdi_mobile" />
 		<view-id
 			value="faces/merchant.xhtml?shopName=Mahdi-Mobile-Store" />
 	</url-mapping>
@@ -910,7 +910,7 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 	</url-mapping>
 
 	<url-mapping id="Tak-Hamrah"> <!-- 161 -->
-		<pattern value="/takhamrah" />
+		<pattern value="/tak_hamrah" />
 		<view-id value="faces/merchant.xhtml?shopName=Tak-Hamrah" />
 	</url-mapping>
 
@@ -920,7 +920,7 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 	</url-mapping>
 
 	<url-mapping id="Mobile-Mohammad"> <!-- 163 -->
-		<pattern value="/mobile_mohammad" />
+		<pattern value="/mohammad_mobile" />
 		<view-id value="faces/merchant.xhtml?shopName=Mobile-Mohammad" />
 	</url-mapping>
 
@@ -936,12 +936,12 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 
 
 	<url-mapping id="Keyvan-Sport2"> <!-- 166 -->
-		<pattern value="/keyvan_sport2" />
+		<pattern value="/keyvan" />
 		<view-id value="faces/merchant.xhtml?shopName=Keyvan-Sport2" />
 	</url-mapping>
 
 	<url-mapping id="Hadie-Store"> <!-- 167 -->
-		<pattern value="/hadie_store" />
+		<pattern value="/hediye" />
 		<view-id value="faces/merchant.xhtml?shopName=Hadie-Store" />
 	</url-mapping>
 
@@ -957,14 +957,14 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 
 
 	<url-mapping id="Aban-Digi"> <!-- 170 -->
-		<pattern value="/aban_diji" />
+		<pattern value="/Aban-Digi" />
 		<view-id value="faces/merchant.xhtml?shopName=Aban-Digi" />
 	</url-mapping>
 
 
 
 	<url-mapping id="Electronic-Saei"> <!-- 171 -->
-		<pattern value="/electronic_saei" />
+		<pattern value="/Electronic-Saei" />
 		<view-id value="faces/merchant.xhtml?shopName=Electronic-Saei" />
 	</url-mapping>
 
@@ -977,7 +977,7 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 
 
 	<url-mapping id="Bios-Electronic"> <!-- 173 -->
-		<pattern value="/bayas_electronic" />
+		<pattern value="/Bios-Electronic" />
 		<view-id value="faces/merchant.xhtml?shopName=Bios-Electronic" />
 	</url-mapping>
 
@@ -1005,17 +1005,17 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 
 
 	<url-mapping id="Parsian-Store"><!-- 177 -->
-		<pattern value="/parsian_stor" />
+		<pattern value="/parsian_store" />
 		<view-id value="faces/merchant.xhtml?shopName=Parsian-Store" />
 	</url-mapping>
 
 	<url-mapping id="Japon"> <!-- 178 -->
-		<pattern value="/japon" />
+		<pattern value="/japan" />
 		<view-id value="faces/merchant.xhtml?shopName=Japon" />
 	</url-mapping>
 
 	<url-mapping id="Yasaei"> <!-- 179 -->
-		<pattern value="/Yasaei" />
+		<pattern value="/yasaie" />
 		<view-id value="faces/merchant.xhtml?shopName=Yasaei" />
 	</url-mapping>
 
@@ -1025,59 +1025,59 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 	</url-mapping>
 
 	<url-mapping id="Sara-Computer"> <!-- 181 -->
-		<pattern value="/Sara-Computer" />
+		<pattern value="/sara" />
 		<view-id value="faces/merchant.xhtml?shopName=Sara-Computer" />
 	</url-mapping>
 
 	<url-mapping id="Sharafi-Battery"> <!-- 182 -->
-		<pattern value="/Sharafi-Battery" />
+		<pattern value="/sharafi" />
 		<view-id value="faces/merchant.xhtml?shopName=Sharafi-Battery" />
 	</url-mapping>
 
 	<url-mapping id="Shahed"> <!-- 183 -->
-		<pattern value="/Shahed" />
+		<pattern value="/shahed" />
 		<view-id value="faces/merchant.xhtml?shopName=Shahed" />
 	</url-mapping>
 
-	<url-mapping id="Mester-Glass"> <!-- 184 -->
-		<pattern value="/Mester-Glass" />
-		<view-id value="faces/merchant.xhtml?shopName=Mester-Glass" />
+	<url-mapping id="Mr-Glass"> <!-- 184 -->
+		<pattern value="/Mr-Glass" />
+		<view-id value="faces/merchant.xhtml?shopName=Mr-Glass" />
 	</url-mapping>
 
 	<url-mapping id="Apple-Center-Iranian"> <!-- 185 -->
-		<pattern value="/Apple-Center-Iranian" />
+		<pattern value="/apple_center" />
 		<view-id
 			value="faces/merchant.xhtml?shopName=Apple-Center-Iranian" />
 	</url-mapping>
 
 	<url-mapping id="Erfan-Electronic"> <!-- 186 -->
-		<pattern value="/Erfan-Electronic" />
+		<pattern value="/erfan" />
 		<view-id
 			value="faces/merchant.xhtml?shopName=Erfan-Electronic" />
 	</url-mapping>
 
 	<url-mapping id="Sharifi"> <!-- 187 -->
-		<pattern value="/Sharifi" />
+		<pattern value="/sharifi" />
 		<view-id value="faces/merchant.xhtml?shopName=Sharifi" />
 	</url-mapping>
 
 	<url-mapping id="Pop"> <!-- 188 -->
-		<pattern value="/Pop" />
+		<pattern value="/pop" />
 		<view-id value="faces/merchant.xhtml?shopName=Pop" />
 	</url-mapping>
 
 	<url-mapping id="U-Like"> <!-- 189 -->
-		<pattern value="/U-Like" />
+		<pattern value="/youlike" />
 		<view-id value="faces/merchant.xhtml?shopName=U-Like" />
 	</url-mapping>
 
 	<url-mapping id="Parkan"> <!-- 190 -->
-		<pattern value="/Parkan" />
+		<pattern value="/parkan" />
 		<view-id value="faces/merchant.xhtml?shopName=Parkan" />
 	</url-mapping>
 
 	<url-mapping id="Matin-Electronic"> <!-- 191 -->
-		<pattern value="/Matin-Electronic" />
+		<pattern value="/matin_electronic" />
 		<view-id
 			value="faces/merchant.xhtml?shopName=Matin-Electronic" />
 	</url-mapping>
@@ -1088,237 +1088,624 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 	</url-mapping>
 
 	<url-mapping id="Zandi"> <!-- 193 -->
-		<pattern value="/Zandi" />
+		<pattern value="/zandi" />
 		<view-id value="faces/merchant.xhtml?shopName=Zandi" />
 	</url-mapping>
 
 	<url-mapping id="Melody"> <!-- 194 -->
-		<pattern value="/Melody" />
+		<pattern value="/melody_store" />
 		<view-id value="faces/merchant.xhtml?shopName=Melody" />
 	</url-mapping>
 
 	<url-mapping id="City-Light"> <!-- 195 -->
-		<pattern value="/City-Light" />
+		<pattern value="/citylight" />
 		<view-id value="faces/merchant.xhtml?shopName=City-Light" />
 	</url-mapping>
 
 	<url-mapping id="D11"> <!-- 196 -->
-		<pattern value="/D11" />
+		<pattern value="/d11" />
 		<view-id value="faces/merchant.xhtml?shopName=D11" />
 	</url-mapping>
 
 	<url-mapping id="Jahan-Kit"> <!-- 197 -->
-		<pattern value="/Jahan-Kit" />
+		<pattern value="/jahankit" />
 		<view-id value="faces/merchant.xhtml?shopName=Jahan-Kit" />
 	</url-mapping>
 
 	<url-mapping id="Talash"> <!-- 198 -->
-		<pattern value="/Talash" />
+		<pattern value="/talash" />
 		<view-id value="faces/merchant.xhtml?shopName=Talash" />
 	</url-mapping>
 
 	<url-mapping id="Respina"> <!-- 199 -->
-		<pattern value="/Respina" />
+		<pattern value="/respina" />
 		<view-id value="faces/merchant.xhtml?shopName=Respina" />
 	</url-mapping>
 
 	<url-mapping id="Aref"> <!-- 200 -->
-		<pattern value="/Aref" />
+		<pattern value="/aref" />
 		<view-id value="faces/merchant.xhtml?shopName=Aref" />
 	</url-mapping>
 
 	<url-mapping id="Beta"> <!-- 201 -->
-		<pattern value="/Beta" />
+		<pattern value="/beta" />
 		<view-id value="faces/merchant.xhtml?shopName=Beta" />
 	</url-mapping>
 
 	<url-mapping id="Navid-Electronic"> <!-- 202 -->
-		<pattern value="/Navid-Electronic" />
+		<pattern value="/navid_electronic" />
 		<view-id
 			value="faces/merchant.xhtml?shopName=Navid-Electronic" />
 	</url-mapping>
 
 	<url-mapping id="Apple-Store-Shargh"> <!-- 203 -->
-		<pattern value="/Apple-Store-Shargh" />
+		<pattern value="/applestore" />
 		<view-id
 			value="faces/merchant.xhtml?shopName=Apple-Store-Shargh" />
 	</url-mapping>
 
 	<url-mapping id="Farhad"> <!-- 204 -->
-		<pattern value="/Farhad" />
+		<pattern value="/farhad" />
 		<view-id value="faces/merchant.xhtml?shopName=Farhad" />
 	</url-mapping>
 
 	<url-mapping id="Aida-Heat-Sink"> <!-- 205 -->
-		<pattern value="/Aida-Heat-Sink" />
+		<pattern value="/ida" />
 		<view-id value="faces/merchant.xhtml?shopName=Aida-Heat-Sink" />
 	</url-mapping>
 
 	<url-mapping id="Salahi"> <!-- 206 -->
-		<pattern value="Salahi" />
+		<pattern value="/salahi" />
 		<view-id value="faces/merchant.xhtml?shopName=Salahi" />
 	</url-mapping>
 
 	<url-mapping id="Mehdi-Store"> <!-- 207 -->
-		<pattern value="Mehdi-Store" />
+		<pattern value="/mahdi" />
 		<view-id value="faces/merchant.xhtml?shopName=Mehdi-Store" />
 	</url-mapping>
 
 	<url-mapping id="Neutron"> <!-- 208 -->
-		<pattern value="Neutron" />
+		<pattern value="/Neutron" />
 		<view-id value="faces/merchant.xhtml?shopName=Neutron" />
 	</url-mapping>
 
 	<url-mapping id="Smart-Mobile"> <!-- 209 -->
-		<pattern value="Smart-Mobile" />
+		<pattern value="/smart" />
 		<view-id value="faces/merchant.xhtml?shopName=Smart-Mobile" />
 	</url-mapping>
 
 	<url-mapping id="Tob-Ten"> <!-- 211 -->
-		<pattern value="Tob-Ten" />
+		<pattern value="/tobten" />
 		<view-id value="faces/merchant.xhtml?shopName=Tob-Ten" />
 	</url-mapping>
 
 	<url-mapping id="Media-Light"> <!-- 212 -->
-		<pattern value="Media-Light" />
+		<pattern value="/Media-Light" />
 		<view-id value="faces/merchant.xhtml?shopName=Media-Light" />
 	</url-mapping>
 
 	<url-mapping id="Morvarid"> <!-- 213 -->
-		<pattern value="Morvarid" />
+		<pattern value="/morvarid" />
 		<view-id value="faces/merchant.xhtml?shopName=Morvarid" />
 	</url-mapping>
 
 	<url-mapping id="Navaye-Oshagh"> <!-- 214 -->
-		<pattern value="Navaye-Oshagh" />
+		<pattern value="/navayeoshagh" />
 		<view-id value="faces/merchant.xhtml?shopName=Navaye-Oshagh" />
 	</url-mapping>
 
 	<url-mapping id="Taha"> <!-- 215 -->
-		<pattern value="Taha" />
+		<pattern value="/taha" />
 		<view-id value="faces/merchant.xhtml?shopName=Taha" />
 	</url-mapping>
 
 	<url-mapping id="Mobina"> <!-- 216 -->
-		<pattern value="Mobina" />
+		<pattern value="/mobina" />
 		<view-id value="faces/merchant.xhtml?shopName=Mobina" />
 	</url-mapping>
 
 
 	<url-mapping id="Refah-Electronic"> <!-- 217 -->
-		<pattern value="Refah-Electronic" />
+		<pattern value="/refah" />
 		<view-id
 			value="faces/merchant.xhtml?shopName=Refah-Electronic" />
 	</url-mapping>
 
 
 	<url-mapping id="Siba"> <!-- 218 -->
-		<pattern value="Siba" />
+		<pattern value="/siba" />
 		<view-id value="faces/merchant.xhtml?shopName=Siba" />
 	</url-mapping>
 
 
 	<url-mapping id="Pazer-Electronic"> <!-- 219 -->
-		<pattern value="Pazer-Electronic" />
+		<pattern value="/pazer" />
 		<view-id
 			value="faces/merchant.xhtml?shopName=Pazer-Electronic" />
 	</url-mapping>
 
 
 	<url-mapping id="Nima"> <!-- 220 -->
-		<pattern value="Nima" />
+		<pattern value="/nima" />
 		<view-id value="faces/merchant.xhtml?shopName=Nima" />
 	</url-mapping>
 
 
 	<url-mapping id="Micro-Sun"> <!-- 221 -->
-		<pattern value="Micro-Sun" />
+		<pattern value="/microsun" />
 		<view-id value="faces/merchant.xhtml?shopName=Micro-Sun" />
 	</url-mapping>
 
 
 	<url-mapping id="Milad"> <!-- 222 -->
-		<pattern value="Milad" />
+		<pattern value="/milad" />
 		<view-id value="faces/merchant.xhtml?shopName=Milad" />
 	</url-mapping>
 
 
 	<url-mapping id="Pars-Electronic"> <!-- 223 -->
-		<pattern value="Pars-Electronic" />
+		<pattern value="/pars_electronic" />
 		<view-id value="faces/merchant.xhtml?shopName=Pars-Electronic" />
 	</url-mapping>
 
 
 	<url-mapping id="Tigo"> <!-- 224 -->
-		<pattern value="Tigo" />
+		<pattern value="/tigo" />
 		<view-id value="faces/merchant.xhtml?shopName=Tigo" />
 	</url-mapping>
 
 
 	<url-mapping id="Classic"> <!-- 225 -->
-		<pattern value="Classic" />
+		<pattern value="/classic_store" />
 		<view-id value="faces/merchant.xhtml?shopName=Classic" />
 	</url-mapping>
 
 
 	<url-mapping id="Saba-Electronic"> <!-- 226 -->
-		<pattern value="Saba-Electronic" />
+		<pattern value="/saba_electronic" />
 		<view-id value="faces/merchant.xhtml?shopName=Saba-Electronic" />
 	</url-mapping>
 
 	<url-mapping id="Optic-Electronic"> <!-- 227 -->
-		<pattern value="Optic-Electronic" />
+		<pattern value="/optic" />
 		<view-id
 			value="faces/merchant.xhtml?shopName=Optic-Electronic" />
 	</url-mapping>
 
 	<url-mapping id="Pasargad-System"> <!-- 228 -->
-		<pattern value="Pasargad-System" />
+		<pattern value="/Pasargad-System" />
 		<view-id value="faces/merchant.xhtml?shopName=Pasargad-System" />
 	</url-mapping>
 
 	<url-mapping id="Ezadi"> <!-- 229 -->
-		<pattern value="Ezadi" />
+		<pattern value="/Ezadi" />
 		<view-id value="faces/merchant.xhtml?shopName=Ezadi" />
 	</url-mapping>
 
 	<url-mapping id="Faza-Electronic"> <!-- 230 -->
-		<pattern value="Faza-Electronic" />
+		<pattern value="/faza_electronic" />
 		<view-id value="faces/merchant.xhtml?shopName=Faza-Electronic" />
 	</url-mapping>
 
 
 	<url-mapping id="Novin-Azar"> <!-- 231 -->
-		<pattern value="Novin-Azar" />
+		<pattern value="/novinazar" />
 		<view-id value="faces/merchant.xhtml?shopName=Novin-Azar" />
 	</url-mapping>
 
 
-	<url-mapping id="Esterio-Khandan"> <!-- 232 -->
-		<pattern value="Esterio-Khandan" />
-		<view-id value="faces/merchant.xhtml?shopName=Esterio-Khandan" />
+	<url-mapping id="Stereo-Khandan"> <!-- 232 -->
+		<pattern value="/Stereo-Khandan" />
+		<view-id value="faces/merchant.xhtml?shopName=Stereo-Khandan" />
 	</url-mapping>
 
 
 	<url-mapping id="Mehdei"> <!-- 233 -->
-		<pattern value="Mehdei" />
+		<pattern value="/mahdi_store" />
 		<view-id value="faces/merchant.xhtml?shopName=Mehdei" />
 	</url-mapping>
 
 	<url-mapping id="Setareh-Tokyo"> <!-- 234 -->
-		<pattern value="Setareh-Tokyo" />
+		<pattern value="/setare_tokyo" />
 		<view-id value="faces/merchant.xhtml?shopName=Setareh-Tokyo" />
 	</url-mapping>
 
 	<url-mapping id="College-Service"> <!-- 235 -->
-		<pattern value="College-Service" />
+		<pattern value="/college_service" />
 		<view-id value="faces/merchant.xhtml?shopName=College-Service" />
 	</url-mapping>
 
+	<url-mapping id="Baran2"> <!-- 236 -->
+		<pattern value="/baran2" />
+		<view-id value="faces/merchant.xhtml?shopName=Baran2" />
+	</url-mapping>
 
-	<url-mapping id="Sorin"> <!-- 333 -->
-		<pattern value="/Sorin" />
-		<view-id value="faces/merchant.xhtml?shopName=Sorin" />
+	<url-mapping id="Melal-Music"> <!-- 237 -->
+		<pattern value="/melal" />
+		<view-id value="faces/merchant.xhtml?shopName=Melal-Music" />
+	</url-mapping>
+
+	<url-mapping id="Farshid"> <!-- 238 -->
+		<pattern value="/farshid" />
+		<view-id value="faces/merchant.xhtml?shopName=Farshid" />
+	</url-mapping>
+
+	<url-mapping id="Jahan-Electronic"> <!-- 239 -->
+		<pattern value="/jahanelectronic" />
+		<view-id
+			value="faces/merchant.xhtml?shopName=Jahan-Electronic" />
+	</url-mapping>
+
+	<url-mapping id="LG"> <!-- 240 -->
+		<pattern value="/LG" />
+		<view-id value="faces/merchant.xhtml?shopName=LG" />
+	</url-mapping>
+
+
+	<url-mapping id="Play"> <!-- 241 -->
+		<pattern value="/play" />
+		<view-id value="faces/merchant.xhtml?shopName=Play" />
+	</url-mapping>
+
+
+	<url-mapping id="Noor"> <!-- 242 -->
+		<pattern value="/noor" />
+		<view-id value="faces/merchant.xhtml?shopName=Noor" />
+	</url-mapping>
+
+	<url-mapping id="Apple-Center-Mirdamad"> <!-- 243 -->
+		<pattern value="/applecenter_mirdamad" />
+		<view-id
+			value="faces/merchant.xhtml?shopName=Apple-Center-Mirdamad" />
+	</url-mapping>
+
+
+	<url-mapping id="Sadegh-Store"> <!-- 244 -->
+		<pattern value="/sadegh_store" />
+		<view-id value="faces/merchant.xhtml?shopName=Sadegh-Store" />
+	</url-mapping>
+
+	<url-mapping id="Avaye-Paytakht"> <!-- 245 -->
+		<pattern value="/avayepaytakht" />
+		<view-id value="faces/merchant.xhtml?shopName=Avaye-Paytakht" />
+	</url-mapping>
+
+
+	<url-mapping id="Daroos"> <!-- 246 -->
+		<pattern value="/daroos" />
+		<view-id value="faces/merchant.xhtml?shopName=Daroos" />
+	</url-mapping>
+
+	<url-mapping id="Guitar-Pro"> <!-- 247 -->
+		<pattern value="/guitarpro" />
+		<view-id value="faces/merchant.xhtml?shopName=Guitar-Pro" />
+	</url-mapping>
+
+
+	<url-mapping id="Radio-Jabar"> <!-- 248 -->
+		<pattern value="/radio_jabar" />
+		<view-id value="faces/merchant.xhtml?shopName=Radio-Jabar" />
+	</url-mapping>
+
+	<url-mapping id="GamePlay-Iran"> <!-- 249 -->
+		<pattern value="/gameplay" />
+		<view-id value="faces/merchant.xhtml?shopName=GamePlay-Iran" />
+	</url-mapping>
+
+
+	<url-mapping id="Pishkhan-Dolat"> <!-- 250 -->
+		<pattern value="/pishkhan_dolat" />
+		<view-id value="faces/merchant.xhtml?shopName=Pishkhan-Dolat" />
+	</url-mapping>
+
+
+	<url-mapping id="Morvarid-Jonoob"> <!-- 251 -->
+		<pattern value="/morvaridjonoob" />
+		<view-id value="faces/merchant.xhtml?shopName=Morvarid-Jonoob" />
+	</url-mapping>
+
+	<url-mapping id="Tell-Land"> <!-- 252 -->
+		<pattern value="/tell_land" />
+		<view-id value="faces/merchant.xhtml?shopName=Tell-Land" />
+	</url-mapping>
+
+
+	<url-mapping id="Pars-Pardaz"> <!-- 253 -->
+		<pattern value="/parspardaz" />
+		<view-id value="faces/merchant.xhtml?shopName=Pars-Pardaz" />
+	</url-mapping>
+
+
+	<url-mapping id="Click-Store"> <!-- 254 -->
+		<pattern value="/Click-Store" />
+		<view-id value="faces/merchant.xhtml?shopName=Click-Store" />
+	</url-mapping>
+
+
+	<url-mapping id="Ghaem"> <!-- 255 -->
+		<pattern value="/ghaem" />
+		<view-id value="faces/merchant.xhtml?shopName=Ghaem" />
+	</url-mapping>
+
+
+	<url-mapping id="Peyvand"> <!-- 256 -->
+		<pattern value="/peyvand" />
+		<view-id value="faces/merchant.xhtml?shopName=Peyvand" />
+	</url-mapping>
+
+
+	<url-mapping id="Iran-Battery"> <!-- 257 -->
+		<pattern value="/Iran-Battery" />
+		<view-id value="faces/merchant.xhtml?shopName=Iran-Battery" />
+	</url-mapping>
+
+
+	<url-mapping id="RB-Mobile"> <!-- 258 -->
+		<pattern value="/arbimobile" />
+		<view-id value="faces/merchant.xhtml?shopName=RB-Mobile" />
+	</url-mapping>
+
+	<url-mapping id="Golestan-Shop"> <!-- 259 -->
+		<pattern value="/golestan_store" />
+		<view-id value="faces/merchant.xhtml?shopName=Golestan-Shop" />
+	</url-mapping>
+
+
+	<url-mapping id="Bahar-Mobile"> <!-- 260 -->
+		<pattern value="/bahar_mobile" />
+		<view-id value="faces/merchant.xhtml?shopName=Bahar-Mobile" />
+	</url-mapping>
+
+	<url-mapping id="Jahan-Tasvir"> <!-- 261 -->
+		<pattern value="/jahan_tasvir" />
+		<view-id value="faces/merchant.xhtml?shopName=Jahan-Tasvir" />
+	</url-mapping>
+
+	<url-mapping id="Clash-Of-Clans"> <!-- 262 -->
+		<pattern value="/clashofclans" />
+		<view-id value="faces/merchant.xhtml?shopName=Clash-Of-Clans" />
+	</url-mapping>
+
+	<url-mapping id="Media-Shop"> <!-- 263 -->
+		<pattern value="/media_store" />
+		<view-id value="faces/merchant.xhtml?shopName=Media-Shop" />
+	</url-mapping>
+
+	<url-mapping id="Mehrpoyan"> <!-- 264 -->
+		<pattern value="/sam" />
+		<view-id value="faces/merchant.xhtml?shopName=Mehrpoyan" />
+	</url-mapping>
+
+
+	<url-mapping id="Omid"> <!-- 265 -->
+		<pattern value="/omid" />
+		<view-id value="faces/merchant.xhtml?shopName=Omid" />
+	</url-mapping>
+
+
+	<url-mapping id="Yekta"> <!-- 266 -->
+		<pattern value="/yekta" />
+		<view-id value="faces/merchant.xhtml?shopName=Yekta" />
+	</url-mapping>
+
+
+	<url-mapping id="Khosravi"> <!-- 267 -->
+		<pattern value="/khosravi" />
+		<view-id value="faces/merchant.xhtml?shopName=Khosravi" />
+	</url-mapping>
+
+
+	<url-mapping id="Saman"> <!-- 268 -->
+		<pattern value="/saman" />
+		<view-id value="faces/merchant.xhtml?shopName=Saman" />
+	</url-mapping>
+
+	<url-mapping id="Reza-Bavarnama"> <!-- 269 -->
+		<pattern value="/rezabavarnama" />
+		<view-id value="faces/merchant.xhtml?shopName=Reza-Bavarnama" />
+	</url-mapping>
+
+
+	<url-mapping id="Diamond"> <!-- 270 -->
+		<pattern value="/diamond" />
+		<view-id value="faces/merchant.xhtml?shopName=Diamond" />
+	</url-mapping>
+
+
+	<url-mapping id="Mobile-Karyan"> <!-- 271 -->
+		<pattern value="/karian" />
+		<view-id value="faces/merchant.xhtml?shopName=Mobile-Karyan" />
+	</url-mapping>
+
+
+	<url-mapping id="Caspian"> <!-- 272 -->
+		<pattern value="/caspian" />
+		<view-id value="faces/merchant.xhtml?shopName=Caspian" />
+	</url-mapping>
+
+	<url-mapping id="Markazi"> <!-- 273 -->
+		<pattern value="/markazi" />
+		<view-id value="faces/merchant.xhtml?shopName=Markazi" />
+	</url-mapping>
+
+
+	<url-mapping id="Pirestani"> <!-- 274 -->
+		<pattern value="/pirestani" />
+		<view-id value="faces/merchant.xhtml?shopName=Pirestani" />
+	</url-mapping>
+
+
+	<url-mapping id="Kara-Sport"> <!-- 275 -->
+		<pattern value="/karasport" />
+		<view-id value="faces/merchant.xhtml?shopName=Kara-Sport" />
+	</url-mapping>
+
+
+	<url-mapping id="Aiwa144"> <!-- 276 -->
+		<pattern value="/Aiwa144" />
+		<view-id value="faces/merchant.xhtml?shopName=Aiwa144" />
+	</url-mapping>
+
+	<url-mapping id="Team-Option"> <!-- 277 -->
+		<pattern value="/Team-Option" />
+		<view-id value="faces/merchant.xhtml?shopName=Team-Option" />
+	</url-mapping>
+
+	<url-mapping id="Digi-Tell1"> <!-- 278 -->
+		<pattern value="/digitell1" />
+		<view-id value="faces/merchant.xhtml?shopName=Digi-Tell1" />
+	</url-mapping>
+
+	<url-mapping id="Asia-Electronic"> <!-- 279 -->
+		<pattern value="/asia_electronic" />
+		<view-id value="faces/merchant.xhtml?shopName=Asia-Electronic" />
+	</url-mapping>
+	<url-mapping id="Sib-Electronic"> <!-- 280 -->
+		<pattern value="/sibelectronic" />
+		<view-id value="faces/merchant.xhtml?shopName=Sib-Electronic" />
+	</url-mapping>
+
+
+	<url-mapping id="Goldiran-Hafez"> <!-- 281 -->
+		<pattern value="/goldiranhafez" />
+		<view-id value="faces/merchant.xhtml?shopName=Goldiran-Hafez" />
+	</url-mapping>
+
+	<url-mapping id="A.C.P"> <!-- 282 -->
+		<pattern value="/acp" />
+		<view-id value="faces/merchant.xhtml?shopName=A.C.P" />
+	</url-mapping>
+
+	<url-mapping id="Sms"> <!-- 283 -->
+		<pattern value="/sms" />
+		<view-id value="faces/merchant.xhtml?shopName=Sms" />
+	</url-mapping>
+
+	<url-mapping id="7Cell"> <!-- 284 -->
+		<pattern value="/sevencell" />
+		<view-id value="faces/merchant.xhtml?shopName=7Cell" />
+	</url-mapping>
+
+
+	<url-mapping id="Net-Electronic"> <!-- 286 -->
+		<pattern value="/netelectronic" />
+		<view-id value="faces/merchant.xhtml?shopName=Net-Electronic" />
+	</url-mapping>
+
+
+	<url-mapping id="Dorzheh"> <!-- 287 -->
+		<pattern value="/Dorzheh" />
+		<view-id value="faces/merchant.xhtml?shopName=Dorzheh" />
+	</url-mapping>
+
+
+	<url-mapping id="Babak-Khoram-Abadi"> <!-- 288 -->
+		<pattern value="/babak_store" />
+		<view-id
+			value="faces/merchant.xhtml?shopName=Babak-Khoram-Abadi" />
+	</url-mapping>
+
+
+	<url-mapping id="Soleymani"> <!-- 289 -->
+		<pattern value="/soleymani" />
+		<view-id value="faces/merchant.xhtml?shopName=Soleymani" />
+	</url-mapping>
+
+
+	<url-mapping id="Mobile-Kosar"> <!-- 290 -->
+		<pattern value="/kosar" />
+		<view-id value="faces/merchant.xhtml?shopName=Mobile-Kosar" />
+	</url-mapping>
+
+
+	<url-mapping id="Farbod-Electronic"> <!-- 291 -->
+		<pattern value="/farbod" />
+		<view-id
+			value="faces/merchant.xhtml?shopName=Farbod-Electronic" />
+	</url-mapping>
+
+
+	<url-mapping id="Ofogh"> <!-- 292 -->
+		<pattern value="/ofogh" />
+		<view-id value="faces/merchant.xhtml?shopName=Ofogh" />
+	</url-mapping>
+
+
+	<url-mapping id="Sharif"> <!-- 293 -->
+		<pattern value="/sharif" />
+		<view-id value="faces/merchant.xhtml?shopName=Sharif" />
+	</url-mapping>
+
+
+	<url-mapping id="Akhavan"> <!-- 294 -->
+		<pattern value="/akhavan" />
+		<view-id value="faces/merchant.xhtml?shopName=Akhavan" />
+	</url-mapping>
+
+
+	<url-mapping id="Stereo-Mahan"> <!-- 295 -->
+		<pattern value="/Stereo-Mahan" />
+		<view-id value="faces/merchant.xhtml?shopName=Stereo-Mahan" />
+	</url-mapping>
+
+
+	<url-mapping id="Moradi"> <!-- 296 -->
+		<pattern value="/moradi" />
+		<view-id value="faces/merchant.xhtml?shopName=Moradi" />
+	</url-mapping>
+
+
+	<url-mapping id="Iran"> <!-- 297 -->
+		<pattern value="/iran_store" />
+		<view-id value="faces/merchant.xhtml?shopName=Iran" />
+	</url-mapping>
+
+	<url-mapping id="Ahmadi"> <!-- 298 -->
+		<pattern value="/ahmadi" />
+		<view-id value="faces/merchant.xhtml?shopName=Ahmadi" />
+	</url-mapping>
+
+
+	<url-mapping id="Li-Mal"> <!-- 299 -->
+		<pattern value="/limall" />
+		<view-id value="faces/merchant.xhtml?shopName=Li-Mal" />
+	</url-mapping>
+
+
+	<url-mapping id="Metal"> <!-- 300 -->
+		<pattern value="/Metal" />
+		<view-id value="faces/merchant.xhtml?shopName=Metal" />
+	</url-mapping>
+
+
+	<url-mapping id="Parsian-Shop"> <!-- 301 -->
+		<pattern value="/parsian_shop" />
+		<view-id value="faces/merchant.xhtml?shopName=Parsian-Shop" />
+	</url-mapping>
+
+
+	<url-mapping id="Danesh-Electronic"> <!-- 302 -->
+		<pattern value="/danesh" />
+		<view-id
+			value="faces/merchant.xhtml?shopName=Danesh-Electronic" />
+	</url-mapping>
+
+
+	<url-mapping id="Parseh"> <!-- 304 -->
+		<pattern value="/parse" />
+		<view-id value="faces/merchant.xhtml?shopName=Parseh" />
+	</url-mapping>
+
+
+	<url-mapping id="Nader-Computer"> <!-- 305 -->
+		<pattern value="/nader" />
+		<view-id value="faces/merchant.xhtml?shopName=Nader-Computer" />
+	</url-mapping>
+
+
+	<url-mapping id="Faraz-Store"> <!-- 306 -->
+		<pattern value="/faraz_store" />
+		<view-id value="faces/merchant.xhtml?shopName=Faraz-Store" />
 	</url-mapping>
 
 	<!-- 307 -->
@@ -1327,55 +1714,543 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 		<view-id value="faces/merchant.xhtml?shopName=Iranian-Memory" />
 	</url-mapping>
 
-
-	<url-mapping id="farshid">
-		<pattern value="/farshid" />
-		<view-id value="faces/merchant.xhtml?shopName=farshid" />
+	<url-mapping id="Sin"> <!-- 308 -->
+		<pattern value="/Sin" />
+		<view-id value="faces/merchant.xhtml?shopName=Sin" />
 	</url-mapping>
 
-	<url-mapping id="daroos">
-		<pattern value="/daroos" />
-		<view-id value="faces/merchant.xhtml?shopName=Daroos" />
+	<url-mapping id="Simaye-Kish"> <!-- 309 -->
+		<pattern value="/simayekish" />
+		<view-id value="faces/merchant.xhtml?shopName=Simaye-Kish" />
 	</url-mapping>
 
-	<url-mapping id="Guitar-Pro">
-		<pattern value="/guitarpro" />
-		<view-id value="faces/merchant.xhtml?shopName=Guitar-Pro" />
+
+	<url-mapping id="Milad-Store"> <!-- 310 -->
+		<pattern value="/milad_store" />
+		<view-id value="faces/merchant.xhtml?shopName=Milad-Store" />
 	</url-mapping>
 
-	<url-mapping id="Radio-Jabbar">
-		<pattern value="/radio-jabar" />
-		<view-id value="faces/merchant.xhtml?shopName=Radio-Jabar" />
+
+	<url-mapping id="26"> <!-- 311 -->
+		<pattern value="/26" />
+		<view-id value="faces/merchant.xhtml?shopName=26" />
 	</url-mapping>
 
-	<url-mapping id="GamePlay-Iran">
-		<pattern value="/gameplay" />
-		<view-id value="faces/merchant.xhtml?shopName=GamePlay-Iran" />
+
+
+
+	<url-mapping id="Homa-Tell"> <!-- 312 -->
+		<pattern value="/homatell" />
+		<view-id value="faces/merchant.xhtml?shopName=Homa-Tell" />
 	</url-mapping>
 
-	<url-mapping id="Pishkhan-Dolat">
-		<pattern value="/pishkhan_dolat" />
-		<view-id value="faces/merchant.xhtml?shopName=Pishkhan-Dolat" />
+
+	<url-mapping id="Atrin-Electronic"> <!-- 313 -->
+		<pattern value="/atrin" />
+		<view-id
+			value="faces/merchant.xhtml?shopName=Atrin-Electronic" />
 	</url-mapping>
 
-	<url-mapping id="Morvarid_Jonoob">
-		<pattern value="/morvaridjonoob" />
-		<view-id value="faces/merchant.xhtml?shopName=Morvarid_Jonoob" />
+	<url-mapping id="Seven"> <!-- 314 -->
+		<pattern value="/seven" />
+		<view-id value="faces/merchant.xhtml?shopName=Seven" />
 	</url-mapping>
 
-	<url-mapping id="Tell-Land">
-		<pattern value="/tell-land" />
-		<view-id value="faces/merchant.xhtml?shopName=Tell-Land" />
+
+	<url-mapping id="VIP"> <!-- 315 -->
+		<pattern value="/vip" />
+		<view-id value="faces/merchant.xhtml?shopName=VIP" />
 	</url-mapping>
 
-	<url-mapping id="Mobina">
-		<pattern value="/mobina" />
-		<view-id value="faces/merchant.xhtml?shopName=Mobina" />
+
+	<url-mapping id="Safir-Store"> <!-- 316 -->
+		<pattern value="/safir_store" />
+		<view-id value="faces/merchant.xhtml?shopName=Safir-Store" />
 	</url-mapping>
 
-	<url-mapping id="Alfared">
-		<pattern value="/alfared" />
-		<view-id value="faces/merchant.xhtml?shopName=Alfared" />
+
+	<url-mapping id="Prince"> <!-- 317 -->
+		<pattern value="/prince" />
+		<view-id value="faces/merchant.xhtml?shopName=Prince" />
 	</url-mapping>
+
+
+	<url-mapping id="ILiya"> <!-- 318 -->
+		<pattern value="/iliya" />
+		<view-id value="faces/merchant.xhtml?shopName=ILiya" />
+	</url-mapping>
+
+
+
+	<url-mapping id="121"> <!-- 319 -->
+		<pattern value="/121" />
+		<view-id value="faces/merchant.xhtml?shopName=121" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Ali-Mohamadi"> <!-- 320 -->
+		<pattern value="/ali_mohammadi" />
+		<view-id value="faces/merchant.xhtml?shopName=Ali-Mohamadi" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Shahbaz"> <!-- 321 -->
+		<pattern value="/shahbaz" />
+		<view-id value="faces/merchant.xhtml?shopName=Shahbaz" />
+	</url-mapping>
+
+
+	<url-mapping id="Shahrebazi"> <!-- 322 -->
+		<pattern value="/shahrebazi" />
+		<view-id value="faces/merchant.xhtml?shopName=Shahrebazi" />
+	</url-mapping>
+
+
+	<url-mapping id="Dori"> <!-- 323 -->
+		<pattern value="/dorri" />
+		<view-id value="faces/merchant.xhtml?shopName=Dori" />
+	</url-mapping>
+
+	<url-mapping id="Bahar-Mobile-Store"> <!-- 324 -->
+		<pattern value="/baharmobile" />
+		<view-id
+			value="faces/merchant.xhtml?shopName=Bahar-Mobile-Store" />
+
+
+
+	</url-mapping>
+	<url-mapping id="Alaedin"> <!-- 325 -->
+		<pattern value="/alaedin" />
+		<view-id value="faces/merchant.xhtml?shopName=Alaedin" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Saba"> <!-- 326 -->
+		<pattern value="/saba" />
+		<view-id value="faces/merchant.xhtml?shopName=Saba" />
+	</url-mapping>
+
+
+	<url-mapping id="Pazooki"> <!-- 327 -->
+		<pattern value="/pazuki" />
+		<view-id value="faces/merchant.xhtml?shopName=Pazooki" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Tehran-Melody"> <!-- 328 -->
+		<pattern value="/tehranmelody" />
+		<view-id value="faces/merchant.xhtml?shopName=Tehran-Melody" />
+	</url-mapping>
+
+
+	<url-mapping id="SMD-Electronic"> <!-- 329 -->
+		<pattern value="/SMD-Electronic" />
+		<view-id value="faces/merchant.xhtml?shopName=SMD-Electronic" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Ameri"> <!-- 330 -->
+		<pattern value="/Amery" />
+		<view-id value="faces/merchant.xhtml?shopName=Ameri" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Apple-Family"> <!-- 331 -->
+		<pattern value="/Apple-Family" />
+		<view-id value="faces/merchant.xhtml?shopName=Apple-Family" />
+	</url-mapping>
+
+
+	<url-mapping id="Faratasvir-Resane"> <!-- 332 -->
+		<pattern value="/Faratasvir-Rasaneh" />
+		<view-id
+			value="faces/merchant.xhtml?shopName=Faratasvir-Resane" />
+	</url-mapping>
+
+	<url-mapping id="Sorin"> <!-- 333 -->
+		<pattern value="/Sorin" />
+		<view-id value="faces/merchant.xhtml?shopName=Sorin" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Alpha"> <!-- 334 -->
+		<pattern value="/Alpha" />
+		<view-id value="faces/merchant.xhtml?shopName=Alpha" />
+	</url-mapping>
+
+
+	<url-mapping id="XP"> <!-- 335 -->
+		<pattern value="/Xp" />
+		<view-id value="faces/merchant.xhtml?shopName=XP" />
+	</url-mapping>
+
+
+	<url-mapping id="Emperor-Shop"> <!-- 336 -->
+		<pattern value="/Emperor-Shop" />
+		<view-id value="faces/merchant.xhtml?shopName=Emperor-Shop" />
+	</url-mapping>
+
+
+	<url-mapping id="Avaye-Almas"> <!-- 337 -->
+		<pattern value="/Avaye-Almas" />
+		<view-id value="faces/merchant.xhtml?shopName=Avaye-Almas" />
+	</url-mapping>
+
+
+	<url-mapping id="Samsung"> <!-- 338 -->
+		<pattern value="/Samsung" />
+		<view-id value="faces/merchant.xhtml?shopName=Samsung" />
+	</url-mapping>
+
+
+	<url-mapping id="Ultra-Music"> <!-- 339 -->
+		<pattern value="/Ultra-Music" />
+		<view-id value="faces/merchant.xhtml?shopName=Ultra-Music" />
+	</url-mapping>
+
+
+	<url-mapping id="Avisa"> <!-- 340 -->
+		<pattern value="/Avisa" />
+		<view-id value="faces/merchant.xhtml?shopName=Avisa" />
+	</url-mapping>
+
+
+	<url-mapping id="Didaniha"> <!-- 341 -->
+		<pattern value="/Didaniha" />
+		<view-id value="faces/merchant.xhtml?shopName=Didaniha" />
+	</url-mapping>
+
+
+	<url-mapping id="Kalaye-Kazemi"> <!-- 342 -->
+		<pattern value="/Kalaye-Kazemi" />
+		<view-id value="faces/merchant.xhtml?shopName=Kalaye-Kazemi" />
+	</url-mapping>
+
+
+	<url-mapping id="Hamroo"> <!-- 343 -->
+		<pattern value="/Hamro" />
+		<view-id value="faces/merchant.xhtml?shopName=Hamroo" />
+	</url-mapping>
+
+
+	<url-mapping id="Hezar-Dastan"> <!-- 344 -->
+		<pattern value="/Hezar-Dastan" />
+		<view-id value="faces/merchant.xhtml?shopName=Hezar-Dastan" />
+	</url-mapping>
+
+
+	<url-mapping id="Karma-Iran"> <!-- 345 -->
+		<pattern value="/Karma-Iran" />
+		<view-id value="faces/merchant.xhtml?shopName=Karma-Iran" />
+	</url-mapping>
+
+
+
+
+
+
+	<url-mapping id="Avajang"> <!-- 346 -->
+		<pattern value="/Avazhang" />
+		<view-id value="faces/merchant.xhtml?shopName=Avajang" />
+	</url-mapping>
+
+
+	<url-mapping id="Tamasha"> <!-- 347 -->
+		<pattern value="/Tamasha" />
+		<view-id value="faces/merchant.xhtml?shopName=Tamasha" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Satari"> <!-- 348 -->
+		<pattern value="/Sattary" />
+		<view-id value="faces/merchant.xhtml?shopName=Satari" />
+	</url-mapping>
+
+
+	<url-mapping id="Media-Store"> <!-- 349 -->
+		<pattern value="/Media-Store" />
+		<view-id value="faces/merchant.xhtml?shopName=Media-Store" />
+	</url-mapping>
+
+
+	<url-mapping id="Click"> <!-- 350 -->
+		<pattern value="/Click" />
+		<view-id value="faces/merchant.xhtml?shopName=Click" />
+	</url-mapping>
+
+
+	<url-mapping id="Mobile-Outfitters"> <!-- 351 -->
+		<pattern value="/Mobile-Outfitters" />
+		<view-id
+			value="faces/merchant.xhtml?shopName=Mobile-Outfitters" />
+	</url-mapping>
+
+
+	<url-mapping id="Mahan-Shop"> <!-- 352 -->
+		<pattern value="/Mahan" />
+		<view-id value="faces/merchant.xhtml?shopName=Mahan-Shop" />
+	</url-mapping>
+
+
+	<url-mapping id="Giti-Battery"> <!-- 353 -->
+		<pattern value="/Giti-Battery" />
+		<view-id value="faces/merchant.xhtml?shopName=Giti-Battery" />
+	</url-mapping>
+
+
+	<url-mapping id="Namahang"> <!-- 354 -->
+		<pattern value="/Namahang" />
+		<view-id value="faces/merchant.xhtml?shopName=Namahang" />
+	</url-mapping>
+
+
+	<url-mapping id="Part-Sazan"> <!-- 356 -->
+		<pattern value="/Partsazan" />
+		<view-id value="faces/merchant.xhtml?shopName=Part-Sazan" />
+	</url-mapping>
+
+	<url-mapping id="Labani"> <!-- 358 -->
+		<pattern value="/Labany" />
+		<view-id value="faces/merchant.xhtml?shopName=Labani" />
+	</url-mapping>
+
+
+	<url-mapping id="Mahdi-Shop"> <!-- 359 -->
+		<pattern value="/Mahdi-Shop" />
+		<view-id value="faces/merchant.xhtml?shopName=Mahdi-Shop" />
+	</url-mapping>
+
+
+	<url-mapping id="Mobile-Asia"> <!-- 360 -->
+		<pattern value="/Mobile-Asia" />
+		<view-id value="faces/merchant.xhtml?shopName=Mobile-Asia" />
+	</url-mapping>
+
+
+	<url-mapping id="Gap-Tell"> <!-- 361 -->
+		<pattern value="/Gap-Tell" />
+		<view-id value="faces/merchant.xhtml?shopName=Gap-Tell" />
+	</url-mapping>
+
+
+	<url-mapping id="Farsi-Mobile"> <!-- 362 -->
+		<pattern value="/Farsi-Mobile" />
+		<view-id value="faces/merchant.xhtml?shopName=Farsi-Mobile" />
+	</url-mapping>
+
+
+	<url-mapping id="Modern"> <!-- 363 -->
+		<pattern value="/Modern" />
+		<view-id value="faces/merchant.xhtml?shopName=Modern" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Daei"> <!-- 365 -->
+		<pattern value="/Daei" />
+		<view-id value="faces/merchant.xhtml?shopName=Daei" />
+	</url-mapping>
+
+
+	<url-mapping id="Saeid-Tell"> <!-- 366 -->
+		<pattern value="/Saeed-Tell" />
+		<view-id value="faces/merchant.xhtml?shopName=Saeid-Tell" />
+	</url-mapping>
+
+
+	<url-mapping id="Riyazi"> <!-- 367 -->
+		<pattern value="/Riyazi" />
+		<view-id value="faces/merchant.xhtml?shopName=Riyazi" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Shahab"> <!-- 368 -->
+		<pattern value="/Shahab" />
+		<view-id value="faces/merchant.xhtml?shopName=Shahab" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Sport-Land"> <!-- 369 -->
+		<pattern value="/Sport-Land" />
+		<view-id value="faces/merchant.xhtml?shopName=Sport-Land" />
+	</url-mapping>
+
+
+
+
+	<url-mapping id="Sirvan"> <!-- 370 -->
+		<pattern value="/Sirvan" />
+		<view-id value="faces/merchant.xhtml?shopName=Sirvan" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Kamran"> <!-- 371 -->
+		<pattern value="/Kamran" />
+		<view-id value="faces/merchant.xhtml?shopName=Kamran" />
+	</url-mapping>
+
+
+	<url-mapping id="Mohamad-Zadeh"> <!-- 372 -->
+		<pattern value="/Mohamadzadeh" />
+		<view-id value="faces/merchant.xhtml?shopName=Mohamad-Zadeh" />
+	</url-mapping>
+
+
+	<url-mapping id="Soleymani"> <!-- 373 -->
+		<pattern value="/Soleymany" />
+		<view-id value="faces/merchant.xhtml?shopName=Soleymani" />
+	</url-mapping>
+
+
+	<url-mapping id="Maserati"> <!-- 374 -->
+		<pattern value="/Maserati" />
+		<view-id value="faces/merchant.xhtml?shopName=Maserati" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Zarrin"> <!-- 375 -->
+		<pattern value="/Zarrin" />
+		<view-id value="faces/merchant.xhtml?shopName=Zarrin" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Reza"> <!-- 376 -->
+		<pattern value="/Reza" />
+		<view-id value="faces/merchant.xhtml?shopName=Reza" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Ayandeh"> <!-- 377 -->
+		<pattern value="/Hamrah-Pakhsh-Ayandeh" />
+		<view-id value="faces/merchant.xhtml?shopName=Ayandeh" />
+	</url-mapping>
+
+
+	<url-mapping id="Piano-Saba"> <!-- 378 -->
+		<pattern value="/Piano-Saba" />
+		<view-id value="faces/merchant.xhtml?shopName=Piano-Saba" />
+	</url-mapping>
+
+
+	<url-mapping id="Mohsen"> <!-- 379 -->
+		<pattern value="/Mohsen" />
+		<view-id value="faces/merchant.xhtml?shopName=Mohsen" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Ario"> <!-- 380 -->
+		<pattern value="/Ario-Mobile" />
+		<view-id value="faces/merchant.xhtml?shopName=Ario" />
+	</url-mapping>
+
+
+	<url-mapping id="Dehghan"> <!-- 381 -->
+		<pattern value="/Dehghan" />
+		<view-id value="faces/merchant.xhtml?shopName=Dehghan" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Iran-kala"> <!-- 382 -->
+		<pattern value="/Iran-Kala" />
+		<view-id value="faces/merchant.xhtml?shopName=Iran-kala" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Persia-Shop"> <!-- 383 -->
+		<pattern value="/Persia" />
+		<view-id value="faces/merchant.xhtml?shopName=Persia-Shop" />
+	</url-mapping>
+
+
+	<url-mapping id="Razaghi"> <!-- 384 -->
+		<pattern value="/Razaghy" />
+		<view-id value="faces/merchant.xhtml?shopName=Razaghi" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Ofogh-Shop"> <!-- 385 -->
+		<pattern value="/Ofogh" />
+		<view-id value="faces/merchant.xhtml?shopName=Ofogh-Shop" />
+	</url-mapping>
+
+
+	<url-mapping id="My-Phone"> <!-- 386 -->
+		<pattern value="/myphone" />
+		<view-id value="faces/merchant.xhtml?shopName=My-Phone" />
+	</url-mapping>
+
+
+
+	<url-mapping id="Ghadir"> <!-- 387 -->
+		<pattern value="/Ghadir" />
+		<view-id value="faces/merchant.xhtml?shopName=Ghadir" />
+	</url-mapping>
+
+
+
+	<url-mapping id="I-Tech"> <!-- 388 -->
+		<pattern value="/I-Tech" />
+		<view-id value="faces/merchant.xhtml?shopName=I-Tech" />
+	</url-mapping>
+
+
+	<url-mapping id="Vakili-D23"> <!-- 389 -->
+		<pattern value="/Vakily" />
+		<view-id value="faces/merchant.xhtml?shopName=Vakili-D23" />
+	</url-mapping>
+
+	<url-mapping id="Mahmoodi"> <!-- 390 -->
+		<pattern value="/Mahmoodi" />
+		<view-id value="faces/merchant.xhtml?shopName=Mahmoodi" />
+	</url-mapping>
+
+	<url-mapping id="Foryou"> <!-- 391 -->
+		<pattern value="/For-You" />
+		<view-id value="faces/merchant.xhtml?shopName=Foryou" />
+	</url-mapping>
+
+	<url-mapping id="Sepehr"> <!-- 392 -->
+		<pattern value="/Sepehr" />
+		<view-id value="faces/merchant.xhtml?shopName=Sepehr" />
+	</url-mapping>
+
+	<url-mapping id="Soltani"> <!-- 393 -->
+		<pattern value="/Soltany" />
+		<view-id value="faces/merchant.xhtml?shopName=Soltani" />
+	</url-mapping>
+
+
+	<url-mapping id="Farbod"> <!-- 394 -->
+		<pattern value="/Farbod" />
+		<view-id value="faces/merchant.xhtml?shopName=Farbod" />
+	</url-mapping>
+
+
+	<url-mapping id="Naghme"> <!-- 395 -->
+		<pattern value="/Naghmeh" />
+		<view-id value="faces/merchant.xhtml?shopName=Naghme" />
+	</url-mapping>
+
+
+
+
 
 </pretty-config>

@@ -3,177 +3,278 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui"
-	xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:rich="http://richfaces.org/rich">
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui">
 
-<f:metadata>
-	<f:event listener="#{userBean.isUser}" type="preRenderView"></f:event>
-	<f:viewParam name="shakiId" />
-</f:metadata>
-
-
-<h:head></h:head>
-<body>
-	<ui:composition template="/template/TEMPLATE.xhtml">
-		<ui:define name="headtemp">
-			<title>شکایات</title>
-			<link href="resources/css/shekayat.css" rel="stylesheet"
-				type="text/css" />
-			<style>
-.ui-grid {
-	clear: both;
-	padding: 0;
-	margin: 0;
-	background-color: #dddddd !important;
+<h:head>
+	<title>شکایات</title>
+	<link href="resources/fonts.css" rel="stylesheet" type="text/css" />
+	<link rel="shortcut icon" href="resources/images/logo_black.png" />
+	<style>
+.ui-panelgrid .ui-grid-responsive .ui-panelgrid-cell {
+	border: 0 none;
+	text-align: right;
+	border: 1px ridge;
 }
 
-.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield
-	{
-	background: #dddddd !important;
-	-moz-box-shadow: inset 0 2px 2px #8f8f8f;
-	-webkit-box-shadow: inset 0 2px 2px #8f8f8f;
-	box-shadow: inset 0 2px 2px #8f8f8f;
-	color: #222222;
+.ui-widget-header .ui-inputfield, .ui-widget-content .ui-inputfield {
+	font-weight: normal;
+	width: 100% !important;
 }
 </style>
-		</ui:define>
+</h:head>
+<ui:define name="metadata">
+	<f:metadata>
+		<f:event listener="#{userBean.isUser}" type="preRenderView"></f:event>
+		<f:viewParam name="shakiId" />
+	</f:metadata>
+</ui:define>
+<h:body style=" background-color: #dddddd;">
+	<h:form>
+		<p:commandLink value="خروج" action="#{userBean.exitAdmin()}"
+			style="padding-left:100px; font-size:22px; text-decoration: none!important;" />
+	</h:form>
+	<div style="direction: rtl;">
+		<br />
+		<p:panel id="pnl" header="اطلاعات شکایت"
+			style="text-align:center; margin:20px;">
+			<p:graphicImage value="resources/images/logo_black.png" width="50"
+				height="50" />
+			<p:panelGrid columns="2" id="pg" layout="grid"
+				style="border:1px solid;">
 
-		<ui:define name="maintemp">
-<!-- 			<ui:define name="metadata">
-				<f:metadata>
-					<f:viewParam name="shakiId" />
-				</f:metadata>
-			</ui:define> -->
+				<p:outputLabel
+					style="color:red!important; font-family: 'IRANSansBold' !important; font-size:30px;"
+					for="inputccc" value="خواهان" />
+				<p:outputLabel id="inputccc" value="" />
 
-			<!-- CONTENT AREA -->
-			<article> <br />
-			<div
-				style="border: solid 5px; border-radius: 70px 10px 70px 70px; border-color: darkgrey; background-image: url('resources/images/back.jpg'); max-width: 1600px; margin: auto;">
-				<div class="container theme-container ptb-70">
-					<div class="row">
-						<div class="col-sm-12">
-							<h2 style="text-align: right;">خواهان</h2>
-							<p:panelGrid columns="2" layout="grid">
-								<p:outputLabel for="input" value="نام و نام خانوادگی  :" />
-								<p:outputLabel id="input"
-									value="#{shekayatBean.findShekayatById(shakiId).shakiName}" />
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="input55" value="شماره" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="input55"
+					value="#{shekayatBean.findShekayatById(shakiId).shekayatId}" />
 
-								<p:outputLabel for="msk" value="کد ملی" />
-								<p:outputLabel id="msk" dir="ltr"
-									value="#{shekayatBean.findShekayatById(shakiId).shakiSsn}" />
-
-								<p:outputLabel for="tele" value="تلفن ثابت" />
-								<p:outputLabel id="tele" dir="ltr"
-									value="#{shekayatBean.findShekayatById(shakiId).shakiPhone}" />
-
-								<p:outputLabel for="mob" value="تلفن همراه" />
-								<p:outputLabel id="mob" dir="ltr"
-									value="#{shekayatBean.findShekayatById(shakiId).shakiMobile}" />
-
-								<p:outputLabel for="input4" value="ایمیل" dir="ltr" />
-								<p:outputLabel id="input4"
-									value="#{shekayatBean.findShekayatById(shakiId).shakiEmail}" />
-
-								<p:outputLabel for="pos" value="کد پستی" />
-								<p:outputLabel id="pos" dir="ltr"
-									value="#{shekayatBean.findShekayatById(shakiId).shakiPostCode}" />
-
-								<p:outputLabel for="area" value="آدرس" />
-								<p:outputLabel id="area" dir="rtl"
-									value="#{shekayatBean.findShekayatById(shakiId).shakiAddres}" />
-
-							</p:panelGrid>
-							<p:separator />
-							<h2 style="text-align: right;">خوانده</h2>
-							<p:panelGrid columns="2">
-								<p:outputLabel for="input1" value="نام واحد صنفی" />
-								<p:outputLabel id="input1"
-									value="#{shekayatBean.findShekayatById(shakiId).vahedeSenfiName}" />
-
-								<p:outputLabel for="input2" value="نام متصدی" />
-								<p:outputLabel id="input2"
-									value="#{shekayatBean.findShekayatById(shakiId).motesadiName}" />
-
-								<p:outputLabel for="tele2" value="تلفن واحد صنفی" />
-								<p:outputLabel id="tele2" dir="ltr"
-									value="#{shekayatBean.findShekayatById(4).vahedeSenfiPhone}" />
-
-								<p:outputLabel for="mob2" value="تلفن همراه" />
-								<p:outputLabel id="mob2" dir="ltr"
-									value="#{shekayatBean.findShekayatById(shakiId).vahedeSenfiMobile}" />
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="input5x5" value="تاریخ درج شکایت" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="input5x5"
+					value="#{shekayatBean.convertToJalali(shakiId)}" />
 
 
-								<p:outputLabel for="input3" value="شناسه صنفی" />
-								<p:outputLabel id="input3"
-									value="#{shekayatBean.findShekayatById(shakiId).vahedeShenaseSenfi}" />
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="input" value="نام و نام خانوادگی" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="input"
+					value="#{shekayatBean.findShekayatById(shakiId).shakiName}" />
 
-								<p:outputLabel for="pos2" value="کد پستی" />
-								<p:outputLabel id="pos2" dir="ltr"
-									value="#{shekayatBean.findShekayatById(shakiId).vahedeSenfiPostCode}" />
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="msk" value="کد ملی" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="msk" dir="ltr"
+					value="#{shekayatBean.findShekayatById(shakiId).shakiSsn}" />
 
-								<p:outputLabel for="area2" value="آدرس" />
-								<p:outputLabel id="area2"
-									value="#{shekayatBean.findShekayatById(shakiId).vahedeShenaseAddres}" />
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="tele" value="تلفن ثابت" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="tele" dir="ltr"
+					value="#{shekayatBean.findShekayatById(shakiId).shakiPhone}" />
 
-								<p:outputLabel for="onemenu" value="عنوان شکایت" />
-								<p:outputLabel id="onemenu"
-									value="#{shekayatBean.findShekayatById(shakiId).shekayatTitle}" />
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="mob" value="تلفن همراه" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="mob" dir="ltr"
+					value="#{shekayatBean.findShekayatById(shakiId).shakiMobile}" />
 
-								<p:outputLabel for="area3" value="شرح شکایت" />
-								<p:outputLabel id="area3"
-									value="#{shekayatBean.findShekayatById(shakiId).sharh}" />
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="input4" value="ایمیل" dir="ltr" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="input4"
+					value="#{shekayatBean.findShekayatById(shakiId).shakiEmail}" />
 
-							</p:panelGrid>
-							<p:separator />
-							<h:form enctype="multipart/form-data" acceptcharset="UTF-8"
-								id="form">
-								<p:growl id="growl" />
-								<p:panel id="pnl" header="ثبت شکایت"
-									style="margin-bottom:10px; text-align:center;">
-									<p:messages id="messages" />
-									<p:panelGrid columns="2" layout="grid">
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="pos" value="کد پستی" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="pos" dir="ltr"
+					value="#{shekayatBean.findShekayatById(shakiId).shakiPostCode}" />
 
-										<p:outputLabel for="basic"
-											style="font-family: 'IRANSansNor' !important;"
-											value="وضعیت شکایت" />
-										<p:selectOneListbox id="basic" value="#{userBean.role}"
-											required="true" requiredMessage="فیلد اجباری">
-											<f:selectItem itemLabel="admin" itemValue="admin" />
-											<f:selectItem itemLabel="shekayet" itemValue="shekayet" />
-										</p:selectOneListbox>
-										<p:outputLabel for="input55" value="شماره  :" />
-										<p:inputText id="input55"
-											value="#{shekayatBean.findShekayatById(shakiId).shekayatId}"
-											readonly="true" />
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="area" value="آدرس" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="area" dir="rtl"
+					value="#{shekayatBean.findShekayatById(shakiId).shakiAddres}" />
 
-										<p:outputLabel for="input66" value="پرونده  :" />
-										<p:inputText id="input66" value="#{shekayatBean.parvande}" />
+				<p:outputLabel
+					style="color:red!important; font-family: 'IRANSansBold' !important; font-size:30px;"
+					for="areaxxx" value="خوانده" />
+				<p:outputLabel id="areaxxx" value="" />
+
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="input1" value="نام واحد صنفی" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="input1"
+					value="#{shekayatBean.findShekayatById(shakiId).vahedeSenfiName}" />
+
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="input2" value="نام متصدی" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="input2"
+					value="#{shekayatBean.findShekayatById(shakiId).motesadiName}" />
+
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="tele2" value="تلفن واحد صنفی" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="tele2" dir="ltr"
+					value="#{shekayatBean.findShekayatById(shakiId).vahedeSenfiPhone}" />
+
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="mob2" value="تلفن همراه" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="mob2" dir="ltr"
+					value="#{shekayatBean.findShekayatById(shakiId).vahedeSenfiMobile}" />
 
 
-										<p:outputLabel for="input88" value="رهگیری  :" />
-										<p:inputText id="input88" value="#{shekayatBean.rahgiri}" />
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="input3" value="شناسه صنفی" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="input3"
+					value="#{shekayatBean.findShekayatById(shakiId).vahedeShenaseSenfi}" />
+
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="pos2" value="کد پستی" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="pos2" dir="ltr"
+					value="#{shekayatBean.findShekayatById(shakiId).vahedeSenfiPostCode}" />
+
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="area2" value="آدرس" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="area2"
+					value="#{shekayatBean.findShekayatById(shakiId).vahedeShenaseAddres}" />
+
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="onemenu" value="عنوان شکایت" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="onemenu"
+					value="#{shekayatBean.findShekayatById(shakiId).shekayatTitle}" />
+
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="area3" value="شرح شکایت" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="area3" value="#{shekayatBean.findShekayatById(shakiId).sharh}" />
+
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="area323" value="وضعیت" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="area323"
+					value="#{shekayatBean.findShekayatById(shakiId).vaziat}" />
+
+				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+					for="area13" value="شماره رهگیری" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="area13"
+					value="#{shekayatBean.findShekayatById(shakiId).shomare}" />
+
+				<p:outputLabel for="area113"
+					style="font-family: 'IRANSansBold' !important;" value="تاریخ حضور" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="area113"
+					value="#{shekayatBean.findShekayatById(shakiId).tarikh}" />
 
 
 
-										<h:commandButton id="saveBtn" value="ثبت" icon="ui-icon-check"
-											style="margin:0" update="pnl" ajax="true" execute="@form"
-											action="#{shekayatBean.shekayatUpdate(shakiId)}">
-										</h:commandButton>
+			</p:panelGrid>
+		</p:panel>
+		<br />
+		<h:form enctype="multipart/form-data" acceptcharset="UTF-8" id="form">
+			<p:growl id="growl" />
+			<p:panel id="pnl" header="ثبت وضعیت شکایت"
+				style="margin:20px; text-align:center;">
+				<p:messages id="messages" />
+				<p:panelGrid columns="2" layout="grid">
 
-									</p:panelGrid>
-									<p:separator />
-								</p:panel>
+					<p:outputLabel for="basic"
+						style="font-family: 'IRANSansNor' !important;" value="وضعیت شکایت" />
+					<p:inputTextarea styleClass="it" id="basic"
+						style=" width: 100%; background-color:white!important;"
+						value="#{shekayatBean.vaziat}" dir="rtl">
+						<f:validateLength minimum="0" maximum="5000" />
+					</p:inputTextarea>
 
-							</h:form>
+					<p:outputLabel for="basic33"
+						style="font-family: 'IRANSansNor' !important;" value="تاریخ حضور" />
+					<p:inputMask style=" width: 100%;" id="basic33"
+						value="#{shekayatBean.tarikh}" mask="9999/99/99" dir="ltr" />
 
-						</div>
-					</div>
-				</div>
-			</div>
-			</article>
-			<br />
-		</ui:define>
-	</ui:composition>
-</body>
+
+					<p:outputLabel for="mob"
+						style="font-family: 'IRANSansNor' !important; font-size:16px;"
+						value="شماره رهگیری" />
+					<p:inputNumber style="width: 100%!important;" dir="ltr" id="mob"
+						emptyValue="zero" value="#{shekayatBean.shomare}"
+						padControl="false" />
+
+
+					<h:commandButton id="saveBtn" value="ثبت" icon="ui-icon-check"
+						style="margin:0; width:100px; height:30px;" update="pnl"
+						ajax="true" execute="@form"
+						action="#{shekayatBean.shekayatUpdate(shakiId)}">
+					</h:commandButton>
+
+				</p:panelGrid>
+				<p:separator />
+			</p:panel>
+
+		</h:form>
+
+		<br />
+		<!-- 		<h:form enctype="multipart/form-data" acceptcharset="UTF-8"
+			id="formXX"> -->
+		<p:growl id="growl3" />
+		<p:panel id="pnl3" header="پرینت و ارسال پیامک"
+			style="margin:20px; text-align:center;">
+			<p:messages id="messages" />
+			<p:panelGrid columns="4" layout="grid">
+
+				<p:commandButton value="پرینت از اطلاعات" type="button"
+					icon="ui-icon-print"
+					style="font-family: 'IRANSansBold' !important;  display:block;margin-bottom: 20px">
+					<p:printer target="pnl" />
+				</p:commandButton>
+
+				<p:commandButton value="پرینت از فاکتور" type="button"
+					icon="ui-icon-print"
+					style="font-family: 'IRANSansBold' !important;  display:block;margin-bottom: 20px">
+					<p:printer target="oo" />
+				</p:commandButton>
+				<h:form>
+					<p:growl id="growl2" />
+					<h:commandButton value="ارسال پیامک برای حضور شاکی"
+						action="#{shekayatBean.sendSmsOk(shekayatBean.findShekayatById(shakiId).shakiMobile,shekayatBean.findShekayatById(shakiId).shomare,shekayatBean.findShekayatById(shakiId).tarikh)}"
+						style="font-family: 'IRANSansBold' !important;  display:block;margin-bottom: 20px; height:50px; width:250px;">
+					</h:commandButton>
+				</h:form>
+
+				<h:form>
+					<p:growl id="growl3" />
+					<h:commandButton
+						value="ارسال پیامک بی ارتباط بودن موضوع با اتحادیه"
+						action="#{shekayatBean.sendSmsNok(shekayatBean.findShekayatById(shakiId).shakiMobile)}"
+						style="font-family: 'IRANSansBold' !important;  display:block;margin-bottom: 20px; height:50px; width:250px;">
+					</h:commandButton>
+				</h:form>
+
+
+			</p:panelGrid>
+			<p:separator />
+		</p:panel>
+
+		<!-- </h:form> -->
+		<br />
+		<h3 style="font-family: 'IRANSansBold' !important;">فاکتور</h3>
+		<div align="center">
+			<o:graphicImage id="oo"
+				value="#{shekayatBean.findShekayatById(shakiId).shakiFactor}"
+				dataURI="true" />
+		</div>
+	</div>
+</h:body>
 </html>

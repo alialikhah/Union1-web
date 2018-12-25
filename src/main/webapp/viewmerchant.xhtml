@@ -4,7 +4,9 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"> 
-
+		<f:metadata>
+			<f:event listener="#{userBean.isUser3}" type="preRenderView"></f:event>
+		</f:metadata>
 <h:head></h:head> 
 <body> 
 <ui:composition template="/template/templateA.xhtml">
@@ -13,7 +15,7 @@
 </ui:define>
 <ui:define name="centertmp">
 <h:form>
-    <p:dataTable var="merchants" value="#{merchantRegisterBean.findAllMerchants()}" rows="10" rowKey="#{merchants.merchantId}" 
+    <p:dataTable var="merchants" value="#{merchantRegisterBean.findAllMerchant2()}" rows="10" rowKey="#{merchants.merchantId}" 
                          paginator="true" resizableColumns="true" liveResize="true"
                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                          rowsPerPageTemplate="5,10,15" dir="rtl">
