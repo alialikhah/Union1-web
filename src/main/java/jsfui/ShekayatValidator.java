@@ -25,8 +25,6 @@ public class ShekayatValidator implements Validator{
 		            else if ((!file.getContentType().equals("image/jpeg"))&(!file.getContentType().equals("image/png"))) {
 		            	System.err.println(file.getContentType().toString());
 		            	message= new FacesMessage(FacesMessage.SEVERITY_ERROR, "png or jpg!", "png or jpg");}
-		            else if (file.getSize()>400000)
-		            	message= new FacesMessage(FacesMessage.SEVERITY_ERROR, "maximum 400k", "maximum 400k");
 		            if (message!=null && !message.getDetail().isEmpty())
 		                {
 		                    message.setSeverity(FacesMessage.SEVERITY_ERROR);

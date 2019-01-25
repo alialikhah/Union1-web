@@ -7,6 +7,7 @@
  <f:view locale="fa" >
  		<f:metadata>
 			<f:event listener="#{userBean.isUser3}" type="preRenderView"></f:event>
+			<f:viewParam name="merchantID"/>
 		</f:metadata>
 <h:head>
 
@@ -23,11 +24,6 @@
 		rel="stylesheet" type="text/css" />
 </ui:define>
 <ui:define name="centertmp">
-	  <ui:define name="metadata">
-      <f:metadata>
-      <f:viewParam name="merchantID"/>
-      </f:metadata>
-      </ui:define> 
       
 <h:form enctype="multipart/form-data" acceptcharset="UTF-8" id="form" rendered="#{!(merchantAddres.isAddrs(merchantID))}"> 
    

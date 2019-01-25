@@ -236,13 +236,17 @@ input.rf-au-inp {
 	#frm1{
 	font-family: 'IRANSansBold' !important; float:left; margin-left:280px
 }
+.btn-group-lg > .btn, .btn-lg {
+    font-size: 15px!important;
+    line-height: 1.3333333;
+}
 }
 @media screen and (max-width : 1220px) {
 	#frm1{
 	font-family: 'IRANSansBold' !important; float:left; margin-left:400px
 }
 .btn-group-lg > .btn, .btn-lg {
-    font-size: 14px!important;
+    font-size: 12px!important;
     line-height: 1.3333333;
 }
 button, html [type="button"], [type="reset"], [type="submit"] {
@@ -256,7 +260,7 @@ button, html [type="button"], [type="reset"], [type="submit"] {
 	font-family: 'IRANSansBold' !important; float:left; margin-left:500px
 }
 .btn-group-lg > .btn, .btn-lg {
-    font-size: 12px!important;
+    font-size: 9px!important;
     line-height: 1.3333333;
 }
 button, html [type="button"], [type="reset"], [type="submit"] {
@@ -270,7 +274,7 @@ button, html [type="button"], [type="reset"], [type="submit"] {
 	font-family: 'IRANSansBold' !important; float:left; margin-left:580px
 }
 .btn-group-lg > .btn, .btn-lg {
-    font-size: 10px!important;
+    font-size: 8px!important;
     line-height: 1.3333333;
 }
 button, html [type="button"], [type="reset"], [type="submit"] {

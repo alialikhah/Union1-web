@@ -54,6 +54,7 @@ ir/jnf/maven/libs/Kernel/soapClients/paymentGateway/mellat/BpSettleRequestRespon
 jsfui/MerchantRegisterBean.class
 sms/SendSms.class
 test/TestBean.class
+jsfui/MerchantBean.class
 ir/jnf/maven/libs/Kernel/soapClients/paymentGateway/mellat/BpCumulativeDynamicPayRequest.class
 jsfui/SpecialProductBean.class
 ir/jnf/maven/libs/Kernel/soapClients/paymentGateway/mellat/BpRefundInquiryRequest.class
@@ -79,11 +80,14 @@ jsfui/ShekayatBean.class
 ir/jnf/maven/libs/Kernel/soapClients/paymentGateway/mellat/BpRefundRequest.class
 jsfui/ShekayatValidator.class
 ir/jnf/maven/libs/Kernel/soapClients/paymentGateway/mellat/BpInquiryRequest.class
+jsfui/MerchantAdminBean.class
 ir/jnf/maven/libs/Kernel/soapClients/paymentGateway/mellat/IPaymentGateway.class
 jsfui/Brand.class
 ir/jnf/maven/libs/Kernel/soapClients/paymentGateway/mellat/BpVerifyRequestResponse.class
 jsfui/SliderBean.class
 jsfui/LoginBean.class
+jsfui/SearchMapBean.class
+jsfui/TempBean.class
 jsfui/EmailValidate.class
 jsfui/MerchantPageGmap.class
 jsfui/SuperAdminBean.class

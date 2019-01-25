@@ -21,49 +21,67 @@
 				style="padding-left:100px; font-size:22px; text-decoration: none!important;" />
 		</h:form>
 		<h:form>
-		<p:dataTable var="shaki"
-			value="#{shekayatBean.findAllShekayatOrder()}" rows="10"
-			rowKey="#{shki.shekayatId}" paginator="true" resizableColumns="true"
-			liveResize="true"
-			paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-			rowsPerPageTemplate="5,10,15" dir="rtl" style="margin:20px">
+			<p:dataTable var="shaki"
+				value="#{shekayatBean.findAllShekayatOrder()}" rows="10"
+				rowKey="#{shki.shekayatId}" paginator="true" resizableColumns="true"
+				liveResize="true"
+				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15" dir="rtl" style="margin:20px">
 
-			<f:facet name="header">
+				<f:facet name="header">
             DataTable
         </f:facet>
-			<p:column headerText="Id" filterBy="#{shaki.shekayatId}"
-				sortBy="#{shaki.shekayatId}">
-				<h:outputText value="#{shaki.shekayatId}" />
-			</p:column>
+				<p:column headerText="Id" filterBy="#{shaki.shekayatId}"
+					sortBy="#{shaki.shekayatId}">
+					<h:outputText value="#{shaki.shekayatId}" />
+				</p:column>
 
-			<p:column headerText="نام" filterBy="#{shaki.shakiName}"
-				sortBy="#{shaki.shekayatId}">
-				<h:outputText value="#{shaki.shakiName}" />
-			</p:column>
+				<p:column headerText="نام" filterBy="#{shaki.shakiName}"
+					filterMatchMode="contains" sortBy="#{shaki.shekayatId}">
+					<h:outputText value="#{shaki.shakiName}" />
+				</p:column>
 
-			<p:column headerText="کد ملی شاکی" filterBy="#{shaki.shakiSsn}"
-				sortBy="#{shaki.shekayatId}">
-				<h:outputText value="#{shaki.shakiSsn}" />
-			</p:column>
+				<p:column headerText="کد ملی شاکی" filterBy="#{shaki.shakiSsn}"
+					sortBy="#{shaki.shekayatId}">
+					<h:outputText value="#{shaki.shakiSsn}" />
+				</p:column>
 
-			<p:column headerText="شماره رهگیری" filterBy="#{shaki.shomare}"
-				sortBy="#{shaki.shekayatId}">
-				<h:outputText value="#{shaki.shomare}" />
-			</p:column>
+				<p:column headerText="شماره رهگیری" filterBy="#{shaki.shomare}"
+					sortBy="#{shaki.shekayatId}">
+					<h:outputText value="#{shaki.shomare}" />
+				</p:column>
 
-			<p:column headerText="رسیدگی">
-				<p:button value="رسیدگی" outcome="shekayatedit.xhtml">
-					<f:param value="#{shaki.shekayatId}" name="shakiId" />
-				</p:button>
-			</p:column>
+				<p:column headerText="رسیدگی">
+					<p:button value="رسیدگی" outcome="shekayatedit.xhtml">
+						<f:param value="#{shaki.shekayatId}" name="shakiId" />
+					</p:button>
+				</p:column>
 
-			<p:column headerText="وضعیت">
-				<p:outputPanel rendered="#{shaki.checkO}">
-					<h:outputText value="رسیدگی شد" style="color:red;" />
-				</p:outputPanel>
+				<p:column width="100">
+					<f:facet name="header">
+						<h:outputText value="حذف" />
+					</f:facet>
+					<p:commandButton value="delete"
+						action="#{shekayatBean.deleteShekayatEntity(shaki.shekayatId)}"
+						style="width:100%!important;">
+						<p:confirm header="Confirmation" message="Are you sure?"
+							icon="ui-icon-alert" />
+					</p:commandButton>
+					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+						<p:commandButton value="Yes" type="button"
+							styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+						<p:commandButton value="No" type="button"
+							styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+					</p:confirmDialog>
+				</p:column>
 
-			</p:column>
-		</p:dataTable>
+				<p:column headerText="وضعیت">
+					<p:outputPanel rendered="#{shaki.checkO}">
+						<h:outputText value="رسیدگی شد" style="color:red;" />
+					</p:outputPanel>
+
+				</p:column>
+			</p:dataTable>
 		</h:form>
 	</div>
 </h:body>

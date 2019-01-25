@@ -3,8 +3,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:o="http://omnifaces.org/ui" 
-	xmlns:p="http://primefaces.org/ui"
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui"
 	xmlns:b="http://bootsfaces.net/ui">
 
 <h:head></h:head>
@@ -22,8 +21,19 @@
 			<meta name="ICBM"
 				content="#{merchantAddres.findAddresByMerchant2(merchantPageBean.findByMerchantShop(shopName).merchantId).merchandWidth}, #{merchantAddres.findAddresByMerchant2(merchantPageBean.findByMerchantShop(shopName).merchantId).merchantHeight}" />
 
-	<link href="resources/css/merchant.css"
-		rel="stylesheet" type="text/css" />
+			<link href="resources/css/merchant.css" rel="stylesheet"
+				type="text/css" />
+			<style>
+.prdc {
+	padding: 20px;
+	border: 0.5px ridge;
+}
+
+.prdc:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+}
+</style>
 		</ui:define>
 
 		<ui:define name="maintemp">
@@ -95,7 +105,8 @@
 
 
 
-				</div><br/>
+				</div>
+				<br />
 
 
 				<div class="row"
@@ -142,451 +153,90 @@
 			<br />
 			<p:outputPanel
 				rendered="#{merchantPageBean.findMerchantByEng(shopName).merchantGroup.equals('طلایی')}">
-				<!-- / Page Ends -->
-				<!-- Featured Product  Start -->
-				<section class="sec-space">
-				<div class="container theme-container">
-
-					<h2 class="section-title"
-						style="font-family: 'IRANSansBold' !important; text-align: center; color: dimgrey;">
-						محصولات</h2>
-
-					<div id="prod-featured-slider" class="prod-featured-slider nav-1">
-						<div class="item">
-							<div class="prod-wrap pt-50">
-								<figure>
-								<div class="prod-img">
-									<a href="#" class="img-hover"> <img
-										src="resources/images/pro2.jpg" alt="product" />
-									</a> <span class="prod-cat">camera D4 LG</span>
-									<div class="prod-tag-1 font-2">
-										<span style="font-family: 'IRANSansNor' !important;">
-											NEW </span>
-									</div>
-									<a class="caption-link meta-icon" data-toggle="modal" href="#">
-										<span class="fa fa-eye"> </span>
-									</a>
-								</div>
-								<figcaption class="prod-content">
-								<h2 class="prod-title">
-									<a href="#" style="font-family: 'IRANSansNor' !important;">محصول
-										جدید از کمپانی ..</a>
-								</h2>
-								<div class="block-inline">
-									<div class="rating">
-										<span class="star active"></span> <span class="star active"></span>
-										<span class="star active"></span> <span class="star"></span> <span
-											class="star"></span>
-									</div>
-									<div class="prod-price font-2">
-										<ins style="font-family: 'IRANSansNor' !important;">۴۸۰۰۰۰</ins>
-										<del style="font-family: 'IRANSansNor' !important;">۵۶۰۰۰۰</del>
-									</div>
-								</div>
-								<div class="block-inline">
-									<ul class="prod-meta">
-										<li><a href="#" class="fa fa-heart meta-icon"></a></li>
-										<li><a href="#" class="fa fa-retweet meta-icon"></a></li>
-										<li><a href="#" class="theme-btn btn-black"
-											style="font-family: 'IRANSansNor' !important;"> اضافه به
-												سبد </a></li>
-									</ul>
-								</div>
-								</figcaption> </figure>
+				<div class="container theme-container pt-70">
+					<div class="row">
+						<ui:repeat var="prc"
+							value="#{merchantPageBean.findDedicate(shopName)}" size="3">
+							<div class="col-md-4 col-sm-12 prdc" align="right">
+								<o:graphicImage id="ig1ee" value="#{prc.product.productImage1}"
+									dataURI="true" style="margin-bottom:5px; width:100%;"/>
+								<p style="font-family: 'IRANSansNor' !important;">
+									نوع محصول :
+									<h:outputText value="#{prc.product.productCategry}" />
+								</p>
+								<p style="font-family: 'IRANSansNor' !important;">
+									برند محصول :
+									<h:outputText value="#{prc.product.productBrand}" />
+								</p>
+								<p style="font-family: 'IRANSansNor' !important;">
+									مدل محصول :
+									<h:outputText value="#{prc.product.productModel}" />
+								</p>
+								<p
+									style="font-family: 'IRANSansBold'; text-align: left;">
+									قیمت :
+									<h:outputText value="#{prc.price}" />
+									ریال
+								<del style="color: gray!important; font-family: 'IRANSansNor' !important;">
+									<h:outputText value="#{prc.oldPrice}" />
+									ریال
+								</del>
+								</p>
+								<p
+									style="font-family: 'IRANSansBold' !important; text-align: center; color: black!important;">
+									<p:link outcome="productdetail.xhtml" value="جزییات بیشتر">
+										<f:param name="productId" value="#{prc.product.productId}" />
+										<f:param name="dedId" value="#{prc.dedicatedId}" />
+									</p:link>
+								</p>
 							</div>
-						</div>
-						<div class="item">
-							<div class="prod-wrap pt-50">
-								<figure>
-								<div class="prod-img">
-									<a href="#" class="img-hover"> <img
-										src="resources/images/apple.jpg" alt="product" />
-									</a> <span class="prod-cat">Apple 7</span>
-									<div class="prod-tag-1 font-2"
-										style="font-family: 'IRANSansNor' !important;">
-										<span> NEW </span>
-									</div>
-									<a class="caption-link meta-icon" data-toggle="modal" href="#">
-										<span class="fa fa-eye"> </span>
-									</a>
-								</div>
-								<figcaption class="prod-content">
-								<h2 class="prod-title">
-									<a href="#" style="font-family: 'IRANSansNor' !important;">
-										زیبا ترین و قویترین محصول .. </a>
-								</h2>
-								<div class="block-inline">
-									<div class="rating">
-										<span class="star active"></span> <span class="star active"></span>
-										<span class="star active"></span> <span class="star"></span> <span
-											class="star"></span>
-									</div>
-									<div class="prod-price font-2">
-										<ins style="font-family: 'IRANSansNor' !important;">۳۰۰۰۰۰۰</ins>
-										<del style="font-family: 'IRANSansNor' !important;">۳۶۰۰۰۰۰</del>
-									</div>
-								</div>
-								<div class="block-inline">
-									<ul class="prod-meta">
-										<li><a href="#" class="fa fa-heart meta-icon"></a></li>
-										<li><a href="#" class="fa fa-retweet meta-icon"></a></li>
-										<li><a href="#" class="theme-btn btn-black"
-											style="font-family: 'IRANSansNor' !important;"> اضافه به
-												سبد </a></li>
-									</ul>
-								</div>
-								</figcaption> </figure>
-							</div>
-						</div>
-						<div class="item">
-							<div class="prod-wrap pt-50">
-								<figure>
-								<div class="prod-img">
-									<a href="#" class="img-hover"> <img
-										src="resources/images/pro3.jpg" alt="product" />
-									</a> <span class="prod-cat">Yamaha t1</span>
-									<div class="prod-tag-1 font-2">
-										<span style="font-family: 'IRANSansNor' !important;">
-											NEW </span>
-									</div>
-									<a class="caption-link meta-icon" data-toggle="modal" href="#">
-										<span class="fa fa-eye"> </span>
-									</a>
-								</div>
-								<figcaption class="prod-content">
-								<h2 class="prod-title">
-									<a href="#" style="font-family: 'IRANSansNor' !important;">
-										جدیدترین محصول شرکت یاماها .. </a>
-								</h2>
-								<div class="block-inline">
-									<div class="rating">
-										<span class="star active"></span> <span class="star active"></span>
-										<span class="star active"></span> <span class="star"></span> <span
-											class="star"></span>
-									</div>
-									<div class="prod-price font-2">
-										<ins style="font-family: 'IRANSansNor' !important;">۱۱۳۰۰۰۰</ins>
-										<del style="font-family: 'IRANSansNor' !important;">۲۰۰۰۰۰۰</del>
-									</div>
-								</div>
-								<div class="block-inline">
-									<ul class="prod-meta">
-										<li><a href="#" class="fa fa-heart meta-icon"></a></li>
-										<li><a href="#" class="fa fa-retweet meta-icon"></a></li>
-										<li><a href="#" class="theme-btn btn-black"
-											style="font-family: 'IRANSansNor' !important;"> اضافه به
-												سبد </a></li>
-									</ul>
-								</div>
-								</figcaption> </figure>
-							</div>
-						</div>
-						<div class="item">
-							<div class="prod-wrap pt-50">
-								<figure>
-								<div class="prod-img">
-									<a href="#" class="img-hover"> <img
-										src="resources/images/ps4.jpg" alt="product" />
-									</a> <span class="prod-cat">PS4</span>
-									<div class="prod-tag-1 font-2">
-										<span style="font-family: 'IRANSansNor' !important;">
-											NEW </span>
-									</div>
-									<a class="caption-link meta-icon" data-toggle="modal" href="#">
-										<span class="fa fa-eye"> </span>
-									</a>
-								</div>
-								<figcaption class="prod-content">
-								<h2 class="prod-title">
-									<a href="#" style="font-family: 'IRANSansNor' !important;">
-										این محصول فوق العاده از .. </a>
-								</h2>
-								<div class="block-inline">
-									<div class="rating">
-										<span class="star active"></span> <span class="star active"></span>
-										<span class="star active"></span> <span class="star"></span> <span
-											class="star"></span>
-									</div>
-									<div class="prod-price font-2">
-										<ins>۲۰۰۰۰۰۰</ins>
-									</div>
-								</div>
-								<div class="block-inline">
-									<ul class="prod-meta">
-										<li><a href="#" class="fa fa-heart meta-icon"></a></li>
-										<li><a href="#" class="fa fa-retweet meta-icon"></a></li>
-										<li><a href="#" class="theme-btn btn-black"
-											style="font-family: 'IRANSansNor' !important;"> اضافه به
-												سبد </a></li>
-									</ul>
-								</div>
-								</figcaption> </figure>
-							</div>
-						</div>
-						<div class="item">
-							<div class="prod-wrap pt-50">
-								<figure>
-								<div class="prod-img">
-									<a href="#" class="img-hover"> <img
-										src="resources/images/pro1.jpg" alt="product" />
-									</a> <span class="prod-cat">PS4</span>
-									<div class="prod-tag-1 font-2">
-										<span style="font-family: 'IRANSansNor' !important;">
-											NEW </span>
-									</div>
-									<a class="caption-link meta-icon" data-toggle="modal" href="#">
-										<span class="fa fa-eye"> </span>
-									</a>
-								</div>
-								<figcaption class="prod-content">
-								<h2 class="prod-title">
-									<a href="#" style="font-family: 'IRANSansNor' !important;">
-										این محصول فوق العاده از .. </a>
-								</h2>
-								<div class="block-inline">
-									<div class="rating">
-										<span class="star active"></span> <span class="star active"></span>
-										<span class="star active"></span> <span class="star"></span> <span
-											class="star"></span>
-									</div>
-									<div class="prod-price font-2">
-										<ins>۲۰۰۰۰۰۰</ins>
-									</div>
-								</div>
-								<div class="block-inline">
-									<ul class="prod-meta">
-										<li><a href="#" class="fa fa-heart meta-icon"></a></li>
-										<li><a href="#" class="fa fa-retweet meta-icon"></a></li>
-										<li><a href="#" class="theme-btn btn-black"
-											style="font-family: 'IRANSansNor' !important;"> اضافه به
-												سبد </a></li>
-									</ul>
-								</div>
-								</figcaption> </figure>
-							</div>
-						</div>
+						</ui:repeat>
 					</div>
 				</div>
-				</section>
-				<!-- / Featured Product Ends -->
-				<!-- Products Brand Starts-->
-			</p:outputPanel> <p:outputPanel
+			</p:outputPanel> <br />
+			<p:outputPanel
 				rendered="#{merchantPageBean.findMerchantByEng(shopName).merchantGroup.equals('نقره ای')}">
-				<!-- / Page Ends -->
-				<!-- Featured Product  Start -->
-				<section class="sec-space">
-				<div class="container theme-container">
-
-					<h2 class="section-title"
-						style="font-family: 'IRANSansBold' !important; text-align: center; color: dimgrey;">
-						محصولات</h2>
-
-					<div id="prod-featured-slider" class="prod-featured-slider nav-1">
-						<div class="item">
-							<div class="prod-wrap pt-50">
-								<figure>
-								<div class="prod-img">
-									<a href="#" class="img-hover"> <img
-										src="resources/images/pro2.jpg" alt="product" />
-									</a> <span class="prod-cat">camera D4 LG</span>
-									<div class="prod-tag-1 font-2">
-										<span style="font-family: 'IRANSansNor' !important;">
-											NEW </span>
-									</div>
-									<a class="caption-link meta-icon" data-toggle="modal" href="#">
-										<span class="fa fa-eye"> </span>
-									</a>
-								</div>
-								<figcaption class="prod-content">
-								<h2 class="prod-title">
-									<a href="#" style="font-family: 'IRANSansNor' !important;">محصول
-										جدید از کمپانی ..</a>
-								</h2>
-								<div class="block-inline">
-									<div class="rating">
-										<span class="star active"></span> <span class="star active"></span>
-										<span class="star active"></span> <span class="star"></span> <span
-											class="star"></span>
-									</div>
-									<div class="prod-price font-2"></div>
-								</div>
-								<div class="block-inline">
-									<ul class="prod-meta">
-										<li><a href="#" class="fa fa-heart meta-icon"></a></li>
-										<li><a href="#" class="fa fa-retweet meta-icon"></a></li>
-										<li><a href="#" class="theme-btn btn-black"
-											style="font-family: 'IRANSansNor' !important;"> اضافه به
-												سبد </a></li>
-									</ul>
-								</div>
-								</figcaption> </figure>
+				<div class="container theme-container pt-70">
+					<div class="row">
+						<ui:repeat var="prc"
+							value="#{merchantPageBean.findDedicate(shopName)}" size="3">
+							<div class="col-md-4 col-sm-12 prdc" align="right">
+								<o:graphicImage id="ig1ee" value="#{prc.product.productImage1}"
+									dataURI="true" style="margin-bottom:5px; width:100%;"/>
+								<p style="font-family: 'IRANSansNor' !important;">
+									نوع محصول :
+									<h:outputText value="#{prc.product.productCategry}" />
+								</p>
+								<p style="font-family: 'IRANSansNor' !important;">
+									برند محصول :
+									<h:outputText value="#{prc.product.productBrand}" />
+								</p>
+								<p style="font-family: 'IRANSansNor' !important;">
+									مدل محصول :
+									<h:outputText value="#{prc.product.productModel}" />
+								</p>
+								<p
+									style="font-family: 'IRANSansBold' !important; text-align: center; color: black!important;">
+									<p:link outcome="productdetail.xhtml" value="جزییات بیشتر">
+										<f:param name="productId" value="#{prc.product.productId}" />
+										<f:param name="dedId" value="#{prc.dedicatedId}" />
+									</p:link>
+								</p>
 							</div>
-						</div>
-						<div class="item">
-							<div class="prod-wrap pt-50">
-								<figure>
-								<div class="prod-img">
-									<a href="#" class="img-hover"> <img
-										src="resources/images/apple.jpg" alt="product" />
-									</a> <span class="prod-cat">Apple 7</span>
-									<div class="prod-tag-1 font-2"
-										style="font-family: 'IRANSansNor' !important;">
-										<span> NEW </span>
-									</div>
-									<a class="caption-link meta-icon" data-toggle="modal" href="#">
-										<span class="fa fa-eye"> </span>
-									</a>
-								</div>
-								<figcaption class="prod-content">
-								<h2 class="prod-title">
-									<a href="#" style="font-family: 'IRANSansNor' !important;">
-										زیبا ترین و قویترین محصول .. </a>
-								</h2>
-								<div class="block-inline">
-									<div class="rating">
-										<span class="star active"></span> <span class="star active"></span>
-										<span class="star active"></span> <span class="star"></span> <span
-											class="star"></span>
-									</div>
-									<div class="prod-price font-2"></div>
-								</div>
-								<div class="block-inline">
-									<ul class="prod-meta">
-										<li><a href="#" class="fa fa-heart meta-icon"></a></li>
-										<li><a href="#" class="fa fa-retweet meta-icon"></a></li>
-										<li><a href="#" class="theme-btn btn-black"
-											style="font-family: 'IRANSansNor' !important;"> اضافه به
-												سبد </a></li>
-									</ul>
-								</div>
-								</figcaption> </figure>
-							</div>
-						</div>
-						<div class="item">
-							<div class="prod-wrap pt-50">
-								<figure>
-								<div class="prod-img">
-									<a href="#" class="img-hover"> <img
-										src="resources/images/pro3.jpg" alt="product" />
-									</a> <span class="prod-cat">Yamaha t1</span>
-									<div class="prod-tag-1 font-2">
-										<span style="font-family: 'IRANSansNor' !important;">
-											NEW </span>
-									</div>
-									<a class="caption-link meta-icon" data-toggle="modal" href="#">
-										<span class="fa fa-eye"> </span>
-									</a>
-								</div>
-								<figcaption class="prod-content">
-								<h2 class="prod-title">
-									<a href="#" style="font-family: 'IRANSansNor' !important;">
-										جدیدترین محصول شرکت یاماها .. </a>
-								</h2>
-								<div class="block-inline">
-									<div class="rating">
-										<span class="star active"></span> <span class="star active"></span>
-										<span class="star active"></span> <span class="star"></span> <span
-											class="star"></span>
-									</div>
-									<div class="prod-price font-2"></div>
-								</div>
-								<div class="block-inline">
-									<ul class="prod-meta">
-										<li><a href="#" class="fa fa-heart meta-icon"></a></li>
-										<li><a href="#" class="fa fa-retweet meta-icon"></a></li>
-										<li><a href="#" class="theme-btn btn-black"
-											style="font-family: 'IRANSansNor' !important;"> اضافه به
-												سبد </a></li>
-									</ul>
-								</div>
-								</figcaption> </figure>
-							</div>
-						</div>
-						<div class="item">
-							<div class="prod-wrap pt-50">
-								<figure>
-								<div class="prod-img">
-									<a href="#" class="img-hover"> <img
-										src="resources/images/ps4.jpg" alt="product" />
-									</a> <span class="prod-cat">PS4</span>
-									<div class="prod-tag-1 font-2">
-										<span style="font-family: 'IRANSansNor' !important;">
-											NEW </span>
-									</div>
-									<a class="caption-link meta-icon" data-toggle="modal" href="#">
-										<span class="fa fa-eye"> </span>
-									</a>
-								</div>
-								<figcaption class="prod-content">
-								<h2 class="prod-title">
-									<a href="#" style="font-family: 'IRANSansNor' !important;">
-										این محصول فوق العاده از .. </a>
-								</h2>
-								<div class="block-inline">
-									<div class="rating">
-										<span class="star active"></span> <span class="star active"></span>
-										<span class="star active"></span> <span class="star"></span> <span
-											class="star"></span>
-									</div>
-									<div class="prod-price font-2"></div>
-								</div>
-								<div class="block-inline">
-									<ul class="prod-meta">
-										<li><a href="#" class="fa fa-heart meta-icon"></a></li>
-										<li><a href="#" class="fa fa-retweet meta-icon"></a></li>
-										<li><a href="#" class="theme-btn btn-black"
-											style="font-family: 'IRANSansNor' !important;"> اضافه به
-												سبد </a></li>
-									</ul>
-								</div>
-								</figcaption> </figure>
-							</div>
-						</div>
-						<div class="item">
-							<div class="prod-wrap pt-50">
-								<figure>
-								<div class="prod-img">
-									<a href="#" class="img-hover"> <img
-										src="resources/images/pro1.jpg" alt="product" />
-									</a> <span class="prod-cat">PS4</span>
-									<div class="prod-tag-1 font-2">
-										<span style="font-family: 'IRANSansNor' !important;">
-											NEW </span>
-									</div>
-									<a class="caption-link meta-icon" data-toggle="modal" href="#">
-										<span class="fa fa-eye"> </span>
-									</a>
-								</div>
-								<figcaption class="prod-content">
-								<h2 class="prod-title">
-									<a href="#" style="font-family: 'IRANSansNor' !important;">
-										این محصول فوق العاده از .. </a>
-								</h2>
-								<div class="block-inline">
-									<div class="rating">
-										<span class="star active"></span> <span class="star active"></span>
-										<span class="star active"></span> <span class="star"></span> <span
-											class="star"></span>
-									</div>
-									<div class="prod-price font-2"></div>
-								</div>
-								<div class="block-inline">
-									<ul class="prod-meta">
-										<li><a href="#" class="fa fa-heart meta-icon"></a></li>
-										<li><a href="#" class="fa fa-retweet meta-icon"></a></li>
-										<li><a href="#" class="theme-btn btn-black"
-											style="font-family: 'IRANSansNor' !important;"> اضافه به
-												سبد </a></li>
-									</ul>
-								</div>
-								</figcaption> </figure>
-							</div>
-						</div>
+						</ui:repeat>
 					</div>
 				</div>
-				</section>
-				<!-- / Featured Product Ends -->
-				<!-- Products Brand Starts-->
+			</p:outputPanel> <br />
+
+
+			<p:outputPanel
+				rendered="#{!merchantPageBean.findMerchantByEng(shopName).merchantGroup.equals('برنزی')}">
+				<div align="center">
+					<p:link outcome="merchantproducts.xhtml" value="دیدن تمامی محصولات">
+						<f:param name="shopName" value="#{shopName}" />
+					</p:link>
+				</div>
+				<br />
 			</p:outputPanel> <section class="prod-brand-sec ptb-50 pattern-bg-1">
 			<div class="container theme-container text-center">
 				<h2 class="section-title pb-40"

@@ -65,7 +65,7 @@
 												<p:outputLabel for="tele"
 													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
 													value="تلفن ثابت" />
-												<p:inputText styleClass="it" id="tele" dir="ltr" placeholder="21xxxxxxxx"
+												<p:inputText styleClass="it" id="tele" dir="ltr" placeholder="021xxxxxxxx"
 													value="#{shekayatBean.shakiPhone}"
 													style=" width: 100%; background-color: white !important;">
 													<f:validateLength minimum="0" maximum="14" />
@@ -226,10 +226,10 @@
 
 												<p:outputLabel for="fac"
 													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
-													value="فاکتور" />
+													value="تصویر فاکتور" />
 												<h:inputFile id="fac" styleClass="it2"  value="#{shekayatBean.shakiFactor}" style="background-color: #dddddd;"
 													required="true"
-													requiredMessage="تصویر مناسب با فرمت jpg or png با حجم کمتر از 400k">
+													requiredMessage="jpg or png">
 													<f:validator validatorId="shekayatValidator" />
 												</h:inputFile>
 												
@@ -252,7 +252,7 @@
 						<div class="col-sm-12" id="ds2" style="display: none;">
 							<h:form enctype="multipart/form-data">
 
-								<p:growl id="growl" sticky="true" showDetail="true" />
+								<p:growl id="growl" />
 								<p:wizard>
 									<p:tab id="personal" title="خواهان">
 										<p:panel header="اطلاعات خواهان">
@@ -443,10 +443,10 @@
 
 												<p:outputLabel for="fac"
 													style="font-family: 'IRANSansNor' !important; font-size:16px; background-color: #dddddd;"
-													value="فاکتور" />
+													value="تصویر فاکتور" />
 												<h:inputFile id="fac" styleClass="it2"  value="#{shekayatBean.shakiFactor}" style="background-color: #dddddd;"
 													required="true"
-													requiredMessage="تصویر مناسب با فرمت jpg or png با حجم کمتر از 400k">
+													requiredMessage="jpg or png">
 													<f:validator validatorId="shekayatValidator" />
 												</h:inputFile>
 												

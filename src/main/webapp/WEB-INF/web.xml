@@ -6,7 +6,7 @@
     <javaee:param-value>.xhtml</javaee:param-value>
   </javaee:context-param>
   	<javaee:session-config>
-		<javaee:session-timeout>20</javaee:session-timeout>
+		<javaee:session-timeout>59</javaee:session-timeout>
 	</javaee:session-config>
   <javaee:welcome-file-list>
     <javaee:welcome-file>/home.xhtml</javaee:welcome-file>

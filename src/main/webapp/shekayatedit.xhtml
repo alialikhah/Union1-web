@@ -20,6 +20,14 @@
 	font-weight: normal;
 	width: 100% !important;
 }
+
+.ui-panelgrid .ui-panelgrid-cell {
+	border-width: 1px;
+	border-style: solid;
+	border-color: inherit;
+	padding: 4px 10px;
+	text-align: justify;
+}
 </style>
 </h:head>
 <ui:define name="metadata">
@@ -37,32 +45,44 @@
 		<br />
 		<p:panel id="pnl" header="اطلاعات شکایت"
 			style="text-align:center; margin:20px;">
-			<p:graphicImage value="resources/images/logo_black.png" width="50"
-				height="50" />
-			<p:panelGrid columns="2" id="pg" layout="grid"
-				style="border:1px solid;">
 
+			<p:panelGrid columns="2" style="direction:rtl; width:100%">
+
+				<f:facet name="header">
+					<p:graphicImage value="resources/images/logo_black.png" width="50"
+						height="50" />
+				</f:facet>
 				<p:outputLabel
 					style="color:red!important; font-family: 'IRANSansBold' !important; font-size:30px;"
 					for="inputccc" value="خواهان" />
 				<p:outputLabel id="inputccc" value="" />
 
 				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
-					for="input55" value="شماره" />
-				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					for="input55" value="شماره ردیف" />
+				<p:outputLabel
+					style="font-family: 'IRANSansNor' !important; text-align:justify;"
 					id="input55"
 					value="#{shekayatBean.findShekayatById(shakiId).shekayatId}" />
 
-				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
-					for="input5x5" value="تاریخ درج شکایت" />
+				<p:outputLabel
+					style="font-family: 'IRANSansBold' !important; font-size: 16px;"
+					for="area1233" value="شماره رهگیری" />
 				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
-					id="input5x5"
-					value="#{shekayatBean.convertToJalali(shakiId)}" />
+					id="area1233"
+					value="#{shekayatBean.findShekayatById(shakiId).shomare}" />
+
+				<p:outputLabel
+					style="font-family: 'IRANSansBold' !important; font-size: 15px;"
+					for="input5x5" value="تاریخ شکایت" />
+				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+					id="input5x5" value="#{shekayatBean.convertToJalali(shakiId)}" />
 
 
-				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+				<p:outputLabel
+					style="font-family: 'IRANSansBold' !important; font-size: 12px;"
 					for="input" value="نام و نام خانوادگی" />
-				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+				<p:outputLabel
+					style="font-family: 'IRANSansNor' !important; text-align:justify;"
 					id="input"
 					value="#{shekayatBean.findShekayatById(shakiId).shakiName}" />
 
@@ -98,7 +118,8 @@
 
 				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
 					for="area" value="آدرس" />
-				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+				<p:outputLabel
+					style="font-family: 'IRANSansNor' !important; text-align:justify;"
 					id="area" dir="rtl"
 					value="#{shekayatBean.findShekayatById(shakiId).shakiAddres}" />
 
@@ -107,7 +128,8 @@
 					for="areaxxx" value="خوانده" />
 				<p:outputLabel id="areaxxx" value="" />
 
-				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+				<p:outputLabel
+					style="font-family: 'IRANSansBold' !important; font-size: 15px;"
 					for="input1" value="نام واحد صنفی" />
 				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
 					id="input1"
@@ -119,7 +141,8 @@
 					id="input2"
 					value="#{shekayatBean.findShekayatById(shakiId).motesadiName}" />
 
-				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+				<p:outputLabel
+					style="font-family: 'IRANSansBold' !important; font-size: 13px;"
 					for="tele2" value="تلفن واحد صنفی" />
 				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
 					id="tele2" dir="ltr"
@@ -146,28 +169,34 @@
 
 				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
 					for="area2" value="آدرس" />
-				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+				<p:outputLabel
+					style="font-family: 'IRANSansNor' !important; text-align:justify;"
 					id="area2"
 					value="#{shekayatBean.findShekayatById(shakiId).vahedeShenaseAddres}" />
 
-				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+				<p:outputLabel
+					style="font-family: 'IRANSansBold' !important; font-size: 16px;"
 					for="onemenu" value="عنوان شکایت" />
-				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+				<p:outputLabel
+					style="font-family: 'IRANSansNor' !important; text-align:justify;"
 					id="onemenu"
 					value="#{shekayatBean.findShekayatById(shakiId).shekayatTitle}" />
 
 				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
 					for="area3" value="شرح شکایت" />
-				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+				<p:outputLabel
+					style="font-family: 'IRANSansNor' !important; text-align:justify;"
 					id="area3" value="#{shekayatBean.findShekayatById(shakiId).sharh}" />
 
 				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
 					for="area323" value="وضعیت" />
-				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
+				<p:outputLabel
+					style="font-family: 'IRANSansNor' !important; text-align:justify;"
 					id="area323"
 					value="#{shekayatBean.findShekayatById(shakiId).vaziat}" />
 
-				<p:outputLabel style="font-family: 'IRANSansBold' !important;"
+				<p:outputLabel
+					style="font-family: 'IRANSansBold' !important; font-size: 16px;"
 					for="area13" value="شماره رهگیری" />
 				<p:outputLabel style="font-family: 'IRANSansNor' !important;"
 					id="area13"
@@ -184,6 +213,264 @@
 			</p:panelGrid>
 		</p:panel>
 		<br />
+				<p:panel id="pnlx" header="جدول ویرايش"
+			style="text-align:center; margin:20px;">
+		<p:panelGrid columns="4" style="direction:rtl!important" >
+
+			<p:outputLabel value="نام خواهان" style="font-family: 'IRANSansBold' !important;"/>
+			<p:outputLabel
+				value="#{shekayatBean.findShekayatById2(shakiId).shakiName}"
+				id="txt1" />
+			<h:form id="frm1" style="display:none">
+				<p:inputText value="#{shekayatBean.shakiName}" />
+				<p:commandButton value="ثبت تغییرات"
+					action="#{shekayatBean.updateShakiName(shakiId)}" />
+			</h:form>
+			<p:commandButton value="ویرایش">
+				<p:effect type="explode" event="click" for="frm1">
+					<f:param name="mode" value="'show'" />
+				</p:effect>
+			</p:commandButton>
+
+			<h:outputText value="موبایل خواهان" style="font-family: 'IRANSansBold' !important;"/>
+			<h:outputText
+				value="#{shekayatBean.findShekayatById2(shakiId).shakiMobile}" />
+			<h:form id="frm9" style="display:none">
+				<p:inputMask id="merchantInterfaceMobile" mask="99999999999"
+					value="#{shekayatBean.shakiMobile}" label="Surname" size="50"
+					styleClass="ali" />
+				<p:commandButton value="ثبت تغییرات"
+					action="#{shekayatBean.updateShakiMobile(shakiId)}" />
+			</h:form>
+			<p:commandButton value="ویرایش">
+				<p:effect type="explode" event="click" for="frm9">
+					<f:param name="mode" value="'show'" />
+				</p:effect>
+			</p:commandButton>
+
+
+
+			<h:outputText value="کد ملی خواهان" style="font-family: 'IRANSansBold' !important;"/>
+			<h:outputText
+				value="#{shekayatBean.findShekayatById2(shakiId).shakiSsn}" />
+			<h:form id="frm933" style="display:none">
+				<p:inputMask id="merchantInterfaceMobile3" mask="9999999999"
+					value="#{shekayatBean.shakiSsn}" label="Surname" size="50"
+					styleClass="ali" />
+				<p:commandButton value="ثبت تغییرات"
+					action="#{shekayatBean.updateShakiSsn(shakiId)}" />
+			</h:form>
+			<p:commandButton value="ویرایش">
+				<p:effect type="explode" event="click" for="frm933">
+					<f:param name="mode" value="'show'" />
+				</p:effect>
+			</p:commandButton>
+
+
+			<h:outputText value="تلفن خواهان" style="font-family: 'IRANSansBold' !important;"/>
+			<h:outputText
+				value="#{shekayatBean.findShekayatById2(shakiId).shakiPhone}" />
+			<h:form id="frm329" style="display:none">
+				<p:inputMask id="merchantInterfaceMobileer" mask="99999999999"
+					value="#{shekayatBean.shakiPhone}" label="Surname" size="50"
+					styleClass="ali" />
+				<p:commandButton value="ثبت تغییرات"
+					action="#{shekayatBean.updateShakiPhone(shakiId)}" />
+			</h:form>
+			<p:commandButton value="ویرایش">
+				<p:effect type="explode" event="click" for="frm329">
+					<f:param name="mode" value="'show'" />
+				</p:effect>
+			</p:commandButton>
+
+
+			<p:outputLabel value="ایمیل خواهان" style="font-family: 'IRANSansBold' !important;"/>
+			<p:outputLabel
+				value="#{shekayatBean.findShekayatById2(shakiId).shakiEmail}"
+				id="txt2" />
+			<h:form id="frm144" style="display:none">
+				<p:inputText value="#{shekayatBean.shakiEmail}" />
+				<p:commandButton value="ثبت تغییرات"
+					action="#{shekayatBean.updateShakiEmail(shakiId)}" />
+			</h:form>
+			<p:commandButton value="ویرایش">
+				<p:effect type="explode" event="click" for="frm144">
+					<f:param name="mode" value="'show'" />
+				</p:effect>
+			</p:commandButton>
+
+
+			<h:outputText value="کد پستی خواهان" style="font-family: 'IRANSansBold' !important;"/>
+			<h:outputText
+				value="#{shekayatBean.findShekayatById2(shakiId).shakiPostCode}" />
+			<h:form id="frm32w9" style="display:none">
+				<p:inputMask id="merchantInterfaceMobileerww" mask="9999999999"
+					value="#{shekayatBean.shakiPostCode}" label="Surname" size="50"
+					styleClass="ali" />
+				<p:commandButton value="ثبت تغییرات"
+					action="#{shekayatBean.updatePostCode(shakiId)}" />
+			</h:form>
+			<p:commandButton value="ویرایش">
+				<p:effect type="explode" event="click" for="frm32w9">
+					<f:param name="mode" value="'show'" />
+				</p:effect>
+			</p:commandButton>
+
+
+			<h:outputText value="آدرس خواهان" style="font-family: 'IRANSansBold' !important;"/>
+			<h:outputText
+				value="#{shekayatBean.findShekayatById2(shakiId).shakiAddres}" />
+			<h:form id="frm29" style="display:none">
+				<p:inputTextarea id="merchantDescription" rows="20" cols="100"
+					autoResize="false" value="#{shekayatBean.shakiAddres}"
+					required="true" label="merchantDescription">
+					<f:validateLength minimum="2" maximum="5000" />
+				</p:inputTextarea>
+				<p:commandButton value="ثبت تغییرات"
+					action="#{shekayatBean.updateShakiAddres(shakiId)}" />
+			</h:form>
+			<p:commandButton value="ویرایش">
+				<p:effect type="explode" event="click" for="frm29">
+					<f:param name="mode" value="'show'" />
+				</p:effect>
+			</p:commandButton>
+
+
+
+			<p:outputLabel value="نام واحد صنفی" style="font-family: 'IRANSansBold' !important;"/>
+			<p:outputLabel
+				value="#{shekayatBean.findShekayatById2(shakiId).vahedeSenfiName}"
+				id="txt3" />
+			<h:form id="frm1443" style="display:none">
+				<p:inputText value="#{shekayatBean.vahedeSenfiName}" />
+				<p:commandButton value="ثبت تغییرات"
+					action="#{shekayatBean.updateVahedeSenfiName(shakiId)}" />
+			</h:form>
+			<p:commandButton value="ویرایش">
+				<p:effect type="explode" event="click" for="frm1443">
+					<f:param name="mode" value="'show'" />
+				</p:effect>
+			</p:commandButton>
+
+			<p:outputLabel value="نام متصدی واحد صنفی" style="font-family: 'IRANSansBold' !important;"/>
+			<p:outputLabel
+				value="#{shekayatBean.findShekayatById2(shakiId).motesadiName}"
+				id="txt4" />
+			<h:form id="frm14b43" style="display:none">
+				<p:inputText value="#{shekayatBean.motesadiName}" />
+				<p:commandButton value="ثبت تغییرات"
+					action="#{shekayatBean.updateMotesadiName(shakiId)}" />
+			</h:form>
+			<p:commandButton value="ویرایش">
+				<p:effect type="explode" event="click" for="frm14b43">
+					<f:param name="mode" value="'show'" />
+				</p:effect>
+			</p:commandButton>
+
+
+			<h:outputText value="تلفن خوانده" style="font-family: 'IRANSansBold' !important;"/>
+			<h:outputText
+				value="#{shekayatBean.findShekayatById2(shakiId).vahedeSenfiPhone}" />
+			<h:form id="frm329dd" style="display:none">
+				<p:inputMask id="merchantInterfaceMob000ileedr" mask="99999999999"
+					value="#{shekayatBean.vahedeSenfiPhone}" label="Surname" size="50"
+					styleClass="ali" />
+				<p:commandButton value="ثبت تغییرات"
+					action="#{shekayatBean.updateVahedeSenfiPhone(shakiId)}" />
+			</h:form>
+			<p:commandButton value="ویرایش">
+				<p:effect type="explode" event="click" for="frm329dd">
+					<f:param name="mode" value="'show'" />
+				</p:effect>
+			</p:commandButton>
+
+			<h:outputText value="موبایل خوانده" style="font-family: 'IRANSansBold' !important;"/>
+			<h:outputText
+				value="#{shekayatBean.findShekayatById2(shakiId).vahedeSenfiMobile}" />
+			<h:form id="frm09" style="display:none">
+				<p:inputMask id="merchantInterfaceMo888bile" mask="99999999999"
+					value="#{shekayatBean.vahedeSenfiMobile}" label="Surname2"
+					size="50" styleClass="ali" />
+				<p:commandButton value="ثبت تغییرات"
+					action="#{shekayatBean.updateVahedeSenfiMobile(shakiId)}" />
+			</h:form>
+			<p:commandButton value="ویرایش">
+				<p:effect type="explode" event="click" for="frm09">
+					<f:param name="mode" value="'show'" />
+				</p:effect>
+			</p:commandButton>
+
+			<p:outputLabel value="شناسه صنفی" style="font-family: 'IRANSansBold' !important;"/>
+			<p:outputLabel
+				value="#{shekayatBean.findShekayatById2(shakiId).vahedeShenaseSenfi}"
+				id="txt5" />
+			<h:form id="frm14483" style="display:none">
+				<p:inputText value="#{shekayatBean.vahedeShenaseSenfi}" />
+				<p:commandButton value="ثبت تغییرات"
+					action="#{shekayatBean.updateShenaseSenfi(shakiId)}" />
+			</h:form>
+			<p:commandButton value="ویرایش">
+				<p:effect type="explode" event="click" for="frm14483">
+					<f:param name="mode" value="'show'" />
+				</p:effect>
+			</p:commandButton>
+			
+						<h:outputText value="کد پستی خوانده" style="font-family: 'IRANSansBold' !important;"/>
+			<h:outputText
+				value="#{shekayatBean.findShekayatById2(shakiId).vahedeSenfiPostCode}" />
+			<h:form id="frm32w99" style="display:none">
+				<p:inputMask id="merchantInterfaceMobileiierww" mask="9999999999"
+					value="#{shekayatBean.vahedeSenfiPostCode}" label="Surname" size="50"
+					styleClass="ali" />
+				<p:commandButton value="ثبت تغییرات"
+					action="#{shekayatBean.updateVahedeSenfiPostCode(shakiId)}" />
+			</h:form>
+			<p:commandButton value="ویرایش">
+				<p:effect type="explode" event="click" for="frm32w99">
+					<f:param name="mode" value="'show'" />
+				</p:effect>
+			</p:commandButton>
+			
+						<h:outputText value="آدرس خوانده" style="font-family: 'IRANSansBold' !important;"/>
+			<h:outputText
+				value="#{shekayatBean.findShekayatById2(shakiId).vahedeShenaseAddres}" />
+			<h:form id="frm2dd9" style="display:none">
+				<p:inputTextarea id="merchantDedddscription" rows="20" cols="100"
+					autoResize="false" value="#{shekayatBean.vahedeShenaseAddres}"
+					required="true" label="merchantDescription">
+					<f:validateLength minimum="2" maximum="5000" />
+				</p:inputTextarea>
+				<p:commandButton value="ثبت تغییرات"
+					action="#{shekayatBean.updateVahedeSenfiAddres(shakiId)}" />
+			</h:form>
+			<p:commandButton value="ویرایش">
+				<p:effect type="explode" event="click" for="frm2dd9">
+					<f:param name="mode" value="'show'" />
+				</p:effect>
+			</p:commandButton>
+			
+									<h:outputText value="شرح شکایت" style="font-family: 'IRANSansBold' !important;"/>
+			<h:outputText
+				value="#{shekayatBean.findShekayatById2(shakiId).sharh}" />
+			<h:form id="frm2ddp9" style="display:none">
+				<p:inputTextarea id="merchantDedddscriptiddopn" rows="20" cols="100"
+					autoResize="false" value="#{shekayatBean.sharh}"
+					required="true" label="merchantDescription">
+					<f:validateLength minimum="2" maximum="5000" />
+				</p:inputTextarea>
+				<p:commandButton value="ثبت تغییرات"
+					action="#{shekayatBean.updateVahedeSenfiSharh(shakiId)}" />
+			</h:form>
+			<p:commandButton value="ویرایش">
+				<p:effect type="explode" event="click" for="frm2ddp9">
+					<f:param name="mode" value="'show'" />
+				</p:effect>
+			</p:commandButton>
+
+
+		</p:panelGrid>
+		</p:panel>
+		<br />
 		<h:form enctype="multipart/form-data" acceptcharset="UTF-8" id="form">
 			<p:growl id="growl" />
 			<p:panel id="pnl" header="ثبت وضعیت شکایت"
@@ -195,13 +482,15 @@
 						style="font-family: 'IRANSansNor' !important;" value="وضعیت شکایت" />
 					<p:inputTextarea styleClass="it" id="basic"
 						style=" width: 100%; background-color:white!important;"
-						value="#{shekayatBean.vaziat}" dir="rtl">
-						<f:validateLength minimum="0" maximum="5000" />
+						value="#{shekayatBean.vaziat}" dir="rtl" required="true"
+						requiredMessage="وضعیت را مشخص کنید .">
+						<f:validateLength minimum="1" maximum="5000" />
 					</p:inputTextarea>
 
 					<p:outputLabel for="basic33"
 						style="font-family: 'IRANSansNor' !important;" value="تاریخ حضور" />
-					<p:inputMask style=" width: 100%;" id="basic33"
+					<p:inputMask style=" width: 100%;" id="basic33" required="true"
+						requiredMessage="تاریخ را مشخص کنید ."
 						value="#{shekayatBean.tarikh}" mask="9999/99/99" dir="ltr" />
 
 
@@ -209,8 +498,8 @@
 						style="font-family: 'IRANSansNor' !important; font-size:16px;"
 						value="شماره رهگیری" />
 					<p:inputNumber style="width: 100%!important;" dir="ltr" id="mob"
-						emptyValue="zero" value="#{shekayatBean.shomare}"
-						padControl="false" />
+						emptyValue="zero" value="#{shekayatBean.shomare}" required="true"
+						requiredMessage="شماره رهگیری را وارد کنید ." padControl="false" />
 
 
 					<h:commandButton id="saveBtn" value="ثبت" icon="ui-icon-check"
@@ -248,6 +537,7 @@
 				<h:form>
 					<p:growl id="growl2" />
 					<h:commandButton value="ارسال پیامک برای حضور شاکی"
+						disabled="#{!shekayatBean.findShekayatById2(shakiId).checkO==true}"
 						action="#{shekayatBean.sendSmsOk(shekayatBean.findShekayatById(shakiId).shakiMobile,shekayatBean.findShekayatById(shakiId).shomare,shekayatBean.findShekayatById(shakiId).tarikh)}"
 						style="font-family: 'IRANSansBold' !important;  display:block;margin-bottom: 20px; height:50px; width:250px;">
 					</h:commandButton>
@@ -271,9 +561,8 @@
 		<br />
 		<h3 style="font-family: 'IRANSansBold' !important;">فاکتور</h3>
 		<div align="center">
-			<o:graphicImage id="oo"
-				value="#{shekayatBean.findShekayatById(shakiId).shakiFactor}"
-				dataURI="true" />
+			<o:graphicImage id="oo" value="#{shekayatBean.loadPic}"
+				dataURI="true" width="1200" height="900" />
 		</div>
 	</div>
 </h:body>

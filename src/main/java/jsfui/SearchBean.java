@@ -6,22 +6,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import dao.entity.MashahirEngEntity;
-import dao.entity.MashahirEntity;
 import dao.entity.MerchantEntity;
-import dao.entity.MojtameEntity;
-import dao.entity.NaghdOBaresiEntity;
-import service.MashahirEngServiceLocal;
-import service.MashahirServiceLocal;
 import service.MerchantRegisterServiceLocal;
-import service.MojtameServiceLocal;
-import service.NaghdServiceLocal;
 import service.SingletonServiceLocal;
 
 @Named

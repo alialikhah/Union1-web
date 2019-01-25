@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui">
+
+
+<f:metadata>
+	<f:event listener="#{userBean.isUser4}" type="preRenderView"></f:event>
+	<f:viewParam name="merchantID" />
+</f:metadata>
+<h:head>
+	<title>شکایات</title>
+	<link href="resources/fonts.css" rel="stylesheet" type="text/css" />
+	<link rel="shortcut icon" href="resources/images/logo_black.png" />
+	<style>
+.ui-widget-content {
+	border: 1px solid #cccccc;
+	background: #f9f9f9
+		url(/javax.faces.resource/images/ui-bg_highlight-hard_100_f9f9f9_1x100.png.xhtml?ln=primefaces-black-tie)
+		50% top repeat-x;
+	color: #222222;
+	direction: rtl !important;
+}
+</style>
+</h:head>
+<h:body style=" background-color: #dddddd;">
+	<div style="width: 60%; float: right;">
+		<h:form enctype="multipart/form-data" id="frm1">
+			<p:growl id="growl"/>
+			<p:panel id="pnl" header="کالا های قابل انتخاب">
+
+				<p:focus context="pnl" />
+
+				<p:messages />
+
+				<h:panelGrid columns="3" dir="rtl">
+
+
+					<p:outputLabel for="price" value="قیمت با تخفیف به ریال" />
+					<p:inputNumber id="price" value="#{dedicatedProductBean.price}" readonly="#{merchantAdminBean.findMerchantById(merchantID).merchantGroup.equals('نقره ای')}"
+						required="true" label="price" emptyValue="zero" padControl="false"/>
+					<p:message for="price" />
+
+					<p:outputLabel for="oldprice" value="قیمت بدون تخفیف به ریال" />
+					<p:inputNumber id="oldprice" value="#{dedicatedProductBean.oldPrice}" readonly="#{merchantAdminBean.findMerchantById(merchantID).merchantGroup.equals('نقره ای')}"
+						required="true" label="price" emptyValue="zero" padControl="false"/>
+					<p:message for="oldprice" />
+
+
+				</h:panelGrid>
+
+				<p:dataTable id="radioDT" var="prdcts"
+					value="#{dedicatedProductBean.findAllProducts()}"
+					selection="#{dedicatedProductBean.productEntity}"
+					rowKey="#{prdcts.productId}" paginator="true"
+					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15">
+					<f:facet name="header">
+            تمامی کالا ها
+        </f:facet>
+					<p:column selectionMode="single"
+						style="width:16px;text-align:center">
+					</p:column>
+					<p:column headerText="نوع کالا" filterBy="#{prdcts.productCategry}"
+						sortBy="#{prdcts.productId}" filterMatchMode="contains">
+						<h:outputText value="#{prdcts.productCategry}" />
+					</p:column>
+					<p:column headerText="برند" filterBy="#{prdcts.productBrand}"
+						sortBy="#{prdcts.productId}" filterMatchMode="contains">
+						<h:outputText value="#{prdcts.productBrand}" />
+					</p:column>
+					<p:column headerText="مدل کالا" filterBy="#{prdcts.productModel}"
+						sortBy="#{prdcts.productId}" filterMatchMode="contains">
+						<h:outputText value="#{prdcts.productModel}" />
+					</p:column>
+				</p:dataTable>
+
+				<h:commandButton id="submitButton" value="Save" update="growl" 
+					action="#{dedicatedProductBean.insertToDedicated(merchantID)}"
+					actionListener="#{dedicatedProductBean.saveMessage()}"
+					rendered="true"/>
+					
+					
+					
+					
+			</p:panel>
+			<p:blockUI block="pnl" trigger="submitButton" />
+		</h:form>
+	</div>
+	<div style="width: 39%;">
+		<h:form>
+			<p:dataTable var="ded" reflow="true" 
+				value="#{dedicatedProductBean.findAllDedicatedProducts()}" rows="10"
+				rowKey="#{ded.dedicatedId}" paginator="true"
+				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15">
+				<f:facet name="header">
+			        کالا های شما
+			    </f:facet>
+
+				<p:column id="bbbb2" headerText="مدل کالا"
+					rendered="#{ded.merchant.merchantId==merchantID}">
+					<h:outputText value="#{ded.product.productModel}" />
+				</p:column>
+
+
+
+
+				<p:column id="aaa" visible="#{ded.merchant.merchantId==merchantID}">
+					<p:commandButton value="delete"
+						action="#{dedicatedProductBean.deleteDedicateProduct(ded.dedicatedId , ded.merchant.merchantId)}"
+						style="width:100%!important;">
+						<p:confirm header="Confirmation" message="Are you sure?"
+							icon="ui-icon-alert" />
+					</p:commandButton>
+					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+						<p:commandButton value="Yes" type="button"
+							styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+						<p:commandButton value="No" type="button"
+							styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+					</p:confirmDialog>
+				</p:column>
+
+
+
+			</p:dataTable>
+		</h:form>
+	</div>
+</h:body>
+</html>

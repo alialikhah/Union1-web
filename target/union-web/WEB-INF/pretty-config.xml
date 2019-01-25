@@ -814,9 +814,9 @@ http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
 		<view-id value="faces/merchant.xhtml?shopName=Alfared" />
 	</url-mapping>
 
-	<url-mapping id="My-Phone"> <!-- 143 -->
-		<pattern value="/my_phone" />
-		<view-id value="faces/merchant.xhtml?shopName=My-Phone" />
+	<url-mapping id="myphone"> <!-- 143 -->
+		<pattern value="/myphone" />
+		<view-id value="faces/merchant.xhtml?shopName=myphone" />
 	</url-mapping>
 
 	<url-mapping id="Mobile-Persian"> <!-- 144 -->

@@ -204,19 +204,19 @@ public class MerchantChartBean implements Serializable {
  
         ChartSeries boys = new ChartSeries();
         boys.setLabel("Boys");
-        boys.set("2004", 200);
-        boys.set("2005", 200);
-        boys.set("2006", 200);
-        boys.set("2007", 200);
-        boys.set("2008", 200);
+        boys.set("2004", 500);
+        boys.set("2005", 500);
+        boys.set("2006", 500);
+        boys.set("2007", 500);
+        boys.set("2008", 500);
  
         ChartSeries girls = new ChartSeries();
         girls.setLabel("Girls");
-        girls.set("2004", 200);
-        girls.set("2005", 200);
-        girls.set("2006", 200);
-        girls.set("2007", 200);
-        girls.set("2008", 200);
+        girls.set("2004", 500);
+        girls.set("2005", 500);
+        girls.set("2006", 500);
+        girls.set("2007", 500);
+        girls.set("2008", 500);
  
         model.addSeries(boys);
         model.addSeries(girls);
@@ -240,7 +240,7 @@ public class MerchantChartBean implements Serializable {
         yAxis = lineModel2.getAxis(AxisType.Y);
         yAxis.setLabel("Births");
         yAxis.setMin(0);
-        yAxis.setMax(200);
+        yAxis.setMax(500);
  
         zoomModel = initLinearModel();
         zoomModel.setTitle("Zoom");
@@ -257,20 +257,20 @@ public class MerchantChartBean implements Serializable {
         LineChartSeries boys = new LineChartSeries();
         boys.setFill(true);
         boys.setLabel("Boys");
-        boys.set("2004", 200);
-        boys.set("2005", 200);
-        boys.set("2006", 200);
-        boys.set("2007", 200);
-        boys.set("2008", 200);
+        boys.set("2004", 500);
+        boys.set("2005", 500);
+        boys.set("2006", 500);
+        boys.set("2007", 500);
+        boys.set("2008", 500);
  
         LineChartSeries girls = new LineChartSeries();
         girls.setFill(true);
         girls.setLabel("Girls");
-        girls.set("2004", 200);
-        girls.set("2005", 200);
-        girls.set("2006", 200);
-        girls.set("2007", 200);
-        girls.set("2008", 200);
+        girls.set("2004", 500);
+        girls.set("2005", 500);
+        girls.set("2006", 500);
+        girls.set("2007", 500);
+        girls.set("2008", 500);
  
         areaModel.addSeries(boys);
         areaModel.addSeries(girls);
@@ -293,19 +293,19 @@ public class MerchantChartBean implements Serializable {
  
         ChartSeries boys = new ChartSeries();
         boys.setLabel("Boys");
-        boys.set("2004", 200);
-        boys.set("2005", 200);
-        boys.set("2006", 200);
-        boys.set("2007", 200);
-        boys.set("2008", 200);
+        boys.set("2004", 500);
+        boys.set("2005", 500);
+        boys.set("2006", 500);
+        boys.set("2007", 500);
+        boys.set("2008", 500);
  
         ChartSeries girls = new ChartSeries();
         girls.setLabel("Girls");
-        girls.set("2004", 200);
-        girls.set("2005", 200);
-        girls.set("2006", 200);
-        girls.set("2007", 200);
-        girls.set("2008", 200);
+        girls.set("2004", 500);
+        girls.set("2005", 500);
+        girls.set("2006", 500);
+        girls.set("2007", 500);
+        girls.set("2008", 500);
  
         model.addSeries(boys);
         model.addSeries(girls);
@@ -330,7 +330,7 @@ public class MerchantChartBean implements Serializable {
         Axis yAxis = barModel.getAxis(AxisType.Y);
         yAxis.setLabel("Births");
         yAxis.setMin(0);
-        yAxis.setMax(200);
+        yAxis.setMax(500);
     }
  
 //    *********************************************************************
@@ -376,7 +376,7 @@ public class MerchantChartBean implements Serializable {
         Axis xAxis = horizontalBarModel.getAxis(AxisType.X);
         xAxis.setLabel("آمار");
         xAxis.setMin(0);
-        xAxis.setMax(200);
+        xAxis.setMax(500);
  
         Axis yAxis = horizontalBarModel.getAxis(AxisType.Y);
         yAxis.setLabel("آمار");
@@ -416,7 +416,7 @@ public class MerchantChartBean implements Serializable {
         combinedModel.setShowPointLabels(true);
         Axis yAxis = combinedModel.getAxis(AxisType.Y);
         yAxis.setMin(0);
-        yAxis.setMax(200);
+        yAxis.setMax(500);
     }
  
     private void createMultiAxisModel() {
@@ -454,11 +454,11 @@ public class MerchantChartBean implements Serializable {
         Axis yAxis = multiAxisModel.getAxis(AxisType.Y);
         yAxis.setLabel("Birth");
         yAxis.setMin(0);
-        yAxis.setMax(200);
+        yAxis.setMax(500);
  
         Axis y2Axis = new LinearAxis("Number");
         y2Axis.setMin(0);
-        y2Axis.setMax(200);
+        y2Axis.setMax(500);
  
         multiAxisModel.getAxes().put(AxisType.Y2, y2Axis);
     }
@@ -697,7 +697,7 @@ public class MerchantChartBean implements Serializable {
         animatedModel2.setLegendPosition("ne");
         yAxis = animatedModel2.getAxis(AxisType.Y);
         yAxis.setMin(0);
-        yAxis.setMax(200);
+        yAxis.setMax(500);
     }
  
     private void createDateModel() {

@@ -11,8 +11,10 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import dao.entity.CommercialEntity;
+import dao.entity.HomeEntity;
 import dao.entity.SliderEntity;
 import service.CommercialServiceLocal;
+import service.HomeServiceLocal;
 import service.SingletonServiceLocal;
 import service.SliderServiceLocal;
 
@@ -35,6 +37,10 @@ public class HomeBean implements Serializable {
 	private CommercialServiceLocal commercialServiceLocal;
 	@Inject
 	private SingletonServiceLocal singletonServiceLocal;
+	@Inject
+	private HomeServiceLocal homeServiceLocal;
+	
+	
 	private long onLineUser;
 	
 	private List<byte[]> slider=new ArrayList<>();
@@ -60,6 +66,9 @@ public class HomeBean implements Serializable {
 	public void setSlider(List<byte[]> slider) {
 		this.slider = slider;
 	}
+	
+	
+	
 	@PostConstruct
 	public void init() {
 		for (SliderEntity sliderEntity : sliderServiceLocal.findAllSlider()) {
@@ -76,10 +85,19 @@ public class HomeBean implements Serializable {
 	public List<CommercialEntity> findAllComm(){
 	return commercialServiceLocal.findAllCommercial();	
 	}
+	
+	
+	
+	
+	
 	@PreDestroy
 	public void destroy() {
-		singletonServiceLocal.setOnlineUser(-1);
+		HomeEntity homeEntity=new HomeEntity();
+		
+	 homeServiceLocal.inserToHomeEntity(homeEntity);
 	}
+	
+	
 	
 	
 	

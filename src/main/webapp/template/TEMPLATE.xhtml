@@ -91,6 +91,76 @@
 </style>
 
 	<ui:insert name="headtemp" />
+
+	<style>
+body {
+	margin: 0px;
+}
+
+#mask {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	z-index: 99999;
+	background-color: black;
+	opacity: 0.5;
+}
+
+#loginPanel {
+	/* 			display : none;
+			width : 300px;
+			height : 200px !important;
+			position : absolute;
+			z-index : 111111;
+			top : -200; */
+	display: none;
+	position: fixed;
+	top: 30%;
+	/* 	width: 100px;
+	height: 100px; */
+	z-index: 111111;
+}
+
+#loginPanel .header {
+	padding-left: 10px;
+	padding-top: 5px;
+	width: 290px;
+	height: 25px;
+	color: green;
+	background-color: lime;
+}
+
+#loginPanel .body {
+	background-color: white;
+	padding-left: 10px;
+	width: 290px;
+	height: 170px;
+}
+
+input[type=submit] {
+	margin-left: 32px;
+}
+</style>
+	<script>
+		$(document).ready(function(){
+			$('#loginLink').click(function(){
+				$("#mask").fadeIn()
+				$("#mask").click(function(){
+					$('.popup').fadeOut()
+					$(this).fadeOut()
+				})
+				var w = $('body').width()
+				var h = $('body').height()
+				$("#loginPanel").fadeIn() 
+			})
+		})
+		</script>
+
+
+
 </h:head>
 <h:body id="home" styleClass="wide">
 
@@ -98,21 +168,48 @@
 
 
 
+	<div id="loginPanel" class="container theme-container popup"
+		style="width: 100% !important;">
+		<div class="row" align="center">
+			<div>
+				<rich:panel style="width:220px">
+					<f:facet name="header">
+						<h:outputText value="ورود" />
+					</f:facet>
+					<h:form id="form">
+
+						<rich:messages ajaxRendered="true" />
+						<h:panelGrid columns="2">
+							<h:outputText value="نام کاربری:"/>
+							<h:inputText label="Name" id="name" required="true" dir="ltr" style="margin:5px;"
+								value="#{userBean.userName}" />
+							<h:outputText value="رمز عبور:" />
+							<h:inputSecret label="Job" id="job" required="true" dir="ltr" style="margin:5px;"
+								value="#{userBean.password}" />
+
+
+							<f:facet name="footer" >
+								<a4j:commandButton value="ورود" style="padding-top:0px!important;"
+									actionListener="#{userBean.login()}" execute="@form" />
+							</f:facet>
+						</h:panelGrid>
+					</h:form>
+				</rich:panel>
+			</div>
+		</div>
+	</div>
+	<div id="mask">&nbsp;</div>
 
 
 
-	<b:modal id="amodal" title="ورود" styleClass="modalPseudoClass">
-		<h:form id="loginForm">
-			<h:messages />
-			<p:growl id="growl" />
-			<b:inputText id="usernameDiv" value="#{userBean.userName}"
-				fieldId="j_username" name="j_username" label="Username" />
-			<b:inputSecret id="passwordDiv" value="#{userBean.password}"
-				fieldId="j_password" name="j_password" label="Password" />
-			<h:commandButton update="@form" value="Login"
-				action="#{userBean.login()}" />
-		</h:form>
-	</b:modal>
+
+
+
+
+
+
+
+
 
 
 
@@ -142,13 +239,10 @@
 			<div class="col-md-12 col-sm-12">
 				<div align="left" style="margin-top: 50px;">
 					<ul class="list-items pull-left top-nav">
-						<li id="li1" class="dropdown"><b:link value="ثبت نام"
-								style="font-family: 'IRANSansBold' !important; color:white; font-size:16px;"
-								look="success" size="lg" /></li>
-						<li><b:link value="ورود اعضا"
-								style="font-family: 'IRANSansBold' !important; color:white; font-size:16px;"
-								look="success" onclick="$('.modalPseudoClass').modal()"
-								size="lg" /></li>
+
+						<li><input type="button" value="ورود اعضا" id="loginLink"
+							style="font-family: 'IRANSansBold' !important; color: white; font-size: 16px; padding-top: 0px !important; background-color: lightskyblue;" />
+						</li>
 
 					</ul>
 				</div>
@@ -198,8 +292,12 @@
 						outcome="shekayat.xhtml"
 						style="padding-top:20px;  font-family: 'IRANSansBold' !important;"
 						value="شکایات" target="_blank" />
+					<p:button styleClass="btn btn-default btn-lg hvr-buzz-out vw"
+						outcome="searchmap.xhtml"
+						style="padding-top:20px;  font-family: 'IRANSansBold' !important;"
+						value="نزدیکترین ها" target="_blank" />
 					<h:form id="frm1">
-						<p:panelGrid columns="2"
+						<p:panelGrid columns="3"
 							style="width:350px; border-color: #dddddd;">
 							<rich:autocomplete mode="cachedAjax" tokens=", " minChars="1"
 								autofill="false" autocompleteMethod="#{searchBean.autocomplete}"
@@ -228,7 +326,7 @@
 				</div>
 				<div align="left">
 					<h:form style="font-family: 'IRANSansBold' !important; float:left;">
-						<p:panelGrid id="pg" columns="2" style="border-color: #dddddd;">
+						<p:panelGrid id="pg" columns="3" style="border-color: #dddddd;">
 							<rich:autocomplete mode="cachedAjax" tokens=", " minChars="1"
 								autofill="false" autocompleteMethod="#{searchBean.autocomplete}"
 								value="#{searchBean.shopNamePer}" style="width:100%;" />
@@ -245,6 +343,8 @@
 	<section class="sec-space footer-1">
 	<div class="container theme-container">
 		<div class="row" align="center">
+			<div>تعداد بازدید : #{tempBean.bazdid}</div>
+			<br />
 			<h:graphicImage library="images"
 				value="/resources/images/logo_pano_footer.png" />
 
@@ -361,7 +461,7 @@
 
 	</p:sidebar>
 	<p:sidebar widgetVar="sidebar5" position="right" baseZIndex="10000"
-		style="height:300px">
+		style="height:360px">
 		<br />
 		<p:commandLink value="خانه" action="home"
 			style="font-family: 'IRANSansBold' !important;" target="_blank" />
@@ -382,6 +482,9 @@
 			style="font-family: 'IRANSansBold' !important;" target="_blank" />
 		<hr />
 		<p:link value="شکایات" outcome="shekayat.xhtml"
+			style="font-family: 'IRANSansBold' !important;" target="_blank" />
+		<hr />
+		<p:link value="نزدیکترین ها" outcome="searchmap.xhtml"
 			style="font-family: 'IRANSansBold' !important;" target="_blank" />
 	</p:sidebar>
 
@@ -431,6 +534,12 @@
 		</p:link>
 
 	</p:sidebar>
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,110 @@
+<html id="ht" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+<ui:define name="metadata">
+	<f:metadata>
+
+		<f:viewParam name="lat" />
+		<f:viewParam name="lng" />
+
+	</f:metadata>
+</ui:define>
+
+<h:head>
+	<title>نزدیکترین ها</title>
+	<link rel="shortcut icon" href="resources/images/logo_black.png" />
+	<script src="resources/leaflet/leaflet.js"></script>
+	<link rel="stylesheet" href="resources/leaflet/leaflet.css" />
+	<link rel="stylesheet" href="resources/leaflet/map.css" />
+	<link href="resources/fonts.css" rel="stylesheet" type="text/css" />
+	<script
+		src="resources/maintemp/assets/plugins/main-jquery/jquery-2.2.4.min.js"></script>
+	<style>
+#dv>#map {
+	display: none !important;
+}
+</style>
+
+</h:head>
+<h:body>
+
+	<div id="map"></div>
+
+
+	<div id="dv">
+		<br />
+		<div id="ig" style="display: none;" align="center">
+			<img src="/resources/Icones2/ajax-loader.gif" align="middle"
+				style="max-width: 500px !important;" />
+		</div>
+		<br />
+		<p:dataGrid var="smap" layout="grid"
+			value="#{searchMapBean.operation(lat,lng)}" columns="2"
+			style="direction:rtl;">
+			<p:link outcome="merchant.xhtml" target="_blank">
+				<p:panel style="text-align:center">
+					<h:panelGrid columns="1" style="width:100%">
+						<o:graphicImage id="ig1" value="#{smap.merchantaddr.shopImg5}"
+							dataURI="true" width="200" height="100" />
+					</h:panelGrid>
+					<h:panelGrid columns="1" style="width:100%">
+						<h:outputText
+							style="font-family: 'IRANSansBold' !important;color: black!important;"
+							value="#{smap.merchantaddr.merchantShopNamePer}" />
+						<h:outputText
+							style="font-family: 'IRANSansNor' !important;color: black!important;"
+							value="#{smap.merchantPostAddres}" />
+					</h:panelGrid>
+
+
+
+				</p:panel>
+									<f:param name="shopName"
+						value="#{smap.merchantaddr.merchantShopNameEng}" />
+			</p:link>
+		</p:dataGrid>
+
+	</div>
+
+
+
+
+	<!-- 	<div id="dv">
+		<h:form>
+			<p:dataTable var="smap" value="#{searchMapBean.operation(lat,lng)}"
+				rowKey="#{smap.merchantaddr.merchantId}" resizableColumns="true"
+				liveResize="true" dir="rtl" reflow="true">
+<p:link outcome="merchant.xhtml" target="_blank">
+				<p:column headerText="تصویر فروشگاه" width="200">
+				<p:link outcome="merchant.xhtml" target="_blank">
+					<o:graphicImage id="ig1" value="#{smap.merchantaddr.shopImg5}"
+						dataURI="true" width="200" height="100" />
+						<f:param name="shopName" value="#{smap.merchantaddr.merchantShopNameEng}" />
+						</p:link>
+				</p:column>
+
+				<p:column headerText="نام فروشگاه" width="350">
+					<h:outputText value="#{smap.merchantaddr.merchantShopNamePer}" />
+				</p:column>
+
+				<p:column headerText="آدرس">
+					<h:outputText value="#{smap.merchantPostAddres}" />
+				</p:column>
+				<f:param name="shopName" value="#{smap.merchantaddr.merchantShopNameEng}" />
+</p:link>
+
+			</p:dataTable>
+		</h:form>
+	</div> -->
+
+
+</h:body>
+
+<script src="resources/leaflet/map.js"></script>
+		<script>
+document.getElementById("j_idt8_content").innerHTML="برای پیدا کردن نزدیکترین فروشگاه ها لوکیشن خود را انتخاب کنید";
+</script>
+</html>

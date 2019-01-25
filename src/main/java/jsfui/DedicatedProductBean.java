@@ -3,6 +3,7 @@ package jsfui;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -39,9 +40,10 @@ public class DedicatedProductBean implements Serializable{
 	private long price;
 	private long saled;
 	private long popularity;
+	private long oldPrice;
 	private List<DedicatedEntity> dedicateFilter=new ArrayList<>();
 	private ProductEntity productEntity;
-	
+    private int proNum;
 	
 	@Inject
 	private MerchantRegisterServiceLocal merchantRegisterServiceLocal;
@@ -49,6 +51,8 @@ public class DedicatedProductBean implements Serializable{
 	private DedicatedProductServiceLocal dedicatedProductServiceLocal;
 	@Inject
 	private ProductServiceLocal productServiceLocal;
+	
+
 	
 	public long getProductId() {
 		return productId;
@@ -95,9 +99,14 @@ public class DedicatedProductBean implements Serializable{
 		this.popularity = popularity;
 	}
 	
-	
-	
 
+
+	public long getOldPrice() {
+		return oldPrice;
+	}
+	public void setOldPrice(long oldPrice) {
+		this.oldPrice = oldPrice;
+	}
 	public ProductEntity getProductEntity() {
 		return productEntity;
 	}
@@ -110,22 +119,52 @@ public class DedicatedProductBean implements Serializable{
 	public void setDedicateFilter(List<DedicatedEntity> dedicateFilter) {
 		this.dedicateFilter = dedicateFilter;
 	}
+	
+
 	public void saveMessage() {
         FacesContext context = FacesContext.getCurrentInstance();
          
         context.addMessage(null, new FacesMessage("Successful") );
     }
 	
+	public List<DedicatedEntity> findDedicate(long merchantId){
+		List<DedicatedEntity> dedicatedEntities=new ArrayList<>();
+		dedicatedEntities.addAll(this.findMerchantById(merchantId).getMerchantDedicate());
+		Collections.reverse(dedicatedEntities);
+		return dedicatedEntities;
+	}
+	
+	
+	
 	public void insertToDedicated(String merchantId) throws IOException{
+		FacesContext context = FacesContext.getCurrentInstance();
+		MerchantEntity merchantEntity=new MerchantEntity();
+		try {
+			merchantEntity=merchantRegisterServiceLocal.findMerchantById(Long.parseLong(merchantId));
+			merchantEntity.setProductNum(merchantEntity.getProductNum()+1);
+			
+		} catch (Exception e) {
+				System.err.println("merchant not find");
+		}
 		long mId=Long.parseLong(merchantId);
 		DedicatedEntity dedicatedEntity=new DedicatedEntity();
 		dedicatedEntity.setMerchant(this.findMerchantById(mId));
 		dedicatedEntity.setProduct(this.productEntity);
 		dedicatedEntity.setPrice(price);
-		dedicatedEntity.setSaled(saled);
-		dedicatedEntity.setPopularity(popularity);
-		dedicatedProductServiceLocal.insertToDedicated(dedicatedEntity);
-		FacesContext.getCurrentInstance().getExternalContext().redirect("dedicateproduct.xhtml"+"?merchantID=" + merchantId );
+        dedicatedEntity.setOldPrice(oldPrice);
+        System.err.println(merchantEntity.getProductNum());
+        if(merchantEntity.getProductNum()<30) {
+        try {
+			merchantRegisterServiceLocal.updateMerchantEntity(merchantEntity);
+		} catch (Exception e) {
+			System.err.println("update error.");
+		}
+        dedicatedProductServiceLocal.insertToDedicated(dedicatedEntity);
+		FacesContext.getCurrentInstance().getExternalContext().redirect("merchantadmin.xhtml" + "?merchantID=" + merchantId );
+        }
+        else
+        	context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "شما بیشینه ۳۰ کالا می توانید قرار دهید.", "شما بیشینه ۳۰ کالا می توانید قرار دهید."));
+		//FacesContext.getCurrentInstance().getExternalContext().redirect("dedicateproduct.xhtml"+"?merchantID=" + merchantId );
 	}
 	
 	
@@ -214,14 +253,35 @@ public class DedicatedProductBean implements Serializable{
 		
     }
 	
+/*	public boolean findDedicate(long merchantId){
+		List<DedicatedEntity> dedicatedEntities=new ArrayList<>();
+		dedicatedEntities.addAll(this.findMerchantById(merchantId).getMerchantDedicate());
+		System.err.println(dedicatedEntities.size());
+		if(dedicatedEntities.size()>8)
+		return true;
+		else 
+		return false;
+	}*/
+
+	
     
-    public void deleteDedicateProduct(long dedicatedId) throws IOException {
+    public void deleteDedicateProduct(long dedicatedId , long merchantId) throws IOException {
     	DedicatedEntity dedicatedEntity=new DedicatedEntity();
+		MerchantEntity merchantEntity=new MerchantEntity();
+		try {
+			merchantEntity=merchantRegisterServiceLocal.findMerchantById(merchantId);
+			merchantEntity.setProductNum(merchantEntity.getProductNum()-1);
+			merchantRegisterServiceLocal.updateMerchantEntity(merchantEntity);
+		} catch (Exception e) {
+				System.err.println("merchant not find");
+		}
+		System.err.println(merchantEntity.getProductNum());
     	try {
 			dedicatedEntity=dedicatedProductServiceLocal.findDedicatedProductById(dedicatedId);
 	    	dedicatedProductServiceLocal.deleteDedicateProduct(dedicatedEntity);
-	    	FacesContext.getCurrentInstance().getExternalContext().redirect("dedicateproduct.xhtml"+"?merchantID=" + merchantId );
-		} catch (Exception e) {
+	    	//FacesContext.getCurrentInstance().getExternalContext().redirect("dedicateproduct.xhtml"+"?merchantID=" + merchantId );
+	    	FacesContext.getCurrentInstance().getExternalContext().redirect("merchantadmin.xhtml" + "?merchantID=" + merchantId );
+	    	} catch (Exception e) {
 			System.err.println("dedicate product not find");
 		}
     }

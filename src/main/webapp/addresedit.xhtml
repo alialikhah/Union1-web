@@ -6,14 +6,11 @@
       xmlns:p="http://primefaces.org/ui">  
 		<f:metadata>
 			<f:event listener="#{userBean.isUser3}" type="preRenderView"></f:event>
+			<f:viewParam name="merchantID"/>
 		</f:metadata>
 <h:head></h:head> 
 <body> 
-	  <ui:define name="metadata">
-      <f:metadata>
-      <f:viewParam name="merchantID"/>
-      </f:metadata>
-      </ui:define> 
+
 <ui:composition template="/template/templateA.xhtml">
 <ui:define name="headtmp">
 <script src="https://maps.google.com/maps/api/js?key=AIzaSyC5iFeXAWE72U4rr3l5oFje4g-ntNyQ0Ko" type="text/javascript"></script>

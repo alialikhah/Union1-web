@@ -1,146 +1,259 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"> 
-      <f:view locale="fa" >
-		<f:metadata>
-			<f:event listener="#{userBean.isUser3}" type="preRenderView"></f:event>
-		</f:metadata>
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<f:view locale="fa">
+	<f:metadata>
+		<f:event listener="#{userBean.isUser3}" type="preRenderView"></f:event>
+	</f:metadata>
 
-<h:head>
-</h:head> 
-<h:body> 
-<ui:composition template="/template/templateA.xhtml">
-<ui:define name="headtmp">
-<h:outputScript name="product.js" library="javascript"/>
-	<link href="resources/css/addmerchant.css"
-		rel="stylesheet" type="text/css" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</ui:define>
-<ui:define name="centertmp">
-<h:form enctype="multipart/form-data" id="form" acceptcharset="UTF-8">
+	<h:head>
+	</h:head>
+	<h:body>
+		<ui:composition template="/template/templateA.xhtml">
+			<ui:define name="headtmp">
+				<h:outputScript name="product.js" library="javascript" />
+				<link href="resources/css/addmerchant.css" rel="stylesheet"
+					type="text/css" />
+				<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			</ui:define>
+			<ui:define name="centertmp">
+				<h:form enctype="multipart/form-data" id="form"
+					acceptcharset="UTF-8">
 					<p:growl id="growl" showDetail="true" sticky="true" />
 					<p:panel id="pnl" header="افزودن کالا">
-					<p:messages />
-					<h:panelGrid columns="3" dir="rtl">
+						<p:messages />
+						<h:panelGrid columns="3" dir="rtl">
 
 
-							<p:outputLabel for="productName" value="نام کالا : " />
-							<p:inputText id="productName"
-								value="#{productBean.productName}" required="true"
-								label="productName">
-								<f:validateLength minimum="2" maximum="199" />
-							</p:inputText>
-							<p:message for="productName" />
+							<p:outputLabel for="raste" value="رسته ی کالا :" />
+							<p:selectOneMenu id="raste" value="#{productBean.raste}"
+								effect="fold" editable="true" required="true"
+								requiredMessage="please select one item">
+								<f:selectItem itemValue="موبایل و لوازم جانبی"
+									itemLabel="موبایل و لوازم جانبی" />
+								<f:selectItem itemValue="صوتی و تصویری و خانگی"
+									itemLabel="صوتی و تصویری و خانگی" />
+								<f:selectItem itemValue="صوتی و تصویری اتومبیل"
+									itemLabel="صوتی و تصویری اتومبیل" />
+								<f:selectItem itemValue="آلات موسیقی" itemLabel="آلات موسیقی" />
+								<f:selectItem itemValue="قطعات الکترونیک"
+									itemLabel="قطعات الکترونیک" />
+								<f:selectItem itemValue="دوربین عکاسی و فیلم برداری"
+									itemLabel="دوربین عکاسی و فیلم برداری" />
+								<f:selectItem itemValue="دوربین مدار بسته"
+									itemLabel="دوربین مدار بسته" />
+								<f:selectItem itemValue="سی دی" itemLabel="سی دی" />
+							</p:selectOneMenu>
+							<p:message for="raste" />
 
-							<p:outputLabel for="productTitle" value="عنوان کالا :" />
-							<p:inputText id="productTitle"
-								value="#{productBean.productTitle}" required="true"
-								label="productTitle">
-								<f:validateLength minimum="2" maximum="199" />
-							</p:inputText>
-							<p:message for="productTitle" />
+							<p:outputLabel for="productCategry" value="نوع کالا :" />
+							<p:selectOneMenu id="productCategry"
+								value="#{productBean.productCategry}" effect="fold"
+								editable="true" required="true"
+								requiredMessage="please select one item">
+								<f:selectItem itemValue="تلوزیون" itemLabel="تلوزیون" />
+								<f:selectItem itemValue="موبایل" itemLabel="موبایل" />
+								<f:selectItem itemValue="تبلت" itemLabel="تبلت" />
+								<f:selectItem itemValue="سینمای خانگی" itemLabel="سینمای خانگی" />
+								<f:selectItem itemValue="پلیر" itemLabel="پلیر" />
+								<f:selectItem itemValue="سیستم صوتی" itemLabel="سیستم صوتی" />
+								<f:selectItem itemValue="لوازم خودرو" itemLabel="لوازم خودرو" />
+								<f:selectItem itemValue="لوح فشرده" itemLabel="لوح فشرده" />
+							</p:selectOneMenu>
+							<p:message for="productCategry" />
+
 
 							<p:outputLabel for="productModel" value="مدل کالا :" />
 							<p:inputText id="productModel"
 								value="#{productBean.productModel}" required="true"
 								label="productModel">
-								<f:validateLength minimum="2" maximum="199" />
+								<f:validateLength maximum="199" />
 							</p:inputText>
 							<p:message for="productModel" />
-							
-							
-							
-							
-							<p:outputLabel for="productDescription"
-								value="توضیحات کالا :" />
-							<p:inputTextarea id="productDescription"
-								value="#{productBean.productDescription}"
-								required="true" label="merchantDescription">
-								<f:validateLength minimum="2" maximum="4999" />
+
+							<p:outputLabel for="port" value="پورت ها :" />
+							<p:inputText id="port" value="#{productBean.ports}" style="width:100%;"
+								label="productModel">
+								<f:validateLength maximum="199" />
+							</p:inputText>
+							<p:message for="port" />
+
+
+							<p:outputLabel for="size" value="سایز دستگاه :" />
+							<p:inputText id="size" value="#{productBean.size}" label="size" style="width:100%;">
+								<f:validateLength maximum="99" />
+							</p:inputText>
+							<p:message for="size" />
+
+							<p:outputLabel for="screenSize" value="سایز صفحه نمایش :" />
+							<p:inputText id="screenSize" value="#{productBean.screenSize}"
+								label="screenSize" style="width:100%;">
+								<f:validateLength maximum="99" />
+							</p:inputText>
+							<p:message for="screenSize" />
+
+							<p:outputLabel for="pixel" value="پیکسل :" />
+							<p:inputText id="pixel" value="#{productBean.pixel}"
+								label="pixel" style="width:100%;">
+								<f:validateLength maximum="99" />
+							</p:inputText>
+							<p:message for="pixel" />
+
+							<p:outputLabel for="quality" value="کیفیت تصویر :" />
+							<p:inputText id="quality" value="#{productBean.quality}" style="width:100%;"
+								label="quality">
+								<f:validateLength maximum="99" />
+							</p:inputText>
+							<p:message for="quality" />
+
+							<p:outputLabel for="battery" value="باتری :" />
+							<p:inputText id="battery" value="#{productBean.battery}" style="width:100%;"
+								label="battery">
+								<f:validateLength maximum="99" />
+							</p:inputText>
+							<p:message for="battery" />
+
+							<p:outputLabel for="color" value="رنگ :" />
+							<p:inputText id="color" value="#{productBean.color}" style="width:100%;"
+								label="color">
+								<f:validateLength maximum="99" />
+							</p:inputText>
+							<p:message for="color" />
+
+							<p:outputLabel for="memory" value="حافظه :" />
+							<p:inputText id="memory" value="#{productBean.memory}" style="width:100%;"
+								label="memory">
+								<f:validateLength maximum="99" />
+							</p:inputText>
+							<p:message for="memory" />
+
+							<p:outputLabel for="innerMemory" value="حافظه داخلی :" />
+							<p:inputText id="innerMemory" value="#{productBean.innerMemory}" style="width:100%;"
+								label="innerMemory">
+								<f:validateLength maximum="99" />
+							</p:inputText>
+							<p:message for="innerMemory" />
+
+							<p:outputLabel for="weight" value="وزن :" />
+							<p:inputText id="weight" value="#{productBean.weight}" style="width:100%;"
+								label="weight">
+								<f:validateLength maximum="99" />
+							</p:inputText>
+							<p:message for="weight" />
+
+							<p:outputLabel for="camera" value="دوربین :" />
+							<p:inputText id="camera" value="#{productBean.camera}" style="width:100%;"
+								label="camera">
+								<f:validateLength maximum="199" />
+							</p:inputText>
+							<p:message for="camera" />
+
+							<p:outputLabel for="cpu" value="cpu :" />
+							<p:inputText id="cpu" value="#{productBean.cpu}" label="cpu" style="width:100%;">
+								<f:validateLength maximum="99" />
+							</p:inputText>
+							<p:message for="cpu" />
+
+							<p:outputLabel for="gpu" value="gpu :" />
+							<p:inputText id="gpu" value="#{productBean.gpu}" label="gpu" style="width:100%;">
+								<f:validateLength maximum="99" />
+							</p:inputText>
+							<p:message for="gpu" />
+
+							<p:outputLabel for="os" value="os :" />
+							<p:inputText id="os" value="#{productBean.os}" label="os" style="width:100%;">
+								<f:validateLength maximum="99" />
+							</p:inputText>
+							<p:message for="os" />
+
+							<p:outputLabel for="net" value="نوع شبکه :" />
+							<p:inputText id="net" value="#{productBean.netMobile}" style="width:100%;"
+								label="net">
+								<f:validateLength maximum="99" />
+							</p:inputText>
+							<p:message for="net" />
+
+							<p:outputLabel for="other" value="سایر موارد :" />
+							<p:inputTextarea id="other" style="width:100%;"
+								value="#{productBean.other}"
+								label="other">
+								<f:validateLength maximum="999" />
+							</p:inputTextarea>
+							<p:message for="other" />
+
+
+							<p:outputLabel for="productDescription" value="توضیحات کالا :" />
+							<p:inputTextarea id="productDescription" style="width:100%;"
+								value="#{productBean.productDescription}" 
+								label="merchantDescription">
+								<f:validateLength maximum="4999" />
 							</p:inputTextarea>
 							<p:message for="productDescription" />
-							
-							
-
-							
 
 
-
-
-							<p:outputLabel for="productCategry" value="رسته ی کالا :" />
-							<p:selectOneMenu id="productCategry" value="#{productBean.productCategry}"
-								effect="fold" editable="true" required="true" requiredMessage="please select one item">
-								<f:selectItem itemLabel="Select your union" />
-								<f:selectItems value="#{merchantRegisterBean.unions}" />
-							</p:selectOneMenu>
-							<p:message for="productCategry" />
-							
 							<p:outputLabel for="productBrand" value="برند کالا" />
-							<p:selectOneMenu id="productBrand" value="#{productBean.productBrand}"
-								effect="fold" editable="true" required="true" requiredMessage="please select one item">
+							<p:selectOneMenu id="productBrand"
+								value="#{productBean.productBrand}" effect="fold"
+								editable="true" required="true"
+								requiredMessage="please select one item">
 								<f:selectItem itemLabel="Select your brand" />
 								<f:selectItems value="#{addProductBean.allBrand}" />
 							</p:selectOneMenu>
 							<p:message for="productBrand" />
-							
-							
-							
+
+
+
 
 							<p:outputLabel value="عکس ۱" />
-							<h:inputFile value="#{productBean.productPic1}" required="true" requiredMessage="please select license image"/>
+							<h:inputFile value="#{productBean.productPic1}" required="true"
+								requiredMessage="please select license image" />
 							<p:outputLabel value="" />
 							<p:outputLabel value="عکس ۲" />
-							<h:inputFile value="#{productBean.productPic2}" required="true" requiredMessage="please select license image"/>
+							<h:inputFile value="#{productBean.productPic2}" required="true"
+								requiredMessage="please select license image" />
 							<p:outputLabel value="" />
 							<p:outputLabel value="عکس ۳" />
-							<h:inputFile value="#{productBean.productPic3}" required="true" requiredMessage="please select license image"/>
-							<p:outputLabel value="" />
-							<p:outputLabel value="عکس ۴" />
-							<h:inputFile value="#{productBean.productPic4}" required="true" requiredMessage="please select license image"/>
-							<p:outputLabel value="" />
-							<p:outputLabel value="عکس ۵" />
-							<h:inputFile value="#{productBean.productPic5}" required="true" requiredMessage="please select license image"/>
+							<h:inputFile value="#{productBean.productPic3}" required="true"
+								requiredMessage="please select license image" />
 							<p:outputLabel value="" />
 
-							
-						
 
-						<h:commandButton id="submitButton" value="ذخیره" update="growl"
-						    action="#{productBean.insertToProduct()}"
-							rendered="true" />
-							</h:panelGrid>
+
+
+
+							<h:commandButton id="submitButton" value="ذخیره" update="growl"
+								action="#{productBean.insertToProduct()}" rendered="true" />
+						</h:panelGrid>
 					</p:panel>
-					
+
 					<p:blockUI block="pnl" trigger="submitButton" />
 				</h:form>
-				</ui:define>
-				
-				
-				<ui:define name="righttmp">
-				<h:form>
-    <p:dataTable var="proc" value="#{productBean.findAllProducts()}" rows="10"
-                         paginator="true" resizableColumns="true" liveResize="true"
-                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                         rowsPerPageTemplate="5,10,15" dir="rtl">
-        <p:column headerText="شماره">
-            <h:outputText value="#{proc.productId}" />
-        </p:column>
- 
-        <p:column headerText="نام">
-            <h:outputText value="#{proc.productName}" />
-        </p:column>
- 
-        <p:column headerText="فامیلی">
-            <h:outputText value="#{proc.productBrand}" />
-        </p:column>
+			</ui:define>
 
-    </p:dataTable>
-</h:form>
-				</ui:define>
-				</ui:composition>
-</h:body> 
+
+			<ui:define name="righttmp">
+				<h:form>
+					<p:dataTable var="proc" value="#{productBean.findAllProducts()}"
+						rows="10" paginator="true" resizableColumns="true"
+						liveResize="true"
+						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="5,10,15" dir="rtl">
+						<p:column headerText="شماره">
+							<h:outputText value="#{proc.productId}" />
+						</p:column>
+
+
+						<p:column headerText="فامیلی">
+							<h:outputText value="#{proc.productBrand}" />
+						</p:column>
+
+					</p:dataTable>
+				</h:form>
+			</ui:define>
+		</ui:composition>
+	</h:body>
 </f:view>
 </html>

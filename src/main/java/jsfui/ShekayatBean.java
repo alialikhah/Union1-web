@@ -1,32 +1,32 @@
 package jsfui;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ComponentSystemEvent;
 import javax.faces.view.ViewScoped;
+import javax.imageio.ImageIO;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.Column;
-import javax.persistence.Lob;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import org.apache.commons.io.IOUtils;
 
-import dao.entity.MerchantEntity;
 import dao.entity.Shekayat1;
 import service.ShekayatServiceLocal;
 import service.SingletonServiceLocal;
@@ -72,6 +72,7 @@ public class ShekayatBean implements Serializable {
 	private String tarikh;
 	private long shomare;
 	private boolean check;
+	private byte[] loadPic;
 
 	private boolean showButton = false;
 
@@ -80,6 +81,18 @@ public class ShekayatBean implements Serializable {
 	private String shekayatPass;
 
 	private List<String> titleList = new ArrayList<>();
+
+	
+	
+	
+	
+	public byte[] getLoadPic() {
+		return loadPic;
+	}
+
+	public void setLoadPic(byte[] loadPic) {
+		this.loadPic = loadPic;
+	}
 
 	public String getShakiName() {
 		return shakiName;
@@ -323,13 +336,20 @@ public class ShekayatBean implements Serializable {
 		shekayat1.setVahedeShenaseAddres(vahedeShenaseAddres);
 		shekayat1.setVahedeShenaseSenfi(vahedeShenaseSenfi);
 		byte[] factorByte = IOUtils.toByteArray(shakiFactor.getInputStream());
-		shekayat1.setShakiFactor(factorByte);
+		//shekayat1.setShakiFactor(factorByte);
+		Random random=new Random();
+		int picNum=random.nextInt(100000000);
+        //write to hard
+    	File out1=new File("/home/wildfly/ShekayatPictures/"+shakiMobile + picNum + ".jpg");
+    	InputStream in1=new ByteArrayInputStream(factorByte);
+    	BufferedImage img1=ImageIO.read(in1);
+    	ImageIO.write(img1, "jpg", out1);
+    	shekayat1.setPicPath("/home/wildfly/ShekayatPictures/"+shakiMobile + picNum + ".jpg");
+    	////////////////////////////////
 		shekayatServiceLocal.inserToShekayat(shekayat1);
-
 		context.addMessage(null, new FacesMessage("در خواست با موفقیت ثبت گردید."));
 		this.showButton = true;
 		this.motesadiName = "";
-
 		this.shakiAddres = "";
 		this.shakiEmail = "";
 		this.shakiMobile = "";
@@ -355,19 +375,43 @@ public class ShekayatBean implements Serializable {
 	}
 
 	public List<Shekayat1> findAllShekayat() {
-		return singletonServiceLocal.getShekayat1s();
+		
+		//return singletonServiceLocal.getShekayat1s();
+		return shekayatServiceLocal.findAllShekayat();
 	}
 
 	public List<Shekayat1> findAllShekayatOrder() {
-		return singletonServiceLocal.getShekayat1s2();
+		//return singletonServiceLocal.getShekayat1s2();
+	return shekayatServiceLocal.findAllShekayatOrder();
 	}
 
-	public Shekayat1 findShekayatById(long shakiId) {
-		return shekayatServiceLocal.findShekayatById(shakiId);
+	public Shekayat1 findShekayatById(long shakiId) throws IOException {
+		Shekayat1 shekayat1;
+		try {
+			shekayat1 = shekayatServiceLocal.findShekayatById(shakiId);
+			File imageFile=new File(shekayat1.getPicPath());
+	    	BufferedImage image=ImageIO.read(imageFile);
+	    	ByteArrayOutputStream baos=new ByteArrayOutputStream();
+	    	ImageIO.write(image, "jpg", baos);
+	    	this.loadPic=baos.toByteArray();
+			return shekayat1;
+		} catch (Exception e) {
+			return null;
+		}
+
+	}
+	
+	public Shekayat1 findShekayatById2(long shakiId) {
+		try {
+			return shekayatServiceLocal.findShekayatById(shakiId);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	public void shekayatUpdate(long shakiId) {
 		FacesContext context = FacesContext.getCurrentInstance();
+		try {
 		Shekayat1 shekayat1 = new Shekayat1();
 		shekayat1 = shekayatServiceLocal.findShekayatById(shakiId);
 		shekayat1.setVaziat(vaziat);
@@ -377,7 +421,10 @@ public class ShekayatBean implements Serializable {
 		shekayatServiceLocal.shekayatUpdate(shekayat1);
 		context.addMessage(null, new FacesMessage("با موفقیت ثبت گردید."));
 		this.showButton = true;
-	}
+		}catch (Exception e) {
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "خطا", "Error login"));
+		}
+		}
 
 	public void enterAdmin() {
 		FacesContext contex = FacesContext.getCurrentInstance();
@@ -432,6 +479,9 @@ public class ShekayatBean implements Serializable {
 		}
 
 	}
+	
+	
+	
 
 	public void sendSmsNok(String mobile) {
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -539,5 +589,146 @@ public class ShekayatBean implements Serializable {
 		}
 
 	}
-
+	
+    public void deleteShekayatEntity(long shakiId) throws IOException{
+		FacesContext contex = FacesContext.getCurrentInstance();
+    	Shekayat1 shekayat1=new Shekayat1();
+    	shekayat1=this.findShekayatById2(shakiId);
+    	shekayatServiceLocal.deleteShekayatEntity(shekayat1);
+		contex.getExternalContext().redirect("shekayatview.xhtml");
+    }
+    
+    public void updateShakiMobile(long shakiId) throws IOException {
+    	FacesContext contex = FacesContext.getCurrentInstance();
+    	Shekayat1 shekayat1=new Shekayat1();
+    	shekayat1=this.findShekayatById2(shakiId);
+    	shekayat1.setShakiMobile(shakiMobile);
+    	shekayatServiceLocal.shekayatUpdate(shekayat1);
+    	contex.getExternalContext().redirect("shekayatedit.xhtml?shakiId="+shakiId);
+    }
+    
+    public void updateVahedeSenfiMobile(long shakiId) throws IOException {
+    	FacesContext contex = FacesContext.getCurrentInstance();
+    	Shekayat1 shekayat1=new Shekayat1();
+    	shekayat1=this.findShekayatById2(shakiId);
+    	shekayat1.setVahedeSenfiMobile(vahedeSenfiMobile);
+    	shekayatServiceLocal.shekayatUpdate(shekayat1);
+    	contex.getExternalContext().redirect("shekayatedit.xhtml?shakiId="+shakiId);
+    }
+    
+    public void updateShakiName(long shakiId) throws IOException {
+    	FacesContext contex = FacesContext.getCurrentInstance();
+    	Shekayat1 shekayat1=new Shekayat1();
+    	shekayat1=this.findShekayatById2(shakiId);
+    	shekayat1.setShakiName(shakiName);
+    	shekayatServiceLocal.shekayatUpdate(shekayat1);
+    	contex.getExternalContext().redirect("shekayatedit.xhtml?shakiId="+shakiId);
+    }
+    
+    public void updateVahedeSenfiName(long shakiId) throws IOException {
+    	FacesContext contex = FacesContext.getCurrentInstance();
+    	Shekayat1 shekayat1=new Shekayat1();
+    	shekayat1=this.findShekayatById2(shakiId);
+    	shekayat1.setVahedeSenfiName(vahedeSenfiName);
+    	shekayatServiceLocal.shekayatUpdate(shekayat1);
+    	contex.getExternalContext().redirect("shekayatedit.xhtml?shakiId="+shakiId);
+    }
+    
+    public void updateMotesadiName(long shakiId) throws IOException {
+    	FacesContext contex = FacesContext.getCurrentInstance();
+    	Shekayat1 shekayat1=new Shekayat1();
+    	shekayat1=this.findShekayatById2(shakiId);
+    	shekayat1.setMotesadiName(motesadiName);
+    	shekayatServiceLocal.shekayatUpdate(shekayat1);
+    	contex.getExternalContext().redirect("shekayatedit.xhtml?shakiId="+shakiId);
+    }
+    public void updateShakiSsn(long shakiId) throws IOException {
+    	FacesContext contex = FacesContext.getCurrentInstance();
+    	Shekayat1 shekayat1=new Shekayat1();
+    	shekayat1=this.findShekayatById2(shakiId);
+    	shekayat1.setShakiSsn(shakiSsn);
+    	shekayatServiceLocal.shekayatUpdate(shekayat1);
+    	contex.getExternalContext().redirect("shekayatedit.xhtml?shakiId="+shakiId);
+    }
+    
+    public void updateShakiPhone(long shakiId) throws IOException {
+    	FacesContext contex = FacesContext.getCurrentInstance();
+    	Shekayat1 shekayat1=new Shekayat1();
+    	shekayat1=this.findShekayatById2(shakiId);
+    	shekayat1.setShakiPhone(shakiPhone);
+    	shekayatServiceLocal.shekayatUpdate(shekayat1);
+    	contex.getExternalContext().redirect("shekayatedit.xhtml?shakiId="+shakiId);
+    }
+    
+    public void updateShakiEmail(long shakiId) throws IOException {
+    	FacesContext contex = FacesContext.getCurrentInstance();
+    	Shekayat1 shekayat1=new Shekayat1();
+    	shekayat1=this.findShekayatById2(shakiId);
+    	shekayat1.setShakiEmail(shakiEmail);
+    	shekayatServiceLocal.shekayatUpdate(shekayat1);
+    	contex.getExternalContext().redirect("shekayatedit.xhtml?shakiId="+shakiId);
+    }
+    
+    public void updatePostCode(long shakiId) throws IOException {
+    	FacesContext contex = FacesContext.getCurrentInstance();
+    	Shekayat1 shekayat1=new Shekayat1();
+    	shekayat1=this.findShekayatById2(shakiId);
+    	shekayat1.setShakiPostCode(shakiPostCode);
+    	shekayatServiceLocal.shekayatUpdate(shekayat1);
+    	contex.getExternalContext().redirect("shekayatedit.xhtml?shakiId="+shakiId);
+    }
+    
+    public void updateShakiAddres(long shakiId) throws IOException {
+    	FacesContext contex = FacesContext.getCurrentInstance();
+    	Shekayat1 shekayat1=new Shekayat1();
+    	shekayat1=this.findShekayatById2(shakiId);
+    	shekayat1.setShakiAddres(shakiAddres);
+    	shekayatServiceLocal.shekayatUpdate(shekayat1);
+    	contex.getExternalContext().redirect("shekayatedit.xhtml?shakiId="+shakiId);
+    }
+    
+    public void updateVahedeSenfiPhone(long shakiId) throws IOException {
+    	FacesContext contex = FacesContext.getCurrentInstance();
+    	Shekayat1 shekayat1=new Shekayat1();
+    	shekayat1=this.findShekayatById2(shakiId);
+    	shekayat1.setVahedeSenfiPhone(vahedeSenfiPhone);
+    	shekayatServiceLocal.shekayatUpdate(shekayat1);
+    	contex.getExternalContext().redirect("shekayatedit.xhtml?shakiId="+shakiId);
+    }
+    
+    public void updateShenaseSenfi(long shakiId) throws IOException {
+    	FacesContext contex = FacesContext.getCurrentInstance();
+    	Shekayat1 shekayat1=new Shekayat1();
+    	shekayat1=this.findShekayatById2(shakiId);
+    	shekayat1.setVahedeShenaseSenfi(vahedeShenaseSenfi);
+    	shekayatServiceLocal.shekayatUpdate(shekayat1);
+    	contex.getExternalContext().redirect("shekayatedit.xhtml?shakiId="+shakiId);
+    }
+    
+    public void updateVahedeSenfiPostCode(long shakiId) throws IOException {
+    	FacesContext contex = FacesContext.getCurrentInstance();
+    	Shekayat1 shekayat1=new Shekayat1();
+    	shekayat1=this.findShekayatById2(shakiId);
+    	shekayat1.setVahedeSenfiPostCode(vahedeSenfiPostCode);
+    	shekayatServiceLocal.shekayatUpdate(shekayat1);
+    	contex.getExternalContext().redirect("shekayatedit.xhtml?shakiId="+shakiId);
+    }
+    
+    public void updateVahedeSenfiAddres(long shakiId) throws IOException {
+    	FacesContext contex = FacesContext.getCurrentInstance();
+    	Shekayat1 shekayat1=new Shekayat1();
+    	shekayat1=this.findShekayatById2(shakiId);
+    	shekayat1.setVahedeShenaseAddres(vahedeShenaseAddres);
+    	shekayatServiceLocal.shekayatUpdate(shekayat1);
+    	contex.getExternalContext().redirect("shekayatedit.xhtml?shakiId="+shakiId);
+    }
+    
+    public void updateVahedeSenfiSharh(long shakiId) throws IOException {
+    	FacesContext contex = FacesContext.getCurrentInstance();
+    	Shekayat1 shekayat1=new Shekayat1();
+    	shekayat1=this.findShekayatById2(shakiId);
+    	shekayat1.setSharh(sharh);
+    	shekayatServiceLocal.shekayatUpdate(shekayat1);
+    	contex.getExternalContext().redirect("shekayatedit.xhtml?shakiId="+shakiId);
+    }
 }

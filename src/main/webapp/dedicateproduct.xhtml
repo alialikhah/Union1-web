@@ -6,6 +6,7 @@
 	xmlns:p="http://primefaces.org/ui">
 		<f:metadata>
 			<f:event listener="#{userBean.isUser3}" type="preRenderView"></f:event>
+			<f:viewParam name="merchantID" />
 		</f:metadata>
 <h:head></h:head>
 <body>
@@ -16,11 +17,6 @@
 		rel="stylesheet" type="text/css" />
 		</ui:define>
 		<ui:define name="centertmp">
-			<ui:define name="metadata">
-				<f:metadata>
-					<f:viewParam name="merchantID" />
-				</f:metadata>
-			</ui:define>
 			<h:form enctype="multipart/form-data" id="frm1">
 				<p:growl id="growl" showDetail="true" sticky="true" />
 				<p:panel id="pnl" header="Register">
@@ -33,25 +29,20 @@
 
 
 						<p:outputLabel for="price" value="price" />
-						<p:inputText id="price" value="#{dedicatedProductBean.price}"
-							required="true" label="price">
-							<f:validateLength minimum="1" maximum="99" />
-						</p:inputText>
+						<p:inputNumber id="price" value="#{dedicatedProductBean.price}"
+							required="true" label="price"/>
+							
 						<p:message for="price" />
 
 						<p:outputLabel for="saled" value="saled" />
-						<p:inputText id="saled" value="#{dedicatedProductBean.saled}"
-							required="true" label="price">
-							<f:validateLength minimum="1" maximum="99" />
-						</p:inputText>
+						<p:inputNumber id="saled" value="#{dedicatedProductBean.saled}"
+							required="true" label="price"/>
 						<p:message for="saled" />
 
 						<p:outputLabel for="popularity" value="popularity" />
-						<p:inputText id="popularity"
+						<p:inputNumber id="popularity"
 							value="#{dedicatedProductBean.popularity}" required="true"
-							label="price">
-							<f:validateLength minimum="1" maximum="99" />
-						</p:inputText>
+							label="price"/>
 						<p:message for="popularity" />
 
 					</h:panelGrid>
@@ -67,7 +58,6 @@
         </f:facet>
 						<p:column selectionMode="single"
 							style="width:16px;text-align:center" headerText="انتخاب">
-							<h:outputText value="" />
 						</p:column>
 						<p:column headerText="Id" filterBy="#{prdcts.productId}"
 							sortBy="#{prdcts.productId}" filterMatchMode="contains">

@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<h:head></h:head>
+<body>
+	<ui:composition template="/template/TEMPLATE.xhtml">
+		<ui:define name="headtemp">
+			<title>محصولات فروشگاه
+				#{merchantPageBean.findMerchantByEng(shopName).merchantShopNamePer}</title>
+			<link href="resources/css/search.css" rel="stylesheet"
+				type="text/css" />
+			<style>
+.prdc {
+	padding: 20px;
+	border: 0.5px ridge;
+}
+
+.prdc:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+}
+</style>
+		</ui:define>
+
+		<ui:define name="maintemp">
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="shopName" />
+				</f:metadata>
+			</ui:define>
+
+			<!-- CONTENT AREA -->
+			<article> <!-- Page Starts-->
+			<div class="container theme-container ptb-70">
+				<div class="row">
+					<!-- Product Details Starts-->
+					<!-- <p:repeat var="prc" layout="grid"
+						value="#{merchantPageBean.findMerchantByEng(shopName).merchantDedicate}"
+						offset="#{merchantPageBean.findMerchantByEng(shopName).merchantDedicate.size()-1}"
+						step="-1">
+						<div class="col-md-4 col-sm-12 prdc" style="padding-bottom: 30px;">
+							Product Details Ends
+
+							<p:link outcome="merchant.xhtml" target="_blank">
+							<p:panel style="text-align:center">
+								<h:panelGrid columns="1" style="width:100%">
+								<o:graphicImage id="ig1" value="#{prc.product.productImage1}"
+									width="270" height="360" dataURI="true" />
+								<br />
+								<h:outputText
+									style="font-family: 'IRANSansBold' !important;color: black!important;"
+									value="#{prc.product.productBrand}" />
+								<br />
+								<h:outputText
+									style="font-family: 'IRANSansBold' !important;color: black!important;"
+									value="#{prc.product.productModel}" />
+								<br />
+								<h:outputText
+									style="font-family: 'IRANSansBold' !important;color: black!important;"
+									rendered="#{merchantPageBean.findMerchantByEng(shopName).merchantGroup.equals('طلایی')}"
+									value="#{prc.oldPrice}" />
+								<br />
+								<h:outputText
+									style="font-family: 'IRANSansBold' !important;color: black!important;"
+									rendered="#{merchantPageBean.findMerchantByEng(shopName).merchantGroup.equals('طلایی')}"
+									value="#{prc.price}" />
+								<br />
+								</h:panelGrid>
+								<p:link value="دیدن جزییات"
+									style="font-family: 'IRANSansBold' !important;color: green!important;"
+									outcome="productdetail.xhtml">
+									<f:param name="productId" value="#{prc.product.productId}" />
+									<f:param name="dedId" value="#{prc.dedicatedId}" />
+								</p:link>
+							</p:panel>
+														<f:param name="shopName" value="#{rasteVar.merchantShopNameEng}" />
+						</p:link>
+						</div>
+					</p:repeat> -->
+						<ui:repeat var="prc"
+							value="#{merchantPageBean.findDedicate(shopName)}">
+							<div class="col-md-4 col-sm-12 prdc" align="right">
+								<o:graphicImage id="ig1ee" value="#{prc.product.productImage1}"
+									dataURI="true" style="margin-bottom:5px; width:100%;"/>
+								<p style="font-family: 'IRANSansNor' !important;">
+									نوع محصول :
+									<h:outputText value="#{prc.product.productCategry}" />
+								</p>
+								<p style="font-family: 'IRANSansNor' !important;">
+									برند محصول :
+									<h:outputText value="#{prc.product.productBrand}" />
+								</p>
+								<p style="font-family: 'IRANSansNor' !important;">
+									مدل محصول :
+									<h:outputText value="#{prc.product.productModel}" />
+								</p>
+								<p:outputPanel rendered="#{merchantPageBean.findMerchantByEng(shopName).merchantGroup.equals('طلایی')}">
+								<p
+									style="font-family: 'IRANSansBold'; text-align: left;">
+									قیمت :
+									<h:outputText value="#{prc.price}" />
+									ریال
+								<del style="color: gray!important; font-family: 'IRANSansNor' !important;">
+									<h:outputText value="#{prc.oldPrice}" />
+									ریال
+								</del>
+								</p>
+								</p:outputPanel>
+								<p
+									style="font-family: 'IRANSansBold' !important; text-align: center; color: black!important;">
+									<p:link outcome="productdetail.xhtml" value="جزییات بیشتر" style="color: black!important;">
+										<f:param name="productId" value="#{prc.product.productId}" />
+										<f:param name="dedId" value="#{prc.dedicatedId}" />
+									</p:link>
+								</p>
+							</div>
+						</ui:repeat>
+				</div>
+			</div>
+			<!-- / Page Ends --> </article>
+
+		</ui:define>
+
+	</ui:composition>
+</body>
+</html>

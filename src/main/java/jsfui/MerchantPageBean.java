@@ -2,6 +2,7 @@ package jsfui;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -11,6 +12,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import dao.entity.BrandEntity;
+import dao.entity.DedicatedEntity;
 import dao.entity.MerchantEntity;
 import service.AddBrandServiceLocal;
 import service.MerchantRegisterServiceLocal;
@@ -40,6 +42,8 @@ public class MerchantPageBean implements Serializable {
 	private MerchantEntity merchantEntity;
 	private List<BrandEntity> brandPartList = new ArrayList<>();
 	private BrandEntity brand2;
+	private long zero=0;
+	private long proNum;
 
 	private String shopNameX;
 	
@@ -106,6 +110,16 @@ public class MerchantPageBean implements Serializable {
 	public void setShopNameList(List<String> shopNameList) {
 		this.shopNameList = shopNameList;
 	}
+	
+	
+
+	public long getZero() {
+		return zero;
+	}
+
+	public void setZero(long zero) {
+		this.zero = zero;
+	}
 
 	public MerchantEntity findByMerchantShop(String shopName) {
 		try {
@@ -141,6 +155,18 @@ public class MerchantPageBean implements Serializable {
 		return this.merchantEntity;
 
 	}
+
+	
+	public List<DedicatedEntity> findDedicate(String shopName){
+		List<DedicatedEntity> dedicatedEntities=new ArrayList<>();
+		dedicatedEntities.addAll(this.findMerchantByEng(shopName).getMerchantDedicate());
+		this.proNum=dedicatedEntities.size();
+		System.err.println(this.proNum);
+		Collections.reverse(dedicatedEntities);
+		return dedicatedEntities;
+	}
+	
+
 
 	public List<BrandEntity> findMerchantBrands2(String shopName) {
 		this.shopNameX = shopName;

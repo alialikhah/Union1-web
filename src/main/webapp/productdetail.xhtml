@@ -1,220 +1,392 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:o="http://omnifaces.org/ui"
-      xmlns:p="http://primefaces.org/ui"> 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:o="http://omnifaces.org/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui">
 
-<h:head></h:head> 
-<h:body> 
-	<ui:composition template="/TEMPLATE.xhtml">
-		<ui:define name="headhome">
-					<script src="resources/slider/sliderengine/jquery.js"></script>
-			<script src="resources/slider/sliderengine/amazingslider.js"></script>
-			<link rel="stylesheet" type="text/css"
-				href="resources/slider/sliderengine/amazingslider-1.css" />
-			<script src="resources/slider/sliderengine/initslider-1.js"></script>
-			<script src="resources/slider/sliderengine/initslider-2.js"></script>
-		    <link rel='stylesheet' href='resources/detailtemp/layerslider.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='resources/detailtemp/settings.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='resources/detailtemp/woocommerce-layout.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='resources/detailtemp/woocommerce-smallscreen.css' type='text/css' media='only screen and (max-width: 768px)' />
-    <link rel='stylesheet' href='resources/detailtemp/woocommerce.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='resources/detailtemp/mediaelementplayer.min.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='resources/detailtemp/wp-mediaelement.min.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='resources/detailtemp/main.min.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='resources/detailtemp/style-customabae.css' type='text/css' media='all' />
-    <link rel='stylesheet' href='resources/detailtemp/configs.css' type='text/css' media='all' />
-    <style>
-    .fa-ln-arrow-right::before {
-    content: '\003e'!important;
-}
-.fa-ln-arrow-left::before {
-    content: '\003c'!important;
-}
-.fa-plus-circle::before {
-    
-    content: '\003e'!important;
-}
+<h:head></h:head>
+<body>
 
-.fa-minus-circle::before {
-     content: '\003c'!important;
-}
-.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
-    color: white!important;
-    text-decoration: none;
-    font-family:'IRANSansBold'!important;
-}
-.fa-angle-up::before {
-    content: '\^';
-}
-.fa-envelope-o::before {
-    content: '@'!important;
-}
-    </style>
+	<ui:composition template="/template/TEMPLATE.xhtml">
+		<ui:define name="headtemp">
+			<title>#{productDetailsBean.findProductById(productId).productModel}</title>
+			<link href="resources/css/merchant.css" rel="stylesheet"
+				type="text/css" />
 		</ui:define>
-		<ui:define name="mainhome">
-		 <ui:define name="metadata">
-      <f:metadata>
-      <f:viewParam name="productId"/>
-      </f:metadata>
-      </ui:define> 
-    <div class="btx-wrapper btx-p-bg-bg btx-home hide-border">
 
-        <div class="btx-content btx-content--no-header">
-            <div class="btx-content-wrapper">
-                <nav class="woocommerce-breadcrumb">
-                </nav>
-                <div class="btx-container">
-                    <main id="main" class="btx-single-product btx-main btx-main--single">
+		<ui:define name="maintemp">
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewParam name="productId" />
+					<f:viewParam name="dedId" />
+				</f:metadata>
+			</ui:define>
 
-                        <div itemtype="http://schema.org/Product" id="product-980" class="post-980 product type-product status-publish has-post-thumbnail product_cat-shoes product_tag-formalwear product_tag-shoes first instock sale shipping-taxable purchasable product-type-simple">
-                            <div class="btx-single-product-content thumbnail-bottom">
+			<article class="light-bg-1"> <!-- Page Starts-->
+			<div class="container theme-container ptb-70">
+				<div class="row">
+					<div class="col-md-5 col-sm-12 single-prod-slider sync-sliedr">
+						<!-- Single Products Slider Starts -->
+						<div class="owl-carousel sync1 pb-25">
+							<div class="item">
+								<o:graphicImage
+									value="#{productDetailsBean.findProductById(productId).productImage1}"
+									dataURI="true"
+									alt="#{productDetailsBean.findProductById(productId).productModel}" />
+								<i class="fa fa-arrows-alt"></i>
 
-                               
-                                <div class="images btx-product-gallery btx-product-gallery--bottom btx-gallery--carousel" data-popup="">
-                                    <div class="btx-gallery-content">
+							</div>
+							<div class="item">
+								<o:graphicImage
+									value="#{productDetailsBean.findProductById(productId).productImage2}"
+									dataURI="true"
+									alt="#{productDetailsBean.findProductById(productId).productModel}" />
+								<i class="fa fa-arrows-alt"></i>
 
-                                        <div class="btx-gallery-item">
-                                            <div class="btx-gallery-body">
-                                                <div class="btx-gallery-media">
-                                                    <o:graphicImage styleClass="btx-image-normal" value="#{productBean.findProductById(productId).productImage2}" dataURI="true" />
-                                                    <o:graphicImage styleClass="btx-image-zoom" value="#{productBean.findProductById(productId).productImage2}" dataURI="true" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="btx-gallery-item">
-                                            <div class="btx-gallery-body">
-                                                <div class="btx-gallery-media">
-                                                    <o:graphicImage styleClass="btx-image-normal" value="#{productBean.findProductById(productId).productImage3}" dataURI="true" />
-                                                    <o:graphicImage styleClass="btx-image-zoom" value="#{productBean.findProductById(productId).productImage3}" dataURI="true" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="btx-gallery-item">
-                                            <div class="btx-gallery-body">
-                                                <div class="btx-gallery-media">
-                                                    <o:graphicImage styleClass="btx-image-normal" value="#{productBean.findProductById(productId).productImage4}" dataURI="true" />
-                                                    <o:graphicImage styleClass="btx-image-zoom" value="#{productBean.findProductById(productId).productImage4}" dataURI="true" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="btx-gallery-item">
-                                            <div class="btx-gallery-body">
-                                                <div class="btx-gallery-media">
-                                                    <o:graphicImage styleClass="btx-image-normal" value="#{productBean.findProductById(productId).productImage5}" dataURI="true" />
-                                                    <o:graphicImage styleClass="btx-image-zoom" value="#{productBean.findProductById(productId).productImage5}" dataURI="true" />
-                                                </div>
-                                            </div>
-                                        </div>
+							</div>
+							<div class="item">
+								<o:graphicImage
+									value="#{productDetailsBean.findProductById(productId).productImage3}"
+									dataURI="true"
+									alt="#{productDetailsBean.findProductById(productId).productModel}" />
+								<i class="fa fa-arrows-alt"></i>
+							</div>
+						</div>
 
-                                    </div>
-                                    <div class="thumbnails columns-4 btx-gallery-thumbnail btx-gallery-thumbnail--bottom" data-thumbnail="4">
-                                        <div class="btx-gallery-thumbnail-item btx-col-3">
-                                  <o:graphicImage styleClass="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" value="#{productBean.findProductById(productId).productImage2}" dataURI="true" width="100" height="100"/>
-                                            </div>
-                                        <div class="btx-gallery-thumbnail-item btx-col-3">
-                                  <o:graphicImage styleClass="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" value="#{productBean.findProductById(productId).productImage3}" dataURI="true" width="100" height="100"/>
-                                             </div>
-                                        <div class="btx-gallery-thumbnail-item btx-col-3">
-                                  <o:graphicImage styleClass="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" value="#{productBean.findProductById(productId).productImage4}" dataURI="true" width="100" height="100"/>
-                                            </div>
-                                                                                    <div class="btx-gallery-thumbnail-item btx-col-3">
-                                  <o:graphicImage styleClass="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" value="#{productBean.findProductById(productId).productImage5}" dataURI="true" width="100" height="100"/>
-                                            </div>
-                                    </div>
-                                </div>
-                                <div class="summary entry-summary" dir="rtl">
+						<div class="owl-carousel single-prod-thumb sync2 nav-2">
+							<div class="item">
+								<o:graphicImage
+									value="#{productDetailsBean.findProductById(productId).productImage1}"
+									dataURI="true"
+									alt="#{productDetailsBean.findProductById(productId).productModel}" />
+								<span class="transparent"> <img
+									src="resources/maintemp/assets/img/icons/plus.png" alt="view" />
+								</span>
+							</div>
+							<div class="item">
+								<o:graphicImage
+									value="#{productDetailsBean.findProductById(productId).productImage2}"
+									dataURI="true"
+									alt="#{productDetailsBean.findProductById(productId).productModel}" />
+								<span class="transparent"> <img
+									src="resources/maintemp/assets/img/icons/plus.png" alt="view" />
+								</span>
+							</div>
+							<div class="item">
+								<o:graphicImage
+									value="#{productDetailsBean.findProductById(productId).productImage3}"
+									dataURI="true"
+									alt="#{productDetailsBean.findProductById(productId).productModel}" />
+								<span class="transparent"> <img
+									src="resources/maintemp/assets/img/icons/plus.png" alt="view" />
+								</span>
+							</div>
 
-                                    <h1 itemprop="name" class="product_title entry-title"><p:outputLabel style="font-family: 'IRANSansBold'!important;" value="#{productBean.findProductById(productId).productName}"/> </h1>
-                                    <div class="woocommerce-product-rating" itemprop="aggregateRating"  itemtype="http://schema.org/AggregateRating">
+						</div>
+						<!-- Single Products Slider Ends -->
+					</div>
+					<!-- Product Details Starts-->
+					<aside class="col-md-7 col-sm-8">
+					<div class="row">
+						<div class="visible-sm visible-xs pt-50"></div>
+						<div class="col-md-7 col-sm-12">
+							<div class="prod-details">
+								<div class="prod-title">
+									<p style="font-family: 'IRANSansBold' !important;">
+										#{productDetailsBean.findProductById(productId).productCategry}
+										#{productDetailsBean.findProductById(productId).productBrand}
+										مدل
+										#{productDetailsBean.findProductById(productId).productModel}
+									</p>
+								</div>
+								<p:outputPanel
+									rendered="#{merchantPageBean.findMerchantByEng(shopName).merchantGroup.equals('طلایی')}">
 
-                                    </div>
+									<div class="block-inline">
+										<div class="rating pull-left"></div>
+										<div class="prod-price font-2 pull-right fsz-16">
+											<p style="font-family: 'IRANSansBold'; text-align: right;">
+												قیمت :
+												<h:outputText
+													value="#{productDetailsBean.findDedicateById(dedId).price}" />
+												ریال
+												<del
+													style="color: gray !important; font-family: 'IRANSansNor' !important;">
+													<h:outputText
+														value="#{productDetailsBean.findDedicateById(dedId).oldPrice}" />
+													ریال
+												</del>
+											</p>
 
-                                    <div itemprop="offers"  itemtype="http://schema.org/Offer">
+										</div>
+									</div>
+								</p:outputPanel>
+								<div class="discriptions pt-20">
+									<p:outputPanel
+										rendered="#{!productDetailsBean.findProductById(productId).netMobile.equals('')}">
+										<p style="font-family: 'IRANSansNor';">
+											<b>شبکه :</b>
+											<h:outputText
+												value="#{productDetailsBean.findProductById(productId).netMobile}" />
+										</p>
+									</p:outputPanel>
+									<p:outputPanel
+										rendered="#{!productDetailsBean.findProductById(productId).innerMemory.equals('')}">
+										<p style="font-family: 'IRANSansNor';">
+											<b>حافظه :</b>
+											<h:outputText
+												value="#{productDetailsBean.findProductById(productId).innerMemory}" />
+										</p>
+									</p:outputPanel>
+									<p:outputPanel
+										rendered="#{!productDetailsBean.findProductById(productId).camera.equals('')}">
+										<p style="font-family: 'IRANSansNor';">
+											<b>دوربین :</b>
+											<h:outputText
+												value="#{productDetailsBean.findProductById(productId).camera}" />
+										</p>
+									</p:outputPanel>
+									<p:outputPanel
+										rendered="#{!productDetailsBean.findProductById(productId).os.equals('')}">
+										<p style="font-family: 'IRANSansNor';">
+											<b>سیستم عامل :</b>
+											<h:outputText
+												value="#{productDetailsBean.findProductById(productId).os}" />
+										</p>
+									</p:outputPanel>
+									<p:outputPanel
+										rendered="#{!productDetailsBean.findProductById(productId).screenSize.equals('')}">
+										<p style="font-family: 'IRANSansNor';">
+											<b>سایز صفحه :</b>
+											<h:outputText
+												value="#{productDetailsBean.findProductById(productId).screenSize}" />
+										</p>
+									</p:outputPanel>
+									<p:outputPanel
+										rendered="#{!productDetailsBean.findProductById(productId).color.equals('')}">
+										<p style="font-family: 'IRANSansNor';">
+											<b>رنگ :</b>
+											<h:outputText
+												value="#{productDetailsBean.findProductById(productId).color}" />
+										</p>
+									</p:outputPanel>
+								</div>
+								<div class="prod-attributes">
+									<h2 class="title-1"></h2>
+									<ul class="prod-btns prod-meta">
+										<li><p:spinner id="minMax"
+												min="0" max="100" /></li>
+										<li>
+										<h:commandButton value="افزودن به سبد خرید"/>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
 
-                                        <p class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>۱۶۰۰۰</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>۱۵۰۰۰</span></ins></p>
+					</aside>
 
-                                        <meta itemprop="price" content="199" />
-                                        <meta itemprop="priceCurrency" content="USD" />
-                                        <link itemprop="availability" href="http://schema.org/InStock" />
+					<div class="container theme-container ptb-70">
+						<div class="row">
+							<div class="col-md-12">
+								<!-- Products Description Tabination Starts -->
+								<div class="tabs-wrap">
+									<div class="tabs">
+										<ul id="tabs" class="nav font-2 theme-tabs">
+											<li class="active"><a
+												href="product-detail.html#prod-tab-1" data-toggle="tab"
+												style="font-family: 'IRANSansBold';"> نقد و بررسی </a></li>
 
-                                    </div>
-                                    <div >
-                                       
-                                    </div>
+											<li class=""><a href="product-detail.html#prod-tab-2"
+												data-toggle="tab" style="font-family: 'IRANSansBold';">
+													مشخصات </a></li>
+											<li class=""><a href="product-detail.html#prod-tab-3"
+												data-toggle="tab" style="font-family: 'IRANSansBold';">
+													نظرات کاربران </a></li>
+										</ul>
+									</div>
+									<div class="tab-content prod-tab-content">
+										<div id="prod-tab-1" class="tab-pane fade in active">
+											<p style="font-family: 'IRANSansNor'; text-align: justify;">
+												<h:outputText
+													rendered="#{!productDetailsBean.findProductById(productId).productDescription.equals(null)}"
+													value="#{productDetailsBean.findProductById(productId).productDescription}" />
+											</p>
 
-                                    <form class="cart" method="post" enctype='multipart/form-data'>
+										</div>
+										<div id="prod-tab-2" class="tab-pane fade">
+											<p:outputPanel
+												rendered="#{!productDetailsBean.findProductById(productId).productCategry.equals('')}">
+												<p style="font-family: 'IRANSansNor';">
+													<b>نوع محصول :</b>
+													<h:outputText
+														value="#{productDetailsBean.findProductById(productId).productCategry}" />
+												</p>
+											</p:outputPanel>
+											<p:outputPanel
+												rendered="#{!productDetailsBean.findProductById(productId).productBrand.equals('')}">
+												<p style="font-family: 'IRANSansNor';">
+													<b>برند محصول :</b>
+													<h:outputText
+														value="#{productDetailsBean.findProductById(productId).productBrand}" />
+												</p>
+											</p:outputPanel>
+											<p:outputPanel
+												rendered="#{!productDetailsBean.findProductById(productId).productModel.equals('')}">
+												<p style="font-family: 'IRANSansNor';">
+													<b>مدل محصول :</b>
+													<h:outputText
+														value="#{productDetailsBean.findProductById(productId).productModel}" />
+												</p>
+											</p:outputPanel>
+											<p:outputPanel
+												rendered="#{!productDetailsBean.findProductById(productId).netMobile.equals('')}">
+												<p style="font-family: 'IRANSansNor';">
+													<b>شبکه :</b>
+													<h:outputText
+														value="#{productDetailsBean.findProductById(productId).netMobile}" />
+												</p>
+											</p:outputPanel>
+											<p:outputPanel
+												rendered="#{!productDetailsBean.findProductById(productId).innerMemory.equals('')}">
+												<p style="font-family: 'IRANSansNor';">
+													<b>حافظه :</b>
+													<h:outputText
+														value="#{productDetailsBean.findProductById(productId).innerMemory}" />
+												</p>
+											</p:outputPanel>
+											<p:outputPanel
+												rendered="#{!productDetailsBean.findProductById(productId).camera.equals('')}">
+												<p style="font-family: 'IRANSansNor';">
+													<b>دوربین :</b>
+													<h:outputText
+														value="#{productDetailsBean.findProductById(productId).camera}" />
+												</p>
+											</p:outputPanel>
+											<p:outputPanel
+												rendered="#{!productDetailsBean.findProductById(productId).os.equals('')}">
+												<p style="font-family: 'IRANSansNor';">
+													<b>سیستم عامل :</b>
+													<h:outputText
+														value="#{productDetailsBean.findProductById(productId).os}" />
+												</p>
+											</p:outputPanel>
+											<p:outputPanel
+												rendered="#{!productDetailsBean.findProductById(productId).screenSize.equals('')}">
+												<p style="font-family: 'IRANSansNor';">
+													<b>سایز صفحه :</b>
+													<h:outputText
+														value="#{productDetailsBean.findProductById(productId).screenSize}" />
+												</p>
+											</p:outputPanel>
+											<p:outputPanel
+												rendered="#{!productDetailsBean.findProductById(productId).color.equals('')}">
+												<p style="font-family: 'IRANSansNor';">
+													<b>رنگ :</b>
+													<h:outputText
+														value="#{productDetailsBean.findProductById(productId).color}" />
+												</p>
+											</p:outputPanel>
+											<p:outputPanel
+												rendered="#{!productDetailsBean.findProductById(productId).ports.equals('')}">
+												<p style="font-family: 'IRANSansNor';">
+													<b>پورت ها :</b>
+													<h:outputText
+														value="#{productDetailsBean.findProductById(productId).ports}" />
+												</p>
+											</p:outputPanel>
+											<p:outputPanel
+												rendered="#{!productDetailsBean.findProductById(productId).size.equals('')}">
+												<p style="font-family: 'IRANSansNor';">
+													<b>سایز دستگاه :</b>
+													<h:outputText
+														value="#{productDetailsBean.findProductById(productId).size}" />
+												</p>
+											</p:outputPanel>
+											<p:outputPanel
+												rendered="#{!productDetailsBean.findProductById(productId).pixel.equals('')}">
+												<p style="font-family: 'IRANSansNor';">
+													<b>تعداد پیکسل :</b>
+													<h:outputText
+														value="#{productDetailsBean.findProductById(productId).pixel}" />
+												</p>
+											</p:outputPanel>
+											<p:outputPanel
+												rendered="#{!productDetailsBean.findProductById(productId).quality.equals('')}">
+												<p style="font-family: 'IRANSansNor';">
+													<b>کیفیت :</b>
+													<h:outputText
+														value="#{productDetailsBean.findProductById(productId).quality}" />
+												</p>
+											</p:outputPanel>
+											<p:outputPanel
+												rendered="#{!productDetailsBean.findProductById(productId).battery.equals('')}">
+												<p style="font-family: 'IRANSansNor';">
+													<b>باتری :</b>
+													<h:outputText
+														value="#{productDetailsBean.findProductById(productId).battery}" />
+												</p>
+											</p:outputPanel>
+											<p:outputPanel
+												rendered="#{!productDetailsBean.findProductById(productId).memory.equals('')}">
+												<p style="font-family: 'IRANSansNor';">
+													<b>حافظه خارجی :</b>
+													<h:outputText
+														value="#{productDetailsBean.findProductById(productId).memory}" />
+												</p>
+											</p:outputPanel>
+											<p:outputPanel
+												rendered="#{!productDetailsBean.findProductById(productId).weight.equals('')}">
+												<p style="font-family: 'IRANSansNor';">
+													<b>وزن :</b>
+													<h:outputText
+														value="#{productDetailsBean.findProductById(productId).weight}" />
+												</p>
+											</p:outputPanel>
+											<p:outputPanel
+												rendered="#{!productDetailsBean.findProductById(productId).cpu.equals('')}">
+												<p style="font-family: 'IRANSansNor';">
+													<b>پردازنده مرکزی :</b>
+													<h:outputText
+														value="#{productDetailsBean.findProductById(productId).cpu}" />
+												</p>
+											</p:outputPanel>
+											<p:outputPanel
+												rendered="#{!productDetailsBean.findProductById(productId).gpu.equals('')}">
+												<p style="font-family: 'IRANSansNor';">
+													<b>پردازنده گرافیکی :</b>
+													<h:outputText
+														value="#{productDetailsBean.findProductById(productId).gpu}" />
+												</p>
+											</p:outputPanel>
+											<p:outputPanel
+												rendered="#{!productDetailsBean.findProductById(productId).other.equals('')}">
+												<p style="font-family: 'IRANSansNor';">
+													<b>دیگر موارد :</b>
+													<h:outputText
+														value="#{productDetailsBean.findProductById(productId).other}" />
+												</p>
+											</p:outputPanel>
+										</div>
+									</div>
+								</div>
+								<!-- Products Description Tabination Ends -->
+							</div>
 
-                                        <div class="quantity">
-                                            <input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="[0-9]*" inputmode="numeric" />
-                                        </div>
+						</div>
+					</div>
 
-                                        <input type="hidden" name="add-to-cart" value="980" />
 
-                                        <button type="submit" class="single_add_to_cart_button button alt">افزودن به سبد خرید</button>
-
-                                    </form>
+				</div>
+			</div>
+			<!-- / Page Ends --> </article>
 
 
 
-                                    
-
-
-                                </div>
-                                <!-- .summary -->
-                            </div>
-
-
-<h:form id="form">
-    <p:tabView dir="rtl">
-        <p:tab title="توضیحات">
-            <h:panelGrid columns="2" cellpadding="10">
-                <p:outputLabel style="font-family: 'IRANSansNor'!important;" value="#{productBean.findProductById(productId).productDescription}"/>
-            </h:panelGrid>
-        </p:tab>
-        <p:tab title="جزییات محصول">
-                <p:outputLabel style="font-family: 'IRANSansNor'!important;" value="به زودی"/>
-        </p:tab>
-    </p:tabView>
-</h:form>
-
-
-
-
-                        </div>
-                        <!-- #product-980 -->
-
-                    </main>
-
-                </div>
-
-            </div>
-        </div>
-
-       
-    </div>
-
-
-    <script type='text/javascript' src='resources/detailtemp/jquery-migrate.min.js'></script>
-
-    <script type='text/javascript' src='resources/detailtemp/jquery.themepunch.tools.min.js'></script>
-    <script type='text/javascript' src='resources/detailtemp/jquery.themepunch.revolution.min.js'></script>
-    <script type='text/javascript'>
-    /* <![CDATA[ */
-    var BateauxOptions = {"ajax_url":"js/admin-ajax.html"};
-    /* ]]> */
-    </script>
-
-    <script type='text/javascript' src='resources/detailtemp/mediaelement-and-player.min.js'></script>
-    <script type='text/javascript' src='resources/detailtemp/wp-mediaelement.min.js'></script>
-    <script type='text/javascript' src='resources/detailtemp/hoverIntent.min.js'></script>
-    <script type='text/javascript' src='resources/detailtemp/widget.min.js'></script>
-    <script type='text/javascript' src='resources/detailtemp/main-vendors.min.js'></script>
-    <script type='text/javascript' src='resources/detailtemp/main.min.js'></script>
-		
 		</ui:define>
-		</ui:composition>
-</h:body> 
+	</ui:composition>
+</body>
 </html>
